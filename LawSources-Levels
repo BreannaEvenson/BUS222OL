@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Understanding the Legal Landscape</title>
+
+  <style>
+    /* ================================
+       BASE STYLES
+    ================================= */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #333333;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .activity-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px;
+    }
+
+    /* ================================
+       HEADER
+    ================================= */
+
+    .activity-header {
+      border-left: 7px solid #c8102e;
+      padding: 5px 0 5px 18px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      color: #333333;
+      font-size: 30px;
+      line-height: 1.25;
+    }
+
+    .instructions {
+      max-width: 1000px;
+      margin: 0 0 26px 0;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ================================
+       TABLE
+    ================================= */
+
+    .table-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid #455560;
+      border-radius: 6px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 950px;
+      border-collapse: collapse;
+      table-layout: fixed;
+    }
+
+    thead th {
+      background-color: #455560;
+      color: #ffffff;
+      padding: 15px 12px;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+      border-right: 1px solid #ffffff;
+    }
+
+    thead th:first-child {
+      width: 105px;
+    }
+
+    thead th:last-child {
+      border-right: none;
+    }
+
+    tbody th {
+      background-color: #f4f4f4;
+      color: #333333;
+      padding: 20px 14px;
+      text-align: left;
+      font-size: 16px;
+      font-weight: bold;
+      border-bottom: 1px solid #ffffff;
+    }
+
+    tbody td {
+      background-color: #ffffff;
+      padding: 14px 12px;
+      border: 1px solid #f4f4f4;
+      vertical-align: middle;
+    }
+
+    /* ================================
+       DROPDOWNS
+    ================================= */
+
+    .answer-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    select {
+      width: 100%;
+      min-height: 48px;
+      padding: 8px 34px 8px 10px;
+      border: 2px solid #455560;
+      border-radius: 5px;
+      background-color: #ffffff;
+      color: #333333;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    select:hover {
+      border-color: #333333;
+    }
+
+    select:focus {
+      outline: 3px solid #f4f4f4;
+      border-color: #c8102e;
+    }
+
+    select.correct {
+      border-color: #455560;
+      background-color: #f4f4f4;
+    }
+
+    select.incorrect {
+      border-color: #c8102e;
+      background-color: #ffffff;
+    }
+
+    /* ================================
+       CHECK / X FEEDBACK
+    ================================= */
+
+    .feedback-icon {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 28px;
+      min-width: 28px;
+      height: 28px;
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    .feedback-icon.correct {
+      color: #455560;
+    }
+
+    .feedback-icon.incorrect {
+      color: #c8102e;
+    }
+
+    /* ================================
+       BUTTONS
+    ================================= */
+
+    .button-row {
+      display: flex;
+      gap: 12px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      min-width: 110px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition:
+        opacity 0.2s ease,
+        transform 0.1s ease;
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    button:active {
+      transform: translateY(1px);
+    }
+
+    button:focus {
+      outline: 3px solid #333333;
+      outline-offset: 2px;
+    }
+
+    #submit-button {
+      background-color: #c8102e;
+      color: #ffffff;
+    }
+
+    #retry-button {
+      background-color: #455560;
+      color: #ffffff;
+    }
+
+    /* ================================
+       SCORE / FEEDBACK MESSAGE
+    ================================= */
+
+    .results {
+      display: none;
+      margin-top: 20px;
+      padding: 15px 18px;
+      background-color: #f4f4f4;
+      border-left: 6px solid #455560;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    .results.incomplete {
+      border-left-color: #c8102e;
+    }
+
+    .results strong {
+      display: block;
+      margin-bottom: 3px;
+      font-size: 17px;
+    }
+
+    /* ================================
+       MOBILE
+    ================================= */
+
+    @media (max-width: 700px) {
+
+      .activity-container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      .instructions {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+
+
+<body>
+
+  <main class="activity-container">
+
+    <!-- HEADER -->
+
+    <div class="activity-header">
+      <h1>Understanding the Legal Landscape</h1>
+    </div>
+
+    <p class="instructions">
+      Covering sources and levels of laws in tandem makes sense, but it can be difficult
+      understanding the interplay between the two. Fill out the below diagram by selecting
+      the example that correctly correlates with each source and level of law.
+    </p>
+
+
+    <!-- ACTIVITY TABLE -->
+
+    <div class="table-wrapper">
+
+      <table aria-label="Understanding the Legal Landscape activity">
+
+        <thead>
+          <tr>
+            <th scope="col">Level</th>
+            <th scope="col">Constitutional</th>
+            <th scope="col">Statutory</th>
+            <th scope="col">Admin</th>
+            <th scope="col">Common</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <!-- ========================
+               FEDERAL
+          ========================= -->
+
+          <tr>
+
+            <th scope="row">Federal</th>
+
+            <td>
+              <div class="answer-wrapper">
+                <select
+                  class="constitutional"
+                  data-answer="First Amendment"
+                  aria-label="Federal Constitutional law example">
+                  <option value="">Select an answer</option>
+                </select>
+                <span class="feedback-icon" aria-live="polite"></span>
+              </div>
+            </td>
+
+            <td>
+              <div class="answer-wrapper">
+                <select
+                  class="statutory"
+                  data-answer="Patent Act"
+                  aria-label="Federal Statutory law example">
+                  <option value="">Select an answer</option>
+                </select>
+                <span class="feedback-icon" aria-live="polite"></span>
+              </div>
+            </td>
+
+            <td>
+              <div class="answer-wrapper">
+                <select
+                  class="admin"
+                  data-answer="OSHA"
+                  aria-label="Federal Administrative law example">
+                  <option value="">Select an answer</option>
+                </select>
+                <span class="feedback-icon" aria-live="polite"></span>
+              </div>
+            </td>
+
+            <td>
+              <div class="answer-wrapper">
+                <select
+                  class="common"
+                  data-answer="Change precedents based on advancements"
+                  aria-label="Federal Common law example">
+                  <option value="">Select an answer</option>
+                </select>
+                <span class="feedback-icon" aria-live="polite"></span>
+              </div>
+            </td>
+
+          </tr>
+
+
+          <!-- ========================
+               STATE
+          ========================= -->
+
+          <tr>
+
+            <th scope="row">State</th>
+
+            <td>
+              <div class="answer-wrapper">
+                <select
+                  class="constitutional"
+                  data-answer="Gives governors authority"
+                  aria-label="State Constitutional law example">
+                  <option value="">Select an answer</option>
+                </select>
+                <span class="feedback-icon" aria-live="polite"></span>
+              </div>
+            </td>
+
+            <td>
+              <div class="answer-wrapper">
+                <select
+                  class="statutory"
+                  data-answer="Formation of an LLC"
+                  aria-label="State Statutory law example">
+                  <option value="">Select an answer</option>
+                </select>
+                <span class="feedback-icon" aria-live="polite"></span>
+              </div>
+            </td>
+
+            <td>
+              <div class="answer-wrapper">
+                <select
+                  class="admin"
+                  data-answer="Environmental (regulations of hazardous materials)"
+                  aria-label="State Administrative law example">
+                  <option value="">Select an answer</option>
+                </select>
+                <span class="feedback-icon" aria-live="polite"></span>
+              </div>
+            </td>
+
+            <td>
+              <div class="answer-wrapper">
+                <select
+                  class="common"
+                  data-answer="Contracts for services"
+                  aria-label="State Common law example">
+                  <option value="">Select an answer</option>
+                </select>
+                <span class="feedback-icon" aria-live="polite"></span>
+              </div>
+            </td>
+
+          </tr>
+
+
+          <!-- ========================
+               LOCAL
+          ========================= -->
+
+          <tr>
+
+            <th scope="row">Local</th>
+
+            <td>
+              <div class="answer-wrapper">
+                <select
+                  class="constitutional"
+                  data-answer="Charter"
+                  aria-label="Local Constitutional law example">
+                  <option value="">Select an answer</option>
+                </select>
+                <span class="feedback-icon" aria-live="polite"></span>
+              </div>
+            </td>
+
+            <td>
+              <div class="answer-wrapper">
+                <select
+                  class="statutory"
+                  data-answer="Zoning (residential vs. industrial)"
+                  aria-label="Local Statutory law example">
+                  <option value="">Select an answer</option>
+                </select>
+                <span class="feedback-icon" aria-live="polite"></span>
+              </div>
+            </td>
+
+            <td>
+              <div class="answer-wrapper">
+                <select
+                  class="admin"
+                  data-answer="Sanitary conditions in restaurants"
+                  aria-label="Local Administrative law example">
+                  <option value="">Select an answer</option>
+                </select>
+                <span class="feedback-icon" aria-live="polite"></span>
+              </div>
+            </td>
+
+            <td>
+              <div class="answer-wrapper">
+                <select
+                  class="common"
+                  data-answer="Trial courts follow precedents"
+                  aria-label="Local Common law example">
+                  <option value="">Select an answer</option>
+                </select>
+                <span class="feedback-icon" aria-live="polite"></span>
+              </div>
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+    <!-- BUTTONS -->
+
+    <div class="button-row">
+
+      <button type="button" id="submit-button">
+        Submit
+      </button>
+
+      <button type="button" id="retry-button">
+        Retry
+      </button>
+
+    </div>
+
+
+    <!-- RESULTS -->
+
+    <div
+      id="results"
+      class="results"
+      role="status"
+      aria-live="polite">
+    </div>
+
+  </main>
+
+
+  <script>
+
+    /* =====================================
+       ANSWER OPTIONS
+    ====================================== */
+
+    const answerOptions = {
+
+      constitutional: [
+        "First Amendment",
+        "Gives governors authority",
+        "Charter"
+      ],
+
+      statutory: [
+        "Patent Act",
+        "Formation of an LLC",
+        "Zoning (residential vs. industrial)"
+      ],
+
+      admin: [
+        "OSHA",
+        "Environmental (regulations of hazardous materials)",
+        "Sanitary conditions in restaurants"
+      ],
+
+      common: [
+        "Change precedents based on advancements",
+        "Contracts for services",
+        "Trial courts follow precedents"
+      ]
+
+    };
+
+
+    /* =====================================
+       SHUFFLE FUNCTION
+    ====================================== */
+
+    function shuffle(array) {
+
+      const shuffled = [...array];
+
+      for (let i = shuffled.length - 1; i > 0; i--) {
+
+        const j = Math.floor(Math.random() * (i + 1));
+
+        [shuffled[i], shuffled[j]] =
+          [shuffled[j], shuffled[i]];
+
+      }
+
+      return shuffled;
+
+    }
+
+
+    /* =====================================
+       LOAD DROPDOWN OPTIONS
+
+       Each category uses the same randomized
+       order throughout its column.
+    ====================================== */
+
+    function loadDropdowns() {
+
+      Object.keys(answerOptions).forEach(function(category) {
+
+        const randomizedOptions =
+          shuffle(answerOptions[category]);
+
+        const dropdowns =
+          document.querySelectorAll("." + category);
+
+        dropdowns.forEach(function(dropdown) {
+
+          dropdown.innerHTML =
+            '<option value="">Select an answer</option>';
+
+          randomizedOptions.forEach(function(answer) {
+
+            const option =
+              document.createElement("option");
+
+            option.value = answer;
+            option.textContent = answer;
+
+            dropdown.appendChild(option);
+
+          });
+
+        });
+
+      });
+
+    }
+
+
+    /* =====================================
+       SUBMIT ANSWERS
+    ====================================== */
+
+    document
+      .getElementById("submit-button")
+      .addEventListener("click", function() {
+
+        const dropdowns =
+          document.querySelectorAll("select[data-answer]");
+
+        const results =
+          document.getElementById("results");
+
+        let correctCount = 0;
+        let unansweredCount = 0;
+
+        dropdowns.forEach(function(dropdown) {
+
+          const correctAnswer =
+            dropdown.dataset.answer;
+
+          const icon =
+            dropdown.parentElement
+              .querySelector(".feedback-icon");
+
+          dropdown.classList.remove(
+            "correct",
+            "incorrect"
+          );
+
+          icon.classList.remove(
+            "correct",
+            "incorrect"
+          );
+
+          if (dropdown.value === "") {
+
+            unansweredCount++;
+
+            dropdown.classList.add("incorrect");
+
+            icon.textContent = "✕";
+            icon.classList.add("incorrect");
+
+            icon.setAttribute(
+              "aria-label",
+              "No answer selected"
+            );
+
+          }
+
+          else if (dropdown.value === correctAnswer) {
+
+            correctCount++;
+
+            dropdown.classList.add("correct");
+
+            icon.textContent = "✓";
+            icon.classList.add("correct");
+
+            icon.setAttribute(
+              "aria-label",
+              "Correct"
+            );
+
+            /*
+              Correct responses are locked so
+              students know which answers they
+              do not need to change.
+            */
+
+            dropdown.disabled = true;
+
+          }
+
+          else {
+
+            dropdown.classList.add("incorrect");
+
+            icon.textContent = "✕";
+            icon.classList.add("incorrect");
+
+            icon.setAttribute(
+              "aria-label",
+              "Incorrect"
+            );
+
+          }
+
+        });
+
+
+        /* =================================
+           RESULTS MESSAGE
+        ================================== */
+
+        results.style.display = "block";
+
+        results.classList.remove("incomplete");
+
+        if (correctCount === dropdowns.length) {
+
+          results.innerHTML =
+            "<strong>Great work!</strong>" +
+            "You correctly matched all 12 examples " +
+            "with their source and level of law.";
+
+        }
+
+        else {
+
+          results.classList.add("incomplete");
+
+          let message =
+            "<strong>Keep working!</strong>" +
+            "You correctly matched " +
+            correctCount +
+            " of 12 examples. " +
+            "Review the items marked with an ✕ " +
+            "and submit again.";
+
+          if (unansweredCount > 0) {
+
+            message +=
+              " You also have " +
+              unansweredCount +
+              (unansweredCount === 1
+                ? " unanswered item."
+                : " unanswered items.");
+
+          }
+
+          results.innerHTML = message;
+
+        }
+
+      });
+
+
+    /* =====================================
+       CLEAR INCORRECT FEEDBACK WHEN
+       STUDENT CHANGES AN ANSWER
+    ====================================== */
+
+    document
+      .querySelectorAll("select[data-answer]")
+      .forEach(function(dropdown) {
+
+        dropdown.addEventListener(
+          "change",
+          function() {
+
+            if (!dropdown.disabled) {
+
+              dropdown.classList.remove(
+                "incorrect"
+              );
+
+              const icon =
+                dropdown.parentElement
+                  .querySelector(".feedback-icon");
+
+              icon.textContent = "";
+
+              icon.classList.remove(
+                "incorrect"
+              );
+
+              icon.removeAttribute(
+                "aria-label"
+              );
+
+            }
+
+          }
+        );
+
+      });
+
+
+    /* =====================================
+       RETRY ACTIVITY
+    ====================================== */
+
+    document
+      .getElementById("retry-button")
+      .addEventListener("click", function() {
+
+        const dropdowns =
+          document.querySelectorAll("select[data-answer]");
+
+        dropdowns.forEach(function(dropdown) {
+
+          dropdown.disabled = false;
+
+          dropdown.classList.remove(
+            "correct",
+            "incorrect"
+          );
+
+          const icon =
+            dropdown.parentElement
+              .querySelector(".feedback-icon");
+
+          icon.textContent = "";
+
+          icon.classList.remove(
+            "correct",
+            "incorrect"
+          );
+
+          icon.removeAttribute(
+            "aria-label"
+          );
+
+        });
+
+
+        const results =
+          document.getElementById("results");
+
+        results.style.display = "none";
+        results.innerHTML = "";
+
+        /*
+          Reloads and reshuffles all
+          dropdown choices.
+        */
+
+        loadDropdowns();
+
+      });
+
+
+    /* =====================================
+       INITIALIZE ACTIVITY
+    ====================================== */
+
+    loadDropdowns();
+
+  </script>
+
+</body>
+</html>

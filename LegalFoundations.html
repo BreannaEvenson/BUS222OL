@@ -337,38 +337,10 @@ select.incorrect {
    HIERARCHY
 ================================ */
 
-.hierarchy-layout {
-    display: grid;
-    grid-template-columns: minmax(250px, 320px) 1fr;
-    gap: 30px;
-    align-items: start;
-}
-
-.source-bank {
-    padding: 17px;
-    border: 2px solid var(--sauk-bluegray);
-    border-radius: 7px;
-    background-color: var(--sauk-white);
-}
-
-.source-bank h4 {
-    margin-top: 0;
-    margin-bottom: 12px;
-}
-
-.draggable-item {
-    margin: 8px 0;
-    padding: 10px;
-    border: 2px solid #abb4b9;
-    border-radius: 5px;
-    background-color: var(--sauk-light);
-    color: var(--sauk-dark);
-    font-weight: bold;
-    cursor: grab;
-}
-
-.draggable-item:hover {
-    background-color: #e7eaec;
+.hierarchy-container {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
 }
 
 .triangle {
@@ -379,38 +351,39 @@ select.incorrect {
 }
 
 .tier {
-    min-height: 72px;
-    margin-bottom: 4px;
-    padding: 7px 12px;
+    min-height: 74px;
+    margin-bottom: 5px;
+    padding: 8px 14px;
     border: 2px solid var(--sauk-bluegray);
-    background-color: #f4f4f4;
+    background-color: var(--sauk-light);
     text-align: center;
 }
 
 .tier:nth-child(even) {
-    background-color: #ffffff;
+    background-color: var(--sauk-white);
 }
 
 .tier-number {
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
     color: var(--sauk-bluegray);
     font-size: 0.84rem;
     font-weight: bold;
 }
 
-.tier-1 { width: 30%; }
-.tier-2 { width: 40%; }
-.tier-3 { width: 50%; }
-.tier-4 { width: 60%; }
-.tier-5 { width: 70%; }
+.tier select {
+    min-height: 44px;
+    font-size: 14px;
+}
+
+.tier-1 { width: 35%; }
+.tier-2 { width: 44%; }
+.tier-3 { width: 53%; }
+.tier-4 { width: 62%; }
+.tier-5 { width: 71%; }
 .tier-6 { width: 80%; }
 .tier-7 { width: 90%; }
 .tier-8 { width: 100%; }
-
-.drag-over {
-    border: 4px dashed var(--sauk-red);
-}
 
 /* ================================
    FLIP CARDS
@@ -701,14 +674,6 @@ select.incorrect {
         padding: 28px 20px 55px;
     }
 
-    .hierarchy-layout {
-        display: block;
-    }
-
-    .source-bank {
-        display: none;
-    }
-
     .tier {
         width: 100% !important;
     }
@@ -756,9 +721,7 @@ select.incorrect {
 
 <h1>Chapter 1: Legal Foundation</h1>
 
-<!-- ================================
-     OVERVIEW
-================================ -->
+<!-- OVERVIEW -->
 
 <section class="overview-box" aria-labelledby="overview-heading">
 
@@ -780,9 +743,7 @@ select.incorrect {
     <span></span>
 </div>
 
-<!-- ================================
-     SOURCES AND LEVELS OF LAW
-================================ -->
+<!-- SOURCES AND LEVELS OF LAW -->
 
 <section aria-labelledby="sources-levels-heading">
 
@@ -831,8 +792,7 @@ select.incorrect {
 
                     <td>
                         <div class="answer-wrapper">
-                            <select
-                                class="landscape constitutional"
+                            <select class="landscape constitutional"
                                 data-answer="First Amendment"
                                 aria-label="Federal Constitutional law example">
                                 <option value="">Select an answer</option>
@@ -843,8 +803,7 @@ select.incorrect {
 
                     <td>
                         <div class="answer-wrapper">
-                            <select
-                                class="landscape statutory"
+                            <select class="landscape statutory"
                                 data-answer="Patent Act"
                                 aria-label="Federal Statutory law example">
                                 <option value="">Select an answer</option>
@@ -855,8 +814,7 @@ select.incorrect {
 
                     <td>
                         <div class="answer-wrapper">
-                            <select
-                                class="landscape admin"
+                            <select class="landscape admin"
                                 data-answer="OSHA"
                                 aria-label="Federal Administrative law example">
                                 <option value="">Select an answer</option>
@@ -867,8 +825,7 @@ select.incorrect {
 
                     <td>
                         <div class="answer-wrapper">
-                            <select
-                                class="landscape common"
+                            <select class="landscape common"
                                 data-answer="Change precedents based on advancements"
                                 aria-label="Federal Common law example">
                                 <option value="">Select an answer</option>
@@ -885,8 +842,7 @@ select.incorrect {
 
                     <td>
                         <div class="answer-wrapper">
-                            <select
-                                class="landscape constitutional"
+                            <select class="landscape constitutional"
                                 data-answer="Gives governors authority"
                                 aria-label="State Constitutional law example">
                                 <option value="">Select an answer</option>
@@ -897,8 +853,7 @@ select.incorrect {
 
                     <td>
                         <div class="answer-wrapper">
-                            <select
-                                class="landscape statutory"
+                            <select class="landscape statutory"
                                 data-answer="Formation of an LLC"
                                 aria-label="State Statutory law example">
                                 <option value="">Select an answer</option>
@@ -909,8 +864,7 @@ select.incorrect {
 
                     <td>
                         <div class="answer-wrapper">
-                            <select
-                                class="landscape admin"
+                            <select class="landscape admin"
                                 data-answer="Environmental (regulations of hazardous materials)"
                                 aria-label="State Administrative law example">
                                 <option value="">Select an answer</option>
@@ -921,8 +875,7 @@ select.incorrect {
 
                     <td>
                         <div class="answer-wrapper">
-                            <select
-                                class="landscape common"
+                            <select class="landscape common"
                                 data-answer="Contracts for services"
                                 aria-label="State Common law example">
                                 <option value="">Select an answer</option>
@@ -939,8 +892,7 @@ select.incorrect {
 
                     <td>
                         <div class="answer-wrapper">
-                            <select
-                                class="landscape constitutional"
+                            <select class="landscape constitutional"
                                 data-answer="Charter"
                                 aria-label="Local Constitutional law example">
                                 <option value="">Select an answer</option>
@@ -951,8 +903,7 @@ select.incorrect {
 
                     <td>
                         <div class="answer-wrapper">
-                            <select
-                                class="landscape statutory"
+                            <select class="landscape statutory"
                                 data-answer="Zoning (residential vs. industrial)"
                                 aria-label="Local Statutory law example">
                                 <option value="">Select an answer</option>
@@ -963,8 +914,7 @@ select.incorrect {
 
                     <td>
                         <div class="answer-wrapper">
-                            <select
-                                class="landscape admin"
+                            <select class="landscape admin"
                                 data-answer="Sanitary conditions in restaurants"
                                 aria-label="Local Administrative law example">
                                 <option value="">Select an answer</option>
@@ -975,8 +925,7 @@ select.incorrect {
 
                     <td>
                         <div class="answer-wrapper">
-                            <select
-                                class="landscape common"
+                            <select class="landscape common"
                                 data-answer="Trial courts follow precedents"
                                 aria-label="Local Common law example">
                                 <option value="">Select an answer</option>
@@ -994,20 +943,20 @@ select.incorrect {
     </div>
 
     <div class="button-row">
+
         <button type="button" id="landscape-submit">
             Submit
         </button>
 
-        <button
-            type="button"
+        <button type="button"
             id="landscape-retry"
             class="secondary-button">
             Retry
         </button>
+
     </div>
 
-    <div
-        id="landscape-results"
+    <div id="landscape-results"
         class="results"
         role="status"
         aria-live="polite">
@@ -1017,9 +966,7 @@ select.incorrect {
 
 </section>
 
-<!-- ================================
-     HIERARCHY
-================================ -->
+<!-- HIERARCHY -->
 
 <section aria-labelledby="hierarchy-heading">
 
@@ -1037,108 +984,111 @@ select.incorrect {
     <div class="instructions">
 
         <strong>Instructions:</strong>
-        Place the sources of law in the correct order beginning with the highest source of authority at Level 1.
+        Use the drop-down boxes to arrange the sources of law in the correct hierarchy.
+        Begin with the highest and most inclusive source of law at Level 1 and continue
+        through the lowest and most exclusive source at Level 8. When you are finished,
+        select <strong>Check Hierarchy</strong>.
 
         <div class="screen-reader-note">
             <strong>Screen-reader and keyboard users:</strong>
-            You do not need to use drag and drop. Tab to each level's drop-down box,
-            use the arrow keys to choose an answer, and press Enter to select it.
-            Drag and drop is an optional method for mouse users.
+            Press Tab to move to each drop-down box. Use the arrow keys to review
+            the choices and Enter to select an answer.
         </div>
 
     </div>
 
-    <div class="hierarchy-layout">
+    <div class="hierarchy-container">
 
-        <aside class="source-bank" aria-label="Sources of law answer bank">
-
-            <h4>Answer Bank</h4>
-
-            <div class="draggable-item" draggable="true" data-value="U.S. Constitution">
-                U.S. Constitution
-            </div>
-
-            <div class="draggable-item" draggable="true" data-value="Federal Statutes & International Agreements">
-                Federal Statutes &amp; International Agreements
-            </div>
-
-            <div class="draggable-item" draggable="true" data-value="Federal Administrative Law">
-                Federal Administrative Law
-            </div>
-
-            <div class="draggable-item" draggable="true" data-value="Federal Common Law">
-                Federal Common Law
-            </div>
-
-            <div class="draggable-item" draggable="true" data-value="State Constitution">
-                State Constitution
-            </div>
-
-            <div class="draggable-item" draggable="true" data-value="State Statutory Law">
-                State Statutory Law
-            </div>
-
-            <div class="draggable-item" draggable="true" data-value="State Administrative Law">
-                State Administrative Law
-            </div>
-
-            <div class="draggable-item" draggable="true" data-value="State Common Law">
-                State Common Law
-            </div>
-
-        </aside>
-
-        <div
-            class="triangle"
+        <div class="triangle"
             role="group"
             aria-label="Eight level hierarchy of primary sources of federal and state law">
 
             <div class="tier tier-1">
                 <span class="tier-number">Level 1 — Highest</span>
-                <label class="sr-only" for="hierarchy1">Hierarchy Level 1</label>
-                <select id="hierarchy1" class="hierarchy-select" data-answer="U.S. Constitution"></select>
+                <label class="sr-only" for="hierarchy1">
+                    Level 1, highest source of law
+                </label>
+                <select id="hierarchy1"
+                    class="hierarchy-select"
+                    data-answer="U.S. Constitution">
+                </select>
             </div>
 
             <div class="tier tier-2">
                 <span class="tier-number">Level 2</span>
-                <label class="sr-only" for="hierarchy2">Hierarchy Level 2</label>
-                <select id="hierarchy2" class="hierarchy-select" data-answer="Federal Statutes & International Agreements"></select>
+                <label class="sr-only" for="hierarchy2">
+                    Level 2 source of law
+                </label>
+                <select id="hierarchy2"
+                    class="hierarchy-select"
+                    data-answer="Federal Statutes & International Agreements">
+                </select>
             </div>
 
             <div class="tier tier-3">
                 <span class="tier-number">Level 3</span>
-                <label class="sr-only" for="hierarchy3">Hierarchy Level 3</label>
-                <select id="hierarchy3" class="hierarchy-select" data-answer="Federal Administrative Law"></select>
+                <label class="sr-only" for="hierarchy3">
+                    Level 3 source of law
+                </label>
+                <select id="hierarchy3"
+                    class="hierarchy-select"
+                    data-answer="Federal Administrative Law">
+                </select>
             </div>
 
             <div class="tier tier-4">
                 <span class="tier-number">Level 4</span>
-                <label class="sr-only" for="hierarchy4">Hierarchy Level 4</label>
-                <select id="hierarchy4" class="hierarchy-select" data-answer="Federal Common Law"></select>
+                <label class="sr-only" for="hierarchy4">
+                    Level 4 source of law
+                </label>
+                <select id="hierarchy4"
+                    class="hierarchy-select"
+                    data-answer="Federal Common Law">
+                </select>
             </div>
 
             <div class="tier tier-5">
                 <span class="tier-number">Level 5</span>
-                <label class="sr-only" for="hierarchy5">Hierarchy Level 5</label>
-                <select id="hierarchy5" class="hierarchy-select" data-answer="State Constitution"></select>
+                <label class="sr-only" for="hierarchy5">
+                    Level 5 source of law
+                </label>
+                <select id="hierarchy5"
+                    class="hierarchy-select"
+                    data-answer="State Constitution">
+                </select>
             </div>
 
             <div class="tier tier-6">
                 <span class="tier-number">Level 6</span>
-                <label class="sr-only" for="hierarchy6">Hierarchy Level 6</label>
-                <select id="hierarchy6" class="hierarchy-select" data-answer="State Statutory Law"></select>
+                <label class="sr-only" for="hierarchy6">
+                    Level 6 source of law
+                </label>
+                <select id="hierarchy6"
+                    class="hierarchy-select"
+                    data-answer="State Statutory Law">
+                </select>
             </div>
 
             <div class="tier tier-7">
                 <span class="tier-number">Level 7</span>
-                <label class="sr-only" for="hierarchy7">Hierarchy Level 7</label>
-                <select id="hierarchy7" class="hierarchy-select" data-answer="State Administrative Law"></select>
+                <label class="sr-only" for="hierarchy7">
+                    Level 7 source of law
+                </label>
+                <select id="hierarchy7"
+                    class="hierarchy-select"
+                    data-answer="State Administrative Law">
+                </select>
             </div>
 
             <div class="tier tier-8">
                 <span class="tier-number">Level 8 — Lowest</span>
-                <label class="sr-only" for="hierarchy8">Hierarchy Level 8</label>
-                <select id="hierarchy8" class="hierarchy-select" data-answer="State Common Law"></select>
+                <label class="sr-only" for="hierarchy8">
+                    Level 8, lowest source of law
+                </label>
+                <select id="hierarchy8"
+                    class="hierarchy-select"
+                    data-answer="State Common Law">
+                </select>
             </div>
 
         </div>
@@ -1147,14 +1097,12 @@ select.incorrect {
 
     <div class="button-row">
 
-        <button
-            type="button"
+        <button type="button"
             onclick="checkActivity('.hierarchy-select','hierarchy-results')">
             Check Hierarchy
         </button>
 
-        <button
-            type="button"
+        <button type="button"
             class="secondary-button"
             onclick="resetActivity('.hierarchy-select','hierarchy-results')">
             Retry
@@ -1162,8 +1110,7 @@ select.incorrect {
 
     </div>
 
-    <div
-        id="hierarchy-results"
+    <div id="hierarchy-results"
         class="results"
         role="status"
         aria-live="polite">
@@ -1177,9 +1124,7 @@ select.incorrect {
     <span></span>
 </div>
 
-<!-- ================================
-     CHAPTER ONE OUTLINE
-================================ -->
+<!-- CHAPTER ONE OUTLINE -->
 
 <section aria-labelledby="outline-heading">
 
@@ -1271,10 +1216,6 @@ select.incorrect {
 
 </ol>
 
-<!-- ================================
-     SOURCES & LEVELS OUTLINE
-================================ -->
-
 <h2>Sources and Levels of American Law</h2>
 
 <p>
@@ -1307,8 +1248,7 @@ select.incorrect {
                     Select the source of law for the supreme law explanation
                 </label>
 
-                <select
-                    id="source1"
+                <select id="source1"
                     class="source-match"
                     data-answer="Constitutional Law">
                 </select>
@@ -1328,8 +1268,7 @@ select.incorrect {
                     Select the source of law created by a legislative body
                 </label>
 
-                <select
-                    id="source2"
+                <select id="source2"
                     class="source-match"
                     data-answer="Statutory Law">
                 </select>
@@ -1349,8 +1288,7 @@ select.incorrect {
                     Select the source of law created through appellate court decisions
                 </label>
 
-                <select
-                    id="source3"
+                <select id="source3"
                     class="source-match"
                     data-answer="Common Law">
                 </select>
@@ -1370,8 +1308,7 @@ select.incorrect {
                     Select the source of law involving administrative agencies
                 </label>
 
-                <select
-                    id="source4"
+                <select id="source4"
                     class="source-match"
                     data-answer="Administrative Law">
                 </select>
@@ -1383,14 +1320,12 @@ select.incorrect {
 
     <div class="button-row">
 
-        <button
-            type="button"
+        <button type="button"
             onclick="checkActivity('.source-match','source-results')">
             Check Answers
         </button>
 
-        <button
-            type="button"
+        <button type="button"
             class="secondary-button"
             onclick="resetActivity('.source-match','source-results')">
             Retry
@@ -1398,8 +1333,7 @@ select.incorrect {
 
     </div>
 
-    <div
-        id="source-results"
+    <div id="source-results"
         class="results"
         role="status"
         aria-live="polite">
@@ -1407,9 +1341,7 @@ select.incorrect {
 
 </div>
 
-<!-- ================================
-     STATUTORY INTERPRETATION
-================================ -->
+<!-- STATUTORY INTERPRETATION -->
 
 <div class="info-blurb">
 
@@ -1433,9 +1365,7 @@ select.incorrect {
 
 </div>
 
-<!-- ================================
-     STARE DECISIS
-================================ -->
+<!-- STARE DECISIS -->
 
 <div class="info-blurb red">
 
@@ -1452,9 +1382,7 @@ select.incorrect {
 
 </div>
 
-<!-- ================================
-     SECONDARY SOURCES
-================================ -->
+<!-- SECONDARY SOURCES -->
 
 <h2>Secondary Sources of Law</h2>
 
@@ -1486,8 +1414,7 @@ select.incorrect {
             Who drafts Uniform Model Laws?
         </label>
 
-        <select
-            id="secondary1"
+        <select id="secondary1"
             class="secondary-question inline-select"
             data-answer="legal experts">
 
@@ -1503,8 +1430,7 @@ select.incorrect {
             What are Uniform Model Laws intended to provide?
         </label>
 
-        <select
-            id="secondary2"
+        <select id="secondary2"
             class="secondary-question inline-select"
             data-answer="uniformity in">
 
@@ -1527,8 +1453,7 @@ select.incorrect {
             What are Restatements of the law designed to reduce?
         </label>
 
-        <select
-            id="secondary3"
+        <select id="secondary3"
             class="secondary-question inline-select"
             data-answer="complexity">
 
@@ -1544,14 +1469,12 @@ select.incorrect {
 
     <div class="button-row">
 
-        <button
-            type="button"
+        <button type="button"
             onclick="checkActivity('.secondary-question','secondary-results')">
             Check Answers
         </button>
 
-        <button
-            type="button"
+        <button type="button"
             class="secondary-button"
             onclick="resetActivity('.secondary-question','secondary-results')">
             Retry
@@ -1559,8 +1482,7 @@ select.incorrect {
 
     </div>
 
-    <div
-        id="secondary-results"
+    <div id="secondary-results"
         class="results"
         role="status"
         aria-live="polite">
@@ -1568,9 +1490,7 @@ select.incorrect {
 
 </div>
 
-<!-- ================================
-     CATEGORIES OF LAW
-================================ -->
+<!-- CATEGORIES OF LAW -->
 
 <h2>Categories of Law</h2>
 
@@ -1579,8 +1499,7 @@ select.incorrect {
     or a right afforded by law are helpful in understanding the big picture of our legal system.
 </p>
 
-<div
-    class="comparison-grid"
+<div class="comparison-grid"
     role="group"
     aria-label="Comparison of major categories of law">
 
@@ -1677,9 +1596,7 @@ select.incorrect {
 
 </div>
 
-<!-- ================================
-     EQUITABLE MAXIMS ACTIVITY
-================================ -->
+<!-- EQUITABLE MAXIMS -->
 
 <h3>Important Equitable Maxims</h3>
 
@@ -1718,8 +1635,7 @@ select.incorrect {
             <strong>Which equitable maxim applies?</strong>
         </label>
 
-        <select
-            id="maxim1"
+        <select id="maxim1"
             class="maxim-question"
             data-answer="Equity Aids the Vigilant">
         </select>
@@ -1742,8 +1658,7 @@ select.incorrect {
             <strong>Which equitable maxim applies?</strong>
         </label>
 
-        <select
-            id="maxim2"
+        <select id="maxim2"
             class="maxim-question"
             data-answer="Substance over Form">
         </select>
@@ -1766,8 +1681,7 @@ select.incorrect {
             <strong>Which equitable maxim applies?</strong>
         </label>
 
-        <select
-            id="maxim3"
+        <select id="maxim3"
             class="maxim-question"
             data-answer="Clean Hands Doctrine">
         </select>
@@ -1776,14 +1690,12 @@ select.incorrect {
 
     <div class="button-row">
 
-        <button
-            type="button"
+        <button type="button"
             onclick="checkActivity('.maxim-question','maxim-results')">
             Check Answers
         </button>
 
-        <button
-            type="button"
+        <button type="button"
             class="secondary-button"
             onclick="resetActivity('.maxim-question','maxim-results')">
             Retry
@@ -1791,8 +1703,7 @@ select.incorrect {
 
     </div>
 
-    <div
-        id="maxim-results"
+    <div id="maxim-results"
         class="results"
         role="status"
         aria-live="polite">
@@ -1830,9 +1741,9 @@ select.incorrect {
 
 <script>
 
-/* =========================================================
-   SHUFFLE FUNCTION
-========================================================= */
+/* ================================
+   SHUFFLE
+================================ */
 
 function shuffle(array) {
 
@@ -1851,9 +1762,9 @@ function shuffle(array) {
 }
 
 
-/* =========================================================
-   SOURCES / LEVELS TABLE
-========================================================= */
+/* ================================
+   LEGAL LANDSCAPE TABLE
+================================ */
 
 const landscapeOptions = {
 
@@ -2131,9 +2042,9 @@ document
     });
 
 
-/* =========================================================
+/* ================================
    GENERIC SELECT POPULATION
-========================================================= */
+================================ */
 
 function populateSelect(
     select,
@@ -2166,9 +2077,9 @@ function populateSelect(
 }
 
 
-/* =========================================================
+/* ================================
    HIERARCHY
-========================================================= */
+================================ */
 
 const hierarchyOptions = [
     "U.S. Constitution",
@@ -2195,101 +2106,9 @@ document
     });
 
 
-/* =========================================================
-   OPTIONAL DRAG AND DROP
-========================================================= */
-
-let draggedValue = "";
-
-document
-    .querySelectorAll(".draggable-item")
-    .forEach(function(item) {
-
-        item.addEventListener(
-            "dragstart",
-            function(event) {
-
-                draggedValue =
-                    this.dataset.value;
-
-                event.dataTransfer.setData(
-                    "text/plain",
-                    draggedValue
-                );
-
-            }
-        );
-
-    });
-
-
-document
-    .querySelectorAll(".tier")
-    .forEach(function(tier) {
-
-        tier.addEventListener(
-            "dragover",
-            function(event) {
-
-                event.preventDefault();
-                this.classList.add("drag-over");
-
-            }
-        );
-
-
-        tier.addEventListener(
-            "dragleave",
-            function() {
-
-                this.classList.remove(
-                    "drag-over"
-                );
-
-            }
-        );
-
-
-        tier.addEventListener(
-            "drop",
-            function(event) {
-
-                event.preventDefault();
-
-                this.classList.remove(
-                    "drag-over"
-                );
-
-                const value =
-                    event.dataTransfer.getData(
-                        "text/plain"
-                    ) || draggedValue;
-
-                const select =
-                    this.querySelector("select");
-
-                if (
-                    hierarchyOptions.includes(value)
-                ) {
-
-                    select.value = value;
-
-                    select.classList.remove(
-                        "correct",
-                        "incorrect"
-                    );
-
-                }
-
-            }
-        );
-
-    });
-
-
-/* =========================================================
+/* ================================
    PRIMARY SOURCE MATCHING
-========================================================= */
+================================ */
 
 const primarySourceOptions = [
     "Constitutional Law",
@@ -2312,9 +2131,9 @@ document
     });
 
 
-/* =========================================================
+/* ================================
    EQUITABLE MAXIMS
-========================================================= */
+================================ */
 
 const maximOptions = [
     "Equity Aids the Vigilant",
@@ -2336,9 +2155,9 @@ document
     });
 
 
-/* =========================================================
+/* ================================
    GENERIC ACTIVITY CHECKER
-========================================================= */
+================================ */
 
 function checkActivity(
     selector,
@@ -2442,9 +2261,9 @@ function checkActivity(
 }
 
 
-/* =========================================================
+/* ================================
    GENERIC ACTIVITY RESET
-========================================================= */
+================================ */
 
 function resetActivity(
     selector,
@@ -2474,9 +2293,9 @@ function resetActivity(
 }
 
 
-/* =========================================================
-   REMOVE ERROR HIGHLIGHT AFTER CHANGE
-========================================================= */
+/* ================================
+   CLEAR FEEDBACK AFTER CHANGE
+================================ */
 
 document
     .querySelectorAll(
@@ -2499,9 +2318,9 @@ document
     });
 
 
-/* =========================================================
+/* ================================
    FLIP CARDS
-========================================================= */
+================================ */
 
 function flipCard(card) {
 
@@ -2548,9 +2367,9 @@ function flipCard(card) {
 }
 
 
-/* =========================================================
+/* ================================
    INITIALIZE
-========================================================= */
+================================ */
 
 loadLandscapeDropdowns();
 

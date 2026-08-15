@@ -25,8 +25,7 @@ html {
 
 body {
     margin: 0;
-    padding: 0;
-    background-color: var(--sauk-light);
+    background: var(--sauk-light);
     color: var(--sauk-dark);
     font-family: Arial, Helvetica, sans-serif;
     font-size: 17px;
@@ -35,33 +34,30 @@ body {
 
 main {
     max-width: 1150px;
+    min-height: 100vh;
     margin: 0 auto;
     padding: 40px 50px 70px;
-    background-color: var(--sauk-white);
-    min-height: 100vh;
+    background: var(--sauk-white);
 }
 
 h1 {
-    margin-top: 0;
-    margin-bottom: 30px;
+    margin: 0 0 30px;
     padding-bottom: 14px;
-    color: var(--sauk-red);
     border-bottom: 5px solid var(--sauk-red);
+    color: var(--sauk-red);
     font-size: clamp(2rem, 5vw, 3rem);
     line-height: 1.2;
 }
 
 h2 {
-    margin-top: 42px;
-    margin-bottom: 16px;
+    margin: 42px 0 16px;
     color: var(--sauk-red);
     font-size: 1.8rem;
     line-height: 1.3;
 }
 
 h3 {
-    margin-top: 30px;
-    margin-bottom: 13px;
+    margin: 30px 0 13px;
     color: var(--sauk-bluegray);
     font-size: 1.4rem;
     line-height: 1.3;
@@ -72,8 +68,7 @@ h4 {
 }
 
 p {
-    margin-top: 0;
-    margin-bottom: 18px;
+    margin: 0 0 18px;
 }
 
 strong {
@@ -96,10 +91,10 @@ strong {
     border: 0 !important;
 }
 
-button:focus,
-select:focus,
-.flip-card:focus {
-    outline: 3px solid #333333;
+button:focus-visible,
+select:focus-visible,
+.flip-card:focus-visible {
+    outline: 4px solid #333333;
     outline-offset: 3px;
 }
 
@@ -109,18 +104,18 @@ select:focus,
 
 .overview-box {
     margin-bottom: 35px;
+    overflow: hidden;
     border: 1px solid #d7dce0;
     border-left: 7px solid var(--sauk-red);
     border-radius: 8px;
     background: var(--sauk-white);
-    box-shadow: 0 3px 10px rgba(0,0,0,0.07);
-    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0,0,0,.07);
 }
 
 .overview-box h2 {
     margin: 0;
     padding: 13px 22px;
-    background-color: var(--sauk-red);
+    background: var(--sauk-red);
     color: var(--sauk-white);
     font-size: 1.35rem;
 }
@@ -130,7 +125,7 @@ select:focus,
 }
 
 /* ================================
-   STYLIZED SECTION BREAK
+   SECTION BREAK
 ================================ */
 
 .section-break {
@@ -145,14 +140,14 @@ select:focus,
     content: "";
     flex: 1;
     height: 2px;
-    background-color: var(--sauk-bluegray);
+    background: var(--sauk-bluegray);
 }
 
 .section-break span {
     display: block;
     width: 14px;
     height: 14px;
-    background-color: var(--sauk-red);
+    background: var(--sauk-red);
     transform: rotate(45deg);
 }
 
@@ -165,7 +160,7 @@ select:focus,
     padding: 25px;
     border: 1px solid #d8dde0;
     border-radius: 9px;
-    background-color: #fafafa;
+    background: #fafafa;
 }
 
 .instructions {
@@ -173,12 +168,12 @@ select:focus,
     padding: 14px 18px;
     border-left: 5px solid var(--sauk-bluegray);
     border-radius: 0 5px 5px 0;
-    background-color: #eef1f2;
+    background: #eef1f2;
 }
 
-.screen-reader-note {
+.keyboard-note {
     margin-top: 10px;
-    font-size: 0.95rem;
+    font-size: .95rem;
 }
 
 .button-row {
@@ -193,20 +188,19 @@ button {
     padding: 11px 22px;
     border: none;
     border-radius: 5px;
-    background-color: var(--sauk-red);
+    background: var(--sauk-red);
     color: var(--sauk-white);
-    font-family: inherit;
-    font-size: 16px;
+    font: inherit;
     font-weight: bold;
     cursor: pointer;
 }
 
 button:hover {
-    opacity: 0.9;
+    opacity: .9;
 }
 
 button.secondary-button {
-    background-color: var(--sauk-bluegray);
+    background: var(--sauk-bluegray);
 }
 
 .results {
@@ -214,8 +208,7 @@ button.secondary-button {
     margin-top: 20px;
     padding: 15px 18px;
     border-left: 6px solid var(--sauk-bluegray);
-    background-color: var(--sauk-light);
-    font-size: 16px;
+    background: var(--sauk-light);
 }
 
 .results.incomplete {
@@ -225,7 +218,53 @@ button.secondary-button {
 .results strong {
     display: block;
     margin-bottom: 4px;
-    font-size: 17px;
+}
+
+/* ================================
+   SELECTS
+================================ */
+
+select {
+    width: 100%;
+    min-height: 48px;
+    padding: 8px 10px;
+    border: 2px solid var(--sauk-bluegray);
+    border-radius: 5px;
+    background: var(--sauk-white);
+    color: var(--sauk-dark);
+    font: inherit;
+    font-size: 15px;
+}
+
+select:hover {
+    border-color: var(--sauk-dark);
+}
+
+select.correct {
+    border-width: 3px;
+    border-color: var(--sauk-bluegray);
+    background: var(--sauk-light);
+}
+
+select.incorrect {
+    border-width: 3px;
+    border-color: var(--sauk-red);
+}
+
+.answer-feedback {
+    display: block;
+    min-height: 24px;
+    margin-top: 5px;
+    font-size: .88rem;
+    font-weight: bold;
+}
+
+.answer-feedback.correct {
+    color: var(--sauk-bluegray);
+}
+
+.answer-feedback.incorrect {
+    color: var(--sauk-red);
 }
 
 /* ================================
@@ -248,89 +287,27 @@ table {
 
 thead th {
     padding: 15px 12px;
-    border-right: 1px solid var(--sauk-white);
-    background-color: var(--sauk-bluegray);
-    color: var(--sauk-white);
+    border-right: 1px solid #ffffff;
+    background: var(--sauk-bluegray);
+    color: #ffffff;
     text-align: center;
-    font-size: 16px;
-    font-weight: bold;
 }
 
 thead th:first-child {
     width: 105px;
 }
 
-thead th:last-child {
-    border-right: none;
-}
-
 tbody th {
     padding: 20px 14px;
-    border-bottom: 1px solid var(--sauk-white);
-    background-color: var(--sauk-light);
-    color: var(--sauk-dark);
+    background: var(--sauk-light);
     text-align: left;
-    font-size: 16px;
-    font-weight: bold;
 }
 
 tbody td {
     padding: 14px 12px;
     border: 1px solid var(--sauk-light);
-    background-color: var(--sauk-white);
-    vertical-align: middle;
-}
-
-.answer-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-select {
-    width: 100%;
-    min-height: 48px;
-    padding: 8px 34px 8px 10px;
-    border: 2px solid var(--sauk-bluegray);
-    border-radius: 5px;
-    background-color: var(--sauk-white);
-    color: var(--sauk-dark);
-    font-family: inherit;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-select:hover {
-    border-color: var(--sauk-dark);
-}
-
-select.correct {
-    border-color: var(--sauk-bluegray);
-    background-color: var(--sauk-light);
-}
-
-select.incorrect {
-    border-color: var(--sauk-red);
-    background-color: var(--sauk-white);
-}
-
-.feedback-icon {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 28px;
-    min-width: 28px;
-    height: 28px;
-    font-size: 23px;
-    font-weight: bold;
-}
-
-.feedback-icon.correct {
-    color: var(--sauk-bluegray);
-}
-
-.feedback-icon.incorrect {
-    color: var(--sauk-red);
+    background: var(--sauk-white);
+    vertical-align: top;
 }
 
 /* ================================
@@ -344,36 +321,31 @@ select.incorrect {
 }
 
 .triangle {
-    width: 100%;
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
 }
 
 .tier {
-    min-height: 74px;
+    min-height: 88px;
     margin-bottom: 5px;
     padding: 8px 14px;
     border: 2px solid var(--sauk-bluegray);
-    background-color: var(--sauk-light);
+    background: var(--sauk-light);
     text-align: center;
 }
 
 .tier:nth-child(even) {
-    background-color: var(--sauk-white);
+    background: var(--sauk-white);
 }
 
 .tier-number {
     display: block;
     margin-bottom: 5px;
     color: var(--sauk-bluegray);
-    font-size: 0.84rem;
+    font-size: .84rem;
     font-weight: bold;
-}
-
-.tier select {
-    min-height: 44px;
-    font-size: 14px;
 }
 
 .tier-1 { width: 35%; }
@@ -402,14 +374,13 @@ select.incorrect {
     height: 270px;
     min-width: 0;
     min-height: 270px;
-    padding: 0;
     margin: 0;
-    border: none;
+    padding: 0;
+    border: 0;
     border-radius: 9px;
     background: transparent;
     color: inherit;
     perspective: 1000px;
-    cursor: pointer;
     text-align: center;
 }
 
@@ -418,12 +389,11 @@ select.incorrect {
 }
 
 .flip-card-inner {
-    display: block;
     position: relative;
+    display: block;
     width: 100%;
     height: 100%;
-    min-width: 100%;
-    transition: transform 0.5s ease;
+    transition: transform .5s ease;
     transform-style: preserve-3d;
 }
 
@@ -434,12 +404,10 @@ select.incorrect {
 .flip-front,
 .flip-back {
     position: absolute;
-    top: 0;
-    left: 0;
+    inset: 0;
     display: flex;
     width: 100%;
     height: 100%;
-    min-width: 100%;
     padding: 28px;
     border: 2px solid var(--sauk-bluegray);
     border-radius: 9px;
@@ -450,51 +418,35 @@ select.incorrect {
 }
 
 .flip-front {
-    background-color: var(--sauk-bluegray);
-    color: var(--sauk-white);
-}
-
-.flip-front > span {
-    display: block;
-    width: 100%;
+    background: var(--sauk-bluegray);
+    color: #ffffff;
 }
 
 .flip-term {
     display: block;
-    color: var(--sauk-white);
+    color: #ffffff;
     font-size: 1.45rem;
     font-weight: bold;
-    line-height: 1.3;
 }
 
 .flip-prompt {
     display: block;
     margin-top: 13px;
-    color: var(--sauk-white);
-    font-size: 0.9rem;
+    color: #ffffff;
+    font-size: .9rem;
     font-weight: normal;
-    letter-spacing: 0.02em;
-    opacity: 0.9;
 }
 
 .flip-back {
     overflow-y: auto;
-    background-color: var(--sauk-white);
+    background: #ffffff;
     color: var(--sauk-dark);
-    font-size: 1rem;
-    font-weight: normal;
-    line-height: 1.6;
     text-align: left;
     transform: rotateY(180deg);
 }
 
-.flip-card:focus {
-    outline: 3px solid #333333;
-    outline-offset: 4px;
-}
-
 /* ================================
-   NUMBERED LIST
+   PURPOSES
 ================================ */
 
 .purpose-list {
@@ -509,27 +461,26 @@ select.incorrect {
     display: grid;
     grid-template-columns: 48px 1fr;
     gap: 14px;
-    align-items: start;
     margin: 13px 0;
     padding: 16px 20px;
     border-left: 5px solid var(--sauk-red);
-    background-color: #f7f7f7;
+    background: #f7f7f7;
 }
 
 .purpose-list li::before {
     content: counter(purpose);
     display: grid;
-    place-items: center;
     width: 40px;
     height: 40px;
+    place-items: center;
     border-radius: 50%;
-    background-color: var(--sauk-red);
-    color: var(--sauk-white);
+    background: var(--sauk-red);
+    color: #ffffff;
     font-weight: bold;
 }
 
 /* ================================
-   MATCHING ACTIVITY
+   MATCH ACTIVITY
 ================================ */
 
 .match-grid {
@@ -539,17 +490,17 @@ select.incorrect {
 
 .match-row {
     display: grid;
-    grid-template-columns: 1fr 260px;
+    grid-template-columns: 1fr 280px;
     gap: 18px;
     align-items: center;
     padding: 16px;
     border: 1px solid #d8dde0;
     border-radius: 6px;
-    background-color: var(--sauk-white);
+    background: #ffffff;
 }
 
 /* ================================
-   INFO BLURBS
+   INFO BOXES
 ================================ */
 
 .info-blurb {
@@ -557,16 +508,16 @@ select.incorrect {
     padding: 21px 24px;
     border-top: 4px solid var(--sauk-bluegray);
     border-bottom: 4px solid var(--sauk-bluegray);
-    background-color: #f4f6f7;
+    background: #f4f6f7;
 }
 
 .info-blurb.red {
     border-color: var(--sauk-red);
-    background-color: #fff5f6;
+    background: #fff5f6;
 }
 
 /* ================================
-   INLINE DROP-DOWN BLANKS
+   FILL BLANKS
 ================================ */
 
 .fill-sentence {
@@ -574,7 +525,7 @@ select.incorrect {
     padding: 17px;
     border: 1px solid #d8dde0;
     border-radius: 6px;
-    background-color: var(--sauk-white);
+    background: #ffffff;
 }
 
 .inline-select {
@@ -599,23 +550,15 @@ select.incorrect {
     overflow: hidden;
     border: 2px solid var(--sauk-bluegray);
     border-radius: 8px;
-    background-color: var(--sauk-white);
+    background: #ffffff;
 }
 
 .comparison-title {
     padding: 13px 17px;
-    background-color: var(--sauk-bluegray);
-    color: var(--sauk-white);
+    background: var(--sauk-bluegray);
+    color: #ffffff;
     text-align: center;
     font-weight: bold;
-    font-size: 1.1rem;
-}
-
-.comparison-title .vs {
-    color: var(--sauk-white);
-    text-decoration: underline;
-    text-decoration-color: var(--sauk-red);
-    text-decoration-thickness: 3px;
 }
 
 .comparison-body {
@@ -630,13 +573,12 @@ select.incorrect {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
     gap: 17px;
-    align-items: stretch;
 }
 
 .remedy-box {
     padding: 20px;
     border-radius: 7px;
-    background-color: var(--sauk-light);
+    background: var(--sauk-light);
     text-align: center;
 }
 
@@ -644,7 +586,6 @@ select.incorrect {
     align-self: center;
     color: var(--sauk-red);
     font-size: 2rem;
-    font-weight: bold;
 }
 
 /* ================================
@@ -655,7 +596,7 @@ select.incorrect {
     margin: 16px 0;
     padding: 19px;
     border-left: 5px solid var(--sauk-bluegray);
-    background-color: var(--sauk-white);
+    background: #ffffff;
 }
 
 .scenario-number {
@@ -721,410 +662,669 @@ select.incorrect {
 
 <h1>Chapter 1: Legal Foundation</h1>
 
-<!-- OVERVIEW -->
-
 <section class="overview-box" aria-labelledby="overview-heading">
 
-    <h2 id="overview-heading">Overview</h2>
+<h2 id="overview-heading">Overview</h2>
 
-    <div class="overview-content">
-        <p>
-            This introductory chapter begins with a very broad based view of the legal landscape including
-            a working definition of and purposes of the law, levels, and sources of law, an introduction
-            to stare decisis, and categories of law. Equally important, this chapter sets the tone for the
-            entire textbook and course by discussing and providing illustrations of how the law operates
-            in a <em>business</em> context.
-        </p>
-    </div>
+<div class="overview-content">
+<p>
+This introductory chapter begins with a very broad based view of the legal landscape including a working definition of and purposes of the law, levels, and sources of law, an introduction to stare decisis, and categories of law. Equally important, this chapter sets the tone for the entire textbook and course by discussing and providing illustrations of how the law operates in a <em>business</em> context.
+</p>
+</div>
 
 </section>
 
-<div class="section-break" aria-hidden="true">
-    <span></span>
-</div>
+<div class="section-break" aria-hidden="true"><span></span></div>
 
-<!-- SOURCES AND LEVELS OF LAW -->
+<!-- ======================================================
+     SOURCES AND LEVELS TABLE
+====================================================== -->
 
 <section aria-labelledby="sources-levels-heading">
 
 <h2 id="sources-levels-heading">Sources and Levels of Law</h2>
 
 <p>
-    Covering sources and levels of law in tandem makes sense, but it can be difficult understanding the
-    interplay between the two. The below diagram provides examples to help organize the information.
-    Select the correct response in the drop down box for each source and level of law.
-    If you are using a screen reader, use your arrow keys and Enter key to complete the table.
+Covering sources and levels of law in tandem makes sense, but it can be difficult understanding the interplay between the two. The below diagram provides examples to help organize the information. Select the correct response in the drop down box for each source and level of law.
 </p>
 
 <div class="activity">
 
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        Select the example that correctly correlates with each source and level of law.
-        When finished, select <strong>Submit</strong>. Correct responses will remain locked while
-        incorrect responses can be changed.
-    </div>
+<div class="instructions">
+<strong>Instructions:</strong> Select the example that correctly correlates with each source and level of law. When finished, select <strong>Submit</strong>.
 
-    <div class="table-wrapper">
+<div class="keyboard-note">
+<strong>Screen-reader and keyboard users:</strong> Press Tab to move to a drop-down menu. In Windows browsers, you can press <strong>Alt + Down Arrow</strong> to open the list, use the Up and Down Arrow keys to move through the choices, and press Enter to select a choice. Your screen reader's standard combo-box controls may also be used.
+</div>
+</div>
 
-        <table aria-label="Sources and levels of American law activity">
+<div class="table-wrapper">
 
-            <caption class="sr-only">
-                Match examples to federal, state, and local constitutional,
-                statutory, administrative, and common law.
-            </caption>
+<table>
+<caption class="sr-only">
+Match federal, state, and local levels of law with constitutional, statutory, administrative, and common law examples.
+</caption>
 
-            <thead>
-                <tr>
-                    <th scope="col">Level</th>
-                    <th scope="col">Constitutional</th>
-                    <th scope="col">Statutory</th>
-                    <th scope="col">Admin</th>
-                    <th scope="col">Common</th>
-                </tr>
-            </thead>
+<thead>
+<tr>
+<th scope="col">Level</th>
+<th scope="col">Constitutional</th>
+<th scope="col">Statutory</th>
+<th scope="col">Admin</th>
+<th scope="col">Common</th>
+</tr>
+</thead>
 
-            <tbody>
+<tbody>
 
-                <tr>
+<!-- FEDERAL -->
 
-                    <th scope="row">Federal</th>
+<tr>
+<th scope="row">Federal</th>
 
-                    <td>
-                        <div class="answer-wrapper">
-                            <select class="landscape constitutional"
-                                data-answer="First Amendment"
-                                aria-label="Federal Constitutional law example">
-                                <option value="">Select an answer</option>
-                            </select>
-                            <span class="feedback-icon" aria-live="polite"></span>
-                        </div>
-                    </td>
+<td>
+<label class="sr-only" for="fed-constitutional">
+Federal Constitutional law example
+</label>
 
-                    <td>
-                        <div class="answer-wrapper">
-                            <select class="landscape statutory"
-                                data-answer="Patent Act"
-                                aria-label="Federal Statutory law example">
-                                <option value="">Select an answer</option>
-                            </select>
-                            <span class="feedback-icon" aria-live="polite"></span>
-                        </div>
-                    </td>
+<select
+id="fed-constitutional"
+class="landscape"
+data-answer="First Amendment"
+aria-describedby="feedback-fed-constitutional">
+<option value="">Select an answer</option>
+<option value="First Amendment">First Amendment</option>
+<option value="Charter">Charter</option>
+<option value="Gives governors authority">Gives governors authority</option>
+</select>
 
-                    <td>
-                        <div class="answer-wrapper">
-                            <select class="landscape admin"
-                                data-answer="OSHA"
-                                aria-label="Federal Administrative law example">
-                                <option value="">Select an answer</option>
-                            </select>
-                            <span class="feedback-icon" aria-live="polite"></span>
-                        </div>
-                    </td>
+<span
+id="feedback-fed-constitutional"
+class="answer-feedback"
+aria-live="polite">
+</span>
+</td>
 
-                    <td>
-                        <div class="answer-wrapper">
-                            <select class="landscape common"
-                                data-answer="Change precedents based on advancements"
-                                aria-label="Federal Common law example">
-                                <option value="">Select an answer</option>
-                            </select>
-                            <span class="feedback-icon" aria-live="polite"></span>
-                        </div>
-                    </td>
+<td>
+<label class="sr-only" for="fed-statutory">
+Federal Statutory law example
+</label>
 
-                </tr>
+<select
+id="fed-statutory"
+class="landscape"
+data-answer="Patent Act"
+aria-describedby="feedback-fed-statutory">
+<option value="">Select an answer</option>
+<option value="Formation of an LLC">Formation of an LLC</option>
+<option value="Patent Act">Patent Act</option>
+<option value="Zoning (residential vs. industrial)">Zoning (residential vs. industrial)</option>
+</select>
 
-                <tr>
+<span
+id="feedback-fed-statutory"
+class="answer-feedback"
+aria-live="polite">
+</span>
+</td>
 
-                    <th scope="row">State</th>
+<td>
+<label class="sr-only" for="fed-admin">
+Federal Administrative law example
+</label>
 
-                    <td>
-                        <div class="answer-wrapper">
-                            <select class="landscape constitutional"
-                                data-answer="Gives governors authority"
-                                aria-label="State Constitutional law example">
-                                <option value="">Select an answer</option>
-                            </select>
-                            <span class="feedback-icon" aria-live="polite"></span>
-                        </div>
-                    </td>
+<select
+id="fed-admin"
+class="landscape"
+data-answer="OSHA"
+aria-describedby="feedback-fed-admin">
+<option value="">Select an answer</option>
+<option value="Sanitary conditions in restaurants">Sanitary conditions in restaurants</option>
+<option value="OSHA">OSHA</option>
+<option value="Environmental (regulations of hazardous materials)">Environmental (regulations of hazardous materials)</option>
+</select>
 
-                    <td>
-                        <div class="answer-wrapper">
-                            <select class="landscape statutory"
-                                data-answer="Formation of an LLC"
-                                aria-label="State Statutory law example">
-                                <option value="">Select an answer</option>
-                            </select>
-                            <span class="feedback-icon" aria-live="polite"></span>
-                        </div>
-                    </td>
+<span
+id="feedback-fed-admin"
+class="answer-feedback"
+aria-live="polite">
+</span>
+</td>
 
-                    <td>
-                        <div class="answer-wrapper">
-                            <select class="landscape admin"
-                                data-answer="Environmental (regulations of hazardous materials)"
-                                aria-label="State Administrative law example">
-                                <option value="">Select an answer</option>
-                            </select>
-                            <span class="feedback-icon" aria-live="polite"></span>
-                        </div>
-                    </td>
+<td>
+<label class="sr-only" for="fed-common">
+Federal Common law example
+</label>
 
-                    <td>
-                        <div class="answer-wrapper">
-                            <select class="landscape common"
-                                data-answer="Contracts for services"
-                                aria-label="State Common law example">
-                                <option value="">Select an answer</option>
-                            </select>
-                            <span class="feedback-icon" aria-live="polite"></span>
-                        </div>
-                    </td>
+<select
+id="fed-common"
+class="landscape"
+data-answer="Change precedents based on advancements"
+aria-describedby="feedback-fed-common">
+<option value="">Select an answer</option>
+<option value="Contracts for services">Contracts for services</option>
+<option value="Trial courts follow precedents">Trial courts follow precedents</option>
+<option value="Change precedents based on advancements">Change precedents based on advancements</option>
+</select>
 
-                </tr>
+<span
+id="feedback-fed-common"
+class="answer-feedback"
+aria-live="polite">
+</span>
+</td>
+</tr>
 
-                <tr>
+<!-- STATE -->
 
-                    <th scope="row">Local</th>
+<tr>
+<th scope="row">State</th>
 
-                    <td>
-                        <div class="answer-wrapper">
-                            <select class="landscape constitutional"
-                                data-answer="Charter"
-                                aria-label="Local Constitutional law example">
-                                <option value="">Select an answer</option>
-                            </select>
-                            <span class="feedback-icon" aria-live="polite"></span>
-                        </div>
-                    </td>
+<td>
+<label class="sr-only" for="state-constitutional">
+State Constitutional law example
+</label>
 
-                    <td>
-                        <div class="answer-wrapper">
-                            <select class="landscape statutory"
-                                data-answer="Zoning (residential vs. industrial)"
-                                aria-label="Local Statutory law example">
-                                <option value="">Select an answer</option>
-                            </select>
-                            <span class="feedback-icon" aria-live="polite"></span>
-                        </div>
-                    </td>
+<select
+id="state-constitutional"
+class="landscape"
+data-answer="Gives governors authority"
+aria-describedby="feedback-state-constitutional">
+<option value="">Select an answer</option>
+<option value="Charter">Charter</option>
+<option value="Gives governors authority">Gives governors authority</option>
+<option value="First Amendment">First Amendment</option>
+</select>
 
-                    <td>
-                        <div class="answer-wrapper">
-                            <select class="landscape admin"
-                                data-answer="Sanitary conditions in restaurants"
-                                aria-label="Local Administrative law example">
-                                <option value="">Select an answer</option>
-                            </select>
-                            <span class="feedback-icon" aria-live="polite"></span>
-                        </div>
-                    </td>
+<span
+id="feedback-state-constitutional"
+class="answer-feedback"
+aria-live="polite">
+</span>
+</td>
 
-                    <td>
-                        <div class="answer-wrapper">
-                            <select class="landscape common"
-                                data-answer="Trial courts follow precedents"
-                                aria-label="Local Common law example">
-                                <option value="">Select an answer</option>
-                            </select>
-                            <span class="feedback-icon" aria-live="polite"></span>
-                        </div>
-                    </td>
+<td>
+<label class="sr-only" for="state-statutory">
+State Statutory law example
+</label>
 
-                </tr>
+<select
+id="state-statutory"
+class="landscape"
+data-answer="Formation of an LLC"
+aria-describedby="feedback-state-statutory">
+<option value="">Select an answer</option>
+<option value="Zoning (residential vs. industrial)">Zoning (residential vs. industrial)</option>
+<option value="Formation of an LLC">Formation of an LLC</option>
+<option value="Patent Act">Patent Act</option>
+</select>
 
-            </tbody>
+<span
+id="feedback-state-statutory"
+class="answer-feedback"
+aria-live="polite">
+</span>
+</td>
 
-        </table>
+<td>
+<label class="sr-only" for="state-admin">
+State Administrative law example
+</label>
 
-    </div>
+<select
+id="state-admin"
+class="landscape"
+data-answer="Environmental (regulations of hazardous materials)"
+aria-describedby="feedback-state-admin">
+<option value="">Select an answer</option>
+<option value="Environmental (regulations of hazardous materials)">Environmental (regulations of hazardous materials)</option>
+<option value="OSHA">OSHA</option>
+<option value="Sanitary conditions in restaurants">Sanitary conditions in restaurants</option>
+</select>
 
-    <div class="button-row">
+<span
+id="feedback-state-admin"
+class="answer-feedback"
+aria-live="polite">
+</span>
+</td>
 
-        <button type="button" id="landscape-submit">
-            Submit
-        </button>
+<td>
+<label class="sr-only" for="state-common">
+State Common law example
+</label>
 
-        <button type="button"
-            id="landscape-retry"
-            class="secondary-button">
-            Retry
-        </button>
+<select
+id="state-common"
+class="landscape"
+data-answer="Contracts for services"
+aria-describedby="feedback-state-common">
+<option value="">Select an answer</option>
+<option value="Change precedents based on advancements">Change precedents based on advancements</option>
+<option value="Contracts for services">Contracts for services</option>
+<option value="Trial courts follow precedents">Trial courts follow precedents</option>
+</select>
 
-    </div>
+<span
+id="feedback-state-common"
+class="answer-feedback"
+aria-live="polite">
+</span>
+</td>
+</tr>
 
-    <div id="landscape-results"
-        class="results"
-        role="status"
-        aria-live="polite">
-    </div>
+<!-- LOCAL -->
+
+<tr>
+<th scope="row">Local</th>
+
+<td>
+<label class="sr-only" for="local-constitutional">
+Local Constitutional law example
+</label>
+
+<select
+id="local-constitutional"
+class="landscape"
+data-answer="Charter"
+aria-describedby="feedback-local-constitutional">
+<option value="">Select an answer</option>
+<option value="Gives governors authority">Gives governors authority</option>
+<option value="First Amendment">First Amendment</option>
+<option value="Charter">Charter</option>
+</select>
+
+<span
+id="feedback-local-constitutional"
+class="answer-feedback"
+aria-live="polite">
+</span>
+</td>
+
+<td>
+<label class="sr-only" for="local-statutory">
+Local Statutory law example
+</label>
+
+<select
+id="local-statutory"
+class="landscape"
+data-answer="Zoning (residential vs. industrial)"
+aria-describedby="feedback-local-statutory">
+<option value="">Select an answer</option>
+<option value="Patent Act">Patent Act</option>
+<option value="Zoning (residential vs. industrial)">Zoning (residential vs. industrial)</option>
+<option value="Formation of an LLC">Formation of an LLC</option>
+</select>
+
+<span
+id="feedback-local-statutory"
+class="answer-feedback"
+aria-live="polite">
+</span>
+</td>
+
+<td>
+<label class="sr-only" for="local-admin">
+Local Administrative law example
+</label>
+
+<select
+id="local-admin"
+class="landscape"
+data-answer="Sanitary conditions in restaurants"
+aria-describedby="feedback-local-admin">
+<option value="">Select an answer</option>
+<option value="OSHA">OSHA</option>
+<option value="Sanitary conditions in restaurants">Sanitary conditions in restaurants</option>
+<option value="Environmental (regulations of hazardous materials)">Environmental (regulations of hazardous materials)</option>
+</select>
+
+<span
+id="feedback-local-admin"
+class="answer-feedback"
+aria-live="polite">
+</span>
+</td>
+
+<td>
+<label class="sr-only" for="local-common">
+Local Common law example
+</label>
+
+<select
+id="local-common"
+class="landscape"
+data-answer="Trial courts follow precedents"
+aria-describedby="feedback-local-common">
+<option value="">Select an answer</option>
+<option value="Trial courts follow precedents">Trial courts follow precedents</option>
+<option value="Change precedents based on advancements">Change precedents based on advancements</option>
+<option value="Contracts for services">Contracts for services</option>
+</select>
+
+<span
+id="feedback-local-common"
+class="answer-feedback"
+aria-live="polite">
+</span>
+</td>
+</tr>
+
+</tbody>
+</table>
 
 </div>
 
+<div class="button-row">
+<button
+type="button"
+onclick="checkActivity('.landscape','landscape-results')">
+Submit
+</button>
+
+<button
+type="button"
+class="secondary-button"
+onclick="resetActivity('.landscape','landscape-results')">
+Retry
+</button>
+</div>
+
+<div
+id="landscape-results"
+class="results"
+role="status"
+aria-live="polite">
+</div>
+
+</div>
 </section>
 
-<!-- HIERARCHY -->
+<!-- ======================================================
+     HIERARCHY
+====================================================== -->
 
 <section aria-labelledby="hierarchy-heading">
 
 <p>
-    Below is a diagram that shows the sources of law from the highest and most inclusive to the lowest
-    and most exclusive.
+Below is a diagram that shows the sources of law from the highest and most inclusive to the lowest and most exclusive.
 </p>
 
 <h2 id="hierarchy-heading">
-    Hierarchy of Primary Sources of Federal and State Law
+Hierarchy of Primary Sources of Federal and State Law
 </h2>
 
 <div class="activity">
 
-    <div class="instructions">
+<div class="instructions">
+<strong>Instructions:</strong> Use the drop-down boxes to arrange the sources of law in the correct hierarchy. Begin with the highest and most inclusive source at Level 1 and continue through the lowest and most exclusive source at Level 8. When finished, select <strong>Check Hierarchy</strong>.
 
-        <strong>Instructions:</strong>
-        Use the drop-down boxes to arrange the sources of law in the correct hierarchy.
-        Begin with the highest and most inclusive source of law at Level 1 and continue
-        through the lowest and most exclusive source at Level 8. When you are finished,
-        select <strong>Check Hierarchy</strong>.
-
-        <div class="screen-reader-note">
-            <strong>Screen-reader and keyboard users:</strong>
-            Press Tab to move to each drop-down box. Use the arrow keys to review
-            the choices and Enter to select an answer.
-        </div>
-
-    </div>
-
-    <div class="hierarchy-container">
-
-        <div class="triangle"
-            role="group"
-            aria-label="Eight level hierarchy of primary sources of federal and state law">
-
-            <div class="tier tier-1">
-                <span class="tier-number">Level 1 — Highest</span>
-                <label class="sr-only" for="hierarchy1">
-                    Level 1, highest source of law
-                </label>
-                <select id="hierarchy1"
-                    class="hierarchy-select"
-                    data-answer="U.S. Constitution">
-                </select>
-            </div>
-
-            <div class="tier tier-2">
-                <span class="tier-number">Level 2</span>
-                <label class="sr-only" for="hierarchy2">
-                    Level 2 source of law
-                </label>
-                <select id="hierarchy2"
-                    class="hierarchy-select"
-                    data-answer="Federal Statutes & International Agreements">
-                </select>
-            </div>
-
-            <div class="tier tier-3">
-                <span class="tier-number">Level 3</span>
-                <label class="sr-only" for="hierarchy3">
-                    Level 3 source of law
-                </label>
-                <select id="hierarchy3"
-                    class="hierarchy-select"
-                    data-answer="Federal Administrative Law">
-                </select>
-            </div>
-
-            <div class="tier tier-4">
-                <span class="tier-number">Level 4</span>
-                <label class="sr-only" for="hierarchy4">
-                    Level 4 source of law
-                </label>
-                <select id="hierarchy4"
-                    class="hierarchy-select"
-                    data-answer="Federal Common Law">
-                </select>
-            </div>
-
-            <div class="tier tier-5">
-                <span class="tier-number">Level 5</span>
-                <label class="sr-only" for="hierarchy5">
-                    Level 5 source of law
-                </label>
-                <select id="hierarchy5"
-                    class="hierarchy-select"
-                    data-answer="State Constitution">
-                </select>
-            </div>
-
-            <div class="tier tier-6">
-                <span class="tier-number">Level 6</span>
-                <label class="sr-only" for="hierarchy6">
-                    Level 6 source of law
-                </label>
-                <select id="hierarchy6"
-                    class="hierarchy-select"
-                    data-answer="State Statutory Law">
-                </select>
-            </div>
-
-            <div class="tier tier-7">
-                <span class="tier-number">Level 7</span>
-                <label class="sr-only" for="hierarchy7">
-                    Level 7 source of law
-                </label>
-                <select id="hierarchy7"
-                    class="hierarchy-select"
-                    data-answer="State Administrative Law">
-                </select>
-            </div>
-
-            <div class="tier tier-8">
-                <span class="tier-number">Level 8 — Lowest</span>
-                <label class="sr-only" for="hierarchy8">
-                    Level 8, lowest source of law
-                </label>
-                <select id="hierarchy8"
-                    class="hierarchy-select"
-                    data-answer="State Common Law">
-                </select>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="button-row">
-
-        <button type="button"
-            onclick="checkActivity('.hierarchy-select','hierarchy-results')">
-            Check Hierarchy
-        </button>
-
-        <button type="button"
-            class="secondary-button"
-            onclick="resetActivity('.hierarchy-select','hierarchy-results')">
-            Retry
-        </button>
-
-    </div>
-
-    <div id="hierarchy-results"
-        class="results"
-        role="status"
-        aria-live="polite">
-    </div>
-
+<div class="keyboard-note">
+<strong>Screen-reader and keyboard users:</strong> Tab to each drop-down menu. In Windows browsers, press <strong>Alt + Down Arrow</strong> to open the choices, use Up and Down Arrow to move through them, and press Enter to make your selection.
+</div>
 </div>
 
+<div class="hierarchy-container">
+
+<div
+class="triangle"
+role="group"
+aria-label="Eight level hierarchy of primary sources of federal and state law">
+
+<div class="tier tier-1">
+<span class="tier-number">Level 1 — Highest</span>
+
+<label class="sr-only" for="hierarchy1">
+Level 1, highest source of law
+</label>
+
+<select
+id="hierarchy1"
+class="hierarchy-select"
+data-answer="U.S. Constitution"
+aria-describedby="feedback-hierarchy1">
+
+<option value="">Select a source</option>
+<option value="Federal Common Law">Federal Common Law</option>
+<option value="U.S. Constitution">U.S. Constitution</option>
+<option value="State Statutory Law">State Statutory Law</option>
+<option value="Federal Administrative Law">Federal Administrative Law</option>
+<option value="State Constitution">State Constitution</option>
+<option value="State Common Law">State Common Law</option>
+<option value="Federal Statutes & International Agreements">Federal Statutes &amp; International Agreements</option>
+<option value="State Administrative Law">State Administrative Law</option>
+</select>
+
+<span
+id="feedback-hierarchy1"
+class="answer-feedback"
+aria-live="polite">
+</span>
+</div>
+
+<div class="tier tier-2">
+<span class="tier-number">Level 2</span>
+
+<label class="sr-only" for="hierarchy2">
+Level 2 source of law
+</label>
+
+<select
+id="hierarchy2"
+class="hierarchy-select"
+data-answer="Federal Statutes & International Agreements"
+aria-describedby="feedback-hierarchy2">
+
+<option value="">Select a source</option>
+<option value="State Constitution">State Constitution</option>
+<option value="Federal Statutes & International Agreements">Federal Statutes &amp; International Agreements</option>
+<option value="State Administrative Law">State Administrative Law</option>
+<option value="Federal Common Law">Federal Common Law</option>
+<option value="State Statutory Law">State Statutory Law</option>
+<option value="U.S. Constitution">U.S. Constitution</option>
+<option value="State Common Law">State Common Law</option>
+<option value="Federal Administrative Law">Federal Administrative Law</option>
+</select>
+
+<span id="feedback-hierarchy2" class="answer-feedback" aria-live="polite"></span>
+</div>
+
+<div class="tier tier-3">
+<span class="tier-number">Level 3</span>
+
+<label class="sr-only" for="hierarchy3">
+Level 3 source of law
+</label>
+
+<select
+id="hierarchy3"
+class="hierarchy-select"
+data-answer="Federal Administrative Law"
+aria-describedby="feedback-hierarchy3">
+
+<option value="">Select a source</option>
+<option value="State Common Law">State Common Law</option>
+<option value="Federal Administrative Law">Federal Administrative Law</option>
+<option value="State Constitution">State Constitution</option>
+<option value="U.S. Constitution">U.S. Constitution</option>
+<option value="Federal Common Law">Federal Common Law</option>
+<option value="State Administrative Law">State Administrative Law</option>
+<option value="Federal Statutes & International Agreements">Federal Statutes &amp; International Agreements</option>
+<option value="State Statutory Law">State Statutory Law</option>
+</select>
+
+<span id="feedback-hierarchy3" class="answer-feedback" aria-live="polite"></span>
+</div>
+
+<div class="tier tier-4">
+<span class="tier-number">Level 4</span>
+
+<label class="sr-only" for="hierarchy4">
+Level 4 source of law
+</label>
+
+<select
+id="hierarchy4"
+class="hierarchy-select"
+data-answer="Federal Common Law"
+aria-describedby="feedback-hierarchy4">
+
+<option value="">Select a source</option>
+<option value="Federal Administrative Law">Federal Administrative Law</option>
+<option value="State Statutory Law">State Statutory Law</option>
+<option value="Federal Common Law">Federal Common Law</option>
+<option value="U.S. Constitution">U.S. Constitution</option>
+<option value="State Common Law">State Common Law</option>
+<option value="State Constitution">State Constitution</option>
+<option value="State Administrative Law">State Administrative Law</option>
+<option value="Federal Statutes & International Agreements">Federal Statutes &amp; International Agreements</option>
+</select>
+
+<span id="feedback-hierarchy4" class="answer-feedback" aria-live="polite"></span>
+</div>
+
+<div class="tier tier-5">
+<span class="tier-number">Level 5</span>
+
+<label class="sr-only" for="hierarchy5">
+Level 5 source of law
+</label>
+
+<select
+id="hierarchy5"
+class="hierarchy-select"
+data-answer="State Constitution"
+aria-describedby="feedback-hierarchy5">
+
+<option value="">Select a source</option>
+<option value="Federal Statutes & International Agreements">Federal Statutes &amp; International Agreements</option>
+<option value="State Constitution">State Constitution</option>
+<option value="Federal Administrative Law">Federal Administrative Law</option>
+<option value="State Common Law">State Common Law</option>
+<option value="U.S. Constitution">U.S. Constitution</option>
+<option value="Federal Common Law">Federal Common Law</option>
+<option value="State Statutory Law">State Statutory Law</option>
+<option value="State Administrative Law">State Administrative Law</option>
+</select>
+
+<span id="feedback-hierarchy5" class="answer-feedback" aria-live="polite"></span>
+</div>
+
+<div class="tier tier-6">
+<span class="tier-number">Level 6</span>
+
+<label class="sr-only" for="hierarchy6">
+Level 6 source of law
+</label>
+
+<select
+id="hierarchy6"
+class="hierarchy-select"
+data-answer="State Statutory Law"
+aria-describedby="feedback-hierarchy6">
+
+<option value="">Select a source</option>
+<option value="State Administrative Law">State Administrative Law</option>
+<option value="Federal Common Law">Federal Common Law</option>
+<option value="State Statutory Law">State Statutory Law</option>
+<option value="Federal Statutes & International Agreements">Federal Statutes &amp; International Agreements</option>
+<option value="State Constitution">State Constitution</option>
+<option value="U.S. Constitution">U.S. Constitution</option>
+<option value="Federal Administrative Law">Federal Administrative Law</option>
+<option value="State Common Law">State Common Law</option>
+</select>
+
+<span id="feedback-hierarchy6" class="answer-feedback" aria-live="polite"></span>
+</div>
+
+<div class="tier tier-7">
+<span class="tier-number">Level 7</span>
+
+<label class="sr-only" for="hierarchy7">
+Level 7 source of law
+</label>
+
+<select
+id="hierarchy7"
+class="hierarchy-select"
+data-answer="State Administrative Law"
+aria-describedby="feedback-hierarchy7">
+
+<option value="">Select a source</option>
+<option value="State Statutory Law">State Statutory Law</option>
+<option value="State Common Law">State Common Law</option>
+<option value="State Administrative Law">State Administrative Law</option>
+<option value="Federal Administrative Law">Federal Administrative Law</option>
+<option value="Federal Common Law">Federal Common Law</option>
+<option value="State Constitution">State Constitution</option>
+<option value="U.S. Constitution">U.S. Constitution</option>
+<option value="Federal Statutes & International Agreements">Federal Statutes &amp; International Agreements</option>
+</select>
+
+<span id="feedback-hierarchy7" class="answer-feedback" aria-live="polite"></span>
+</div>
+
+<div class="tier tier-8">
+<span class="tier-number">Level 8 — Lowest</span>
+
+<label class="sr-only" for="hierarchy8">
+Level 8, lowest source of law
+</label>
+
+<select
+id="hierarchy8"
+class="hierarchy-select"
+data-answer="State Common Law"
+aria-describedby="feedback-hierarchy8">
+
+<option value="">Select a source</option>
+<option value="U.S. Constitution">U.S. Constitution</option>
+<option value="State Common Law">State Common Law</option>
+<option value="Federal Common Law">Federal Common Law</option>
+<option value="State Administrative Law">State Administrative Law</option>
+<option value="State Constitution">State Constitution</option>
+<option value="Federal Administrative Law">Federal Administrative Law</option>
+<option value="Federal Statutes & International Agreements">Federal Statutes &amp; International Agreements</option>
+<option value="State Statutory Law">State Statutory Law</option>
+</select>
+
+<span id="feedback-hierarchy8" class="answer-feedback" aria-live="polite"></span>
+</div>
+
+</div>
+</div>
+
+<div class="button-row">
+<button
+type="button"
+onclick="checkActivity('.hierarchy-select','hierarchy-results')">
+Check Hierarchy
+</button>
+
+<button
+type="button"
+class="secondary-button"
+onclick="resetActivity('.hierarchy-select','hierarchy-results')">
+Retry
+</button>
+</div>
+
+<div
+id="hierarchy-results"
+class="results"
+role="status"
+aria-live="polite">
+</div>
+
+</div>
 </section>
 
-<div class="section-break" aria-hidden="true">
-    <span></span>
-</div>
+<div class="section-break" aria-hidden="true"><span></span></div>
 
-<!-- CHAPTER ONE OUTLINE -->
+<!-- ======================================================
+     CHAPTER OUTLINE
+====================================================== -->
 
 <section aria-labelledby="outline-heading">
 
@@ -1133,605 +1333,604 @@ select.incorrect {
 <h3>Introduction to Law</h3>
 
 <p>
-    Law is a body of rules of action or conduct prescribed by a controlling authority and having legal
-    binding force that create duties, obligations, and rights as well as a mechanism to resolve disputes
-    arising from those duties and rights.
+Law is a body of rules of action or conduct prescribed by a controlling authority and having legal binding force that create duties, obligations, and rights as well as a mechanism to resolve disputes arising from those duties and rights.
 </p>
 
 <div class="flip-grid">
 
-    <button
-        class="flip-card"
-        type="button"
-        aria-expanded="false"
-        aria-label="Jurisprudence. Press Enter or Space to reveal the definition."
-        onclick="flipCard(this)">
+<button
+class="flip-card"
+type="button"
+aria-expanded="false"
+aria-label="Jurisprudence. Press Enter or Space for definition."
+onclick="flipCard(this)">
 
-        <span class="flip-card-inner">
+<span class="flip-card-inner">
 
-            <span class="flip-front">
-                <span>
-                    <span class="flip-term">Jurisprudence</span>
-                    <span class="flip-prompt">Click for definition</span>
-                </span>
-            </span>
+<span class="flip-front">
+<span>
+<span class="flip-term">Jurisprudence</span>
+<span class="flip-prompt">Click for definition</span>
+</span>
+</span>
 
-            <span class="flip-back">
-                The philosophy behind the law, including natural law
-                (moral values for the basis for all law), positivists
-                (agreed-upon laws enforced uniformly and strictly),
-                and legal realism (law is a social institution accounting
-                for social and economic realities to promote fairness).
-            </span>
+<span class="flip-back">
+The philosophy behind the law, including natural law (moral values for the basis for all law), positivists (agreed-upon laws enforced uniformly and strictly), and legal realism (law is a social institution accounting for social and economic realities to promote fairness).
+</span>
 
-        </span>
+</span>
+</button>
 
-    </button>
+<button
+class="flip-card"
+type="button"
+aria-expanded="false"
+aria-label="Language of the Law. Press Enter or Space for definition."
+onclick="flipCard(this)">
 
-    <button
-        class="flip-card"
-        type="button"
-        aria-expanded="false"
-        aria-label="Language of the Law. Press Enter or Space to reveal the definition."
-        onclick="flipCard(this)">
+<span class="flip-card-inner">
 
-        <span class="flip-card-inner">
+<span class="flip-front">
+<span>
+<span class="flip-term">Language of the Law</span>
+<span class="flip-prompt">Click for definition</span>
+</span>
+</span>
 
-            <span class="flip-front">
-                <span>
-                    <span class="flip-term">Language of the Law</span>
-                    <span class="flip-prompt">Click for definition</span>
-                </span>
-            </span>
+<span class="flip-back">
+Primarily a combination of Latin, early and modern English, and French, a basic understanding of which is useful to maximize the value of interaction between business managers and attorneys.
+</span>
 
-            <span class="flip-back">
-                Primarily a combination of Latin, early and modern English,
-                and French, a basic understanding of which is useful to maximize
-                the value of interaction between business managers and attorneys.
-            </span>
-
-        </span>
-
-    </button>
+</span>
+</button>
 
 </div>
 
 <h3>Purposes of Law</h3>
 
 <ol class="purpose-list">
-
-    <li>
-        A system of order that defines crimes and levies punishment for violations.
-    </li>
-
-    <li>
-        A system for resolving disputes by providing a basis for deciding the legal interests
-        and rights of the parties.
-    </li>
-
-    <li>
-        Creating reliability in business planning and commercial transactions by promoting
-        good faith dealing among merchants and customers.
-    </li>
-
+<li>A system of order that defines crimes and levies punishment for violations.</li>
+<li>A system for resolving disputes by providing a basis for deciding the legal interests and rights of the parties.</li>
+<li>Creating reliability in business planning and commercial transactions by promoting good faith dealing among merchants and customers.</li>
 </ol>
+
+<!-- ======================================================
+     PRIMARY SOURCES MATCH
+====================================================== -->
 
 <h2>Sources and Levels of American Law</h2>
 
 <p>
-    Modern law regulating businesses and individuals is generally a combination of the primary sources
-    of law: constitutional law, statutory law, common law, and administrative (regulatory) law.
-    Match the terms below with the correct explanations.
+Modern law regulating businesses and individuals is generally a combination of the primary sources of law: constitutional law, statutory law, common law, and administrative (regulatory) law. Match the terms below with the correct explanations.
 </p>
 
 <div class="activity">
 
-    <div class="instructions">
-        <strong>Instructions:</strong>
-        Choose the source of law that corresponds with each explanation.
-        Keyboard users can Tab to each menu and use the arrow keys to select an answer.
-    </div>
+<div class="instructions">
+<strong>Instructions:</strong> Choose the source of law that corresponds with each explanation.
 
-    <div class="match-grid">
+<div class="keyboard-note">
+<strong>Screen-reader and keyboard users:</strong> Tab to each menu. In Windows browsers, press Alt + Down Arrow to open the choices, use the Arrow keys to review them, and press Enter to select an answer.
+</div>
+</div>
 
-        <div class="match-row">
+<div class="match-grid">
 
-            <div>
-                Exists at state and federal levels as the supreme law, providing the foundation for all
-                other law to prescribe the basic <strong>structure</strong> and powers of a particular
-                government body and to protect certain <strong>rights</strong> of individuals and business
-                from government encroachment.
-            </div>
+<div class="match-row">
 
-            <div>
-                <label class="sr-only" for="source1">
-                    Select the source of law for the supreme law explanation
-                </label>
+<div>
+Exists at state and federal levels as the supreme law, providing the foundation for all other law to prescribe the basic <strong>structure</strong> and powers of a particular government body and to protect certain <strong>rights</strong> of individuals and business from government encroachment.
+</div>
 
-                <select id="source1"
-                    class="source-match"
-                    data-answer="Constitutional Law">
-                </select>
-            </div>
+<div>
+<label class="sr-only" for="source1">
+Source of law that exists as the supreme law at state and federal levels
+</label>
 
-        </div>
+<select
+id="source1"
+class="source-match"
+data-answer="Constitutional Law"
+aria-describedby="feedback-source1">
 
-        <div class="match-row">
+<option value="">Select a source</option>
+<option value="Common Law">Common Law</option>
+<option value="Constitutional Law">Constitutional Law</option>
+<option value="Administrative Law">Administrative Law</option>
+<option value="Statutory Law">Statutory Law</option>
+</select>
 
-            <div>
-                Exists at the state, federal and local levels of law, created by a
-                <strong>legislative body</strong> and approved or disapproved by the executive branch.
-            </div>
-
-            <div>
-                <label class="sr-only" for="source2">
-                    Select the source of law created by a legislative body
-                </label>
-
-                <select id="source2"
-                    class="source-match"
-                    data-answer="Statutory Law">
-                </select>
-            </div>
-
-        </div>
-
-        <div class="match-row">
-
-            <div>
-                Law made by <strong>appellate courts</strong> and is based on the fundamentals
-                of previous cases that had similar facts.
-            </div>
-
-            <div>
-                <label class="sr-only" for="source3">
-                    Select the source of law created through appellate court decisions
-                </label>
-
-                <select id="source3"
-                    class="source-match"
-                    data-answer="Common Law">
-                </select>
-            </div>
-
-        </div>
-
-        <div class="match-row">
-
-            <div>
-                The source of law that regulates the exercise of authority by
-                <strong>administrative agencies</strong>.
-            </div>
-
-            <div>
-                <label class="sr-only" for="source4">
-                    Select the source of law involving administrative agencies
-                </label>
-
-                <select id="source4"
-                    class="source-match"
-                    data-answer="Administrative Law">
-                </select>
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="button-row">
-
-        <button type="button"
-            onclick="checkActivity('.source-match','source-results')">
-            Check Answers
-        </button>
-
-        <button type="button"
-            class="secondary-button"
-            onclick="resetActivity('.source-match','source-results')">
-            Retry
-        </button>
-
-    </div>
-
-    <div id="source-results"
-        class="results"
-        role="status"
-        aria-live="polite">
-    </div>
+<span id="feedback-source1" class="answer-feedback" aria-live="polite"></span>
+</div>
 
 </div>
 
-<!-- STATUTORY INTERPRETATION -->
+<div class="match-row">
+
+<div>
+Exists at the state, federal and local levels of law, created by a <strong>legislative body</strong> and approved or disapproved by the executive branch.
+</div>
+
+<div>
+<label class="sr-only" for="source2">
+Source of law created by a legislative body
+</label>
+
+<select
+id="source2"
+class="source-match"
+data-answer="Statutory Law"
+aria-describedby="feedback-source2">
+
+<option value="">Select a source</option>
+<option value="Administrative Law">Administrative Law</option>
+<option value="Statutory Law">Statutory Law</option>
+<option value="Constitutional Law">Constitutional Law</option>
+<option value="Common Law">Common Law</option>
+</select>
+
+<span id="feedback-source2" class="answer-feedback" aria-live="polite"></span>
+</div>
+
+</div>
+
+<div class="match-row">
+
+<div>
+Law made by <strong>appellate courts</strong> and is based on the fundamentals of previous cases that had similar facts.
+</div>
+
+<div>
+<label class="sr-only" for="source3">
+Source of law made by appellate courts
+</label>
+
+<select
+id="source3"
+class="source-match"
+data-answer="Common Law"
+aria-describedby="feedback-source3">
+
+<option value="">Select a source</option>
+<option value="Constitutional Law">Constitutional Law</option>
+<option value="Common Law">Common Law</option>
+<option value="Statutory Law">Statutory Law</option>
+<option value="Administrative Law">Administrative Law</option>
+</select>
+
+<span id="feedback-source3" class="answer-feedback" aria-live="polite"></span>
+</div>
+
+</div>
+
+<div class="match-row">
+
+<div>
+The source of law that regulates the exercise of authority by <strong>administrative agencies</strong>.
+</div>
+
+<div>
+<label class="sr-only" for="source4">
+Source of law involving administrative agencies
+</label>
+
+<select
+id="source4"
+class="source-match"
+data-answer="Administrative Law"
+aria-describedby="feedback-source4">
+
+<option value="">Select a source</option>
+<option value="Statutory Law">Statutory Law</option>
+<option value="Administrative Law">Administrative Law</option>
+<option value="Common Law">Common Law</option>
+<option value="Constitutional Law">Constitutional Law</option>
+</select>
+
+<span id="feedback-source4" class="answer-feedback" aria-live="polite"></span>
+</div>
+
+</div>
+
+</div>
+
+<div class="button-row">
+<button
+type="button"
+onclick="checkActivity('.source-match','source-results')">
+Check Answers
+</button>
+
+<button
+type="button"
+class="secondary-button"
+onclick="resetActivity('.source-match','source-results')">
+Retry
+</button>
+</div>
+
+<div
+id="source-results"
+class="results"
+role="status"
+aria-live="polite">
+</div>
+
+</div>
+
+<!-- ======================================================
+     INFORMATION BLURBS
+====================================================== -->
 
 <div class="info-blurb">
 
-    <p>
-        When interpreting statutes, courts look to the structure of the law itself
-        (<strong>statutory scheme</strong>) and to the records kept by the legislature
-        in drafting the statute (<strong>legislative history</strong>).
-    </p>
+<p>
+When interpreting statutes, courts look to the structure of the law itself (<strong>statutory scheme</strong>) and to the records kept by the legislature in drafting the statute (<strong>legislative history</strong>).
+</p>
 
-    <p>
-        The official publication of federal statutory law is in the
-        <em>United States Code</em>, and it is arranged by title and divided into chapters
-        and sections that form a citation.
-    </p>
+<p>
+The official publication of federal statutory law is in the <em>United States Code</em>, and it is arranged by title and divided into chapters and sections that form a citation.
+</p>
 
-    <p>
-        When interpreting statutes, courts initially apply the <em>plain meaning rule</em>,
-        which means that if the words in the statute have clear and widely understood meanings,
-        the court applies the statute in accordance with those meanings.
-    </p>
+<p>
+When interpreting statutes, courts initially apply the <em>plain meaning rule</em>, which means that if the words in the statute have clear and widely understood meanings, the court applies the statute in accordance with those meanings.
+</p>
 
 </div>
-
-<!-- STARE DECISIS -->
 
 <div class="info-blurb red">
 
-    <p>
-        <strong>Stare decisis</strong> allows business to have some
-        <strong>degree of confidence</strong> that the law will remain reasonably consistent.
-        Departing from precedent, however, can be necessary.
-    </p>
+<p>
+<strong>Stare decisis</strong> allows business to have some <strong>degree of confidence</strong> that the law will remain reasonably consistent. Departing from precedent, however, can be necessary.
+</p>
 
-    <p>
-        Strict adherence to precedent has a significant drawback—it does not allow for
-        evolving societal standards of behavior or expectations.
-    </p>
+<p>
+Strict adherence to precedent has a significant drawback—it does not allow for evolving societal standards of behavior or expectations.
+</p>
 
 </div>
 
-<!-- SECONDARY SOURCES -->
+<!-- ======================================================
+     SECONDARY SOURCES
+====================================================== -->
 
 <h2>Secondary Sources of Law</h2>
 
 <p>
-    Secondary sources function to increase the level of uniformity and fairness across all 50 states.
-    However, they have no independent authority, nor are they legally binding.
-    Fill in the blanks below with the correct answer.
+Secondary sources function to increase the level of uniformity and fairness across all 50 states. However, they have no independent authority, nor are they legally binding. Fill in the blanks below with the correct answer.
 </p>
 
 <div class="activity">
 
-    <div class="instructions">
+<div class="instructions">
+<strong>Instructions:</strong> Select the correct response for each blank.
 
-        <strong>Instructions:</strong>
-        Select the correct response for each blank.
+<div class="keyboard-note">
+<strong>Screen-reader and keyboard users:</strong> Tab to each menu. In Windows browsers, press Alt + Down Arrow to open the choices, use the Arrow keys to review them, and press Enter to select an answer.
+</div>
+</div>
 
-        <div class="screen-reader-note">
-            Screen-reader users can Tab to each drop-down menu and use the arrow keys
-            and Enter key to select an answer.
-        </div>
+<p class="fill-sentence">
 
-    </div>
+Uniform Model Laws are drafted by
 
-    <p class="fill-sentence">
+<label class="sr-only" for="secondary1">
+Who drafts Uniform Model Laws?
+</label>
 
-        Uniform Model Laws are drafted by
+<select
+id="secondary1"
+class="secondary-question inline-select"
+data-answer="legal experts"
+aria-describedby="feedback-secondary1">
 
-        <label class="sr-only" for="secondary1">
-            Who drafts Uniform Model Laws?
-        </label>
+<option value="">Select an answer</option>
+<option value="judges">judges</option>
+<option value="legal experts">legal experts</option>
+</select>
 
-        <select id="secondary1"
-            class="secondary-question inline-select"
-            data-answer="legal experts">
+in hopes that they will be used by state legislature to provide
 
-            <option value="">Select an answer</option>
-            <option value="legal experts">legal experts</option>
-            <option value="judges">judges</option>
+<label class="sr-only" for="secondary2">
+What are Uniform Model Laws intended to provide?
+</label>
 
-        </select>
+<select
+id="secondary2"
+class="secondary-question inline-select"
+data-answer="uniformity in"
+aria-describedby="feedback-secondary2">
 
-        in hopes that they will be used by state legislature to provide
+<option value="">Select an answer</option>
+<option value="exceptions to">exceptions to</option>
+<option value="uniformity in">uniformity in</option>
+</select>
 
-        <label class="sr-only" for="secondary2">
-            What are Uniform Model Laws intended to provide?
-        </label>
+laws between the states.
 
-        <select id="secondary2"
-            class="secondary-question inline-select"
-            data-answer="uniformity in">
+<span id="feedback-secondary1" class="answer-feedback" aria-live="polite"></span>
+<span id="feedback-secondary2" class="answer-feedback" aria-live="polite"></span>
 
-            <option value="">Select an answer</option>
-            <option value="uniformity in">uniformity in</option>
-            <option value="exceptions to">exceptions to</option>
+</p>
 
-        </select>
+<p class="fill-sentence">
 
-        laws between the states.
+Restatements of the law are collections of uniform legal principles in a specific area of law that are designed to reduce the
 
-    </p>
+<label class="sr-only" for="secondary3">
+What are Restatements of law designed to reduce?
+</label>
 
-    <p class="fill-sentence">
+<select
+id="secondary3"
+class="secondary-question inline-select"
+data-answer="complexity"
+aria-describedby="feedback-secondary3">
 
-        Restatements of the law are collections of uniform legal principles in a specific
-        area of law that are designed to reduce the
+<option value="">Select an answer</option>
+<option value="burden">burden</option>
+<option value="complexity">complexity</option>
+</select>
 
-        <label class="sr-only" for="secondary3">
-            What are Restatements of the law designed to reduce?
-        </label>
+of judicial decisions.
 
-        <select id="secondary3"
-            class="secondary-question inline-select"
-            data-answer="complexity">
+<span id="feedback-secondary3" class="answer-feedback" aria-live="polite"></span>
 
-            <option value="">Select an answer</option>
-            <option value="complexity">complexity</option>
-            <option value="burden">burden</option>
+</p>
 
-        </select>
+<div class="button-row">
+<button
+type="button"
+onclick="checkActivity('.secondary-question','secondary-results')">
+Check Answers
+</button>
 
-        of judicial decisions.
+<button
+type="button"
+class="secondary-button"
+onclick="resetActivity('.secondary-question','secondary-results')">
+Retry
+</button>
+</div>
 
-    </p>
-
-    <div class="button-row">
-
-        <button type="button"
-            onclick="checkActivity('.secondary-question','secondary-results')">
-            Check Answers
-        </button>
-
-        <button type="button"
-            class="secondary-button"
-            onclick="resetActivity('.secondary-question','secondary-results')">
-            Retry
-        </button>
-
-    </div>
-
-    <div id="secondary-results"
-        class="results"
-        role="status"
-        aria-live="polite">
-    </div>
+<div
+id="secondary-results"
+class="results"
+role="status"
+aria-live="polite">
+</div>
 
 </div>
 
-<!-- CATEGORIES OF LAW -->
+<!-- ======================================================
+     CATEGORIES OF LAW
+====================================================== -->
 
 <h2>Categories of Law</h2>
 
 <p>
-    Broad categories based on classification related to a particular legal function
-    or a right afforded by law are helpful in understanding the big picture of our legal system.
+Broad categories based on classification related to a particular legal function or a right afforded by law are helpful in understanding the big picture of our legal system.
 </p>
 
-<div class="comparison-grid"
-    role="group"
-    aria-label="Comparison of major categories of law">
+<div
+class="comparison-grid"
+role="group"
+aria-label="Comparison of major categories of law">
 
-    <article class="comparison-card">
+<article class="comparison-card">
 
-        <div class="comparison-title">
-            Criminal Law <span class="vs">versus</span> Civil Law
-        </div>
+<div class="comparison-title">
+Criminal Law versus Civil Law
+</div>
 
-        <div class="comparison-body">
+<div class="comparison-body">
+<p>
+<strong>Civil law</strong> is designed to compensate parties for losses as a result of another's conduct.
+</p>
 
-            <p>
-                <strong>Civil law</strong> is designed to compensate parties for losses
-                as a result of another's conduct.
-            </p>
+<p>
+<strong>Criminal law</strong> is a protection of society, and violation of criminal laws results in penalties to the violator such as fines or imprisonment.
+</p>
+</div>
 
-            <p>
-                <strong>Criminal law</strong> is a protection of society, and violation
-                of criminal laws results in penalties to the violator such as fines or imprisonment.
-            </p>
+</article>
 
-        </div>
+<article class="comparison-card">
 
-    </article>
+<div class="comparison-title">
+Substantive Law versus Procedural Law
+</div>
 
-    <article class="comparison-card">
+<div class="comparison-body">
+<p>
+<strong>Substantive laws</strong> provide individuals with rights and create certain duties.
+</p>
 
-        <div class="comparison-title">
-            Substantive Law <span class="vs">versus</span> Procedural Law
-        </div>
+<p>
+<strong>Procedural laws</strong> provide a structure and set out rules for pursuing substantive rights.
+</p>
+</div>
 
-        <div class="comparison-body">
+</article>
 
-            <p>
-                <strong>Substantive laws</strong> provide individuals with rights
-                and create certain duties.
-            </p>
+<article class="comparison-card full-width">
 
-            <p>
-                <strong>Procedural laws</strong> provide a structure and set out rules
-                for pursuing substantive rights.
-            </p>
+<div class="comparison-title">
+Law versus Equity
+</div>
 
-        </div>
+<div class="comparison-body">
 
-    </article>
+<p>
+Where remedy at law is inadequate, an injured party may also obtain a remedy at equity.
+</p>
 
-    <article class="comparison-card full-width">
+<div class="law-equity-visual">
 
-        <div class="comparison-title">
-            Law <span class="vs">versus</span> Equity
-        </div>
+<div class="remedy-box">
+<h4>Remedies at Law</h4>
+<p>
+Generally take the form of <strong>money damages</strong>.
+</p>
+</div>
 
-        <div class="comparison-body">
+<div class="center-arrow" aria-hidden="true">↔</div>
 
-            <p>
-                Where remedy at law is inadequate, an injured party may also obtain a remedy at equity.
-            </p>
+<div class="remedy-box">
+<h4>Equitable Remedies</h4>
+<p>
+Generally include an <strong>injunction</strong> or <strong>restraining order</strong>, and <strong>specific performance</strong>.
+</p>
+</div>
 
-            <div class="law-equity-visual">
+</div>
+</div>
 
-                <div class="remedy-box">
-
-                    <h4>Remedies at Law</h4>
-
-                    <p>
-                        Generally take the form of
-                        <strong>money damages</strong>.
-                    </p>
-
-                </div>
-
-                <div class="center-arrow" aria-hidden="true">
-                    ↔
-                </div>
-
-                <div class="remedy-box">
-
-                    <h4>Equitable Remedies</h4>
-
-                    <p>
-                        Generally include an <strong>injunction</strong> or
-                        <strong>restraining order</strong>, and
-                        <strong>specific performance</strong>.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </article>
+</article>
 
 </div>
 
-<!-- EQUITABLE MAXIMS -->
+<!-- ======================================================
+     EQUITABLE MAXIMS
+====================================================== -->
 
 <h3>Important Equitable Maxims</h3>
 
 <p>
-    Equitable maxims are intended to be broad statements of rules that are based on notions
-    of fairness and justice in applying the law. Use the scenarios below to test your understanding.
+Equitable maxims are intended to be broad statements of rules that are based on notions of fairness and justice in applying the law. Use the scenarios below to test your understanding.
 </p>
 
 <div class="activity">
 
-    <div class="instructions">
+<div class="instructions">
+<strong>Instructions:</strong> Read each situation and select the equitable maxim that best applies.
 
-        <strong>Instructions:</strong>
-        Read each situation and select the equitable maxim that best applies.
+<div class="keyboard-note">
+<strong>Screen-reader and keyboard users:</strong> Tab to each menu. In Windows browsers, press Alt + Down Arrow to open the choices, use the Arrow keys to review them, and press Enter to select an answer.
+</div>
+</div>
 
-        <div class="screen-reader-note">
-            Screen-reader and keyboard users can Tab to each drop-down menu,
-            use the arrow keys to choose an answer, and press Enter to select it.
-        </div>
+<div class="scenario">
 
-    </div>
+<div class="scenario-number">Scenario 1</div>
 
-    <div class="scenario">
+<p>
+A business owner believes that a former business partner violated an agreement. The owner waits many years to pursue the claim even though the owner knew about the problem and could reasonably have acted much sooner.
+</p>
 
-        <div class="scenario-number">
-            Scenario 1
-        </div>
+<label for="maxim1">
+<strong>Which equitable maxim applies?</strong>
+</label>
 
-        <p>
-            A business owner believes that a former business partner violated an agreement.
-            The owner waits many years to pursue the claim even though the owner knew about the
-            problem and could reasonably have acted much sooner.
-        </p>
+<select
+id="maxim1"
+class="maxim-question"
+data-answer="Equity Aids the Vigilant"
+aria-describedby="feedback-maxim1">
 
-        <label for="maxim1">
-            <strong>Which equitable maxim applies?</strong>
-        </label>
+<option value="">Select a maxim</option>
+<option value="Clean Hands Doctrine">Clean Hands Doctrine</option>
+<option value="Equity Aids the Vigilant">Equity Aids the Vigilant</option>
+<option value="Substance over Form">Substance over Form</option>
+</select>
 
-        <select id="maxim1"
-            class="maxim-question"
-            data-answer="Equity Aids the Vigilant">
-        </select>
+<span id="feedback-maxim1" class="answer-feedback" aria-live="polite"></span>
 
-    </div>
+</div>
 
-    <div class="scenario">
+<div class="scenario">
 
-        <div class="scenario-number">
-            Scenario 2
-        </div>
+<div class="scenario-number">Scenario 2</div>
 
-        <p>
-            Two businesses clearly intended to create a legitimate agreement, but a minor
-            technical problem exists in the paperwork. Enforcing the technicality would defeat
-            the parties' obvious good-faith intent.
-        </p>
+<p>
+Two businesses clearly intended to create a legitimate agreement, but a minor technical problem exists in the paperwork. Enforcing the technicality would defeat the parties' obvious good-faith intent.
+</p>
 
-        <label for="maxim2">
-            <strong>Which equitable maxim applies?</strong>
-        </label>
+<label for="maxim2">
+<strong>Which equitable maxim applies?</strong>
+</label>
 
-        <select id="maxim2"
-            class="maxim-question"
-            data-answer="Substance over Form">
-        </select>
+<select
+id="maxim2"
+class="maxim-question"
+data-answer="Substance over Form"
+aria-describedby="feedback-maxim2">
 
-    </div>
+<option value="">Select a maxim</option>
+<option value="Equity Aids the Vigilant">Equity Aids the Vigilant</option>
+<option value="Substance over Form">Substance over Form</option>
+<option value="Clean Hands Doctrine">Clean Hands Doctrine</option>
+</select>
 
-    <div class="scenario">
+<span id="feedback-maxim2" class="answer-feedback" aria-live="polite"></span>
 
-        <div class="scenario-number">
-            Scenario 3
-        </div>
+</div>
 
-        <p>
-            A business owner asks a court for an equitable remedy after intentionally misleading
-            the other party involved in the same transaction. The owner now hopes to benefit
-            from a legal technicality.
-        </p>
+<div class="scenario">
 
-        <label for="maxim3">
-            <strong>Which equitable maxim applies?</strong>
-        </label>
+<div class="scenario-number">Scenario 3</div>
 
-        <select id="maxim3"
-            class="maxim-question"
-            data-answer="Clean Hands Doctrine">
-        </select>
+<p>
+A business owner asks a court for an equitable remedy after intentionally misleading the other party involved in the same transaction. The owner now hopes to benefit from a legal technicality.
+</p>
 
-    </div>
+<label for="maxim3">
+<strong>Which equitable maxim applies?</strong>
+</label>
 
-    <div class="button-row">
+<select
+id="maxim3"
+class="maxim-question"
+data-answer="Clean Hands Doctrine"
+aria-describedby="feedback-maxim3">
 
-        <button type="button"
-            onclick="checkActivity('.maxim-question','maxim-results')">
-            Check Answers
-        </button>
+<option value="">Select a maxim</option>
+<option value="Substance over Form">Substance over Form</option>
+<option value="Clean Hands Doctrine">Clean Hands Doctrine</option>
+<option value="Equity Aids the Vigilant">Equity Aids the Vigilant</option>
+</select>
 
-        <button type="button"
-            class="secondary-button"
-            onclick="resetActivity('.maxim-question','maxim-results')">
-            Retry
-        </button>
+<span id="feedback-maxim3" class="answer-feedback" aria-live="polite"></span>
 
-    </div>
+</div>
 
-    <div id="maxim-results"
-        class="results"
-        role="status"
-        aria-live="polite">
-    </div>
+<div class="button-row">
+<button
+type="button"
+onclick="checkActivity('.maxim-question','maxim-results')">
+Check Answers
+</button>
+
+<button
+type="button"
+class="secondary-button"
+onclick="resetActivity('.maxim-question','maxim-results')">
+Retry
+</button>
+</div>
+
+<div
+id="maxim-results"
+class="results"
+role="status"
+aria-live="polite">
+</div>
 
 </div>
 
 <div class="info-blurb">
 
-    <p>
-        <strong>Equity Aids the Vigilant:</strong>
-        The law favors those who exercise vigilance in pursuing their claims and disfavors
-        those who rest on their legal rights by failing to act to protect their rights
-        in a reasonable period of time.
-    </p>
+<p>
+<strong>Equity Aids the Vigilant:</strong> The law favors those who exercise vigilance in pursuing their claims and disfavors those who rest on their legal rights by failing to act to protect their rights in a reasonable period of time.
+</p>
 
-    <p>
-        <strong>Substance over Form:</strong>
-        When applying the law, courts look to the intent of parties involved and adhere
-        to a standard of good faith instead of applying the black letter law in a way
-        that would violate fundamental principles of fairness and consistency.
-    </p>
+<p>
+<strong>Substance over Form:</strong> When applying the law, courts look to the intent of parties involved and adhere to a standard of good faith instead of applying the black letter law in a way that would violate fundamental principles of fairness and consistency.
+</p>
 
-    <p>
-        <strong>Clean Hands Doctrine:</strong>
-        Courts are not inclined to decide a dispute based on
-        <strong>technicalities</strong> that benefited a party who acted dishonestly.
-    </p>
+<p>
+<strong>Clean Hands Doctrine:</strong> Courts are not inclined to decide a dispute based on <strong>technicalities</strong> that benefited a party who acted dishonestly.
+</p>
 
 </div>
 
@@ -1741,453 +1940,56 @@ select.incorrect {
 
 <script>
 
-/* ================================
-   SHUFFLE
-================================ */
+/* =========================================================
+   ACCESSIBLE ACTIVITY CHECKER
+========================================================= */
 
-function shuffle(array) {
+function checkActivity(selector, resultsId) {
 
-    const shuffled = [...array];
-
-    for (let i = shuffled.length - 1; i > 0; i--) {
-
-        const j = Math.floor(Math.random() * (i + 1));
-
-        [shuffled[i], shuffled[j]] =
-            [shuffled[j], shuffled[i]];
-
-    }
-
-    return shuffled;
-}
-
-
-/* ================================
-   LEGAL LANDSCAPE TABLE
-================================ */
-
-const landscapeOptions = {
-
-    constitutional: [
-        "First Amendment",
-        "Gives governors authority",
-        "Charter"
-    ],
-
-    statutory: [
-        "Patent Act",
-        "Formation of an LLC",
-        "Zoning (residential vs. industrial)"
-    ],
-
-    admin: [
-        "OSHA",
-        "Environmental (regulations of hazardous materials)",
-        "Sanitary conditions in restaurants"
-    ],
-
-    common: [
-        "Change precedents based on advancements",
-        "Contracts for services",
-        "Trial courts follow precedents"
-    ]
-
-};
-
-
-function loadLandscapeDropdowns() {
-
-    Object.keys(landscapeOptions).forEach(function(category) {
-
-        const randomizedOptions =
-            shuffle(landscapeOptions[category]);
-
-        const dropdowns =
-            document.querySelectorAll(
-                ".landscape." + category
-            );
-
-        dropdowns.forEach(function(dropdown) {
-
-            dropdown.innerHTML =
-                '<option value="">Select an answer</option>';
-
-            randomizedOptions.forEach(function(answer) {
-
-                const option =
-                    document.createElement("option");
-
-                option.value = answer;
-                option.textContent = answer;
-
-                dropdown.appendChild(option);
-
-            });
-
-        });
-
-    });
-
-}
-
-
-document
-    .getElementById("landscape-submit")
-    .addEventListener("click", function() {
-
-        const dropdowns =
-            document.querySelectorAll(".landscape");
-
-        const results =
-            document.getElementById("landscape-results");
-
-        let correctCount = 0;
-        let unansweredCount = 0;
-
-        dropdowns.forEach(function(dropdown) {
-
-            const correctAnswer =
-                dropdown.dataset.answer;
-
-            const icon =
-                dropdown.parentElement
-                    .querySelector(".feedback-icon");
-
-            dropdown.classList.remove(
-                "correct",
-                "incorrect"
-            );
-
-            icon.classList.remove(
-                "correct",
-                "incorrect"
-            );
-
-            if (dropdown.value === "") {
-
-                unansweredCount++;
-
-                dropdown.classList.add("incorrect");
-
-                icon.textContent = "✕";
-                icon.classList.add("incorrect");
-
-                icon.setAttribute(
-                    "aria-label",
-                    "No answer selected"
-                );
-
-            }
-
-            else if (
-                dropdown.value === correctAnswer
-            ) {
-
-                correctCount++;
-
-                dropdown.classList.add("correct");
-
-                icon.textContent = "✓";
-                icon.classList.add("correct");
-
-                icon.setAttribute(
-                    "aria-label",
-                    "Correct"
-                );
-
-                dropdown.disabled = true;
-
-            }
-
-            else {
-
-                dropdown.classList.add("incorrect");
-
-                icon.textContent = "✕";
-                icon.classList.add("incorrect");
-
-                icon.setAttribute(
-                    "aria-label",
-                    "Incorrect"
-                );
-
-            }
-
-        });
-
-
-        results.style.display = "block";
-        results.classList.remove("incomplete");
-
-
-        if (correctCount === dropdowns.length) {
-
-            results.innerHTML =
-                "<strong>Great work!</strong>" +
-                "You correctly matched all 12 examples " +
-                "with their source and level of law.";
-
-        }
-
-        else {
-
-            results.classList.add("incomplete");
-
-            let message =
-                "<strong>Keep working!</strong>" +
-                "You correctly matched " +
-                correctCount +
-                " of 12 examples. " +
-                "Review the items marked with an ✕ " +
-                "and submit again.";
-
-            if (unansweredCount > 0) {
-
-                message +=
-                    " You also have " +
-                    unansweredCount +
-                    (unansweredCount === 1
-                        ? " unanswered item."
-                        : " unanswered items.");
-
-            }
-
-            results.innerHTML = message;
-
-        }
-
-    });
-
-
-document
-    .querySelectorAll(".landscape")
-    .forEach(function(dropdown) {
-
-        dropdown.addEventListener(
-            "change",
-            function() {
-
-                if (!dropdown.disabled) {
-
-                    dropdown.classList.remove(
-                        "incorrect"
-                    );
-
-                    const icon =
-                        dropdown.parentElement
-                            .querySelector(".feedback-icon");
-
-                    icon.textContent = "";
-
-                    icon.classList.remove(
-                        "incorrect"
-                    );
-
-                    icon.removeAttribute(
-                        "aria-label"
-                    );
-
-                }
-
-            }
-        );
-
-    });
-
-
-document
-    .getElementById("landscape-retry")
-    .addEventListener("click", function() {
-
-        const dropdowns =
-            document.querySelectorAll(".landscape");
-
-        dropdowns.forEach(function(dropdown) {
-
-            dropdown.disabled = false;
-
-            dropdown.classList.remove(
-                "correct",
-                "incorrect"
-            );
-
-            const icon =
-                dropdown.parentElement
-                    .querySelector(".feedback-icon");
-
-            icon.textContent = "";
-
-            icon.classList.remove(
-                "correct",
-                "incorrect"
-            );
-
-            icon.removeAttribute(
-                "aria-label"
-            );
-
-        });
-
-
-        const results =
-            document.getElementById(
-                "landscape-results"
-            );
-
-        results.style.display = "none";
-        results.innerHTML = "";
-
-        loadLandscapeDropdowns();
-
-    });
-
-
-/* ================================
-   GENERIC SELECT POPULATION
-================================ */
-
-function populateSelect(
-    select,
-    options,
-    placeholder
-) {
-
-    select.innerHTML = "";
-
-    const firstOption =
-        document.createElement("option");
-
-    firstOption.value = "";
-    firstOption.textContent = placeholder;
-
-    select.appendChild(firstOption);
-
-    shuffle(options).forEach(function(optionText) {
-
-        const option =
-            document.createElement("option");
-
-        option.value = optionText;
-        option.textContent = optionText;
-
-        select.appendChild(option);
-
-    });
-
-}
-
-
-/* ================================
-   HIERARCHY
-================================ */
-
-const hierarchyOptions = [
-    "U.S. Constitution",
-    "Federal Statutes & International Agreements",
-    "Federal Administrative Law",
-    "Federal Common Law",
-    "State Constitution",
-    "State Statutory Law",
-    "State Administrative Law",
-    "State Common Law"
-];
-
-
-document
-    .querySelectorAll(".hierarchy-select")
-    .forEach(function(select) {
-
-        populateSelect(
-            select,
-            hierarchyOptions,
-            "Select a source"
-        );
-
-    });
-
-
-/* ================================
-   PRIMARY SOURCE MATCHING
-================================ */
-
-const primarySourceOptions = [
-    "Constitutional Law",
-    "Statutory Law",
-    "Common Law",
-    "Administrative Law"
-];
-
-
-document
-    .querySelectorAll(".source-match")
-    .forEach(function(select) {
-
-        populateSelect(
-            select,
-            primarySourceOptions,
-            "Select a source"
-        );
-
-    });
-
-
-/* ================================
-   EQUITABLE MAXIMS
-================================ */
-
-const maximOptions = [
-    "Equity Aids the Vigilant",
-    "Substance over Form",
-    "Clean Hands Doctrine"
-];
-
-
-document
-    .querySelectorAll(".maxim-question")
-    .forEach(function(select) {
-
-        populateSelect(
-            select,
-            maximOptions,
-            "Select a maxim"
-        );
-
-    });
-
-
-/* ================================
-   GENERIC ACTIVITY CHECKER
-================================ */
-
-function checkActivity(
-    selector,
-    resultsId
-) {
-
-    const dropdowns =
-        document.querySelectorAll(selector);
-
-    const results =
-        document.getElementById(resultsId);
+    const dropdowns = document.querySelectorAll(selector);
+    const results = document.getElementById(resultsId);
 
     let correctCount = 0;
     let unansweredCount = 0;
 
-
     dropdowns.forEach(function(dropdown) {
 
-        dropdown.classList.remove(
-            "correct",
-            "incorrect"
-        );
+        dropdown.classList.remove("correct", "incorrect");
+        dropdown.removeAttribute("aria-invalid");
+
+        const feedbackId =
+            dropdown.getAttribute("aria-describedby");
+
+        const feedback =
+            feedbackId
+                ? document.getElementById(feedbackId)
+                : null;
+
+        if (feedback) {
+            feedback.textContent = "";
+            feedback.classList.remove(
+                "correct",
+                "incorrect"
+            );
+        }
 
         if (dropdown.value === "") {
 
             unansweredCount++;
 
-            dropdown.classList.add(
-                "incorrect"
+            dropdown.classList.add("incorrect");
+            dropdown.setAttribute(
+                "aria-invalid",
+                "true"
             );
+
+            if (feedback) {
+                feedback.textContent =
+                    "No answer selected.";
+                feedback.classList.add(
+                    "incorrect"
+                );
+            }
 
         }
 
@@ -2198,30 +2000,46 @@ function checkActivity(
 
             correctCount++;
 
-            dropdown.classList.add(
-                "correct"
+            dropdown.classList.add("correct");
+            dropdown.setAttribute(
+                "aria-invalid",
+                "false"
             );
+
+            if (feedback) {
+                feedback.textContent =
+                    "✓ Correct";
+                feedback.classList.add(
+                    "correct"
+                );
+            }
 
         }
 
         else {
 
-            dropdown.classList.add(
-                "incorrect"
+            dropdown.classList.add("incorrect");
+            dropdown.setAttribute(
+                "aria-invalid",
+                "true"
             );
+
+            if (feedback) {
+                feedback.textContent =
+                    "✕ Incorrect. Try again.";
+                feedback.classList.add(
+                    "incorrect"
+                );
+            }
 
         }
 
     });
 
-
     results.style.display = "block";
     results.classList.remove("incomplete");
 
-
-    if (
-        correctCount === dropdowns.length
-    ) {
+    if (correctCount === dropdowns.length) {
 
         results.innerHTML =
             "<strong>Great work!</strong>" +
@@ -2241,7 +2059,7 @@ function checkActivity(
             correctCount +
             " of " +
             dropdowns.length +
-            " items. Review the highlighted responses and try again.";
+            " items.";
 
         if (unansweredCount > 0) {
 
@@ -2254,21 +2072,20 @@ function checkActivity(
 
         }
 
+        message +=
+            " Review the items identified as incorrect and try again.";
+
         results.innerHTML = message;
 
     }
-
 }
 
 
-/* ================================
-   GENERIC ACTIVITY RESET
-================================ */
+/* =========================================================
+   RESET ACTIVITY
+========================================================= */
 
-function resetActivity(
-    selector,
-    resultsId
-) {
+function resetActivity(selector, resultsId) {
 
     const dropdowns =
         document.querySelectorAll(selector);
@@ -2282,6 +2099,33 @@ function resetActivity(
             "incorrect"
         );
 
+        dropdown.removeAttribute(
+            "aria-invalid"
+        );
+
+        const feedbackId =
+            dropdown.getAttribute(
+                "aria-describedby"
+            );
+
+        const feedback =
+            feedbackId
+                ? document.getElementById(
+                    feedbackId
+                )
+                : null;
+
+        if (feedback) {
+
+            feedback.textContent = "";
+
+            feedback.classList.remove(
+                "correct",
+                "incorrect"
+            );
+
+        }
+
     });
 
     const results =
@@ -2293,34 +2137,59 @@ function resetActivity(
 }
 
 
-/* ================================
-   CLEAR FEEDBACK AFTER CHANGE
-================================ */
+/* =========================================================
+   CLEAR OLD FEEDBACK WHEN ANSWER CHANGES
+========================================================= */
 
 document
-    .querySelectorAll(
-        ".hierarchy-select, .source-match, .secondary-question, .maxim-question"
-    )
-    .forEach(function(dropdown) {
+.querySelectorAll("select[data-answer]")
+.forEach(function(dropdown) {
 
-        dropdown.addEventListener(
-            "change",
-            function() {
+    dropdown.addEventListener(
+        "change",
+        function() {
 
-                dropdown.classList.remove(
+            dropdown.classList.remove(
+                "correct",
+                "incorrect"
+            );
+
+            dropdown.removeAttribute(
+                "aria-invalid"
+            );
+
+            const feedbackId =
+                dropdown.getAttribute(
+                    "aria-describedby"
+                );
+
+            const feedback =
+                feedbackId
+                    ? document.getElementById(
+                        feedbackId
+                    )
+                    : null;
+
+            if (feedback) {
+
+                feedback.textContent = "";
+
+                feedback.classList.remove(
                     "correct",
                     "incorrect"
                 );
 
             }
-        );
 
-    });
+        }
+    );
+
+});
 
 
-/* ================================
+/* =========================================================
    FLIP CARDS
-================================ */
+========================================================= */
 
 function flipCard(card) {
 
@@ -2359,19 +2228,12 @@ function flipCard(card) {
         card.setAttribute(
             "aria-label",
             title +
-            ". Press Enter or Space to reveal the definition."
+            ". Press Enter or Space for definition."
         );
 
     }
 
 }
-
-
-/* ================================
-   INITIALIZE
-================================ */
-
-loadLandscapeDropdowns();
 
 </script>
 

@@ -1,0 +1,2366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Constitutional Law and Business</title>
+
+<style>
+:root {
+    --sauk-light: #f4f4f4;
+    --sauk-red: #c8102e;
+    --sauk-dark: #333333;
+    --sauk-white: #ffffff;
+    --sauk-bluegray: #455560;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: var(--sauk-light);
+    color: var(--sauk-dark);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+main {
+    max-width: 1150px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 40px 50px 70px;
+    background-color: var(--sauk-white);
+}
+
+h1 {
+    margin: 0 0 25px;
+    color: var(--sauk-red);
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.2;
+}
+
+h2 {
+    margin: 44px 0 16px;
+    color: var(--sauk-red);
+    font-size: 1.8rem;
+    line-height: 1.3;
+}
+
+h3 {
+    margin: 32px 0 14px;
+    color: var(--sauk-bluegray);
+    font-size: 1.4rem;
+    line-height: 1.3;
+}
+
+h4 {
+    margin: 0 0 12px;
+    color: var(--sauk-bluegray);
+    font-size: 1.15rem;
+}
+
+p {
+    margin: 0 0 18px;
+}
+
+strong {
+    color: var(--sauk-dark);
+}
+
+/* ========================================
+   ACCESSIBILITY
+======================================== */
+
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+button:focus-visible,
+select:focus-visible,
+input:focus-visible,
+.flip-card:focus-visible {
+    outline: 4px solid #333333;
+    outline-offset: 3px;
+}
+
+/* ========================================
+   OVERVIEW
+======================================== */
+
+.overview-box {
+    overflow: hidden;
+    margin-bottom: 38px;
+    border: 1px solid #d7dce0;
+    border-left: 7px solid var(--sauk-red);
+    border-radius: 8px;
+    background-color: var(--sauk-white);
+    box-shadow: 0 3px 10px rgba(0,0,0,.07);
+}
+
+.overview-box h1 {
+    margin: 0;
+    padding: 14px 24px;
+    background-color: var(--sauk-red);
+    color: var(--sauk-white);
+    font-size: 1.55rem;
+}
+
+.overview-content {
+    padding: 23px 25px 10px;
+}
+
+/* ========================================
+   SECTION BREAK
+======================================== */
+
+.section-break {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 50px 0 42px;
+}
+
+.section-break::before,
+.section-break::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background-color: var(--sauk-bluegray);
+}
+
+.section-break span {
+    display: block;
+    width: 14px;
+    height: 14px;
+    background-color: var(--sauk-red);
+    transform: rotate(45deg);
+}
+
+/* ========================================
+   GENERAL ACTIVITY STYLES
+======================================== */
+
+.activity {
+    margin: 24px 0 40px;
+    padding: 25px;
+    border: 1px solid #d8dde0;
+    border-radius: 9px;
+    background-color: #fafafa;
+}
+
+.instructions {
+    margin-bottom: 22px;
+    padding: 15px 18px;
+    border-left: 5px solid var(--sauk-bluegray);
+    border-radius: 0 6px 6px 0;
+    background-color: #eef1f2;
+}
+
+.keyboard-note {
+    margin-top: 10px;
+    font-size: .95rem;
+}
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+button {
+    min-height: 46px;
+    padding: 11px 22px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--sauk-red);
+    color: var(--sauk-white);
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: .9;
+}
+
+button.secondary-button {
+    background-color: var(--sauk-bluegray);
+}
+
+.results {
+    display: none;
+    margin-top: 20px;
+    padding: 15px 18px;
+    border-left: 6px solid var(--sauk-bluegray);
+    background-color: var(--sauk-light);
+}
+
+.results.incomplete {
+    border-left-color: var(--sauk-red);
+}
+
+.results strong {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.answer-feedback {
+    display: block;
+    min-height: 24px;
+    margin-top: 6px;
+    font-size: .9rem;
+    font-weight: bold;
+}
+
+.answer-feedback.correct {
+    color: var(--sauk-bluegray);
+}
+
+.answer-feedback.incorrect {
+    color: var(--sauk-red);
+}
+
+/* ========================================
+   SELECTS / INPUTS
+======================================== */
+
+select,
+input[type="text"] {
+    width: 100%;
+    min-height: 48px;
+    padding: 9px 10px;
+    border: 2px solid var(--sauk-bluegray);
+    border-radius: 5px;
+    background-color: var(--sauk-white);
+    color: var(--sauk-dark);
+    font: inherit;
+    font-size: 15px;
+}
+
+select:hover,
+input[type="text"]:hover {
+    border-color: var(--sauk-dark);
+}
+
+select.correct,
+input[type="text"].correct {
+    border-width: 3px;
+    border-color: var(--sauk-bluegray);
+    background-color: var(--sauk-light);
+}
+
+select.incorrect,
+input[type="text"].incorrect {
+    border-width: 3px;
+    border-color: var(--sauk-red);
+}
+
+/* ========================================
+   ARTICLE MATCHING
+======================================== */
+
+.article-match-grid {
+    display: grid;
+    gap: 14px;
+}
+
+.article-match-row {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 18px;
+    align-items: center;
+    padding: 18px;
+    border: 1px solid #d8dde0;
+    border-radius: 7px;
+    background-color: var(--sauk-white);
+}
+
+.article-label {
+    color: var(--sauk-red);
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* ========================================
+   CHECKS AND BALANCES TABLE
+======================================== */
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--sauk-bluegray);
+    border-radius: 6px;
+}
+
+table {
+    width: 100%;
+    min-width: 800px;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+thead th {
+    padding: 15px 12px;
+    border-right: 1px solid var(--sauk-white);
+    background-color: var(--sauk-bluegray);
+    color: var(--sauk-white);
+    text-align: center;
+}
+
+thead th:first-child {
+    width: 150px;
+}
+
+tbody th {
+    padding: 20px 14px;
+    background-color: var(--sauk-light);
+    text-align: left;
+}
+
+tbody td {
+    padding: 14px 12px;
+    border: 1px solid var(--sauk-light);
+    background-color: var(--sauk-white);
+    vertical-align: top;
+}
+
+/* ========================================
+   CONTENT / CALLOUT BOXES
+======================================== */
+
+.content-box {
+    margin: 25px 0;
+    padding: 22px 25px;
+    border-left: 6px solid var(--sauk-bluegray);
+    background-color: #f7f8f8;
+}
+
+.grey-box {
+    margin: 25px 0;
+    padding: 20px 24px;
+    border-left: 6px solid var(--sauk-bluegray);
+    background-color: var(--sauk-light);
+}
+
+.red-box {
+    margin: 25px 0;
+    padding: 20px 24px;
+    border-left: 6px solid var(--sauk-red);
+    background-color: #fff5f6;
+}
+
+/* ========================================
+   FLIP CARDS
+======================================== */
+
+.flip-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin: 25px 0 38px;
+}
+
+.flip-card {
+    display: block;
+    width: 100%;
+    height: 260px;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: inherit;
+    perspective: 1000px;
+    text-align: center;
+}
+
+.flip-card:hover {
+    opacity: 1;
+}
+
+.flip-card-inner {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: transform .5s ease;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 28px;
+    border: 2px solid var(--sauk-bluegray);
+    border-radius: 9px;
+    align-items: center;
+    justify-content: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.flip-front {
+    background-color: var(--sauk-bluegray);
+    color: var(--sauk-white);
+}
+
+.flip-back {
+    overflow-y: auto;
+    background-color: var(--sauk-white);
+    color: var(--sauk-dark);
+    text-align: left;
+    transform: rotateY(180deg);
+}
+
+.flip-term {
+    display: block;
+    color: var(--sauk-white);
+    font-size: 1.45rem;
+    font-weight: bold;
+}
+
+.flip-prompt {
+    display: block;
+    margin-top: 13px;
+    color: var(--sauk-white);
+    font-size: .9rem;
+    font-weight: normal;
+}
+
+/* ========================================
+   MULTIPLE SELECT / CHECKBOX QUESTIONS
+======================================== */
+
+.question-card {
+    margin: 22px 0;
+    padding: 22px;
+    border: 1px solid #d8dde0;
+    border-radius: 8px;
+    background-color: var(--sauk-white);
+}
+
+.question-heading {
+    margin-bottom: 8px;
+    color: var(--sauk-red);
+    font-weight: bold;
+    font-size: 1.15rem;
+}
+
+.checkbox-list {
+    display: grid;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.checkbox-option {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px 14px;
+    border: 1px solid #cfd5d9;
+    border-radius: 5px;
+    background-color: #fafafa;
+}
+
+.checkbox-option input {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    margin-top: 3px;
+}
+
+.checkbox-option.correct {
+    border: 2px solid var(--sauk-bluegray);
+    background-color: var(--sauk-light);
+}
+
+.checkbox-option.incorrect {
+    border: 2px solid var(--sauk-red);
+}
+
+/* ========================================
+   FILL IN THE BLANK
+======================================== */
+
+.fill-activity {
+    padding: 22px;
+    border: 1px solid #d8dde0;
+    border-radius: 8px;
+    background-color: var(--sauk-white);
+}
+
+.fill-line {
+    margin: 14px 0;
+}
+
+.inline-text-input {
+    display: inline-block;
+    width: 170px !important;
+    min-height: 42px !important;
+    margin: 4px 7px;
+    vertical-align: middle;
+}
+
+/* ========================================
+   SCRUTINY LIST
+======================================== */
+
+.scrutiny-list {
+    display: grid;
+    gap: 16px;
+    margin: 25px 0;
+}
+
+.scrutiny-item {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    gap: 16px;
+    align-items: start;
+    padding: 18px;
+    border-left: 5px solid var(--sauk-red);
+    background-color: #f7f7f7;
+}
+
+.scrutiny-number {
+    display: grid;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border-radius: 50%;
+    background-color: var(--sauk-red);
+    color: var(--sauk-white);
+    font-weight: bold;
+}
+
+/* ========================================
+   COMMERCE SECTION
+======================================== */
+
+.topic-block {
+    margin: 25px 0;
+}
+
+.topic-block h4 {
+    margin-top: 22px;
+    color: var(--sauk-bluegray);
+}
+
+.case-name {
+    font-style: italic;
+}
+
+/* ========================================
+   CONSTITUTIONAL PROTECTIONS
+======================================== */
+
+.protection-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 25px;
+}
+
+.protection-card {
+    overflow: hidden;
+    border: 2px solid var(--sauk-bluegray);
+    border-radius: 9px;
+    background-color: var(--sauk-white);
+}
+
+.protection-title {
+    padding: 14px 20px;
+    background-color: var(--sauk-bluegray);
+    color: var(--sauk-white);
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.protection-body {
+    padding: 22px;
+}
+
+.protection-card.full {
+    grid-column: 1 / -1;
+}
+
+.mini-heading {
+    margin-top: 20px;
+    margin-bottom: 6px;
+    color: var(--sauk-red);
+    font-weight: bold;
+}
+
+.compact-list {
+    margin-top: 8px;
+    padding-left: 24px;
+}
+
+.compact-list li {
+    margin-bottom: 7px;
+}
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 800px) {
+
+    main {
+        padding: 28px 20px 55px;
+    }
+
+    .article-match-row,
+    .flip-grid,
+    .protection-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .protection-card.full {
+        grid-column: auto;
+    }
+
+    .flip-card {
+        height: 300px;
+    }
+
+    .inline-text-input {
+        display: block;
+        width: 100% !important;
+        margin: 8px 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition: none !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main id="main-content">
+
+<!-- ========================================
+     OVERVIEW
+======================================== -->
+
+<section class="overview-box" aria-labelledby="overview-heading">
+
+<h1 id="overview-heading">Overview</h1>
+
+<div class="overview-content">
+
+<p>
+This chapter begins with a very brief history and description of the structure of the U.S. Constitution with a focus on the first three articles and the powers of Congress (especially the Commerce Clause). As a practical matter, it may be best to assume that students have only a very basic knowledge of the purpose, history or challenges associated with having a written constitution. Making the leap between understanding the nature of the constitution and how it impacts business entities can be a significant hurdle for students. Therefore, the chapter first lays out the nuts and bolts, then covers black letter law, and concludes with applications and impact of the constitutional principles in a business context.
+</p>
+
+</div>
+</section>
+
+<!-- ========================================
+     ARTICLES MATCHING
+======================================== -->
+
+<section aria-labelledby="articles-heading">
+
+<h2 id="articles-heading">Overview of Articles in the U.S. Constitution</h2>
+
+<p>
+The seven articles establish the structure and operation of the federal government and address the relationship among the federal government, the states, and the Constitution itself. Match each article with its correct description.
+</p>
+
+<div class="activity">
+
+<div class="instructions">
+<strong>Instructions:</strong> Use the drop-down menu beside each article to select the description that best matches it. When finished, select <strong>Check Answers</strong>.
+
+<div class="keyboard-note">
+<strong>Screen-reader and keyboard users:</strong> Tab to each drop-down menu. In Windows browsers, press <strong>Alt + Down Arrow</strong> to open the choices, use the Up and Down Arrow keys to review them, and press Enter to make your selection.
+</div>
+</div>
+
+<div class="article-match-grid">
+
+<!-- ARTICLE I -->
+
+<div class="article-match-row">
+
+<div class="article-label">Article I</div>
+
+<div>
+<label class="sr-only" for="article1">
+Select the description for Article I
+</label>
+
+<select
+id="article1"
+class="article-match"
+data-answer="legislative"
+aria-describedby="feedback-article1">
+
+<option value="">Select a description</option>
+<option value="amendments">Describes the process for amending the Constitution in the future.</option>
+<option value="judicial">Establishes the judicial branch, including a Supreme Court, and grants judicial powers.</option>
+<option value="legislative">Establishes the legislative branch, including the House and Senate; sets qualifications for members of Congress; grants congressional lawmaking powers.</option>
+<option value="ratification">Lists the requirements for ratification of the Constitution.</option>
+<option value="executive">Establishes the executive branch and presidency; sets presidential qualifications; grants executive powers to enforce laws.</option>
+<option value="states">Establishes the relationship between the states and federal government and addresses territories and admission of new states.</option>
+<option value="supremacy">Establishes the Constitution and federal law as supreme law; authorizes national debt; requires public officials to support the Constitution.</option>
+
+</select>
+
+<span id="feedback-article1" class="answer-feedback" aria-live="polite"></span>
+</div>
+
+</div>
+
+<!-- ARTICLE II -->
+
+<div class="article-match-row">
+
+<div class="article-label">Article II</div>
+
+<div>
+<label class="sr-only" for="article2">
+Select the description for Article II
+</label>
+
+<select
+id="article2"
+class="article-match"
+data-answer="executive"
+aria-describedby="feedback-article2">
+
+<option value="">Select a description</option>
+<option value="states">Establishes the relationship between the states and federal government and addresses territories and admission of new states.</option>
+<option value="executive">Establishes the executive branch and presidency; sets presidential qualifications; grants executive powers to enforce laws.</option>
+<option value="ratification">Lists the requirements for ratification of the Constitution.</option>
+<option value="legislative">Establishes the legislative branch, including the House and Senate; sets qualifications for members of Congress; grants congressional lawmaking powers.</option>
+<option value="supremacy">Establishes the Constitution and federal law as supreme law; authorizes national debt; requires public officials to support the Constitution.</option>
+<option value="judicial">Establishes the judicial branch, including a Supreme Court, and grants judicial powers.</option>
+<option value="amendments">Describes the process for amending the Constitution in the future.</option>
+
+</select>
+
+<span id="feedback-article2" class="answer-feedback" aria-live="polite"></span>
+</div>
+
+</div>
+
+<!-- ARTICLE III -->
+
+<div class="article-match-row">
+
+<div class="article-label">Article III</div>
+
+<div>
+<label class="sr-only" for="article3">
+Select the description for Article III
+</label>
+
+<select
+id="article3"
+class="article-match"
+data-answer="judicial"
+aria-describedby="feedback-article3">
+
+<option value="">Select a description</option>
+<option value="supremacy">Establishes the Constitution and federal law as supreme law; authorizes national debt; requires public officials to support the Constitution.</option>
+<option value="judicial">Establishes the judicial branch, including a Supreme Court, and grants judicial powers.</option>
+<option value="states">Establishes the relationship between the states and federal government and addresses territories and admission of new states.</option>
+<option value="legislative">Establishes the legislative branch, including the House and Senate; sets qualifications for members of Congress; grants congressional lawmaking powers.</option>
+<option value="amendments">Describes the process for amending the Constitution in the future.</option>
+<option value="executive">Establishes the executive branch and presidency; sets presidential qualifications; grants executive powers to enforce laws.</option>
+<option value="ratification">Lists the requirements for ratification of the Constitution.</option>
+
+</select>
+
+<span id="feedback-article3" class="answer-feedback" aria-live="polite"></span>
+</div>
+
+</div>
+
+<!-- ARTICLE IV -->
+
+<div class="article-match-row">
+
+<div class="article-label">Article IV</div>
+
+<div>
+<label class="sr-only" for="article4">
+Select the description for Article IV
+</label>
+
+<select
+id="article4"
+class="article-match"
+data-answer="states"
+aria-describedby="feedback-article4">
+
+<option value="">Select a description</option>
+<option value="executive">Establishes the executive branch and presidency; sets presidential qualifications; grants executive powers to enforce laws.</option>
+<option value="states">Establishes the relationship between the states and federal government and addresses territories and admission of new states.</option>
+<option value="judicial">Establishes the judicial branch, including a Supreme Court, and grants judicial powers.</option>
+<option value="supremacy">Establishes the Constitution and federal law as supreme law; authorizes national debt; requires public officials to support the Constitution.</option>
+<option value="ratification">Lists the requirements for ratification of the Constitution.</option>
+<option value="amendments">Describes the process for amending the Constitution in the future.</option>
+<option value="legislative">Establishes the legislative branch, including the House and Senate; sets qualifications for members of Congress; grants congressional lawmaking powers.</option>
+
+</select>
+
+<span id="feedback-article4" class="answer-feedback" aria-live="polite"></span>
+</div>
+
+</div>
+
+<!-- ARTICLE V -->
+
+<div class="article-match-row">
+
+<div class="article-label">Article V</div>
+
+<div>
+<label class="sr-only" for="article5">
+Select the description for Article V
+</label>
+
+<select
+id="article5"
+class="article-match"
+data-answer="amendments"
+aria-describedby="feedback-article5">
+
+<option value="">Select a description</option>
+<option value="ratification">Lists the requirements for ratification of the Constitution.</option>
+<option value="legislative">Establishes the legislative branch, including the House and Senate; sets qualifications for members of Congress; grants congressional lawmaking powers.</option>
+<option value="amendments">Describes the process for amending the Constitution in the future.</option>
+<option value="states">Establishes the relationship between the states and federal government and addresses territories and admission of new states.</option>
+<option value="judicial">Establishes the judicial branch, including a Supreme Court, and grants judicial powers.</option>
+<option value="supremacy">Establishes the Constitution and federal law as supreme law; authorizes national debt; requires public officials to support the Constitution.</option>
+<option value="executive">Establishes the executive branch and presidency; sets presidential qualifications; grants executive powers to enforce laws.</option>
+
+</select>
+
+<span id="feedback-article5" class="answer-feedback" aria-live="polite"></span>
+</div>
+
+</div>
+
+<!-- ARTICLE VI -->
+
+<div class="article-match-row">
+
+<div class="article-label">Article VI</div>
+
+<div>
+<label class="sr-only" for="article6">
+Select the description for Article VI
+</label>
+
+<select
+id="article6"
+class="article-match"
+data-answer="supremacy"
+aria-describedby="feedback-article6">
+
+<option value="">Select a description</option>
+<option value="judicial">Establishes the judicial branch, including a Supreme Court, and grants judicial powers.</option>
+<option value="supremacy">Establishes the Constitution and federal law as supreme law; authorizes national debt; requires public officials to support the Constitution.</option>
+<option value="executive">Establishes the executive branch and presidency; sets presidential qualifications; grants executive powers to enforce laws.</option>
+<option value="amendments">Describes the process for amending the Constitution in the future.</option>
+<option value="states">Establishes the relationship between the states and federal government and addresses territories and admission of new states.</option>
+<option value="legislative">Establishes the legislative branch, including the House and Senate; sets qualifications for members of Congress; grants congressional lawmaking powers.</option>
+<option value="ratification">Lists the requirements for ratification of the Constitution.</option>
+
+</select>
+
+<span id="feedback-article6" class="answer-feedback" aria-live="polite"></span>
+</div>
+
+</div>
+
+<!-- ARTICLE VII -->
+
+<div class="article-match-row">
+
+<div class="article-label">Article VII</div>
+
+<div>
+<label class="sr-only" for="article7">
+Select the description for Article VII
+</label>
+
+<select
+id="article7"
+class="article-match"
+data-answer="ratification"
+aria-describedby="feedback-article7">
+
+<option value="">Select a description</option>
+<option value="states">Establishes the relationship between the states and federal government and addresses territories and admission of new states.</option>
+<option value="ratification">Lists the requirements for ratification of the Constitution.</option>
+<option value="supremacy">Establishes the Constitution and federal law as supreme law; authorizes national debt; requires public officials to support the Constitution.</option>
+<option value="legislative">Establishes the legislative branch, including the House and Senate; sets qualifications for members of Congress; grants congressional lawmaking powers.</option>
+<option value="executive">Establishes the executive branch and presidency; sets presidential qualifications; grants executive powers to enforce laws.</option>
+<option value="judicial">Establishes the judicial branch, including a Supreme Court, and grants judicial powers.</option>
+<option value="amendments">Describes the process for amending the Constitution in the future.</option>
+
+</select>
+
+<span id="feedback-article7" class="answer-feedback" aria-live="polite"></span>
+</div>
+
+</div>
+
+</div>
+
+<div class="button-row">
+
+<button type="button"
+onclick="checkSelectActivity('.article-match','article-results')">
+Check Answers
+</button>
+
+<button type="button"
+class="secondary-button"
+onclick="resetSelectActivity('.article-match','article-results')">
+Retry
+</button>
+
+</div>
+
+<div id="article-results"
+class="results"
+role="status"
+aria-live="polite"></div>
+
+</div>
+</section>
+
+<!-- ========================================
+     CHECKS AND BALANCES
+======================================== -->
+
+<section aria-labelledby="checks-heading">
+
+<h2 id="checks-heading">Constitutional Checks and Balances</h2>
+
+<p>
+The separation of powers gives each branch distinct authority while also giving each branch ways to limit or check the power of the others. Complete the table below.
+</p>
+
+<div class="activity">
+
+<div class="instructions">
+<strong>Instructions:</strong> Select the correct power and the governmental power that it checks for each branch.
+
+<div class="keyboard-note">
+<strong>Screen-reader and keyboard users:</strong> Tab to each drop-down menu. In Windows browsers, press Alt + Down Arrow to open the choices, use the Arrow keys to review them, and press Enter to select an answer.
+</div>
+</div>
+
+<div class="table-wrapper">
+
+<table>
+
+<caption class="sr-only">
+Constitutional checks and balances activity matching each branch with its power and the governmental authority that power checks.
+</caption>
+
+<thead>
+<tr>
+<th scope="col">Branch</th>
+<th scope="col">Power</th>
+<th scope="col">Power Checked</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+
+<th scope="row">Executive</th>
+
+<td>
+<label class="sr-only" for="executive-power">
+Executive branch power
+</label>
+
+<select
+id="executive-power"
+class="checks-select"
+data-answer="Veto"
+aria-describedby="feedback-executive-power">
+
+<option value="">Select a power</option>
+<option value="Invalidate a law as unconstitutional">Invalidate a law as unconstitutional</option>
+<option value="Veto">Veto</option>
+<option value="Impeach and remove">Impeach and remove</option>
+
+</select>
+
+<span id="feedback-executive-power"
+class="answer-feedback"
+aria-live="polite"></span>
+</td>
+
+<td>
+<label class="sr-only" for="executive-checked">
+Power checked by the executive branch
+</label>
+
+<select
+id="executive-checked"
+class="checks-select"
+data-answer="Congress's lawmaking authority"
+aria-describedby="feedback-executive-checked">
+
+<option value="">Select the power checked</option>
+<option value="Presidential misconduct and federal judicial power">Presidential misconduct and federal judicial power</option>
+<option value="Congress's authority to make laws; president's authority to enforce laws">Congress's authority to make laws; president's authority to enforce laws</option>
+<option value="Congress's lawmaking authority">Congress's lawmaking authority</option>
+
+</select>
+
+<span id="feedback-executive-checked"
+class="answer-feedback"
+aria-live="polite"></span>
+</td>
+
+</tr>
+
+<tr>
+
+<th scope="row">Legislative</th>
+
+<td>
+<label class="sr-only" for="legislative-power">
+Legislative branch power
+</label>
+
+<select
+id="legislative-power"
+class="checks-select"
+data-answer="Impeach and remove"
+aria-describedby="feedback-legislative-power">
+
+<option value="">Select a power</option>
+<option value="Veto">Veto</option>
+<option value="Impeach and remove">Impeach and remove</option>
+<option value="Invalidate a law as unconstitutional">Invalidate a law as unconstitutional</option>
+
+</select>
+
+<span id="feedback-legislative-power"
+class="answer-feedback"
+aria-live="polite"></span>
+</td>
+
+<td>
+<label class="sr-only" for="legislative-checked">
+Power checked by the legislative branch
+</label>
+
+<select
+id="legislative-checked"
+class="checks-select"
+data-answer="Presidential misconduct and federal judicial power"
+aria-describedby="feedback-legislative-checked">
+
+<option value="">Select the power checked</option>
+<option value="Congress's lawmaking authority">Congress's lawmaking authority</option>
+<option value="Presidential misconduct and federal judicial power">Presidential misconduct and federal judicial power</option>
+<option value="Congress's authority to make laws; president's authority to enforce laws">Congress's authority to make laws; president's authority to enforce laws</option>
+
+</select>
+
+<span id="feedback-legislative-checked"
+class="answer-feedback"
+aria-live="polite"></span>
+</td>
+
+</tr>
+
+<tr>
+
+<th scope="row">Judicial</th>
+
+<td>
+<label class="sr-only" for="judicial-power">
+Judicial branch power
+</label>
+
+<select
+id="judicial-power"
+class="checks-select"
+data-answer="Invalidate a law as unconstitutional"
+aria-describedby="feedback-judicial-power">
+
+<option value="">Select a power</option>
+<option value="Impeach and remove">Impeach and remove</option>
+<option value="Invalidate a law as unconstitutional">Invalidate a law as unconstitutional</option>
+<option value="Veto">Veto</option>
+
+</select>
+
+<span id="feedback-judicial-power"
+class="answer-feedback"
+aria-live="polite"></span>
+</td>
+
+<td>
+<label class="sr-only" for="judicial-checked">
+Power checked by the judicial branch
+</label>
+
+<select
+id="judicial-checked"
+class="checks-select"
+data-answer="Congress's authority to make laws; president's authority to enforce laws"
+aria-describedby="feedback-judicial-checked">
+
+<option value="">Select the power checked</option>
+<option value="Congress's authority to make laws; president's authority to enforce laws">Congress's authority to make laws; president's authority to enforce laws</option>
+<option value="Congress's lawmaking authority">Congress's lawmaking authority</option>
+<option value="Presidential misconduct and federal judicial power">Presidential misconduct and federal judicial power</option>
+
+</select>
+
+<span id="feedback-judicial-checked"
+class="answer-feedback"
+aria-live="polite"></span>
+</td>
+
+</tr>
+
+</tbody>
+</table>
+
+</div>
+
+<div class="button-row">
+
+<button type="button"
+onclick="checkSelectActivity('.checks-select','checks-results')">
+Check Answers
+</button>
+
+<button type="button"
+class="secondary-button"
+onclick="resetSelectActivity('.checks-select','checks-results')">
+Retry
+</button>
+
+</div>
+
+<div id="checks-results"
+class="results"
+role="status"
+aria-live="polite"></div>
+
+</div>
+
+</section>
+
+<div class="section-break" aria-hidden="true"><span></span></div>
+
+<!-- ========================================
+     BASIC CONSTITUTION STRUCTURE
+======================================== -->
+
+<section>
+
+<p>
+The United States uses a <strong>federal system</strong> in which a national government with limited regulatory powers granted by the Constitution <strong>coexists</strong> with the government of each state. The Constitution establishes the <strong>structure</strong> of the federal government and the rules for amending the document, grants <strong>specific powers</strong> to the different branches of government, and provides <strong>procedural protections</strong> for U.S. citizens against wrongful government action.
+</p>
+
+<p>
+The Constitution is composed of a preamble, seven articles, and 27 amendments. The preamble states the Constitution's broad objectives, while the articles establish governmental structure, powers, and procedures. The Constitution also establishes boundaries of jurisdiction. <strong>Amendments</strong> are additions or changes to the Constitution, and the first 10 amendments make up the Bill of Rights.
+</p>
+
+<h2>Overview of Federal Powers</h2>
+
+<p>
+Federal legislation or regulation must be authorized by a specific, <strong>enumerated</strong> power in the Constitution, and these powers are limited in scope.
+</p>
+
+<div class="flip-grid">
+
+<button
+type="button"
+class="flip-card"
+aria-expanded="false"
+aria-label="Separation of Powers. Press Enter or Space for definition."
+onclick="flipCard(this)">
+
+<span class="flip-card-inner">
+
+<span class="flip-front">
+<span>
+<span class="flip-term">Separation of Powers</span>
+<span class="flip-prompt">Click for definition</span>
+</span>
+</span>
+
+<span class="flip-back">
+The system of checks and balances whereby the three branches have unique powers that allow them to resolve conflicts among themselves, thus ensuring no one branch exceeds its constitutional authority.
+</span>
+
+</span>
+
+</button>
+
+<button
+type="button"
+class="flip-card"
+aria-expanded="false"
+aria-label="Judicial Review. Press Enter or Space for definition."
+onclick="flipCard(this)">
+
+<span class="flip-card-inner">
+
+<span class="flip-front">
+<span>
+<span class="flip-term">Judicial Review</span>
+<span class="flip-prompt">Click for definition</span>
+</span>
+</span>
+
+<span class="flip-back">
+Federal courts have the right to <strong>invalidate state or federal laws</strong> that are inconsistent with the U.S. Constitution.
+</span>
+
+</span>
+
+</button>
+
+</div>
+
+</section>
+
+<!-- ========================================
+     ARTICLES I - III ACTIVITY
+======================================== -->
+
+<section aria-labelledby="powers-heading">
+
+<h2 id="powers-heading">Powers Under Articles I–III</h2>
+
+<div class="activity">
+
+<!-- ARTICLE I -->
+
+<div class="question-card">
+
+<div class="question-heading">Article I – Congressional Powers</div>
+
+<p>
+The primary authorization of constitutional powers is given to Congress in <em>Article I, Section 8</em> of the Constitution. Which of the answers below represent Congress's impact on business? <strong>Select all that apply.</strong>
+</p>
+
+<fieldset style="border:0; padding:0; margin:0;">
+
+<legend class="sr-only">
+Select all Article I congressional powers that affect business
+</legend>
+
+<div class="checkbox-list">
+
+<label class="checkbox-option" id="article1-option1">
+<input type="checkbox"
+class="article1-check"
+data-correct="true">
+<span>Regulate commerce</span>
+</label>
+
+<label class="checkbox-option" id="article1-option2">
+<input type="checkbox"
+class="article1-check"
+data-correct="true">
+<span>Power to tax and spend government funds</span>
+</label>
+
+<label class="checkbox-option" id="article1-option3">
+<input type="checkbox"
+class="article1-check"
+data-correct="true">
+<span>Regulate bankruptcy, patents, and copyrights</span>
+</label>
+
+<label class="checkbox-option" id="article1-option4">
+<input type="checkbox"
+class="article1-check"
+data-correct="false">
+<span>Power to enter into treaties</span>
+</label>
+
+</div>
+
+</fieldset>
+
+<div class="button-row">
+
+<button type="button"
+onclick="checkCheckboxQuestion('.article1-check','article1-results')">
+Check Article I
+</button>
+
+<button type="button"
+class="secondary-button"
+onclick="resetCheckboxQuestion('.article1-check','article1-results')">
+Retry
+</button>
+
+</div>
+
+<div id="article1-results"
+class="results"
+role="status"
+aria-live="polite"></div>
+
+</div>
+
+<!-- ARTICLE II -->
+
+<div class="question-card">
+
+<div class="question-heading">Article II – Executive Powers</div>
+
+<p>
+The president is the chief executive of the United States and the commander-in-chief of the armed forces. Presidential powers that affect business include which of the following? <strong>Select all that apply.</strong>
+</p>
+
+<fieldset style="border:0; padding:0; margin:0;">
+
+<legend class="sr-only">
+Select all Article II presidential powers that affect business
+</legend>
+
+<div class="checkbox-list">
+
+<label class="checkbox-option">
+<input type="checkbox"
+class="article2-check"
+data-correct="true">
+<span>The power to carry out laws made by Congress</span>
+</label>
+
+<label class="checkbox-option">
+<input type="checkbox"
+class="article2-check"
+data-correct="true">
+<span>The power to enter into treaties and carry out foreign policy</span>
+</label>
+
+<label class="checkbox-option">
+<input type="checkbox"
+class="article2-check"
+data-correct="true">
+<span>The power to appoint federal officers and judges</span>
+</label>
+
+<label class="checkbox-option">
+<input type="checkbox"
+class="article2-check"
+data-correct="false">
+<span>Maintains jurisdiction of federal courts</span>
+</label>
+
+</div>
+
+</fieldset>
+
+<div class="button-row">
+
+<button type="button"
+onclick="checkCheckboxQuestion('.article2-check','article2-results')">
+Check Article II
+</button>
+
+<button type="button"
+class="secondary-button"
+onclick="resetCheckboxQuestion('.article2-check','article2-results')">
+Retry
+</button>
+
+</div>
+
+<div id="article2-results"
+class="results"
+role="status"
+aria-live="polite"></div>
+
+</div>
+
+<!-- ARTICLE III -->
+
+<div class="question-card">
+
+<div class="question-heading">Article III – Judicial Powers</div>
+
+<p>
+The federal judiciary adjudicates (decides) cases and controversies that fall within its authority. Complete the sentences below.
+</p>
+
+<div class="instructions">
+<strong>Instructions:</strong> Type the correct word into each blank. Capitalization does not matter.
+
+<div class="keyboard-note">
+<strong>Screen-reader and keyboard users:</strong> Use Tab to move from one blank to the next.
+</div>
+</div>
+
+<div class="fill-activity">
+
+<p class="fill-line">
+In addition to providing for the creation of federal courts, the Constitution also establishes the boundaries of
+
+<label class="sr-only" for="blank1">
+First blank. The Constitution establishes the boundaries of what?
+</label>
+
+<input type="text"
+id="blank1"
+class="article3-blank inline-text-input"
+data-answer="jurisdiction"
+autocomplete="off"
+aria-describedby="feedback-blank1">
+
+of federal courts.
+
+<span id="feedback-blank1"
+class="answer-feedback"
+aria-live="polite"></span>
+</p>
+
+<p class="fill-line">
+
+<label class="sr-only" for="blank2">
+Second blank. What is the legal authority of a court to decide a case?
+</label>
+
+<input type="text"
+id="blank2"
+class="article3-blank inline-text-input"
+data-answer="jurisdiction"
+autocomplete="off"
+aria-describedby="feedback-blank2">
+
+is the legal authority of a court to decide a case.
+
+<span id="feedback-blank2"
+class="answer-feedback"
+aria-live="polite"></span>
+</p>
+
+<p class="fill-line">
+Both the
+
+<label class="sr-only" for="blank3">
+Third blank. Which Constitution establishes federal jurisdiction?
+</label>
+
+<input type="text"
+id="blank3"
+class="article3-blank inline-text-input"
+data-answer="U.S."
+data-alternate="US|U.S|United States"
+autocomplete="off"
+aria-describedby="feedback-blank3">
+
+Constitution and individual
+
+<label class="sr-only" for="blank4">
+Fourth blank. What type of constitutions establish jurisdiction for state matters?
+</label>
+
+<input type="text"
+id="blank4"
+class="article3-blank inline-text-input"
+data-answer="state"
+autocomplete="off"
+aria-describedby="feedback-blank4">
+
+constitutions contain language that establishes jurisdiction for certain matters to be heard by certain courts.
+
+<span id="feedback-blank3"
+class="answer-feedback"
+aria-live="polite"></span>
+
+<span id="feedback-blank4"
+class="answer-feedback"
+aria-live="polite"></span>
+</p>
+
+</div>
+
+<div class="button-row">
+
+<button type="button"
+onclick="checkTextActivity('.article3-blank','article3-results')">
+Check Article III
+</button>
+
+<button type="button"
+class="secondary-button"
+onclick="resetTextActivity('.article3-blank','article3-results')">
+Retry
+</button>
+
+</div>
+
+<div id="article3-results"
+class="results"
+role="status"
+aria-live="polite"></div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ========================================
+     STANDARDS OF REVIEW
+======================================== -->
+
+<section>
+
+<h2>Applying the Constitution: Standards of Review</h2>
+
+<p>
+When reviewing a government action for constitutional soundness, the Court classifies the action into one of three categories of <strong>scrutiny</strong>: rational basis review, intermediate-level scrutiny, or strict scrutiny.
+</p>
+
+<div class="scrutiny-list">
+
+<div class="scrutiny-item">
+
+<div class="scrutiny-number">1</div>
+
+<div>
+<strong>Rational Basis:</strong>
+The government need only show that its action advanced a legitimate government objective and that the action was minimally related to that objective.
+</div>
+
+</div>
+
+<div class="scrutiny-item">
+
+<div class="scrutiny-number">2</div>
+
+<div>
+<strong>Intermediate-Level Scrutiny:</strong>
+The government must prove that its action advanced an important government objective and that the action is substantially related to that objective.
+</div>
+
+</div>
+
+<div class="scrutiny-item">
+
+<div class="scrutiny-number">3</div>
+
+<div>
+<strong>Strict Scrutiny:</strong>
+The government's objective must be compelling; the means chosen must be necessary to achieve that compelling objective; and no less-restrictive alternative can exist.
+</div>
+
+</div>
+
+</div>
+
+<div class="grey-box">
+<strong>The Supremacy Clause and Preemption:</strong>
+Under the Supremacy Clause, federal laws preempt, or override, conflicting state laws.
+</div>
+
+</section>
+
+<!-- ========================================
+     COMMERCE CLAUSE
+======================================== -->
+
+<section>
+
+<h2>The Commerce Clause</h2>
+
+<div class="topic-block">
+
+<p>
+Congress's <strong>broadest power</strong> is derived from the Commerce Clause, which gives Congress authority to regulate commerce among the states. This authority gives Congress broad power over people, products, transactions, and activities sufficiently connected to interstate commerce.
+</p>
+
+<p>
+Congress may regulate the <strong>channels of interstate commerce</strong>, the instrumentalities used in interstate commerce, articles moving through interstate commerce, and intrastate activity that has a substantial economic effect on interstate commerce. The Supreme Court has even permitted federal regulation of a product cultivated for noncommercial purposes entirely within one state when the activity was considered <strong>sufficiently related</strong> to interstate commerce, as illustrated by <span class="case-name">Gonzales v. Raich</span>.
+</p>
+
+<h4>The Commerce Clause and Civil Rights</h4>
+
+<p>
+Congress has also used its commerce power to support civil-rights legislation. In the Civil Rights Act of 1964, Congress relied on the Commerce Clause to <strong>ban discrimination</strong> in places of public accommodation, including privately owned restaurants and hotels. Cases such as <span class="case-name">Katzenbach v. McClung</span> and <span class="case-name">Heart of Atlanta Motel v. United States</span> illustrate this use of federal commerce power.
+</p>
+
+<h4>Noncommercial Activity</h4>
+
+<p>
+Congressional commerce authority is not unlimited. When an activity is primarily noncommercial, the activity Congress seeks to regulate must have a sufficient connection to a <strong>legitimate economic interest</strong>. Cases such as <span class="case-name">United States v. Lopez</span> and <span class="case-name">United States v. Morrison</span> illustrate limits on Congress's commerce power.
+</p>
+
+<h4>State Regulation and the Dormant Commerce Clause</h4>
+
+<p>
+States may regulate commerce that crosses their borders when the regulation is a <strong>legitimate effort to protect health, safety, and welfare</strong> and does not discriminate against interstate commerce. The Dormant Commerce Clause reflects the principle that states generally may not discriminate against or place an undue burden on interstate commerce.
+</p>
+
+</div>
+
+<div class="content-box">
+
+<h3 style="margin-top:0;">Tax and Spend Power</h3>
+
+<p>
+Congress has the power to <strong>tax</strong> the citizenry and <strong>spend</strong> federal funds in ways that promote the <strong>common defense and general welfare</strong>.
+</p>
+
+<p>
+Under the <strong>Necessary and Proper Clause</strong>, Congress may also attach <strong>conditions</strong> to the use of federal money in order to accomplish public-policy objectives, as illustrated by <span class="case-name">South Dakota v. Dole</span>.
+</p>
+
+</div>
+
+</section>
+
+<div class="section-break" aria-hidden="true"><span></span></div>
+
+<!-- ========================================
+     CONSTITUTIONAL PROTECTIONS
+======================================== -->
+
+<section aria-labelledby="protections-heading">
+
+<h2 id="protections-heading">Constitutional Protections</h2>
+
+<p>
+The Bill of Rights contains protections for citizens from unlawful or repressive acts by government and guarantees rights of due process. Corporations and other business entities, however, do not always receive the same level of constitutional protection as individuals.
+</p>
+
+<div class="protection-grid">
+
+<!-- FIRST AMENDMENT -->
+
+<article class="protection-card">
+
+<div class="protection-title">
+The First Amendment
+</div>
+
+<div class="protection-body">
+
+<p>
+The First Amendment begins with the important phrase <strong>“Congress shall make no law”</strong> and protects religion, press, speech, assembly, and the right to petition the government.
+</p>
+
+<div class="mini-heading">Limits on Free Speech</div>
+
+<p>
+First Amendment protection is broad but <strong>not absolute</strong>. Government may impose reasonable restrictions related to the time, place, and manner of expression in appropriate circumstances.
+</p>
+
+<div class="mini-heading">Commercial Speech</div>
+
+<p>
+Commercial speech, especially advertising, receives <strong>partial First Amendment protection</strong> when it concerns lawful activity and is truthful. <span class="case-name">Virginia State Board of Pharmacy v. Virginia Citizens Consumer Council</span> helped establish constitutional protection for truthful commercial advertising.
+</p>
+
+<p>
+<span class="case-name">Central Hudson Gas v. Public Service Commission</span> established a four-part framework for evaluating government restrictions on commercial speech:
+</p>
+
+<ol class="compact-list">
+<li>The speech must concern lawful activity and not be misleading.</li>
+<li>The government must have a <strong>substantial interest</strong> in regulating it.</li>
+<li>The restriction must directly <strong>advance</strong> the government's asserted interest.</li>
+<li>The restriction must be <strong>no more extensive than necessary</strong> to achieve that interest.</li>
+</ol>
+
+<div class="mini-heading">Advertising and Obscenity</div>
+
+<p>
+Government regulation of potentially offensive or obscene commercial advertising is subject to constitutional scrutiny, as illustrated by <span class="case-name">Bad Frog Brewery, Inc. v. New York State Liquor Authority</span>.
+</p>
+
+<div class="mini-heading">Corporate Political Speech</div>
+
+<p>
+Political speech by corporations generally receives strong First Amendment protection. In <span class="case-name">Citizens United v. Federal Election Commission</span>, the Supreme Court held that government may not prohibit all independent political spending by corporations in candidate elections.
+</p>
+
+</div>
+
+</article>
+
+<!-- FOURTH AMENDMENT -->
+
+<article class="protection-card">
+
+<div class="protection-title">
+The Fourth Amendment
+</div>
+
+<div class="protection-body">
+
+<p>
+<strong>Basic requirement:</strong> A warrantless search or seizure by a government actor is generally unlawful unless an exception applies.
+</p>
+
+<div class="mini-heading">Common Exceptions</div>
+
+<ul class="compact-list">
+<li>Exigent circumstances</li>
+<li>Consensual searches</li>
+<li>Searches incident to arrest</li>
+<li>Plain-view doctrine</li>
+<li><em>Terry</em> stops</li>
+</ul>
+
+<div class="mini-heading">Expectation of Privacy</div>
+
+<p>
+Fourth Amendment protection generally depends on whether a person has a reasonable expectation of privacy. Items knowingly exposed to the public are generally not protected in the same way as one's body, clothing, or personal belongings. Public records and observable personal characteristics generally carry less expectation of privacy.
+</p>
+
+<div class="mini-heading">Reasonableness</div>
+
+<p>
+Courts evaluate Fourth Amendment reasonableness using the <strong>totality of the circumstances</strong>.
+</p>
+
+<div class="mini-heading">Searches and Seizures</div>
+
+<ul class="compact-list">
+<li><strong>Physical searches:</strong> May include traditional searches as well as certain dog sniffs or electronic surveillance.</li>
+<li><strong>Seizure of a person:</strong> Occurs when government detains a person so that the person is not free to leave.</li>
+<li><strong>Seizure of property:</strong> Occurs when government meaningfully interferes with a person's possessory interest in property.</li>
+<li><strong>Electronic searches:</strong> Technology-based surveillance can raise Fourth Amendment issues.</li>
+</ul>
+
+<div class="mini-heading">Privacy and the USA Patriot Act</div>
+
+<p>
+The USA Patriot Act, enacted after the September 11, 2001 terrorist attacks, expanded government authority in certain terrorism-related investigations involving financial records, communications, and Internet activity.
+</p>
+
+<p>
+Although the Constitution does not expressly state a general right to privacy, Supreme Court decisions have recognized privacy interests derived from several constitutional protections. Congress has also enacted statutory privacy protections governing particular types of information.
+</p>
+
+<div class="mini-heading">Workplace Privacy</div>
+
+<p>
+Many constitutional privacy protections restrict <strong>government</strong> action and therefore do not automatically apply to private workplaces. However, federal and state statutes increasingly shape privacy obligations for employers and employees.
+</p>
+
+</div>
+
+</article>
+
+<!-- DUE PROCESS -->
+
+<article class="protection-card full">
+
+<div class="protection-title">
+Due Process
+</div>
+
+<div class="protection-body">
+
+<p>
+The Due Process Clauses of the Fifth and Fourteenth Amendments protect individuals from being deprived of <strong>“life, liberty, or property”</strong> without due process of law.
+</p>
+
+<p>
+The <strong>Fourteenth Amendment</strong> makes many protections contained in the Bill of Rights applicable to state governments.
+</p>
+
+<p>
+Due process serves two major purposes. First, it imposes <strong>procedural requirements</strong> on federal and state governments before they may deprive a person of protected interests. Second, it limits the <strong>substantive power of government</strong> to regulate certain areas involving individual liberties.
+</p>
+
+<p>
+<strong>Equal Protection:</strong> The Equal Protection Clause generally requires government to treat people who are similarly situated alike.
+</p>
+
+</div>
+
+</article>
+
+</div>
+
+</section>
+
+</main>
+
+<script>
+
+/* ========================================
+   SELECT ACTIVITY CHECKER
+======================================== */
+
+function checkSelectActivity(selector, resultsId) {
+
+    const items = document.querySelectorAll(selector);
+    const results = document.getElementById(resultsId);
+
+    let correctCount = 0;
+    let unansweredCount = 0;
+
+    items.forEach(function(item) {
+
+        item.classList.remove("correct", "incorrect");
+        item.removeAttribute("aria-invalid");
+
+        const feedbackId = item.getAttribute("aria-describedby");
+        const feedback = feedbackId
+            ? document.getElementById(feedbackId)
+            : null;
+
+        if (feedback) {
+            feedback.textContent = "";
+            feedback.classList.remove("correct", "incorrect");
+        }
+
+        if (item.value === "") {
+
+            unansweredCount++;
+            item.classList.add("incorrect");
+            item.setAttribute("aria-invalid", "true");
+
+            if (feedback) {
+                feedback.textContent = "No answer selected.";
+                feedback.classList.add("incorrect");
+            }
+
+        } else if (item.value === item.dataset.answer) {
+
+            correctCount++;
+            item.classList.add("correct");
+            item.setAttribute("aria-invalid", "false");
+
+            if (feedback) {
+                feedback.textContent = "✓ Correct";
+                feedback.classList.add("correct");
+            }
+
+        } else {
+
+            item.classList.add("incorrect");
+            item.setAttribute("aria-invalid", "true");
+
+            if (feedback) {
+                feedback.textContent = "✕ Incorrect. Try again.";
+                feedback.classList.add("incorrect");
+            }
+
+        }
+
+    });
+
+    results.style.display = "block";
+    results.classList.remove("incomplete");
+
+    if (correctCount === items.length) {
+
+        results.innerHTML =
+            "<strong>Great work!</strong>" +
+            "You correctly answered all " +
+            items.length +
+            " items.";
+
+    } else {
+
+        results.classList.add("incomplete");
+
+        let message =
+            "<strong>Keep working!</strong>" +
+            "You correctly answered " +
+            correctCount +
+            " of " +
+            items.length +
+            " items.";
+
+        if (unansweredCount > 0) {
+            message +=
+                " You have " +
+                unansweredCount +
+                (unansweredCount === 1
+                    ? " unanswered item."
+                    : " unanswered items.");
+        }
+
+        message += " Review the items identified as incorrect and try again.";
+
+        results.innerHTML = message;
+
+    }
+}
+
+
+/* ========================================
+   RESET SELECT ACTIVITY
+======================================== */
+
+function resetSelectActivity(selector, resultsId) {
+
+    document.querySelectorAll(selector).forEach(function(item) {
+
+        item.value = "";
+        item.classList.remove("correct", "incorrect");
+        item.removeAttribute("aria-invalid");
+
+        const feedbackId = item.getAttribute("aria-describedby");
+
+        if (feedbackId) {
+
+            const feedback = document.getElementById(feedbackId);
+
+            if (feedback) {
+                feedback.textContent = "";
+                feedback.classList.remove("correct", "incorrect");
+            }
+        }
+
+    });
+
+    const results = document.getElementById(resultsId);
+    results.style.display = "none";
+    results.innerHTML = "";
+}
+
+
+/* ========================================
+   CHECKBOX QUESTIONS
+======================================== */
+
+function checkCheckboxQuestion(selector, resultsId) {
+
+    const boxes = document.querySelectorAll(selector);
+    const results = document.getElementById(resultsId);
+
+    let allCorrect = true;
+
+    boxes.forEach(function(box) {
+
+        const shouldBeChecked =
+            box.dataset.correct === "true";
+
+        const option =
+            box.closest(".checkbox-option");
+
+        option.classList.remove(
+            "correct",
+            "incorrect"
+        );
+
+        if (box.checked === shouldBeChecked) {
+
+            option.classList.add("correct");
+
+        } else {
+
+            option.classList.add("incorrect");
+            allCorrect = false;
+
+        }
+
+    });
+
+    results.style.display = "block";
+    results.classList.remove("incomplete");
+
+    if (allCorrect) {
+
+        results.innerHTML =
+            "<strong>Great work!</strong>" +
+            "You selected all of the correct answers.";
+
+    } else {
+
+        results.classList.add("incomplete");
+
+        results.innerHTML =
+            "<strong>Keep working!</strong>" +
+            "At least one selection needs to be changed. Review your choices and try again.";
+
+    }
+}
+
+
+function resetCheckboxQuestion(selector, resultsId) {
+
+    document.querySelectorAll(selector).forEach(function(box) {
+
+        box.checked = false;
+
+        const option =
+            box.closest(".checkbox-option");
+
+        option.classList.remove(
+            "correct",
+            "incorrect"
+        );
+
+    });
+
+    const results =
+        document.getElementById(resultsId);
+
+    results.style.display = "none";
+    results.innerHTML = "";
+}
+
+
+/* ========================================
+   TEXT ENTRY ACTIVITY
+======================================== */
+
+function normalizeAnswer(value) {
+
+    return value
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, " ");
+}
+
+
+function checkTextActivity(selector, resultsId) {
+
+    const inputs = document.querySelectorAll(selector);
+    const results = document.getElementById(resultsId);
+
+    let correctCount = 0;
+    let unansweredCount = 0;
+
+    inputs.forEach(function(input) {
+
+        input.classList.remove(
+            "correct",
+            "incorrect"
+        );
+
+        input.removeAttribute("aria-invalid");
+
+        const feedbackId =
+            input.getAttribute("aria-describedby");
+
+        const feedback =
+            feedbackId
+                ? document.getElementById(feedbackId)
+                : null;
+
+        if (feedback) {
+            feedback.textContent = "";
+            feedback.classList.remove(
+                "correct",
+                "incorrect"
+            );
+        }
+
+        const studentAnswer =
+            normalizeAnswer(input.value);
+
+        const correctAnswer =
+            normalizeAnswer(input.dataset.answer);
+
+        let acceptedAnswers = [correctAnswer];
+
+        if (input.dataset.alternate) {
+
+            input.dataset.alternate
+                .split("|")
+                .forEach(function(answer) {
+
+                    acceptedAnswers.push(
+                        normalizeAnswer(answer)
+                    );
+
+                });
+        }
+
+        if (studentAnswer === "") {
+
+            unansweredCount++;
+
+            input.classList.add("incorrect");
+            input.setAttribute(
+                "aria-invalid",
+                "true"
+            );
+
+            if (feedback) {
+                feedback.textContent =
+                    "No answer entered.";
+                feedback.classList.add(
+                    "incorrect"
+                );
+            }
+
+        } else if (
+            acceptedAnswers.includes(
+                studentAnswer
+            )
+        ) {
+
+            correctCount++;
+
+            input.classList.add("correct");
+            input.setAttribute(
+                "aria-invalid",
+                "false"
+            );
+
+            if (feedback) {
+                feedback.textContent =
+                    "✓ Correct";
+                feedback.classList.add(
+                    "correct"
+                );
+            }
+
+        } else {
+
+            input.classList.add("incorrect");
+            input.setAttribute(
+                "aria-invalid",
+                "true"
+            );
+
+            if (feedback) {
+                feedback.textContent =
+                    "✕ Incorrect. Try again.";
+                feedback.classList.add(
+                    "incorrect"
+                );
+            }
+
+        }
+
+    });
+
+    results.style.display = "block";
+    results.classList.remove("incomplete");
+
+    if (correctCount === inputs.length) {
+
+        results.innerHTML =
+            "<strong>Great work!</strong>" +
+            "You correctly completed all of the blanks.";
+
+    } else {
+
+        results.classList.add("incomplete");
+
+        let message =
+            "<strong>Keep working!</strong>" +
+            "You correctly completed " +
+            correctCount +
+            " of " +
+            inputs.length +
+            " blanks.";
+
+        if (unansweredCount > 0) {
+
+            message +=
+                " You have " +
+                unansweredCount +
+                (unansweredCount === 1
+                    ? " unanswered blank."
+                    : " unanswered blanks.");
+
+        }
+
+        results.innerHTML = message;
+
+    }
+
+}
+
+
+function resetTextActivity(selector, resultsId) {
+
+    document.querySelectorAll(selector).forEach(function(input) {
+
+        input.value = "";
+
+        input.classList.remove(
+            "correct",
+            "incorrect"
+        );
+
+        input.removeAttribute(
+            "aria-invalid"
+        );
+
+        const feedbackId =
+            input.getAttribute(
+                "aria-describedby"
+            );
+
+        if (feedbackId) {
+
+            const feedback =
+                document.getElementById(
+                    feedbackId
+                );
+
+            if (feedback) {
+                feedback.textContent = "";
+                feedback.classList.remove(
+                    "correct",
+                    "incorrect"
+                );
+            }
+        }
+
+    });
+
+    const results =
+        document.getElementById(resultsId);
+
+    results.style.display = "none";
+    results.innerHTML = "";
+}
+
+
+/* ========================================
+   CLEAR FEEDBACK AFTER EDIT
+======================================== */
+
+document
+.querySelectorAll("select[data-answer], input[type='text'][data-answer]")
+.forEach(function(control) {
+
+    const eventName =
+        control.tagName === "SELECT"
+            ? "change"
+            : "input";
+
+    control.addEventListener(
+        eventName,
+        function() {
+
+            control.classList.remove(
+                "correct",
+                "incorrect"
+            );
+
+            control.removeAttribute(
+                "aria-invalid"
+            );
+
+            const feedbackId =
+                control.getAttribute(
+                    "aria-describedby"
+                );
+
+            if (feedbackId) {
+
+                const feedback =
+                    document.getElementById(
+                        feedbackId
+                    );
+
+                if (feedback) {
+                    feedback.textContent = "";
+                    feedback.classList.remove(
+                        "correct",
+                        "incorrect"
+                    );
+                }
+            }
+
+        }
+    );
+
+});
+
+
+/* ========================================
+   FLIP CARDS
+======================================== */
+
+function flipCard(card) {
+
+    const isFlipped =
+        card.classList.toggle("flipped");
+
+    card.setAttribute(
+        "aria-expanded",
+        String(isFlipped)
+    );
+
+    const term =
+        card.querySelector(
+            ".flip-term"
+        ).textContent.trim();
+
+    if (isFlipped) {
+
+        const definition =
+            card.querySelector(
+                ".flip-back"
+            ).textContent.trim();
+
+        card.setAttribute(
+            "aria-label",
+            term +
+            ". " +
+            definition +
+            " Press Enter or Space to return to the term."
+        );
+
+    } else {
+
+        card.setAttribute(
+            "aria-label",
+            term +
+            ". Press Enter or Space for definition."
+        );
+
+    }
+
+}
+</script>
+
+</body>
+</html>

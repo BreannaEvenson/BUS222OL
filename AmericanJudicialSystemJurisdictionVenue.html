@@ -1,0 +1,1689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Courts, Jurisdiction, and Venue</title>
+
+<style>
+:root{
+    --red:#C8102E;
+    --slate:#455560;
+    --dark:#333333;
+    --light:#F4F4F4;
+    --white:#FFFFFF;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    padding:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--light);
+    color:var(--dark);
+    line-height:1.6;
+}
+
+.page{
+    max-width:1180px;
+    margin:0 auto;
+    padding:28px 20px 60px;
+}
+
+h1,h2,h3,h4{
+    line-height:1.2;
+}
+
+h2{
+    color:var(--red);
+    margin-top:0;
+}
+
+h3{
+    color:var(--slate);
+}
+
+p{
+    margin-top:0;
+}
+
+strong{
+    font-weight:700;
+}
+
+.section{
+    margin:24px 0;
+}
+
+.card{
+    background:var(--white);
+    border-radius:10px;
+    padding:24px;
+    border:1px solid #ddd;
+    box-shadow:0 3px 10px rgba(0,0,0,.07);
+}
+
+.red-top{
+    border-top:6px solid var(--red);
+}
+
+.intro-box{
+    background:var(--white);
+    border:2px solid var(--slate);
+    border-left:8px solid var(--red);
+    border-radius:10px;
+    padding:26px;
+}
+
+.intro-box h2{
+    margin-bottom:10px;
+}
+
+.intro-divider{
+    border:0;
+    border-top:1px solid #ddd;
+    margin:25px 0;
+}
+
+/* STATE / FEDERAL */
+
+.court-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.court-card{
+    background:var(--white);
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid #ddd;
+    box-shadow:0 3px 10px rgba(0,0,0,.06);
+}
+
+.court-header{
+    background:var(--slate);
+    color:var(--white);
+    padding:16px 20px;
+}
+
+.court-header h2{
+    color:var(--white);
+    margin:0;
+    font-size:1.35rem;
+}
+
+.court-body{
+    padding:22px;
+}
+
+.court-body ul{
+    padding-left:22px;
+}
+
+.court-body li{
+    margin-bottom:9px;
+}
+
+.court-level{
+    padding:15px;
+    margin:16px 0;
+    background:var(--light);
+    border-left:5px solid var(--red);
+    border-radius:6px;
+}
+
+.court-level h3{
+    margin:0 0 8px;
+    color:var(--dark);
+}
+
+/* CALLOUT */
+
+.callout{
+    background:var(--slate);
+    color:var(--white);
+    border-radius:10px;
+    padding:25px;
+    margin:24px 0;
+}
+
+.callout h2{
+    color:var(--white);
+    margin-bottom:12px;
+}
+
+.callout strong{
+    color:var(--white);
+}
+
+.two-part{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-top:18px;
+}
+
+.part{
+    background:var(--white);
+    color:var(--dark);
+    border-radius:8px;
+    padding:18px;
+}
+
+.part-number{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:var(--red);
+    color:var(--white);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+/* BUSINESS STRATEGY */
+
+.business-callout{
+    background:var(--light);
+    border-left:6px solid var(--red);
+    padding:18px 20px;
+    margin-top:18px;
+    border-radius:6px;
+}
+
+.business-callout strong{
+    color:var(--red);
+}
+
+/* JURISDICTION EXPLORER */
+
+.explorer{
+    margin-top:24px;
+}
+
+.explorer-intro{
+    margin-bottom:18px;
+}
+
+.explorer-buttons{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.explorer-btn{
+    border:2px solid var(--slate);
+    background:var(--white);
+    color:var(--dark);
+    padding:14px 10px;
+    border-radius:7px;
+    font-size:1rem;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.explorer-btn:hover,
+.explorer-btn:focus{
+    background:var(--light);
+    outline:3px solid rgba(200,16,46,.25);
+}
+
+.explorer-btn.active{
+    background:var(--red);
+    border-color:var(--red);
+    color:var(--white);
+}
+
+.explorer-panel{
+    background:var(--white);
+    border:2px solid var(--slate);
+    border-radius:10px;
+    min-height:270px;
+    padding:25px;
+}
+
+.explorer-panel h3{
+    color:var(--red);
+    margin-top:0;
+}
+
+.mini-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+    margin:16px 0;
+}
+
+.mini-card{
+    background:var(--light);
+    padding:16px;
+    border-radius:7px;
+}
+
+.mini-card h4{
+    margin:0 0 7px;
+    color:var(--slate);
+}
+
+/* INTERNET */
+
+.internet-box{
+    background:var(--white);
+    border-radius:10px;
+    border-top:6px solid var(--red);
+    padding:25px;
+}
+
+/* ZIPPO */
+
+.zippo-section{
+    background:var(--white);
+    border-radius:10px;
+    padding:25px;
+    border:1px solid #ddd;
+}
+
+.zippo-scale{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:12px;
+    margin:25px 0 18px;
+}
+
+.scale-box{
+    text-align:center;
+    border-radius:8px;
+    padding:18px 12px;
+    color:var(--white);
+}
+
+.scale-box.passive{
+    background:var(--slate);
+}
+
+.scale-box.interactive{
+    background:var(--dark);
+}
+
+.scale-box.integral{
+    background:var(--red);
+}
+
+.scale-box h3{
+    margin:0 0 5px;
+    color:var(--white);
+}
+
+.arrow{
+    display:flex;
+    align-items:center;
+    margin:8px 0 28px;
+}
+
+.arrow-line{
+    height:5px;
+    flex:1;
+    background:var(--slate);
+}
+
+.arrow-point{
+    width:0;
+    height:0;
+    border-top:10px solid transparent;
+    border-bottom:10px solid transparent;
+    border-left:18px solid var(--slate);
+}
+
+.activity-instructions{
+    background:var(--light);
+    border-left:5px solid var(--red);
+    padding:15px 18px;
+    border-radius:5px;
+    margin-bottom:20px;
+}
+
+.example-bank{
+    border:2px dashed var(--slate);
+    background:var(--light);
+    border-radius:8px;
+    padding:16px;
+    margin-bottom:20px;
+}
+
+.example-bank h3{
+    margin-top:0;
+    color:var(--dark);
+}
+
+.card-list{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.drag-card{
+    background:var(--white);
+    border:2px solid var(--slate);
+    border-radius:7px;
+    padding:12px 14px;
+    cursor:grab;
+    flex:1 1 260px;
+    min-width:220px;
+    text-align:left;
+    font-size:.96rem;
+    color:var(--dark);
+}
+
+.drag-card:hover,
+.drag-card:focus{
+    border-color:var(--red);
+    outline:3px solid rgba(200,16,46,.18);
+}
+
+.drag-card.selected{
+    border:3px solid var(--red);
+    background:var(--white);
+}
+
+.drop-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.dropzone{
+    background:var(--light);
+    border:3px dashed var(--slate);
+    border-radius:9px;
+    min-height:210px;
+    padding:13px;
+}
+
+.dropzone:focus{
+    outline:3px solid rgba(200,16,46,.25);
+}
+
+.dropzone.drag-over{
+    border-color:var(--red);
+    background:var(--white);
+}
+
+.dropzone h3{
+    text-align:center;
+    color:var(--dark);
+    margin:0 0 12px;
+}
+
+.drop-cards{
+    display:flex;
+    flex-direction:column;
+    gap:9px;
+}
+
+.drop-cards .drag-card{
+    min-width:0;
+    flex:none;
+}
+
+.feedback-label{
+    display:block;
+    margin-top:6px;
+    font-weight:bold;
+}
+
+.correct{
+    border:3px solid var(--slate) !important;
+}
+
+.incorrect{
+    border:3px solid var(--red) !important;
+}
+
+.activity-buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:20px;
+}
+
+.action-btn{
+    border:0;
+    border-radius:6px;
+    padding:12px 20px;
+    font-size:1rem;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.check-btn{
+    background:var(--red);
+    color:var(--white);
+}
+
+.reset-btn{
+    background:var(--slate);
+    color:var(--white);
+}
+
+.action-btn:hover,
+.action-btn:focus{
+    opacity:.9;
+    outline:3px solid rgba(0,0,0,.15);
+}
+
+.result{
+    margin-top:16px;
+    padding:14px 16px;
+    border-radius:6px;
+    background:var(--light);
+    font-weight:bold;
+}
+
+/* INTERNATIONAL */
+
+.international{
+    margin-top:25px;
+    background:var(--slate);
+    color:var(--white);
+    border-radius:10px;
+    padding:25px;
+}
+
+.international h2{
+    color:var(--white);
+}
+
+.international-box{
+    background:var(--white);
+    color:var(--dark);
+    border-radius:8px;
+    padding:18px;
+    margin-top:12px;
+}
+
+.international-box h3{
+    color:var(--red);
+    margin-top:0;
+}
+
+/* RESPONSIVE */
+
+@media (max-width:800px){
+    .court-grid,
+    .two-part,
+    .mini-grid,
+    .zippo-scale,
+    .drop-grid{
+        grid-template-columns:1fr;
+    }
+
+    .explorer-buttons{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .arrow{
+        display:none;
+    }
+}
+
+@media (max-width:520px){
+    .explorer-buttons{
+        grid-template-columns:1fr;
+    }
+
+    .page{
+        padding:15px 10px 40px;
+    }
+
+    .card,
+    .intro-box,
+    .zippo-section{
+        padding:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+<!-- OVERVIEW -->
+
+<section class="intro-box" aria-labelledby="overview-heading">
+
+    <h2 id="overview-heading">Overview</h2>
+
+    <p>
+        The chapter provides students with a wide-ranging perspective of the
+        structure and function of American courts. Lawsuits are a reality in
+        daily business operations and business owners and managers should be
+        prepared with a fundamental knowledge of the system. The chapter begins
+        with an explanation of how federal and state courts operate in tandem,
+        examines how law is developed via appellate courts, and concludes with
+        coverage on jurisdiction and venue with consideration of special
+        jurisdiction issues in cyberspace.
+    </p>
+
+    <hr class="intro-divider">
+
+    <h2>Role and Structure of the Judiciary</h2>
+
+    <p>
+        The judiciary is a collection of <strong>federal and state courts</strong>
+        existing primarily to <strong>adjudicate</strong> disputes and charged
+        with the responsibility of <strong>judicial review.</strong>
+        State courts adjudicate matters dealing primarily with cases arising
+        from state statutory, common, or state constitutional law while federal
+        courts are concerned with national laws, federal constitutional issues,
+        and other cases that are outside the purview of state courts.
+    </p>
+
+</section>
+
+
+<!-- STATE AND FEDERAL COURTS -->
+
+<section class="section court-grid">
+
+    <!-- STATE -->
+
+    <article class="court-card">
+
+        <div class="court-header">
+            <h2>State Courts</h2>
+        </div>
+
+        <div class="court-body">
+
+            <p>
+                All states have two types of courts:
+                <strong>state trial courts</strong> and
+                <strong>state appellate courts.</strong>
+                The majority of court cases in the United States are filed
+                within state courts.
+            </p>
+
+            <div class="court-level">
+
+                <h3>State Trial Courts</h3>
+
+                <p>
+                    <strong>Where parties present their cases and evidence.</strong>
+                </p>
+
+                <ul>
+                    <li>
+                        State trial courts have either
+                        <strong>general authority</strong>, often organized into
+                        geographic districts, or <strong>limited authority</strong>,
+                        confined to a particular type of dispute.
+                    </li>
+
+                    <li>
+                        For minor matters and cases with a relatively low dollar
+                        value, typically less than $10,000, states provide local courts.
+                    </li>
+
+                    <li>
+                        Trial courts are often divided into courts hearing
+                        <strong>civil</strong> matters and courts hearing
+                        <strong>criminal</strong> matters.
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="court-level">
+
+                <h3>State Appellate Courts</h3>
+
+                <p>
+                    <strong>
+                        Primarily concerned with reviewing the decisions of trial courts.
+                    </strong>
+                </p>
+
+                <ul>
+                    <li>
+                        Only appellate courts are considered courts of authority
+                        that have the right to set precedent.
+                    </li>
+
+                    <li>
+                        States vary in how state trial court judges are selected,
+                        including general elections, appointment, or a combination.
+                    </li>
+
+                    <li>
+                        Appellate courts assess lower court rulings by reviewing
+                        transcripts and rulings, reading briefs, and sometimes
+                        allowing attorneys to participate in oral argument.
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </article>
+
+
+    <!-- FEDERAL -->
+
+    <article class="court-card">
+
+        <div class="court-header">
+            <h2>Federal Courts</h2>
+        </div>
+
+        <div class="court-body">
+
+            <p>
+                The federal court system consists primarily of
+                <strong>U.S. District Courts</strong>,
+                <strong>U.S. Courts of Appeals</strong>, and the
+                <strong>U.S. Supreme Court.</strong>
+            </p>
+
+            <div class="court-level">
+
+                <h3>U.S. District Courts</h3>
+
+                <p>
+                    Serve the same <strong>trial function</strong> as state trial
+                    courts, but hear federal matters and certain disputes involving
+                    parties from different states when jurisdictional requirements
+                    are met.
+                </p>
+
+            </div>
+
+            <div class="court-level">
+
+                <h3>Circuit Courts of Appeals</h3>
+
+                <p>
+                    The thirteen U.S. Courts of Appeals
+                    <strong>review decisions</strong> of federal district courts.
+                </p>
+
+                <ul>
+                    <li>The circuits are divided geographically.</li>
+                    <li>They are intermediate appellate courts of precedent in the federal system.</li>
+                </ul>
+
+            </div>
+
+            <div class="court-level">
+
+                <h3>U.S. Supreme Court</h3>
+
+                <p>
+                    The nine justices of the Supreme Court are the ultimate
+                    arbiters of federal law. The Court has both original and
+                    appellate jurisdiction and can finalize a legal decision
+                    on a case within its authority.
+                </p>
+
+                <p>
+                    The odds of reaching this level are slim. Many Supreme Court
+                    cases involve conflicts among federal circuits or particularly
+                    significant and complex legal issues.
+                </p>
+
+            </div>
+
+            <p>
+                <strong>All federal judges are selected through the appointment process.</strong>
+            </p>
+
+        </div>
+    </article>
+
+</section>
+
+
+<!-- HOW LAW DEVELOPS -->
+
+<section class="callout" aria-labelledby="law-develops">
+
+    <h2 id="law-develops">How the Law Develops</h2>
+
+    <p>
+        State trial courts rule on certain points of state law and render a
+        decision that is <strong>binding on the parties</strong>, but no one else.
+        Only when an <strong>appellate court affirms or reverses</strong> a
+        decision can that point of law become authority applied to future cases.
+    </p>
+
+    <p>
+        Jurisdiction's origins lie in the Constitution, including the Due Process
+        Clauses of the Fifth and Fourteenth Amendments, while appellate courts
+        and legislatures have shaped the framework modern courts use to analyze
+        jurisdiction questions.
+    </p>
+
+    <p><strong>A court must satisfy a two-part jurisdiction analysis:</strong></p>
+
+    <div class="two-part">
+
+        <div class="part">
+            <div class="part-number">1</div>
+            <h3>Subject Matter Jurisdiction</h3>
+            <p>
+                Does this court have authority over the
+                <strong>type of dispute</strong> involved?
+            </p>
+        </div>
+
+        <div class="part">
+            <div class="part-number">2</div>
+            <h3>Personal Jurisdiction</h3>
+            <p>
+                Does this court have authority over the
+                <strong>parties</strong> involved?
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- JURISDICTION AND VENUE -->
+
+<section class="section card red-top">
+
+    <h2>Jurisdiction and Venue</h2>
+
+    <p>
+        <strong>Jurisdiction</strong> is a court's
+        <strong>authority</strong> to decide a particular case based on
+        (1) <strong>who</strong> the parties are and
+        (2) the <strong>subject matter</strong> of the dispute.
+    </p>
+
+    <p>
+        <strong>Venue</strong> is a determination of the most
+        <strong>appropriate court location</strong> for litigating a dispute.
+    </p>
+
+    <div class="business-callout">
+        <strong>Business Strategy Connection:</strong>
+        The cost-benefit analysis involving jurisdictional restrictions may
+        <strong>affect managerial decision-making</strong> when a company or
+        individual is considering whether and where to file a lawsuit.
+    </div>
+
+</section>
+
+
+<!-- INTERACTIVE JURISDICTION EXPLORER -->
+
+<section class="section card red-top explorer">
+
+    <h2>Explore Jurisdiction</h2>
+
+    <p class="explorer-intro">
+        Select each concept below to explore the different ways a court may
+        obtain authority over a dispute, a person, or property.
+    </p>
+
+    <div class="explorer-buttons" role="group" aria-label="Jurisdiction topics">
+
+        <button class="explorer-btn active"
+                data-topic="subject"
+                type="button">
+            Subject Matter
+        </button>
+
+        <button class="explorer-btn"
+                data-topic="property"
+                type="button">
+            Property
+        </button>
+
+        <button class="explorer-btn"
+                data-topic="personal"
+                type="button">
+            Personal Jurisdiction
+        </button>
+
+        <button class="explorer-btn"
+                data-topic="physical"
+                type="button">
+            Physical Presence
+        </button>
+
+        <button class="explorer-btn"
+                data-topic="voluntary"
+                type="button">
+            Voluntary
+        </button>
+
+        <button class="explorer-btn"
+                data-topic="venue"
+                type="button">
+            Venue
+        </button>
+
+    </div>
+
+    <div id="explorerPanel"
+         class="explorer-panel"
+         tabindex="0"
+         aria-live="polite">
+    </div>
+
+</section>
+
+
+<!-- INTERNET / EMAIL -->
+
+<section class="section internet-box">
+
+    <h2>Internet and Email Jurisdiction</h2>
+
+    <p>
+        Courts tend to diverge over what constitutes sufficient
+        <strong>minimum contacts</strong> with a forum state to establish
+        personal jurisdiction over an out-of-state defendant.
+    </p>
+
+    <p>
+        Some courts have ruled that a physical presence in the forum state
+        is not necessary, as illustrated by
+        <em>Costar Realty Information v. Meissner</em>.
+    </p>
+
+    <p>
+        Other courts have concluded that e-mail communications alone may be
+        insufficient to establish personal jurisdiction, as illustrated by
+        <em>Engineers Corp. v. Geometric Ltd.</em>
+    </p>
+
+</section>
+
+
+<!-- ZIPPO -->
+
+<section class="section zippo-section">
+
+    <h2>The Zippo Standard</h2>
+
+    <p>
+        The <strong>Zippo Standard</strong> uses a
+        <strong>sliding scale</strong> to evaluate minimum contacts based on
+        the interactivity of a Web site.
+    </p>
+
+    <div class="zippo-scale" aria-label="Zippo sliding scale">
+
+        <div class="scale-box passive">
+            <h3>Passive</h3>
+            <div>Information only</div>
+        </div>
+
+        <div class="scale-box interactive">
+            <h3>Interactive</h3>
+            <div>Users exchange information or take action</div>
+        </div>
+
+        <div class="scale-box integral">
+            <h3>Integral to Business</h3>
+            <div>Online transactions are central to the business model</div>
+        </div>
+
+    </div>
+
+    <div class="arrow" aria-hidden="true">
+        <div class="arrow-line"></div>
+        <div class="arrow-point"></div>
+    </div>
+
+    <div class="mini-grid">
+
+        <div class="mini-card">
+            <h4>Passive</h4>
+            <p>
+                A Web site provides information that can be accessed by users
+                but offers little or no interaction. A passive site alone
+                generally provides the weakest basis for personal jurisdiction.
+            </p>
+        </div>
+
+        <div class="mini-card">
+            <h4>Interactive</h4>
+            <p>
+                Users can exchange information, purchase products, upload or
+                download materials, or perform other activities beyond simply
+                viewing content.
+            </p>
+        </div>
+
+        <div class="mini-card">
+            <h4>Integral to the Business Model</h4>
+            <p>
+                The Web site is an essential part of the company's business
+                model and is used to conduct commercial transactions with
+                residents in the state.
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- ACTIVITY -->
+
+    <h2 style="margin-top:35px;">Place the Examples on the Continuum</h2>
+
+    <div class="activity-instructions">
+        <strong>Directions:</strong>
+        Drag each example into the category where you think it belongs.
+        You can also select a card with your mouse or keyboard and then
+        select a category. When you are finished, choose
+        <strong>Check My Answers</strong>.
+    </div>
+
+    <div class="example-bank"
+         id="exampleBank">
+
+        <h3>Examples to Sort</h3>
+
+        <div class="card-list" id="bankCards"></div>
+
+    </div>
+
+    <div class="drop-grid">
+
+        <div class="dropzone"
+             data-zone="passive"
+             tabindex="0"
+             role="button"
+             aria-label="Passive website drop zone">
+
+            <h3>Passive</h3>
+            <div class="drop-cards"></div>
+
+        </div>
+
+        <div class="dropzone"
+             data-zone="interactive"
+             tabindex="0"
+             role="button"
+             aria-label="Interactive website drop zone">
+
+            <h3>Interactive</h3>
+            <div class="drop-cards"></div>
+
+        </div>
+
+        <div class="dropzone"
+             data-zone="integral"
+             tabindex="0"
+             role="button"
+             aria-label="Integral to business model drop zone">
+
+            <h3>Integral to Business</h3>
+            <div class="drop-cards"></div>
+
+        </div>
+
+    </div>
+
+    <div class="activity-buttons">
+
+        <button type="button"
+                class="action-btn check-btn"
+                id="checkAnswers">
+            Check My Answers
+        </button>
+
+        <button type="button"
+                class="action-btn reset-btn"
+                id="resetActivity">
+            Reset Activity
+        </button>
+
+    </div>
+
+    <div id="activityResult"
+         class="result"
+         aria-live="polite">
+        Sort all of the examples and then check your answers.
+    </div>
+
+</section>
+
+
+<!-- INTERNATIONAL -->
+
+<section class="international">
+
+    <h2>International Jurisdiction in the Internet Age</h2>
+
+    <div class="international-box">
+
+        <h3>Country of Origin Standard</h3>
+
+        <p>
+            In international Web transactions, courts generally look to the
+            location of a Web site's servers when determining jurisdiction over
+            disputes arising from use of the site.
+        </p>
+
+    </div>
+
+    <div class="international-box">
+
+        <h3>Other Theories of Jurisdiction in Electronic Commerce</h3>
+
+        <p>
+            Internet activity can create difficult jurisdiction questions across
+            national borders. In 2002, Australia's highest court concluded that
+            American-based publisher Dow Jones could be sued in Australia for
+            defamation based on an article appearing on its Web site, even
+            though Dow Jones had no physical presence in Australia and its Web
+            site infrastructure was located in New Jersey.
+        </p>
+
+        <p>
+            <strong>Key takeaway:</strong> Conducting business or publishing
+            information online can expose a company to legal systems far beyond
+            the location of its physical offices.
+        </p>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<script>
+
+/* -------------------------------------------------
+   JURISDICTION EXPLORER
+-------------------------------------------------- */
+
+const jurisdictionTopics = {
+
+    subject: `
+        <h3>Subject Matter Jurisdiction: Authority Over the Dispute</h3>
+
+        <p>
+            Subject matter jurisdiction asks whether the court has authority
+            to hear the <strong>type of dispute</strong> involved.
+        </p>
+
+        <div class="mini-grid">
+
+            <div class="mini-card">
+                <h4>State Courts</h4>
+                <p>
+                    State statutes give state trial courts general subject matter
+                    jurisdiction over virtually all matters involving a
+                    <strong>state statute, state common law, or state constitutional issue.</strong>
+                </p>
+            </div>
+
+            <div class="mini-card">
+                <h4>Federal District Courts</h4>
+                <p>
+                    Federal district courts have
+                    <strong>limited subject matter jurisdiction.</strong>
+                    They hear matters involving a
+                    <strong>federal question</strong> and matters in which the
+                    <strong>United States is a party</strong>.
+                </p>
+                <p>
+                    Federal courts may also hear
+                    <strong>diversity of citizenship</strong> cases when the
+                    parties are from different states and the amount in
+                    controversy is more than <strong>$75,000</strong>.
+                </p>
+            </div>
+
+        </div>
+
+        <h4>Original vs. Concurrent Jurisdiction</h4>
+
+        <p>
+            A court authorized to initially hear a case has
+            <strong>original jurisdiction.</strong>
+            When more than one court may have jurisdiction over the same case,
+            the courts have <strong>concurrent jurisdiction.</strong>
+        </p>
+
+        <h4>Choice of Forum</h4>
+
+        <p>
+            When more than one forum may be available, the party filing the
+            lawsuit may consider factors such as
+            <strong>costs, judges, juries, appeals, and time.</strong>
+        </p>
+    `,
+
+    property: `
+        <h3>Jurisdiction Over Property</h3>
+
+        <p>
+            Courts may exercise jurisdiction based on property located within
+            their jurisdictional boundaries.
+        </p>
+
+        <div class="mini-grid">
+
+            <div class="mini-card">
+                <h4>In Rem Jurisdiction</h4>
+                <p>
+                    <strong>In rem jurisdiction</strong> allows a court to
+                    determine rights or title involving an object or real estate.
+                </p>
+            </div>
+
+            <div class="mini-card">
+                <h4>Quasi In Rem Jurisdiction</h4>
+                <p>
+                    <strong>Quasi in rem jurisdiction</strong> occurs when a
+                    court uses jurisdiction over property to compel a litigant
+                    to appear by attaching property belonging to that litigant.
+                </p>
+            </div>
+
+        </div>
+
+        <p>
+            <strong>Think about it:</strong> Property itself can create a legal
+            connection between a dispute and a particular court.
+        </p>
+    `,
+
+    personal: `
+        <h3>Personal Jurisdiction: Authority Over the Parties</h3>
+
+        <p>
+            Personal jurisdiction asks whether the court has authority over
+            the <strong>people or businesses</strong> involved in the lawsuit.
+        </p>
+
+        <div class="mini-grid">
+
+            <div class="mini-card">
+                <h4>In-State Defendants</h4>
+                <p>
+                    Personal jurisdiction is generally obtained when the
+                    business or individual is properly served with the complaint
+                    initiating the lawsuit.
+                </p>
+            </div>
+
+            <div class="mini-card">
+                <h4>Out-of-State Defendants</h4>
+                <p>
+                    Two major questions must be considered:
+                </p>
+                <ol>
+                    <li>
+                        Is jurisdiction authorized by a
+                        <strong>state long-arm statute?</strong>
+                    </li>
+                    <li>
+                        Would exercising jurisdiction satisfy constitutional
+                        requirements of <strong>fairness and due process?</strong>
+                    </li>
+                </ol>
+            </div>
+
+        </div>
+
+        <p>
+            Courts examine whether the defendant had sufficient
+            <strong>minimum contacts</strong> with the state and whether the
+            defendant <strong>purposefully availed</strong> themselves of the
+            benefits or opportunities connected with that state.
+        </p>
+    `,
+
+    physical: `
+        <h3>Physical Presence</h3>
+
+        <p>
+            The physical presence of an out-of-state party in a particular
+            state is generally an automatic basis for personal jurisdiction
+            over that defendant by the state's courts and federal trial courts
+            within that state.
+        </p>
+
+        <div class="business-callout">
+            <strong>Key idea:</strong>
+            A person's physical presence can create the connection needed for
+            the court to exercise authority over that person.
+        </div>
+    `,
+
+    voluntary: `
+        <h3>Voluntary Personal Jurisdiction</h3>
+
+        <p>
+            A court may have personal jurisdiction when the parties
+            <strong>agree in advance</strong> to litigate in a particular court.
+        </p>
+
+        <p>
+            Businesses frequently do this through a
+            <strong>forum selection clause</strong> written into a contract.
+        </p>
+
+        <div class="business-callout">
+            <strong>Business example:</strong>
+            A contract may state that any dispute arising from the agreement
+            must be litigated in a particular state or court.
+            <em>Shute v. Carnival Cruise Lines</em> illustrates the importance
+            of forum-selection provisions.
+        </div>
+    `,
+
+    venue: `
+        <h3>Venue: Where Should the Trial Take Place?</h3>
+
+        <p>
+            <strong>Venue</strong> determines the most appropriate geographic
+            location for a trial.
+        </p>
+
+        <div class="mini-grid">
+
+            <div class="mini-card">
+                <h4>Civil Cases</h4>
+                <p>
+                    State statutes commonly provide that venue is appropriate
+                    where the defendant <strong>resides or is headquartered.</strong>
+                </p>
+            </div>
+
+            <div class="mini-card">
+                <h4>Criminal Cases</h4>
+                <p>
+                    Venue is ordinarily located where the
+                    <strong>crime was committed.</strong>
+                </p>
+            </div>
+
+        </div>
+
+        <p>
+            Remember the distinction:
+            <strong>jurisdiction asks whether the court has authority;</strong>
+            venue asks <strong>which appropriate location should hear the case.</strong>
+        </p>
+    `
+};
+
+const explorerButtons = document.querySelectorAll(".explorer-btn");
+const explorerPanel = document.getElementById("explorerPanel");
+
+function showTopic(topic){
+    explorerPanel.innerHTML = jurisdictionTopics[topic];
+
+    explorerButtons.forEach(btn => {
+        const active = btn.dataset.topic === topic;
+        btn.classList.toggle("active", active);
+        btn.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+}
+
+explorerButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        showTopic(button.dataset.topic);
+    });
+});
+
+showTopic("subject");
+
+
+/* -------------------------------------------------
+   ZIPPO ACTIVITY
+-------------------------------------------------- */
+
+const zippoExamples = [
+
+    {
+        id:"z1",
+        text:"A restaurant Web site lists its menu, hours, address, and phone number but provides no online transactions.",
+        answer:"passive"
+    },
+
+    {
+        id:"z2",
+        text:"A manufacturer's Web site provides a static product catalog. Customers must call the company to place an order.",
+        answer:"passive"
+    },
+
+    {
+        id:"z3",
+        text:"A professional services Web site provides employee biographies and general information about the business.",
+        answer:"passive"
+    },
+
+    {
+        id:"z4",
+        text:"A company Web site allows customers to create accounts, submit information, and exchange messages with the company.",
+        answer:"interactive"
+    },
+
+    {
+        id:"z5",
+        text:"A Web site allows users to upload documents, download files, and request customized information.",
+        answer:"interactive"
+    },
+
+    {
+        id:"z6",
+        text:"A retailer's Web site allows visitors to browse products and make online purchases.",
+        answer:"interactive"
+    },
+
+    {
+        id:"z7",
+        text:"An online subscription company conducts nearly all of its sales and customer service through its Web site.",
+        answer:"integral"
+    },
+
+    {
+        id:"z8",
+        text:"An e-commerce company's business model depends on regularly completing commercial transactions online with customers in the state.",
+        answer:"integral"
+    },
+
+    {
+        id:"z9",
+        text:"An online ticket marketplace depends on its Web site to complete transactions with customers as the central part of its business.",
+        answer:"integral"
+    }
+
+];
+
+const bankCards = document.getElementById("bankCards");
+const zones = document.querySelectorAll(".dropzone");
+const result = document.getElementById("activityResult");
+
+let selectedCard = null;
+
+function buildCards(){
+
+    bankCards.innerHTML = "";
+
+    zones.forEach(zone => {
+        zone.querySelector(".drop-cards").innerHTML = "";
+    });
+
+    selectedCard = null;
+
+    zippoExamples.forEach(example => {
+
+        const card = document.createElement("div");
+
+        card.className = "drag-card";
+        card.id = example.id;
+        card.draggable = true;
+        card.tabIndex = 0;
+        card.setAttribute("role","button");
+        card.setAttribute("aria-label", example.text);
+        card.dataset.answer = example.answer;
+
+        card.innerHTML = `
+            <span>${example.text}</span>
+        `;
+
+        card.addEventListener("dragstart", handleDragStart);
+
+        card.addEventListener("click", () => {
+            selectCard(card);
+        });
+
+        card.addEventListener("keydown", event => {
+
+            if(event.key === "Enter" || event.key === " "){
+                event.preventDefault();
+                selectCard(card);
+            }
+
+        });
+
+        bankCards.appendChild(card);
+
+    });
+
+    result.textContent =
+        "Sort all of the examples and then check your answers.";
+}
+
+function selectCard(card){
+
+    document.querySelectorAll(".drag-card").forEach(c => {
+        c.classList.remove("selected");
+        c.setAttribute("aria-pressed","false");
+    });
+
+    if(selectedCard === card){
+        selectedCard = null;
+        return;
+    }
+
+    selectedCard = card;
+    card.classList.add("selected");
+    card.setAttribute("aria-pressed","true");
+
+    result.textContent =
+        "Example selected. Now choose Passive, Interactive, or Integral to Business.";
+}
+
+function handleDragStart(event){
+
+    selectedCard = event.currentTarget;
+
+    event.dataTransfer.setData(
+        "text/plain",
+        event.currentTarget.id
+    );
+
+}
+
+zones.forEach(zone => {
+
+    zone.addEventListener("dragover", event => {
+        event.preventDefault();
+        zone.classList.add("drag-over");
+    });
+
+    zone.addEventListener("dragleave", () => {
+        zone.classList.remove("drag-over");
+    });
+
+    zone.addEventListener("drop", event => {
+
+        event.preventDefault();
+
+        zone.classList.remove("drag-over");
+
+        const cardId =
+            event.dataTransfer.getData("text/plain");
+
+        const card =
+            document.getElementById(cardId);
+
+        moveCard(card, zone);
+
+    });
+
+    zone.addEventListener("click", event => {
+
+        if(event.target.closest(".drag-card")) return;
+
+        if(selectedCard){
+            moveCard(selectedCard, zone);
+        }
+
+    });
+
+    zone.addEventListener("keydown", event => {
+
+        if((event.key === "Enter" || event.key === " ") && selectedCard){
+
+            event.preventDefault();
+
+            moveCard(selectedCard, zone);
+
+        }
+
+    });
+
+});
+
+function moveCard(card, zone){
+
+    if(!card) return;
+
+    zone.querySelector(".drop-cards").appendChild(card);
+
+    card.classList.remove(
+        "selected",
+        "correct",
+        "incorrect"
+    );
+
+    card.querySelectorAll(".feedback-label")
+        .forEach(el => el.remove());
+
+    card.setAttribute("aria-pressed","false");
+
+    selectedCard = null;
+
+    result.textContent =
+        "Example placed. Continue sorting the remaining examples.";
+}
+
+
+/* CHECK ANSWERS */
+
+document.getElementById("checkAnswers")
+.addEventListener("click", () => {
+
+    let correct = 0;
+    let placed = 0;
+
+    document.querySelectorAll(".drag-card")
+        .forEach(card => {
+
+            card.classList.remove(
+                "correct",
+                "incorrect"
+            );
+
+            card.querySelectorAll(".feedback-label")
+                .forEach(el => el.remove());
+
+            const zone =
+                card.closest(".dropzone");
+
+            if(!zone){
+                return;
+            }
+
+            placed++;
+
+            const chosen =
+                zone.dataset.zone;
+
+            const feedback =
+                document.createElement("span");
+
+            feedback.className =
+                "feedback-label";
+
+            if(chosen === card.dataset.answer){
+
+                correct++;
+
+                card.classList.add("correct");
+
+                feedback.textContent =
+                    "✓ Correct";
+
+            } else {
+
+                card.classList.add("incorrect");
+
+                const correctName = {
+                    passive:"Passive",
+                    interactive:"Interactive",
+                    integral:"Integral to Business"
+                };
+
+                feedback.textContent =
+                    "✕ Try again — review the difference between this category and " +
+                    correctName[card.dataset.answer] + ".";
+
+            }
+
+            card.appendChild(feedback);
+
+        });
+
+    if(placed < zippoExamples.length){
+
+        result.textContent =
+            `You have placed ${placed} of ${zippoExamples.length} examples. ` +
+            `Place the remaining examples before finishing.`;
+
+        return;
+    }
+
+    if(correct === zippoExamples.length){
+
+        result.textContent =
+            `Great work! You correctly classified all ${zippoExamples.length} examples.`;
+
+    } else {
+
+        result.textContent =
+            `You currently have ${correct} of ${zippoExamples.length} correct. ` +
+            `Move the examples marked "Try again" and check your answers again.`;
+
+    }
+
+});
+
+
+/* RESET */
+
+document.getElementById("resetActivity")
+.addEventListener("click", () => {
+
+    buildCards();
+
+});
+
+
+/* INITIALIZE */
+
+buildCards();
+
+</script>
+
+</body>
+</html>

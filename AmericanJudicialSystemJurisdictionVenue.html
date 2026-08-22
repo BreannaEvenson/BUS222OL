@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Courts, Jurisdiction, and Venue</title>
+<title>American Judicial System: Jurisdiction and Venue</title>
 
 <style>
 :root{
@@ -75,6 +75,10 @@ strong{
     border-top:6px solid var(--red);
 }
 
+/* -----------------------------------
+   INTRO
+----------------------------------- */
+
 .intro-box{
     background:var(--white);
     border:2px solid var(--slate);
@@ -93,7 +97,9 @@ strong{
     margin:25px 0;
 }
 
-/* STATE / FEDERAL */
+/* -----------------------------------
+   STATE / FEDERAL COURTS
+----------------------------------- */
 
 .court-grid{
     display:grid;
@@ -146,7 +152,9 @@ strong{
     color:var(--dark);
 }
 
-/* CALLOUT */
+/* -----------------------------------
+   HOW LAW DEVELOPS CALLOUT
+----------------------------------- */
 
 .callout{
     background:var(--slate);
@@ -179,6 +187,15 @@ strong{
     padding:18px;
 }
 
+/* FIX: keeps bold text visible inside white cards */
+.part strong{
+    color:var(--dark);
+}
+
+.part h3{
+    color:var(--slate);
+}
+
 .part-number{
     width:38px;
     height:38px;
@@ -192,7 +209,9 @@ strong{
     margin-bottom:10px;
 }
 
-/* BUSINESS STRATEGY */
+/* -----------------------------------
+   BUSINESS CALLOUT
+----------------------------------- */
 
 .business-callout{
     background:var(--light);
@@ -206,7 +225,9 @@ strong{
     color:var(--red);
 }
 
-/* JURISDICTION EXPLORER */
+/* -----------------------------------
+   JURISDICTION EXPLORER
+----------------------------------- */
 
 .explorer{
     margin-top:24px;
@@ -255,11 +276,6 @@ strong{
     padding:25px;
 }
 
-.explorer-panel h3{
-    color:var(--red);
-    margin-top:0;
-}
-
 .mini-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -278,7 +294,9 @@ strong{
     color:var(--slate);
 }
 
-/* INTERNET */
+/* -----------------------------------
+   INTERNET JURISDICTION
+----------------------------------- */
 
 .internet-box{
     background:var(--white);
@@ -287,7 +305,9 @@ strong{
     padding:25px;
 }
 
-/* ZIPPO */
+/* -----------------------------------
+   ZIPPO STANDARD
+----------------------------------- */
 
 .zippo-section{
     background:var(--white);
@@ -492,7 +512,9 @@ strong{
     font-weight:bold;
 }
 
-/* INTERNATIONAL */
+/* -----------------------------------
+   INTERNATIONAL JURISDICTION
+----------------------------------- */
 
 .international{
     margin-top:25px;
@@ -519,9 +541,16 @@ strong{
     margin-top:0;
 }
 
-/* RESPONSIVE */
+.international-box strong{
+    color:var(--dark);
+}
+
+/* -----------------------------------
+   RESPONSIVE
+----------------------------------- */
 
 @media (max-width:800px){
+
     .court-grid,
     .two-part,
     .mini-grid,
@@ -540,6 +569,7 @@ strong{
 }
 
 @media (max-width:520px){
+
     .explorer-buttons{
         grid-template-columns:1fr;
     }
@@ -561,7 +591,9 @@ strong{
 
 <main class="page">
 
-<!-- OVERVIEW -->
+<!-- ===================================
+     OVERVIEW
+=================================== -->
 
 <section class="intro-box" aria-labelledby="overview-heading">
 
@@ -595,11 +627,13 @@ strong{
 </section>
 
 
-<!-- STATE AND FEDERAL COURTS -->
+<!-- ===================================
+     STATE AND FEDERAL COURTS
+=================================== -->
 
 <section class="section court-grid">
 
-    <!-- STATE -->
+    <!-- STATE COURTS -->
 
     <article class="court-card">
 
@@ -681,7 +715,7 @@ strong{
     </article>
 
 
-    <!-- FEDERAL -->
+    <!-- FEDERAL COURTS -->
 
     <article class="court-card">
 
@@ -722,7 +756,11 @@ strong{
 
                 <ul>
                     <li>The circuits are divided geographically.</li>
-                    <li>They are intermediate appellate courts of precedent in the federal system.</li>
+
+                    <li>
+                        They are intermediate appellate courts of precedent in
+                        the federal system.
+                    </li>
                 </ul>
 
             </div>
@@ -747,7 +785,9 @@ strong{
             </div>
 
             <p>
-                <strong>All federal judges are selected through the appointment process.</strong>
+                <strong>
+                    All federal judges are selected through the appointment process.
+                </strong>
             </p>
 
         </div>
@@ -756,7 +796,9 @@ strong{
 </section>
 
 
-<!-- HOW LAW DEVELOPS -->
+<!-- ===================================
+     HOW THE LAW DEVELOPS
+=================================== -->
 
 <section class="callout" aria-labelledby="law-develops">
 
@@ -776,26 +818,36 @@ strong{
         jurisdiction questions.
     </p>
 
-    <p><strong>A court must satisfy a two-part jurisdiction analysis:</strong></p>
+    <p>
+        <strong>A court must satisfy a two-part jurisdiction analysis:</strong>
+    </p>
 
     <div class="two-part">
 
         <div class="part">
+
             <div class="part-number">1</div>
+
             <h3>Subject Matter Jurisdiction</h3>
+
             <p>
                 Does this court have authority over the
                 <strong>type of dispute</strong> involved?
             </p>
+
         </div>
 
         <div class="part">
+
             <div class="part-number">2</div>
+
             <h3>Personal Jurisdiction</h3>
+
             <p>
                 Does this court have authority over the
                 <strong>parties</strong> involved?
             </p>
+
         </div>
 
     </div>
@@ -803,7 +855,9 @@ strong{
 </section>
 
 
-<!-- JURISDICTION AND VENUE -->
+<!-- ===================================
+     JURISDICTION AND VENUE
+=================================== -->
 
 <section class="section card red-top">
 
@@ -822,16 +876,21 @@ strong{
     </p>
 
     <div class="business-callout">
+
         <strong>Business Strategy Connection:</strong>
+
         The cost-benefit analysis involving jurisdictional restrictions may
         <strong>affect managerial decision-making</strong> when a company or
         individual is considering whether and where to file a lawsuit.
+
     </div>
 
 </section>
 
 
-<!-- INTERACTIVE JURISDICTION EXPLORER -->
+<!-- ===================================
+     INTERACTIVE JURISDICTION EXPLORER
+=================================== -->
 
 <section class="section card red-top explorer">
 
@@ -842,56 +901,67 @@ strong{
         obtain authority over a dispute, a person, or property.
     </p>
 
-    <div class="explorer-buttons" role="group" aria-label="Jurisdiction topics">
+    <div class="explorer-buttons"
+         role="group"
+         aria-label="Jurisdiction topics">
 
-        <button class="explorer-btn active"
-                data-topic="subject"
-                type="button">
+        <button
+            class="explorer-btn active"
+            data-topic="subject"
+            type="button">
             Subject Matter
         </button>
 
-        <button class="explorer-btn"
-                data-topic="property"
-                type="button">
+        <button
+            class="explorer-btn"
+            data-topic="property"
+            type="button">
             Property
         </button>
 
-        <button class="explorer-btn"
-                data-topic="personal"
-                type="button">
+        <button
+            class="explorer-btn"
+            data-topic="personal"
+            type="button">
             Personal Jurisdiction
         </button>
 
-        <button class="explorer-btn"
-                data-topic="physical"
-                type="button">
+        <button
+            class="explorer-btn"
+            data-topic="physical"
+            type="button">
             Physical Presence
         </button>
 
-        <button class="explorer-btn"
-                data-topic="voluntary"
-                type="button">
+        <button
+            class="explorer-btn"
+            data-topic="voluntary"
+            type="button">
             Voluntary
         </button>
 
-        <button class="explorer-btn"
-                data-topic="venue"
-                type="button">
+        <button
+            class="explorer-btn"
+            data-topic="venue"
+            type="button">
             Venue
         </button>
 
     </div>
 
-    <div id="explorerPanel"
-         class="explorer-panel"
-         tabindex="0"
-         aria-live="polite">
+    <div
+        id="explorerPanel"
+        class="explorer-panel"
+        tabindex="0"
+        aria-live="polite">
     </div>
 
 </section>
 
 
-<!-- INTERNET / EMAIL -->
+<!-- ===================================
+     INTERNET AND EMAIL JURISDICTION
+=================================== -->
 
 <section class="section internet-box">
 
@@ -918,7 +988,9 @@ strong{
 </section>
 
 
-<!-- ZIPPO -->
+<!-- ===================================
+     ZIPPO STANDARD
+=================================== -->
 
 <section class="section zippo-section">
 
@@ -957,49 +1029,65 @@ strong{
     <div class="mini-grid">
 
         <div class="mini-card">
+
             <h4>Passive</h4>
+
             <p>
                 A Web site provides information that can be accessed by users
                 but offers little or no interaction. A passive site alone
                 generally provides the weakest basis for personal jurisdiction.
             </p>
+
         </div>
 
         <div class="mini-card">
+
             <h4>Interactive</h4>
+
             <p>
                 Users can exchange information, purchase products, upload or
                 download materials, or perform other activities beyond simply
                 viewing content.
             </p>
+
         </div>
 
         <div class="mini-card">
+
             <h4>Integral to the Business Model</h4>
+
             <p>
                 The Web site is an essential part of the company's business
                 model and is used to conduct commercial transactions with
                 residents in the state.
             </p>
+
         </div>
 
     </div>
 
 
-    <!-- ACTIVITY -->
+    <!-- ZIPPO SORTING ACTIVITY -->
 
-    <h2 style="margin-top:35px;">Place the Examples on the Continuum</h2>
+    <h2 style="margin-top:35px;">
+        Place the Examples on the Continuum
+    </h2>
 
     <div class="activity-instructions">
+
         <strong>Directions:</strong>
+
         Drag each example into the category where you think it belongs.
+
         You can also select a card with your mouse or keyboard and then
-        select a category. When you are finished, choose
+        select a category.
+
+        When you are finished, choose
         <strong>Check My Answers</strong>.
+
     </div>
 
-    <div class="example-bank"
-         id="exampleBank">
+    <div class="example-bank" id="exampleBank">
 
         <h3>Examples to Sort</h3>
 
@@ -1009,35 +1097,41 @@ strong{
 
     <div class="drop-grid">
 
-        <div class="dropzone"
-             data-zone="passive"
-             tabindex="0"
-             role="button"
-             aria-label="Passive website drop zone">
+        <div
+            class="dropzone"
+            data-zone="passive"
+            tabindex="0"
+            role="button"
+            aria-label="Passive website category">
 
             <h3>Passive</h3>
+
             <div class="drop-cards"></div>
 
         </div>
 
-        <div class="dropzone"
-             data-zone="interactive"
-             tabindex="0"
-             role="button"
-             aria-label="Interactive website drop zone">
+        <div
+            class="dropzone"
+            data-zone="interactive"
+            tabindex="0"
+            role="button"
+            aria-label="Interactive website category">
 
             <h3>Interactive</h3>
+
             <div class="drop-cards"></div>
 
         </div>
 
-        <div class="dropzone"
-             data-zone="integral"
-             tabindex="0"
-             role="button"
-             aria-label="Integral to business model drop zone">
+        <div
+            class="dropzone"
+            data-zone="integral"
+            tabindex="0"
+            role="button"
+            aria-label="Integral to business model category">
 
             <h3>Integral to Business</h3>
+
             <div class="drop-cards"></div>
 
         </div>
@@ -1046,30 +1140,35 @@ strong{
 
     <div class="activity-buttons">
 
-        <button type="button"
-                class="action-btn check-btn"
-                id="checkAnswers">
+        <button
+            type="button"
+            class="action-btn check-btn"
+            id="checkAnswers">
             Check My Answers
         </button>
 
-        <button type="button"
-                class="action-btn reset-btn"
-                id="resetActivity">
+        <button
+            type="button"
+            class="action-btn reset-btn"
+            id="resetActivity">
             Reset Activity
         </button>
 
     </div>
 
-    <div id="activityResult"
-         class="result"
-         aria-live="polite">
+    <div
+        id="activityResult"
+        class="result"
+        aria-live="polite">
         Sort all of the examples and then check your answers.
     </div>
 
 </section>
 
 
-<!-- INTERNATIONAL -->
+<!-- ===================================
+     INTERNATIONAL JURISDICTION
+=================================== -->
 
 <section class="international">
 
@@ -1080,9 +1179,9 @@ strong{
         <h3>Country of Origin Standard</h3>
 
         <p>
-            In international Web transactions, courts generally look to the
-            location of a Web site's servers when determining jurisdiction over
-            disputes arising from use of the site.
+            In international Web transactions, generally the courts in the
+            location of the Web site's servers will have jurisdiction over
+            disputes arising from use of the Web site.
         </p>
 
     </div>
@@ -1092,18 +1191,18 @@ strong{
         <h3>Other Theories of Jurisdiction in Electronic Commerce</h3>
 
         <p>
-            Internet activity can create difficult jurisdiction questions across
-            national borders. In 2002, Australia's highest court concluded that
-            American-based publisher Dow Jones could be sued in Australia for
-            defamation based on an article appearing on its Web site, even
-            though Dow Jones had no physical presence in Australia and its Web
-            site infrastructure was located in New Jersey.
+            Internet activity can create difficult jurisdiction questions
+            across national borders. In 2002, Australia's highest court
+            concluded that American-based publisher Dow Jones could be sued
+            in Australia for defamation based on an article appearing on its
+            Web site, even though Dow Jones had no physical presence in
+            Australia and its Web site infrastructure was located in New Jersey.
         </p>
 
         <p>
-            <strong>Key takeaway:</strong> Conducting business or publishing
-            information online can expose a company to legal systems far beyond
-            the location of its physical offices.
+            <strong>Key takeaway:</strong>
+            Conducting business or publishing information online can expose a
+            company to legal systems far beyond the location of its physical offices.
         </p>
 
     </div>
@@ -1115,9 +1214,9 @@ strong{
 
 <script>
 
-/* -------------------------------------------------
+/* =================================================
    JURISDICTION EXPLORER
--------------------------------------------------- */
+================================================= */
 
 const jurisdictionTopics = {
 
@@ -1132,16 +1231,23 @@ const jurisdictionTopics = {
         <div class="mini-grid">
 
             <div class="mini-card">
+
                 <h4>State Courts</h4>
+
                 <p>
-                    State statutes give state trial courts general subject matter
-                    jurisdiction over virtually all matters involving a
-                    <strong>state statute, state common law, or state constitutional issue.</strong>
+                    State statutes give state trial courts general subject
+                    matter jurisdiction over virtually all matters involving a
+                    <strong>
+                        state statute, state common law, or state constitutional issue.
+                    </strong>
                 </p>
+
             </div>
 
             <div class="mini-card">
+
                 <h4>Federal District Courts</h4>
+
                 <p>
                     Federal district courts have
                     <strong>limited subject matter jurisdiction.</strong>
@@ -1149,12 +1255,14 @@ const jurisdictionTopics = {
                     <strong>federal question</strong> and matters in which the
                     <strong>United States is a party</strong>.
                 </p>
+
                 <p>
                     Federal courts may also hear
                     <strong>diversity of citizenship</strong> cases when the
                     parties are from different states and the amount in
                     controversy is more than <strong>$75,000</strong>.
                 </p>
+
             </div>
 
         </div>
@@ -1164,6 +1272,7 @@ const jurisdictionTopics = {
         <p>
             A court authorized to initially hear a case has
             <strong>original jurisdiction.</strong>
+
             When more than one court may have jurisdiction over the same case,
             the courts have <strong>concurrent jurisdiction.</strong>
         </p>
@@ -1188,27 +1297,34 @@ const jurisdictionTopics = {
         <div class="mini-grid">
 
             <div class="mini-card">
+
                 <h4>In Rem Jurisdiction</h4>
+
                 <p>
                     <strong>In rem jurisdiction</strong> allows a court to
                     determine rights or title involving an object or real estate.
                 </p>
+
             </div>
 
             <div class="mini-card">
+
                 <h4>Quasi In Rem Jurisdiction</h4>
+
                 <p>
                     <strong>Quasi in rem jurisdiction</strong> occurs when a
                     court uses jurisdiction over property to compel a litigant
                     to appear by attaching property belonging to that litigant.
                 </p>
+
             </div>
 
         </div>
 
         <p>
-            <strong>Think about it:</strong> Property itself can create a legal
-            connection between a dispute and a particular court.
+            <strong>Think about it:</strong>
+            Property itself can create a legal connection between a dispute
+            and a particular court.
         </p>
     `,
 
@@ -1223,29 +1339,38 @@ const jurisdictionTopics = {
         <div class="mini-grid">
 
             <div class="mini-card">
+
                 <h4>In-State Defendants</h4>
+
                 <p>
                     Personal jurisdiction is generally obtained when the
                     business or individual is properly served with the complaint
                     initiating the lawsuit.
                 </p>
+
             </div>
 
             <div class="mini-card">
+
                 <h4>Out-of-State Defendants</h4>
+
                 <p>
                     Two major questions must be considered:
                 </p>
+
                 <ol>
                     <li>
                         Is jurisdiction authorized by a
                         <strong>state long-arm statute?</strong>
                     </li>
+
                     <li>
                         Would exercising jurisdiction satisfy constitutional
-                        requirements of <strong>fairness and due process?</strong>
+                        requirements of
+                        <strong>fairness and due process?</strong>
                     </li>
                 </ol>
+
             </div>
 
         </div>
@@ -1269,9 +1394,12 @@ const jurisdictionTopics = {
         </p>
 
         <div class="business-callout">
+
             <strong>Key idea:</strong>
+
             A person's physical presence can create the connection needed for
             the court to exercise authority over that person.
+
         </div>
     `,
 
@@ -1289,11 +1417,15 @@ const jurisdictionTopics = {
         </p>
 
         <div class="business-callout">
+
             <strong>Business example:</strong>
+
             A contract may state that any dispute arising from the agreement
             must be litigated in a particular state or court.
+
             <em>Shute v. Carnival Cruise Lines</em> illustrates the importance
             of forum-selection provisions.
+
         </div>
     `,
 
@@ -1308,56 +1440,97 @@ const jurisdictionTopics = {
         <div class="mini-grid">
 
             <div class="mini-card">
+
                 <h4>Civil Cases</h4>
+
                 <p>
                     State statutes commonly provide that venue is appropriate
-                    where the defendant <strong>resides or is headquartered.</strong>
+                    where the defendant
+                    <strong>resides or is headquartered.</strong>
                 </p>
+
             </div>
 
             <div class="mini-card">
+
                 <h4>Criminal Cases</h4>
+
                 <p>
                     Venue is ordinarily located where the
                     <strong>crime was committed.</strong>
                 </p>
+
             </div>
 
         </div>
 
         <p>
             Remember the distinction:
-            <strong>jurisdiction asks whether the court has authority;</strong>
-            venue asks <strong>which appropriate location should hear the case.</strong>
+
+            <strong>
+                jurisdiction asks whether the court has authority;
+            </strong>
+
+            venue asks
+            <strong>
+                which appropriate location should hear the case.
+            </strong>
         </p>
     `
 };
 
-const explorerButtons = document.querySelectorAll(".explorer-btn");
-const explorerPanel = document.getElementById("explorerPanel");
+
+const explorerButtons =
+    document.querySelectorAll(".explorer-btn");
+
+const explorerPanel =
+    document.getElementById("explorerPanel");
+
 
 function showTopic(topic){
-    explorerPanel.innerHTML = jurisdictionTopics[topic];
+
+    explorerPanel.innerHTML =
+        jurisdictionTopics[topic];
 
     explorerButtons.forEach(btn => {
-        const active = btn.dataset.topic === topic;
-        btn.classList.toggle("active", active);
-        btn.setAttribute("aria-pressed", active ? "true" : "false");
+
+        const active =
+            btn.dataset.topic === topic;
+
+        btn.classList.toggle(
+            "active",
+            active
+        );
+
+        btn.setAttribute(
+            "aria-pressed",
+            active ? "true" : "false"
+        );
+
     });
+
 }
 
+
 explorerButtons.forEach(button => {
+
     button.addEventListener("click", () => {
-        showTopic(button.dataset.topic);
+
+        showTopic(
+            button.dataset.topic
+        );
+
     });
+
 });
+
 
 showTopic("subject");
 
 
-/* -------------------------------------------------
-   ZIPPO ACTIVITY
--------------------------------------------------- */
+/* =================================================
+   ZIPPO STANDARD ACTIVITY
+================================================= */
 
 const zippoExamples = [
 
@@ -1417,52 +1590,100 @@ const zippoExamples = [
 
 ];
 
-const bankCards = document.getElementById("bankCards");
-const zones = document.querySelectorAll(".dropzone");
-const result = document.getElementById("activityResult");
+
+const bankCards =
+    document.getElementById("bankCards");
+
+const zones =
+    document.querySelectorAll(".dropzone");
+
+const result =
+    document.getElementById("activityResult");
 
 let selectedCard = null;
+
+
+/* -----------------------------------
+   BUILD CARDS
+----------------------------------- */
 
 function buildCards(){
 
     bankCards.innerHTML = "";
 
     zones.forEach(zone => {
+
         zone.querySelector(".drop-cards").innerHTML = "";
+
     });
 
     selectedCard = null;
 
     zippoExamples.forEach(example => {
 
-        const card = document.createElement("div");
+        const card =
+            document.createElement("div");
 
-        card.className = "drag-card";
-        card.id = example.id;
-        card.draggable = true;
-        card.tabIndex = 0;
-        card.setAttribute("role","button");
-        card.setAttribute("aria-label", example.text);
-        card.dataset.answer = example.answer;
+        card.className =
+            "drag-card";
+
+        card.id =
+            example.id;
+
+        card.draggable =
+            true;
+
+        card.tabIndex =
+            0;
+
+        card.setAttribute(
+            "role",
+            "button"
+        );
+
+        card.setAttribute(
+            "aria-label",
+            example.text
+        );
+
+        card.setAttribute(
+            "aria-pressed",
+            "false"
+        );
+
+        card.dataset.answer =
+            example.answer;
 
         card.innerHTML = `
             <span>${example.text}</span>
         `;
 
-        card.addEventListener("dragstart", handleDragStart);
+        card.addEventListener(
+            "dragstart",
+            handleDragStart
+        );
 
-        card.addEventListener("click", () => {
-            selectCard(card);
-        });
-
-        card.addEventListener("keydown", event => {
-
-            if(event.key === "Enter" || event.key === " "){
-                event.preventDefault();
+        card.addEventListener(
+            "click",
+            () => {
                 selectCard(card);
             }
+        );
 
-        });
+        card.addEventListener(
+            "keydown",
+            event => {
+
+                if(
+                    event.key === "Enter" ||
+                    event.key === " "
+                ){
+                    event.preventDefault();
+                    selectCard(card);
+                }
+
+            }
+        );
 
         bankCards.appendChild(card);
 
@@ -1470,31 +1691,66 @@ function buildCards(){
 
     result.textContent =
         "Sort all of the examples and then check your answers.";
+
 }
+
+
+/* -----------------------------------
+   SELECT CARD
+----------------------------------- */
 
 function selectCard(card){
 
-    document.querySelectorAll(".drag-card").forEach(c => {
-        c.classList.remove("selected");
-        c.setAttribute("aria-pressed","false");
-    });
+    document
+        .querySelectorAll(".drag-card")
+        .forEach(c => {
+
+            c.classList.remove("selected");
+
+            c.setAttribute(
+                "aria-pressed",
+                "false"
+            );
+
+        });
 
     if(selectedCard === card){
+
         selectedCard = null;
+
+        result.textContent =
+            "Selection cleared.";
+
         return;
+
     }
 
-    selectedCard = card;
-    card.classList.add("selected");
-    card.setAttribute("aria-pressed","true");
+    selectedCard =
+        card;
+
+    card.classList.add(
+        "selected"
+    );
+
+    card.setAttribute(
+        "aria-pressed",
+        "true"
+    );
 
     result.textContent =
         "Example selected. Now choose Passive, Interactive, or Integral to Business.";
+
 }
+
+
+/* -----------------------------------
+   DRAG START
+----------------------------------- */
 
 function handleDragStart(event){
 
-    selectedCard = event.currentTarget;
+    selectedCard =
+        event.currentTarget;
 
     event.dataTransfer.setData(
         "text/plain",
@@ -1503,62 +1759,132 @@ function handleDragStart(event){
 
 }
 
+
+/* -----------------------------------
+   DROP ZONES
+----------------------------------- */
+
 zones.forEach(zone => {
 
-    zone.addEventListener("dragover", event => {
-        event.preventDefault();
-        zone.classList.add("drag-over");
-    });
-
-    zone.addEventListener("dragleave", () => {
-        zone.classList.remove("drag-over");
-    });
-
-    zone.addEventListener("drop", event => {
-
-        event.preventDefault();
-
-        zone.classList.remove("drag-over");
-
-        const cardId =
-            event.dataTransfer.getData("text/plain");
-
-        const card =
-            document.getElementById(cardId);
-
-        moveCard(card, zone);
-
-    });
-
-    zone.addEventListener("click", event => {
-
-        if(event.target.closest(".drag-card")) return;
-
-        if(selectedCard){
-            moveCard(selectedCard, zone);
-        }
-
-    });
-
-    zone.addEventListener("keydown", event => {
-
-        if((event.key === "Enter" || event.key === " ") && selectedCard){
+    zone.addEventListener(
+        "dragover",
+        event => {
 
             event.preventDefault();
 
-            moveCard(selectedCard, zone);
+            zone.classList.add(
+                "drag-over"
+            );
 
         }
+    );
 
-    });
+
+    zone.addEventListener(
+        "dragleave",
+        () => {
+
+            zone.classList.remove(
+                "drag-over"
+            );
+
+        }
+    );
+
+
+    zone.addEventListener(
+        "drop",
+        event => {
+
+            event.preventDefault();
+
+            zone.classList.remove(
+                "drag-over"
+            );
+
+            const cardId =
+                event.dataTransfer.getData(
+                    "text/plain"
+                );
+
+            const card =
+                document.getElementById(
+                    cardId
+                );
+
+            moveCard(
+                card,
+                zone
+            );
+
+        }
+    );
+
+
+    zone.addEventListener(
+        "click",
+        event => {
+
+            if(
+                event.target.closest(".drag-card")
+            ){
+                return;
+            }
+
+            if(selectedCard){
+
+                moveCard(
+                    selectedCard,
+                    zone
+                );
+
+            }
+
+        }
+    );
+
+
+    zone.addEventListener(
+        "keydown",
+        event => {
+
+            if(
+                (
+                    event.key === "Enter" ||
+                    event.key === " "
+                )
+                &&
+                selectedCard
+            ){
+
+                event.preventDefault();
+
+                moveCard(
+                    selectedCard,
+                    zone
+                );
+
+            }
+
+        }
+    );
 
 });
 
+
+/* -----------------------------------
+   MOVE CARD
+----------------------------------- */
+
 function moveCard(card, zone){
 
-    if(!card) return;
+    if(!card){
+        return;
+    }
 
-    zone.querySelector(".drop-cards").appendChild(card);
+    zone
+        .querySelector(".drop-cards")
+        .appendChild(card);
 
     card.classList.remove(
         "selected",
@@ -1566,120 +1892,157 @@ function moveCard(card, zone){
         "incorrect"
     );
 
-    card.querySelectorAll(".feedback-label")
+    card
+        .querySelectorAll(".feedback-label")
         .forEach(el => el.remove());
 
-    card.setAttribute("aria-pressed","false");
+    card.setAttribute(
+        "aria-pressed",
+        "false"
+    );
 
     selectedCard = null;
 
     result.textContent =
         "Example placed. Continue sorting the remaining examples.";
+
 }
 
 
-/* CHECK ANSWERS */
+/* -----------------------------------
+   CHECK ANSWERS
+----------------------------------- */
 
-document.getElementById("checkAnswers")
-.addEventListener("click", () => {
+document
+    .getElementById("checkAnswers")
+    .addEventListener(
+        "click",
+        () => {
 
-    let correct = 0;
-    let placed = 0;
+            let correct = 0;
+            let placed = 0;
 
-    document.querySelectorAll(".drag-card")
-        .forEach(card => {
+            document
+                .querySelectorAll(".drag-card")
+                .forEach(card => {
 
-            card.classList.remove(
-                "correct",
-                "incorrect"
-            );
+                    card.classList.remove(
+                        "correct",
+                        "incorrect"
+                    );
 
-            card.querySelectorAll(".feedback-label")
-                .forEach(el => el.remove());
+                    card
+                        .querySelectorAll(".feedback-label")
+                        .forEach(el => el.remove());
 
-            const zone =
-                card.closest(".dropzone");
+                    const zone =
+                        card.closest(".dropzone");
 
-            if(!zone){
+                    if(!zone){
+                        return;
+                    }
+
+                    placed++;
+
+                    const chosen =
+                        zone.dataset.zone;
+
+                    const feedback =
+                        document.createElement("span");
+
+                    feedback.className =
+                        "feedback-label";
+
+                    if(
+                        chosen === card.dataset.answer
+                    ){
+
+                        correct++;
+
+                        card.classList.add(
+                            "correct"
+                        );
+
+                        feedback.textContent =
+                            "✓ Correct";
+
+                    }
+                    else{
+
+                        card.classList.add(
+                            "incorrect"
+                        );
+
+                        const correctName = {
+                            passive:"Passive",
+                            interactive:"Interactive",
+                            integral:"Integral to Business"
+                        };
+
+                        feedback.textContent =
+                            "✕ Try again — review the difference between this category and " +
+                            correctName[card.dataset.answer] +
+                            ".";
+
+                    }
+
+                    card.appendChild(
+                        feedback
+                    );
+
+                });
+
+
+            if(
+                placed < zippoExamples.length
+            ){
+
+                result.textContent =
+                    `You have placed ${placed} of ${zippoExamples.length} examples. Place the remaining examples before finishing.`;
+
                 return;
-            }
-
-            placed++;
-
-            const chosen =
-                zone.dataset.zone;
-
-            const feedback =
-                document.createElement("span");
-
-            feedback.className =
-                "feedback-label";
-
-            if(chosen === card.dataset.answer){
-
-                correct++;
-
-                card.classList.add("correct");
-
-                feedback.textContent =
-                    "✓ Correct";
-
-            } else {
-
-                card.classList.add("incorrect");
-
-                const correctName = {
-                    passive:"Passive",
-                    interactive:"Interactive",
-                    integral:"Integral to Business"
-                };
-
-                feedback.textContent =
-                    "✕ Try again — review the difference between this category and " +
-                    correctName[card.dataset.answer] + ".";
 
             }
 
-            card.appendChild(feedback);
 
-        });
+            if(
+                correct === zippoExamples.length
+            ){
 
-    if(placed < zippoExamples.length){
+                result.textContent =
+                    `Great work! You correctly classified all ${zippoExamples.length} examples.`;
 
-        result.textContent =
-            `You have placed ${placed} of ${zippoExamples.length} examples. ` +
-            `Place the remaining examples before finishing.`;
+            }
+            else{
 
-        return;
-    }
+                result.textContent =
+                    `You currently have ${correct} of ${zippoExamples.length} correct. Move the examples marked "Try again" and check your answers again.`;
 
-    if(correct === zippoExamples.length){
+            }
 
-        result.textContent =
-            `Great work! You correctly classified all ${zippoExamples.length} examples.`;
-
-    } else {
-
-        result.textContent =
-            `You currently have ${correct} of ${zippoExamples.length} correct. ` +
-            `Move the examples marked "Try again" and check your answers again.`;
-
-    }
-
-});
+        }
+    );
 
 
-/* RESET */
+/* -----------------------------------
+   RESET
+----------------------------------- */
 
-document.getElementById("resetActivity")
-.addEventListener("click", () => {
+document
+    .getElementById("resetActivity")
+    .addEventListener(
+        "click",
+        () => {
 
-    buildCards();
+            buildCards();
 
-});
+        }
+    );
 
 
-/* INITIALIZE */
+/* -----------------------------------
+   INITIALIZE
+----------------------------------- */
 
 buildCards();
 

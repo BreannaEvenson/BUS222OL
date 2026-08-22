@@ -1,0 +1,2102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Resolving Legal Disputes</title>
+
+<style>
+:root{
+    --red:#C8102E;
+    --slate:#455560;
+    --dark:#333333;
+    --light:#F4F4F4;
+    --white:#FFFFFF;
+    --border:#D8DDE1;
+    --green:#2E6B45;
+    --green-bg:#EDF7F1;
+    --red-bg:#FFF1F3;
+}
+
+*{
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    margin:0;
+    font-family:Arial, Helvetica, sans-serif;
+    background:var(--light);
+    color:var(--dark);
+    line-height:1.6;
+}
+
+button,
+select,
+input{
+    font:inherit;
+}
+
+.page{
+    max-width:1180px;
+    margin:0 auto;
+    padding:28px 20px 60px;
+}
+
+h1,h2,h3,h4{
+    line-height:1.2;
+}
+
+h2{
+    color:var(--red);
+}
+
+h3{
+    color:var(--slate);
+}
+
+p{
+    margin-top:0;
+}
+
+.section{
+    margin:26px 0;
+}
+
+.card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:24px;
+    box-shadow:0 3px 10px rgba(0,0,0,.06);
+}
+
+.red-top{
+    border-top:6px solid var(--red);
+}
+
+/* =================================================
+   OVERVIEW
+================================================= */
+
+.overview{
+    background:var(--white);
+    border:2px solid var(--slate);
+    border-left:8px solid var(--red);
+    border-radius:10px;
+    padding:26px;
+}
+
+.overview h2{
+    margin-top:0;
+}
+
+/* =================================================
+   FLIP CARDS
+================================================= */
+
+.flip-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:24px;
+}
+
+.flip-card{
+    perspective:1000px;
+    min-height:260px;
+}
+
+.flip-button{
+    width:100%;
+    min-height:260px;
+    border:0;
+    padding:0;
+    background:transparent;
+    cursor:pointer;
+    position:relative;
+    perspective:1000px;
+}
+
+.flip-inner{
+    position:absolute;
+    inset:0;
+    transition:transform .6s;
+    transform-style:preserve-3d;
+}
+
+.flip-card.flipped .flip-inner{
+    transform:rotateY(180deg);
+}
+
+.flip-front,
+.flip-back{
+    position:absolute;
+    inset:0;
+    border-radius:10px;
+    backface-visibility:hidden;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:25px;
+    text-align:center;
+}
+
+.flip-front{
+    background:var(--slate);
+    color:var(--white);
+    border-top:6px solid var(--red);
+}
+
+.flip-front h3{
+    color:var(--white);
+    font-size:1.45rem;
+    margin:0 0 12px;
+}
+
+.flip-hint{
+    font-size:.88rem;
+    opacity:.85;
+}
+
+.flip-back{
+    background:var(--white);
+    color:var(--dark);
+    border:2px solid var(--slate);
+    transform:rotateY(180deg);
+    text-align:left;
+    align-items:flex-start;
+}
+
+.flip-back h3{
+    color:var(--red);
+    margin:0 0 12px;
+}
+
+/* =================================================
+   STAGE TIMELINE
+================================================= */
+
+.stages-heading{
+    margin-top:38px;
+}
+
+.timing-note{
+    background:var(--slate);
+    color:var(--white);
+    border-radius:8px;
+    padding:16px 20px;
+    margin-bottom:22px;
+}
+
+.stage{
+    display:grid;
+    grid-template-columns:65px 1fr;
+    gap:18px;
+    margin-bottom:20px;
+}
+
+.stage-number{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:var(--red);
+    color:var(--white);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:1.35rem;
+    font-weight:bold;
+}
+
+.stage-content{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:24px;
+    box-shadow:0 2px 7px rgba(0,0,0,.05);
+}
+
+.stage-content h3{
+    margin-top:0;
+    color:var(--red);
+}
+
+.definition-callout{
+    background:var(--light);
+    border-left:5px solid var(--red);
+    border-radius:6px;
+    padding:15px 18px;
+    margin:16px 0;
+}
+
+/* =================================================
+   KNOWLEDGE CHECKS
+================================================= */
+
+.knowledge-check{
+    background:#FAFBFC;
+    border:2px solid var(--slate);
+    border-radius:9px;
+    padding:20px;
+    margin-top:22px;
+}
+
+.knowledge-check h4{
+    color:var(--slate);
+    margin-top:0;
+    font-size:1.1rem;
+}
+
+.question{
+    margin:18px 0;
+}
+
+.choice{
+    display:block;
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:10px 12px;
+    margin:8px 0;
+}
+
+.choice:hover{
+    border-color:var(--slate);
+}
+
+input[type="checkbox"]{
+    margin-right:9px;
+}
+
+.text-answer{
+    width:100%;
+    max-width:420px;
+    padding:10px 12px;
+    border:2px solid var(--slate);
+    border-radius:6px;
+    margin:8px 0;
+}
+
+.answer-select{
+    width:100%;
+    padding:10px 12px;
+    border:2px solid var(--slate);
+    background:var(--white);
+    border-radius:6px;
+    margin-top:7px;
+}
+
+.check-btn,
+.reset-btn{
+    border:0;
+    border-radius:6px;
+    padding:11px 18px;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:12px;
+    margin-right:8px;
+}
+
+.check-btn{
+    background:var(--red);
+    color:var(--white);
+}
+
+.reset-btn{
+    background:var(--slate);
+    color:var(--white);
+}
+
+.check-btn:hover,
+.check-btn:focus,
+.reset-btn:hover,
+.reset-btn:focus{
+    opacity:.9;
+    outline:3px solid rgba(200,16,46,.2);
+}
+
+.feedback{
+    margin-top:13px;
+    padding:11px 14px;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+.feedback:empty{
+    display:none;
+}
+
+.feedback.correct-feedback{
+    color:var(--green);
+    background:var(--green-bg);
+    border-left:5px solid var(--green);
+}
+
+.feedback.incorrect-feedback{
+    color:#8A1027;
+    background:var(--red-bg);
+    border-left:5px solid var(--red);
+}
+
+.correct-field{
+    border-color:var(--green) !important;
+    background:var(--green-bg) !important;
+}
+
+.incorrect-field{
+    border-color:var(--red) !important;
+    background:var(--red-bg) !important;
+}
+
+/* =================================================
+   DISCOVERY MATCHING
+================================================= */
+
+.match-row{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:7px;
+    padding:14px;
+    margin:10px 0;
+}
+
+/* =================================================
+   TRIAL ORDER ACTIVITY
+================================================= */
+
+.sort-instructions{
+    background:var(--light);
+    border-left:5px solid var(--red);
+    padding:15px 18px;
+    border-radius:6px;
+    margin-bottom:16px;
+}
+
+.sort-list{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.sort-item{
+    background:var(--white);
+    border:2px solid var(--slate);
+    border-radius:8px;
+    padding:15px;
+    margin:10px 0;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:15px;
+    align-items:center;
+    cursor:grab;
+}
+
+.sort-item.dragging{
+    opacity:.5;
+}
+
+.sort-item strong{
+    color:var(--slate);
+}
+
+.sort-controls{
+    display:flex;
+    gap:6px;
+}
+
+.move-btn{
+    border:0;
+    background:var(--slate);
+    color:var(--white);
+    width:36px;
+    height:36px;
+    border-radius:5px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.move-btn:hover,
+.move-btn:focus{
+    background:var(--red);
+    outline:2px solid var(--dark);
+}
+
+/* =================================================
+   ADR
+================================================= */
+
+.adr-intro{
+    background:var(--slate);
+    color:var(--white);
+    border-radius:10px;
+    padding:25px;
+}
+
+.adr-intro h2{
+    color:var(--white);
+    margin-top:0;
+}
+
+.advantage-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-top:18px;
+}
+
+.advantage{
+    background:var(--white);
+    color:var(--dark);
+    padding:15px;
+    border-radius:7px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.adr-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin:22px 0;
+}
+
+.adr-box{
+    background:var(--white);
+    border-radius:10px;
+    padding:22px;
+    border-top:6px solid var(--red);
+    border-left:1px solid var(--border);
+    border-right:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+}
+
+.adr-box h3{
+    margin-top:0;
+}
+
+/* =================================================
+   ADR ACCORDIONS
+================================================= */
+
+.accordion{
+    margin-top:20px;
+}
+
+.accordion-item{
+    margin-bottom:10px;
+    border:1px solid var(--border);
+    border-radius:8px;
+    overflow:hidden;
+    background:var(--white);
+}
+
+.accordion-button{
+    width:100%;
+    text-align:left;
+    padding:16px 18px;
+    border:0;
+    background:var(--slate);
+    color:var(--white);
+    font-weight:bold;
+    font-size:1.05rem;
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.accordion-button:hover,
+.accordion-button:focus{
+    background:var(--dark);
+}
+
+.accordion-content{
+    display:none;
+    padding:20px;
+}
+
+.accordion-item.open .accordion-content{
+    display:block;
+}
+
+.accordion-icon{
+    font-size:1.3rem;
+}
+
+/* =================================================
+   RESPONSIVE
+================================================= */
+
+@media(max-width:850px){
+
+    .flip-grid,
+    .adr-grid,
+    .advantage-grid{
+        grid-template-columns:1fr;
+    }
+
+    .stage{
+        grid-template-columns:1fr;
+    }
+
+    .stage-number{
+        margin-bottom:-5px;
+    }
+}
+
+@media(max-width:520px){
+
+    .page{
+        padding:15px 10px 40px;
+    }
+
+    .sort-item{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<main class="page">
+
+<!-- =================================================
+     OVERVIEW
+================================================= -->
+
+<section class="overview">
+
+    <h2>Overview</h2>
+
+    <p>
+        Coverage in this chapter continues the discussion of the American courts
+        of the previous chapter with an overview and explanation of how parties
+        <strong>resolve</strong> legal disputes. The chapter begins with a
+        managerial approach towards understanding dispute resolution by putting
+        it in the context of business planning. Although the process of civil
+        litigation is explained with some degree of detail, the chapter also
+        includes significant coverage of alternative dispute resolution (ADR)
+        options that are in use in the business environment.
+    </p>
+
+</section>
+
+
+<!-- =================================================
+     FLIP CARDS
+================================================= -->
+
+<section class="section">
+
+    <div class="flip-grid">
+
+        <!-- CARD 1 -->
+
+        <div class="flip-card">
+
+            <button class="flip-button"
+                    type="button"
+                    aria-label="Civil Litigation. Select to reveal definition."
+                    aria-expanded="false">
+
+                <span class="flip-inner">
+
+                    <span class="flip-front">
+
+                        <h3>Civil Litigation</h3>
+
+                        <span class="flip-hint">
+                            Select to reveal
+                        </span>
+
+                    </span>
+
+                    <span class="flip-back">
+
+                        <h3>Civil Litigation</h3>
+
+                        <span>
+                            Civil litigation describes the dispute resolution
+                            process in which parties and their counsel argue
+                            their view of a civil controversy in a
+                            <strong>court of law.</strong>
+                        </span>
+
+                    </span>
+
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- CARD 2 -->
+
+        <div class="flip-card">
+
+            <button class="flip-button"
+                    type="button"
+                    aria-label="Class Action Lawsuits. Select to reveal definition."
+                    aria-expanded="false">
+
+                <span class="flip-inner">
+
+                    <span class="flip-front">
+
+                        <h3>Class Action Lawsuits</h3>
+
+                        <span class="flip-hint">
+                            Select to reveal
+                        </span>
+
+                    </span>
+
+                    <span class="flip-back">
+
+                        <h3>Class Action Lawsuits</h3>
+
+                        <span>
+                            A class action allows a group of people with the
+                            same or similar injuries to sue the same defendant.
+                            It can allow people with relatively small individual
+                            claims to combine their claims and
+                            <strong>share the costs of litigation.</strong>
+                        </span>
+
+                    </span>
+
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- CARD 3 -->
+
+        <div class="flip-card">
+
+            <button class="flip-button"
+                    type="button"
+                    aria-label="Class Action Fairness Act. Select to reveal definition."
+                    aria-expanded="false">
+
+                <span class="flip-inner">
+
+                    <span class="flip-front">
+
+                        <h3>Class Action Fairness Act (CAFA)</h3>
+
+                        <span class="flip-hint">
+                            Select to reveal
+                        </span>
+
+                    </span>
+
+                    <span class="flip-back">
+
+                        <h3>Class Action Fairness Act</h3>
+
+                        <span>
+                            CAFA gives federal courts greater authority to
+                            review class action settlements. It was intended in
+                            part to address cases where plaintiffs received
+                            relatively small recoveries while attorneys received
+                            very large fees, and it allows greater scrutiny of
+                            settlements and potentially excessive attorneys' fees.
+                        </span>
+
+                    </span>
+
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     STAGES OF LITIGATION
+================================================= -->
+
+<section class="section">
+
+    <h2 class="stages-heading">Stages of Litigation</h2>
+
+    <div class="timing-note">
+        It is important to note that the timing of these stages
+        <strong>may sometimes overlap.</strong>
+    </div>
+
+
+    <!-- =================================================
+         STAGE 1
+    ================================================= -->
+
+    <div class="stage">
+
+        <div class="stage-number">1</div>
+
+        <div class="stage-content">
+
+            <h3>Prelawsuit: Demand and Prelitigation Settlement Negotiations</h3>
+
+            <p>
+                When a dispute arises, one party will usually make a
+                <strong>demand</strong>, either informal or formal, of the other
+                party. The principals lay out the basics of the dispute and
+                demand a certain action. This is commonly followed by informal
+                prelitigation settlement discussions.
+            </p>
+
+
+            <!-- STANDING QUESTION -->
+
+            <div class="knowledge-check">
+
+                <h4>Knowledge Check: Standing</h4>
+
+                <p>
+                    To maintain a lawsuit against another party, which of the
+                    following must be present?
+                    <strong>Select all that apply.</strong>
+                </p>
+
+                <label class="choice">
+                    <input type="checkbox"
+                           class="standing-choice"
+                           data-correct="true">
+                    The plaintiff has suffered an injury in fact.
+                </label>
+
+                <label class="choice">
+                    <input type="checkbox"
+                           class="standing-choice"
+                           data-correct="true">
+                    The harm is direct, concrete, and individualized.
+                </label>
+
+                <label class="choice">
+                    <input type="checkbox"
+                           class="standing-choice"
+                           data-correct="true">
+                    The court is capable of providing a legal remedy or redress.
+                </label>
+
+                <label class="choice">
+                    <input type="checkbox"
+                           class="standing-choice"
+                           data-correct="false">
+                    The plaintiff must prove the entire case before filing the lawsuit.
+                </label>
+
+                <button class="check-btn"
+                        id="checkStanding"
+                        type="button">
+                    Check Answer
+                </button>
+
+                <div id="standingFeedback"
+                     class="feedback"
+                     aria-live="polite">
+                </div>
+
+            </div>
+
+
+            <!-- STATUTE OF LIMITATIONS -->
+
+            <div class="knowledge-check">
+
+                <h4>Knowledge Check: Time Limit</h4>
+
+                <p>
+                    Even if standing can be established, the plaintiff must also
+                    file the lawsuit within a certain time limit called the:
+                </p>
+
+                <label for="limitationsAnswer"
+                       class="sr-only">
+                    Enter the legal term for the filing deadline.
+                </label>
+
+                <input
+                    id="limitationsAnswer"
+                    class="text-answer"
+                    type="text"
+                    autocomplete="off"
+                    placeholder="Type your answer here">
+
+                <p>
+                    or the lawsuit will be barred forever. In most cases,
+                    this time limit begins when the plaintiff's injury occurs.
+                </p>
+
+                <button class="check-btn"
+                        id="checkLimitations"
+                        type="button">
+                    Check Answer
+                </button>
+
+                <div id="limitationsFeedback"
+                     class="feedback"
+                     aria-live="polite">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         STAGE 2
+    ================================================= -->
+
+    <div class="stage">
+
+        <div class="stage-number">2</div>
+
+        <div class="stage-content">
+
+            <h3>Pleadings Stage</h3>
+
+            <p>
+                The pleadings formally identify the claims, defenses, and
+                parties involved in the lawsuit.
+            </p>
+
+            <div class="knowledge-check">
+
+                <h4>Knowledge Check: Identify the Pleading</h4>
+
+                <p>
+                    Choose the correct pleading for each description.
+                </p>
+
+
+                <div class="question">
+
+                    <strong>
+                        If informal attempts at resolution fail, the plaintiff
+                        initiates the lawsuit and arranges for service of the defendant.
+                    </strong>
+
+                    <select class="answer-select pleading-select"
+                            data-answer="Complaint and Summons">
+
+                        <option value="">Select an answer</option>
+                        <option>Complaint and Summons</option>
+                        <option>Answer</option>
+                        <option>Counterclaim</option>
+                        <option>Cross-Claim</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="question">
+
+                    <strong>
+                        Responds to each paragraph of the complaint in an attempt
+                        to narrow the scope of the issues in controversy. If the
+                        defendant fails to respond within the prescribed time,
+                        the defendant may default and generally lose without the
+                        benefit of a trial.
+                    </strong>
+
+                    <select class="answer-select pleading-select"
+                            data-answer="Answer">
+
+                        <option value="">Select an answer</option>
+                        <option>Complaint and Summons</option>
+                        <option>Answer</option>
+                        <option>Counterclaim</option>
+                        <option>Cross-Claim</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="question">
+
+                    <strong>
+                        Filed in addition to the answer when the defendant
+                        believes the plaintiff has caused them damages arising
+                        from the same set of facts described in the complaint.
+                    </strong>
+
+                    <select class="answer-select pleading-select"
+                            data-answer="Counterclaim">
+
+                        <option value="">Select an answer</option>
+                        <option>Complaint and Summons</option>
+                        <option>Answer</option>
+                        <option>Counterclaim</option>
+                        <option>Cross-Claim</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="question">
+
+                    <strong>
+                        Filed when the defendant believes a third party is
+                        partially or fully liable for the damages suffered by
+                        the plaintiff and should therefore be involved in the trial.
+                    </strong>
+
+                    <select class="answer-select pleading-select"
+                            data-answer="Cross-Claim">
+
+                        <option value="">Select an answer</option>
+                        <option>Complaint and Summons</option>
+                        <option>Answer</option>
+                        <option>Counterclaim</option>
+                        <option>Cross-Claim</option>
+
+                    </select>
+
+                </div>
+
+                <button class="check-btn"
+                        id="checkPleadings"
+                        type="button">
+                    Check My Answers
+                </button>
+
+                <div id="pleadingsFeedback"
+                     class="feedback"
+                     aria-live="polite">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         STAGE 3
+    ================================================= -->
+
+    <div class="stage">
+
+        <div class="stage-number">3</div>
+
+        <div class="stage-content">
+
+            <h3>Motions</h3>
+
+            <div class="definition-callout">
+                A <strong>motion</strong> is a document filed by one party that
+                requests court action in a matter pertaining to the litigation.
+            </div>
+
+            <p>
+                Motions may arise at several points during litigation, which is
+                one reason the timing of the stages of a lawsuit may overlap.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         STAGE 4
+    ================================================= -->
+
+    <div class="stage">
+
+        <div class="stage-number">4</div>
+
+        <div class="stage-content">
+
+            <h3>Discovery Stage</h3>
+
+            <div class="definition-callout">
+                <strong>Discovery</strong> is the legal process for the orderly
+                exchange of evidence.
+            </div>
+
+            <p>
+                Unless protected by a legal privilege, information relevant to
+                the case is generally subject to
+                <strong>methods of discovery.</strong>
+            </p>
+
+            <p>
+                The rules for exchanging information during discovery are set
+                out in the Rules of Civil Procedure and are accomplished
+                primarily through four methods:
+                <strong>depositions, interrogatories, requests for production,
+                and requests for admissions.</strong>
+            </p>
+
+
+            <!-- DISCOVERY MATCHING -->
+
+            <div class="knowledge-check">
+
+                <h4>Knowledge Check: Match the Discovery Method</h4>
+
+                <p>
+                    Select the discovery method that matches each definition.
+                </p>
+
+
+                <div class="match-row">
+
+                    A witness gives
+                    <strong>sworn testimony before trial</strong>
+                    in order to provide evidence.
+
+                    <select class="answer-select discovery-select"
+                            data-answer="Depositions">
+
+                        <option value="">Select a term</option>
+                        <option>Depositions</option>
+                        <option>Interrogatories</option>
+                        <option>Request for Admissions</option>
+                        <option>Requests for Production</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="match-row">
+
+                    One party submits
+                    <strong>written questions</strong>
+                    to the opposing party in an attempt to gather evidence.
+
+                    <select class="answer-select discovery-select"
+                            data-answer="Interrogatories">
+
+                        <option value="">Select a term</option>
+                        <option>Depositions</option>
+                        <option>Interrogatories</option>
+                        <option>Request for Admissions</option>
+                        <option>Requests for Production</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="match-row">
+
+                    A set of statements is sent to an opposing party to determine
+                    <strong>which facts are disputed and which facts both parties accept as true.</strong>
+
+                    <select class="answer-select discovery-select"
+                            data-answer="Request for Admissions">
+
+                        <option value="">Select a term</option>
+                        <option>Depositions</option>
+                        <option>Interrogatories</option>
+                        <option>Request for Admissions</option>
+                        <option>Requests for Production</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="match-row">
+
+                    A request is made for
+                    <strong>specific documents, records, items, or other materials</strong>
+                    that may reveal an important fact in the case.
+
+                    <select class="answer-select discovery-select"
+                            data-answer="Requests for Production">
+
+                        <option value="">Select a term</option>
+                        <option>Depositions</option>
+                        <option>Interrogatories</option>
+                        <option>Request for Admissions</option>
+                        <option>Requests for Production</option>
+
+                    </select>
+
+                </div>
+
+
+                <button class="check-btn"
+                        id="checkDiscovery"
+                        type="button">
+                    Check My Answers
+                </button>
+
+                <div id="discoveryFeedback"
+                     class="feedback"
+                     aria-live="polite">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         STAGE 5
+    ================================================= -->
+
+    <div class="stage">
+
+        <div class="stage-number">5</div>
+
+        <div class="stage-content">
+
+            <h3>Pretrial Conference</h3>
+
+            <p>
+                A pretrial conference is a meeting between the
+                <strong>attorneys</strong> for the parties and the
+                <strong>judge</strong> several weeks prior to trial.
+            </p>
+
+            <p>
+                Major objectives include:
+            </p>
+
+            <ul>
+                <li>Encouraging settlement.</li>
+                <li>Resolving outstanding motions.</li>
+                <li>
+                    Addressing procedural issues that arose during the pleadings
+                    or discovery stages.
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <!-- =================================================
+         STAGE 6
+    ================================================= -->
+
+    <div class="stage">
+
+        <div class="stage-number">6</div>
+
+        <div class="stage-content">
+
+            <h3>Trial</h3>
+
+            <p>
+                A trial takes place in front of a
+                <strong>judge as the finder of law</strong> and, when a jury is
+                used, a <strong>jury as the finder of fact.</strong>
+            </p>
+
+            <p>
+                In a <strong>bench trial</strong>, the judge acts as both the
+                finder of fact and the finder of law.
+            </p>
+
+
+            <!-- ORDER THE TRIAL -->
+
+            <div class="knowledge-check">
+
+                <h4>Knowledge Check: Put the Trial Process in Order</h4>
+
+                <div class="sort-instructions">
+                    Drag the stages into the correct order, or use the
+                    <strong>↑</strong> and <strong>↓</strong> buttons.
+                    Then select <strong>Check Order</strong>.
+                </div>
+
+                <ol id="trialSortList"
+                    class="sort-list"
+                    aria-label="Trial stages to arrange in order">
+                </ol>
+
+                <button class="check-btn"
+                        id="checkTrialOrder"
+                        type="button">
+                    Check Order
+                </button>
+
+                <button class="reset-btn"
+                        id="resetTrialOrder"
+                        type="button">
+                    Shuffle Again
+                </button>
+
+                <div id="trialFeedback"
+                     class="feedback"
+                     aria-live="polite">
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     ADR
+================================================= -->
+
+<section class="section adr-intro">
+
+    <h2>Alternative Dispute Resolution</h2>
+
+    <p>
+        <strong>Alternative Dispute Resolution (ADR)</strong> is the process by
+        which disputes involving individuals or businesses are resolved
+        <strong>outside of the federal or state court systems</strong>
+        through the help of third parties.
+    </p>
+
+    <p>
+        Major advantages of ADR include:
+    </p>
+
+    <div class="advantage-grid">
+
+        <div class="advantage">Lower Costs</div>
+        <div class="advantage">Less Time</div>
+        <div class="advantage">Preserving Business Relationships</div>
+        <div class="advantage">Expertise & Privacy</div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     INFORMAL / FORMAL ADR
+================================================= -->
+
+<section class="section adr-grid">
+
+    <div class="adr-box">
+
+        <h3>Informal ADR</h3>
+
+        <p>
+            Informal ADR often involves parties negotiating
+            <strong>face to face or through intermediaries</strong>
+            to arrive at a mutually agreeable solution without using a formal process.
+        </p>
+
+    </div>
+
+
+    <div class="adr-box">
+
+        <h3>Formal ADR</h3>
+
+        <p>
+            The primary formal methods of ADR include
+            <strong>arbitration, mediation, expert evaluation,</strong>
+            or hybrid forms of those methods.
+        </p>
+
+        <p>
+            Formal ADR frequently arises from a contract in which the parties
+            have agreed ahead of time to resolve future disputes using a
+            particular method.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =================================================
+     FORMAL ADR DETAILS
+================================================= -->
+
+<section class="section card red-top">
+
+    <h2>Explore Formal ADR Methods</h2>
+
+    <p>
+        Select each method to learn how it works.
+    </p>
+
+    <div class="accordion">
+
+
+        <!-- ARBITRATION -->
+
+        <div class="accordion-item">
+
+            <button class="accordion-button"
+                    type="button"
+                    aria-expanded="false">
+
+                <span>Arbitration</span>
+                <span class="accordion-icon">+</span>
+
+            </button>
+
+            <div class="accordion-content">
+
+                <p>
+                    In <strong>arbitration</strong>, the parties submit their
+                    dispute to one or more arbitrators, present evidence and
+                    limited witness testimony, and then receive a decision.
+                </p>
+
+                <p>
+                    The decision may be
+                    <strong>binding or nonbinding</strong>
+                    depending on the agreement of the parties.
+                </p>
+
+                <h4>Legally Mandated Arbitration</h4>
+
+                <p>
+                    Certain civil lawsuits may be required to go through a
+                    nonbinding arbitration hearing before proceeding to trial
+                    in an attempt to encourage settlement.
+                </p>
+
+                <h4>Federal Arbitration Act</h4>
+
+                <p>
+                    The <strong>Federal Arbitration Act (FAA)</strong> reflects
+                    congressional support for arbitration in matters governed
+                    by federal law when the parties have agreed to an
+                    arbitration clause.
+                </p>
+
+                <p>
+                    The FAA provides a mechanism for enforcing arbitration
+                    agreements and arbitral decisions through federal courts,
+                    as illustrated by
+                    <em>Gilmer v. Interstate/Johnson Lane Corporation</em>.
+                </p>
+
+                <h4>Employment and Labor Arbitration</h4>
+
+                <p>
+                    Arbitration clauses are especially important in employment
+                    and labor disputes. Courts generally give substantial
+                    deference to a decision rendered by an arbitrator when the
+                    parties previously agreed to resolve disputes through arbitration.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- MEDIATION -->
+
+        <div class="accordion-item">
+
+            <button class="accordion-button"
+                    type="button"
+                    aria-expanded="false">
+
+                <span>Mediation</span>
+                <span class="accordion-icon">+</span>
+
+            </button>
+
+            <div class="accordion-content">
+
+                <p>
+                    In <strong>mediation</strong>, a mediator listens to the
+                    grievances and arguments of both sides and communicates
+                    each party's concerns to the other in an attempt to help
+                    them reach a
+                    <strong>mutually satisfactory resolution.</strong>
+                </p>
+
+                <div class="definition-callout">
+                    Unlike an arbitrator, a mediator
+                    <strong>does not render a decision.</strong>
+                </div>
+
+                <p>
+                    Mediation may sometimes be required by statute or court
+                    procedure before a dispute proceeds to trial.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- EXPERT EVALUATION -->
+
+        <div class="accordion-item">
+
+            <button class="accordion-button"
+                    type="button"
+                    aria-expanded="false">
+
+                <span>Expert Evaluation</span>
+                <span class="accordion-icon">+</span>
+
+            </button>
+
+            <div class="accordion-content">
+
+                <p>
+                    <strong>Expert evaluation</strong> uses an independent
+                    expert as a neutral fact-finder.
+                </p>
+
+                <p>
+                    It can be especially useful in business disputes involving
+                    technically complex issues or specialized knowledge about
+                    a particular industry or profession.
+                </p>
+
+                <div class="definition-callout">
+                    The advantage is that the neutral evaluator may understand
+                    technical issues that would be difficult for a general
+                    fact-finder to analyze quickly.
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- HYBRID ADR -->
+
+        <div class="accordion-item">
+
+            <button class="accordion-button"
+                    type="button"
+                    aria-expanded="false">
+
+                <span>Other & Hybrid Forms of ADR</span>
+                <span class="accordion-icon">+</span>
+
+            </button>
+
+            <div class="accordion-content">
+
+                <p>
+                    Sometimes parties want the flexibility of negotiation or
+                    mediation but also want greater certainty if those efforts fail.
+                </p>
+
+                <p>
+                    Hybrid ADR approaches can include:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Med-Arb</strong>
+                    </li>
+
+                    <li>
+                        <strong>Summary Jury Trials</strong>
+                    </li>
+
+                    <li>
+                        <strong>Mini-Trials</strong>
+                    </li>
+                </ul>
+
+                <p>
+                    These approaches combine features of different dispute
+                    resolution methods in an attempt to meet the parties'
+                    particular needs.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<script>
+
+/* =================================================
+   FLIP CARDS
+================================================= */
+
+document.querySelectorAll(".flip-button").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const card = button.closest(".flip-card");
+
+        const isFlipped =
+            card.classList.toggle("flipped");
+
+        button.setAttribute(
+            "aria-expanded",
+            isFlipped ? "true" : "false"
+        );
+
+    });
+
+});
+
+
+/* =================================================
+   STANDING
+================================================= */
+
+document
+.getElementById("checkStanding")
+.addEventListener("click", () => {
+
+    const choices =
+        document.querySelectorAll(".standing-choice");
+
+    let correct = true;
+
+    choices.forEach(choice => {
+
+        const shouldBeChecked =
+            choice.dataset.correct === "true";
+
+        if(choice.checked !== shouldBeChecked){
+            correct = false;
+        }
+
+    });
+
+    const feedback =
+        document.getElementById("standingFeedback");
+
+    if(correct){
+
+        feedback.textContent =
+            "Correct. Standing requires an injury in fact, direct and individualized harm, and an injury that the court can legally remedy.";
+
+        feedback.className =
+            "feedback correct-feedback";
+
+    } else {
+
+        feedback.textContent =
+            "Not quite. Look for the requirements that establish an actual, individualized injury that a court can remedy.";
+
+        feedback.className =
+            "feedback incorrect-feedback";
+
+    }
+
+});
+
+
+/* =================================================
+   STATUTE OF LIMITATIONS
+================================================= */
+
+document
+.getElementById("checkLimitations")
+.addEventListener("click", () => {
+
+    const input =
+        document.getElementById("limitationsAnswer");
+
+    const value =
+        input.value
+        .trim()
+        .toLowerCase()
+        .replace(/[.,]/g,"");
+
+    const accepted = [
+        "statute of limitations",
+        "statute limitations"
+    ];
+
+    const feedback =
+        document.getElementById("limitationsFeedback");
+
+    if(accepted.includes(value)){
+
+        input.classList.remove("incorrect-field");
+        input.classList.add("correct-field");
+
+        feedback.textContent =
+            "Correct — statute of limitations.";
+
+        feedback.className =
+            "feedback correct-feedback";
+
+    } else {
+
+        input.classList.remove("correct-field");
+        input.classList.add("incorrect-field");
+
+        feedback.textContent =
+            "Try again. This is the legal deadline for filing a lawsuit.";
+
+        feedback.className =
+            "feedback incorrect-feedback";
+
+    }
+
+});
+
+
+/* =================================================
+   GENERIC SELECT CHECKER
+================================================= */
+
+function checkSelectGroup(selector, feedbackId){
+
+    const selects =
+        document.querySelectorAll(selector);
+
+    let correct = 0;
+
+    selects.forEach(select => {
+
+        select.classList.remove(
+            "correct-field",
+            "incorrect-field"
+        );
+
+        if(select.value === select.dataset.answer){
+
+            correct++;
+
+            select.classList.add(
+                "correct-field"
+            );
+
+        } else {
+
+            select.classList.add(
+                "incorrect-field"
+            );
+
+        }
+
+    });
+
+    const feedback =
+        document.getElementById(feedbackId);
+
+    if(correct === selects.length){
+
+        feedback.textContent =
+            `Great work! You correctly answered all ${selects.length}.`;
+
+        feedback.className =
+            "feedback correct-feedback";
+
+    } else {
+
+        feedback.textContent =
+            `You have ${correct} of ${selects.length} correct. Review the items marked in red and try again.`;
+
+        feedback.className =
+            "feedback incorrect-feedback";
+
+    }
+
+}
+
+
+/* PLEADINGS */
+
+document
+.getElementById("checkPleadings")
+.addEventListener("click", () => {
+
+    checkSelectGroup(
+        ".pleading-select",
+        "pleadingsFeedback"
+    );
+
+});
+
+
+/* DISCOVERY */
+
+document
+.getElementById("checkDiscovery")
+.addEventListener("click", () => {
+
+    checkSelectGroup(
+        ".discovery-select",
+        "discoveryFeedback"
+    );
+
+});
+
+
+/* =================================================
+   TRIAL ORDER
+================================================= */
+
+const trialStages = [
+
+    {
+        id:"jury",
+        title:"Jury Selection & Opening Statements",
+        text:"Potential jurors are questioned, the jury is selected, and the attorneys introduce their theory of the case and what they expect to prove."
+    },
+
+    {
+        id:"evidence",
+        title:"Testimony & Submission of Evidence",
+        text:"Witnesses testify through direct examination and cross-examination, and relevant evidence is presented."
+    },
+
+    {
+        id:"closing",
+        title:"Closing Arguments & Charging the Jury",
+        text:"Attorneys summarize their cases and the judge instructs the jury on the law and the standard of proof."
+    },
+
+    {
+        id:"verdict",
+        title:"Deliberations & Verdict",
+        text:"Jurors deliberate and attempt to reach a verdict. A failure to agree may result in a hung jury."
+    },
+
+    {
+        id:"appeals",
+        title:"Posttrial Motions & Appeals",
+        text:"The losing party may seek relief from the trial judge or appeal to a higher court for judicial review."
+    },
+
+    {
+        id:"collect",
+        title:"Collecting the Judgment",
+        text:"The prevailing party attempts to collect the amount or remedy awarded by the court."
+    }
+
+];
+
+const correctTrialOrder =
+    trialStages.map(stage => stage.id);
+
+const trialList =
+    document.getElementById("trialSortList");
+
+let draggedItem = null;
+
+
+function shuffleArray(array){
+
+    const copy = [...array];
+
+    for(let i = copy.length - 1; i > 0; i--){
+
+        const j =
+            Math.floor(Math.random() * (i + 1));
+
+        [copy[i],copy[j]] =
+            [copy[j],copy[i]];
+
+    }
+
+    return copy;
+}
+
+
+function buildTrialList(){
+
+    trialList.innerHTML = "";
+
+    const shuffled =
+        shuffleArray(trialStages);
+
+    shuffled.forEach(stage => {
+
+        const li =
+            document.createElement("li");
+
+        li.className =
+            "sort-item";
+
+        li.draggable =
+            true;
+
+        li.dataset.id =
+            stage.id;
+
+        li.innerHTML = `
+
+            <div>
+
+                <strong>${stage.title}</strong>
+
+                <div>${stage.text}</div>
+
+            </div>
+
+            <div class="sort-controls">
+
+                <button
+                    type="button"
+                    class="move-btn move-up"
+                    aria-label="Move ${stage.title} up">
+                    ↑
+                </button>
+
+                <button
+                    type="button"
+                    class="move-btn move-down"
+                    aria-label="Move ${stage.title} down">
+                    ↓
+                </button>
+
+            </div>
+        `;
+
+        trialList.appendChild(li);
+
+    });
+
+    attachSortEvents();
+
+    const feedback =
+        document.getElementById("trialFeedback");
+
+    feedback.textContent = "";
+    feedback.className = "feedback";
+
+}
+
+
+function attachSortEvents(){
+
+    document
+    .querySelectorAll(".sort-item")
+    .forEach(item => {
+
+        item.addEventListener(
+            "dragstart",
+            () => {
+
+                draggedItem = item;
+
+                item.classList.add(
+                    "dragging"
+                );
+
+            }
+        );
+
+        item.addEventListener(
+            "dragend",
+            () => {
+
+                draggedItem = null;
+
+                item.classList.remove(
+                    "dragging"
+                );
+
+            }
+        );
+
+        item.addEventListener(
+            "dragover",
+            event => {
+
+                event.preventDefault();
+
+                if(
+                    draggedItem &&
+                    draggedItem !== item
+                ){
+
+                    const rect =
+                        item.getBoundingClientRect();
+
+                    const after =
+                        event.clientY >
+                        rect.top + rect.height / 2;
+
+                    if(after){
+
+                        item.after(
+                            draggedItem
+                        );
+
+                    } else {
+
+                        item.before(
+                            draggedItem
+                        );
+
+                    }
+
+                }
+
+            }
+        );
+
+
+        item
+        .querySelector(".move-up")
+        .addEventListener(
+            "click",
+            () => {
+
+                const previous =
+                    item.previousElementSibling;
+
+                if(previous){
+
+                    trialList.insertBefore(
+                        item,
+                        previous
+                    );
+
+                }
+
+            }
+        );
+
+
+        item
+        .querySelector(".move-down")
+        .addEventListener(
+            "click",
+            () => {
+
+                const next =
+                    item.nextElementSibling;
+
+                if(next){
+
+                    trialList.insertBefore(
+                        next,
+                        item
+                    );
+
+                }
+
+            }
+        );
+
+    });
+
+}
+
+
+document
+.getElementById("checkTrialOrder")
+.addEventListener("click", () => {
+
+    const currentOrder =
+        [...document.querySelectorAll(".sort-item")]
+        .map(item => item.dataset.id);
+
+    let correctPositions = 0;
+
+    currentOrder.forEach((id,index) => {
+
+        if(id === correctTrialOrder[index]){
+            correctPositions++;
+        }
+
+    });
+
+    const feedback =
+        document.getElementById("trialFeedback");
+
+    if(correctPositions === correctTrialOrder.length){
+
+        feedback.textContent =
+            "Correct! You placed all six trial stages in the proper order.";
+
+        feedback.className =
+            "feedback correct-feedback";
+
+    } else {
+
+        feedback.textContent =
+            `${correctPositions} of ${correctTrialOrder.length} stages are currently in the correct position. Reorder the list and try again.`;
+
+        feedback.className =
+            "feedback incorrect-feedback";
+
+    }
+
+});
+
+
+document
+.getElementById("resetTrialOrder")
+.addEventListener("click", buildTrialList);
+
+
+/* =================================================
+   ADR ACCORDIONS
+================================================= */
+
+document
+.querySelectorAll(".accordion-button")
+.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const item =
+            button.closest(".accordion-item");
+
+        const open =
+            item.classList.toggle("open");
+
+        button.setAttribute(
+            "aria-expanded",
+            open ? "true" : "false"
+        );
+
+        button
+        .querySelector(".accordion-icon")
+        .textContent =
+            open ? "−" : "+";
+
+    });
+
+});
+
+
+/* =================================================
+   INITIALIZE
+================================================= */
+
+buildTrialList();
+
+</script>
+
+</body>
+</html>

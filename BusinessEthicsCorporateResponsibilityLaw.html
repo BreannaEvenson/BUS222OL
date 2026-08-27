@@ -78,6 +78,14 @@ strong{
   margin-bottom:42px;
 }
 
+.hidden{
+  display:none !important;
+}
+
+/* =========================================================
+   OVERVIEW
+========================================================= */
+
 .overview{
   background:var(--white);
   border-left:8px solid var(--red);
@@ -94,6 +102,7 @@ strong{
   font-size:1.45rem;
 }
 
+
 /* =========================================================
    ETHICAL DECISION-MAKING PROCESS
 ========================================================= */
@@ -102,65 +111,90 @@ strong{
   text-align:center;
   color:var(--slate);
   font-size:1.55rem;
-  margin-bottom:22px;
+  margin-bottom:24px;
 }
 
-.process{
-  display:flex;
-  align-items:stretch;
-  justify-content:center;
+.process-flow{
+  max-width:1060px;
+  margin:0 auto;
+}
+
+.process-top-row{
+  display:grid;
+  grid-template-columns:1fr 55px 1fr 55px 1fr;
   gap:10px;
+  align-items:stretch;
+}
+
+.process-bottom-row{
+  width:68%;
+  margin-left:auto;
+  display:grid;
+  grid-template-columns:1fr 55px 1fr;
+  gap:10px;
+  align-items:stretch;
 }
 
 .process-step{
-  flex:1;
-  min-width:0;
   background:var(--white);
   border:2px solid var(--border);
   border-top:6px solid var(--red);
   border-radius:12px;
-  padding:18px;
+  padding:20px;
   box-shadow:0 3px 10px rgba(0,0,0,.05);
 }
 
 .step-number{
-  width:38px;
-  height:38px;
+  width:44px;
+  height:44px;
   border-radius:50%;
   background:var(--red);
   color:var(--white);
   display:flex;
   align-items:center;
   justify-content:center;
+  font-size:1.15rem;
   font-weight:bold;
-  margin:0 auto 10px;
+  margin:0 auto 12px;
 }
 
 .process-step h3{
   text-align:center;
   color:var(--slate);
-  font-size:1.02rem;
-  margin:0 0 10px;
+  font-size:1.05rem;
+  margin:0 0 12px;
 }
 
 .process-step ul{
-  padding-left:18px;
+  padding-left:20px;
   margin:0;
-  font-size:.88rem;
+  font-size:.92rem;
 }
 
 .process-step li{
-  margin:5px 0;
+  margin:6px 0;
 }
 
-.arrow{
+.process-arrow{
   display:flex;
   align-items:center;
   justify-content:center;
   color:var(--red);
-  font-size:2rem;
+  font-size:2.4rem;
   font-weight:bold;
 }
+
+.process-down-arrow{
+  width:32%;
+  margin-left:auto;
+  text-align:center;
+  color:var(--red);
+  font-size:2.8rem;
+  font-weight:bold;
+  line-height:1;
+  padding:12px 0;
+}
+
 
 /* =========================================================
    CALLOUT
@@ -185,6 +219,7 @@ strong{
   font-size:1.2rem;
   margin-bottom:7px;
 }
+
 
 /* =========================================================
    TWO-COLUMN APPROACHES
@@ -216,6 +251,7 @@ strong{
   padding:13px 15px;
   margin-top:14px;
 }
+
 
 /* =========================================================
    SORT ACTIVITY
@@ -336,6 +372,12 @@ strong{
   border:2px solid var(--slate);
 }
 
+.btn:hover,
+.btn:focus{
+  opacity:.92;
+  outline:3px solid rgba(200,16,46,.18);
+}
+
 .feedback{
   margin-top:15px;
   padding:12px 14px;
@@ -354,6 +396,7 @@ strong{
   color:var(--red);
   border:1px solid var(--red);
 }
+
 
 /* =========================================================
    MORAL PHILOSOPHY THREE BOXES
@@ -382,6 +425,7 @@ strong{
 .philosophy-card p{
   font-size:.95rem;
 }
+
 
 /* =========================================================
    CSR VIEW DROPDOWNS
@@ -415,6 +459,7 @@ strong{
   align-items:center;
   margin-top:18px;
 }
+
 
 /* =========================================================
    FLIP CARD
@@ -450,6 +495,7 @@ strong{
   border-radius:14px;
   padding:28px;
   backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
   box-shadow:0 4px 14px rgba(0,0,0,.10);
   display:flex;
   flex-direction:column;
@@ -483,6 +529,7 @@ strong{
   margin-top:15px;
 }
 
+
 /* =========================================================
    ESG
 ========================================================= */
@@ -514,6 +561,11 @@ strong{
   justify-content:center;
   font-size:1.6rem;
   font-weight:bold;
+}
+
+.esg-card h3{
+  color:var(--slate);
+  margin:10px 0;
 }
 
 .compare-grid{
@@ -555,6 +607,7 @@ strong{
   color:var(--white);
 }
 
+
 /* =========================================================
    ACCESSIBILITY
 ========================================================= */
@@ -571,18 +624,31 @@ strong{
   border:0;
 }
 
+
 /* =========================================================
    RESPONSIVE
 ========================================================= */
 
-@media(max-width:950px){
-  .process{
+@media(max-width:900px){
+
+  .process-top-row,
+  .process-bottom-row{
+    width:100%;
+    margin-left:0;
+    display:flex;
     flex-direction:column;
   }
 
-  .arrow{
+  .process-arrow{
     transform:rotate(90deg);
-    height:28px;
+    height:35px;
+  }
+
+  .process-down-arrow{
+    width:100%;
+    margin:0;
+    text-align:center;
+    padding:8px 0;
   }
 
   .three-column,
@@ -592,6 +658,7 @@ strong{
 }
 
 @media(max-width:760px){
+
   .two-column,
   .drop-grid,
   .compare-grid{
@@ -614,17 +681,20 @@ strong{
 </style>
 </head>
 
+
 <body>
 
 <main class="page">
 
   <h1>Business Ethics, Corporate Social Responsibility &amp; ESG</h1>
 
+
   <!-- =====================================================
        OVERVIEW
   ====================================================== -->
 
   <section class="overview">
+
     <h2>Overview</h2>
 
     <p>
@@ -638,6 +708,7 @@ strong{
       Finally, the concept of Corporate Social Responsibility is covered using
       several viewpoints.
     </p>
+
   </section>
 
 
@@ -651,62 +722,177 @@ strong{
       <strong>Ethical Decision-Making Process</strong>
     </div>
 
-    <div class="process">
 
-      <div class="process-step">
-        <div class="step-number">1</div>
-        <h3>Define the Dilemma</h3>
-        <ul>
-          <li>How and when did the dilemma occur?</li>
-          <li>What were the underlying reasons for the conflict?</li>
-        </ul>
+    <div class="process-flow">
+
+
+      <!-- TOP ROW: 1 → 2 → 3 -->
+
+      <div class="process-top-row">
+
+
+        <!-- STEP 1 -->
+
+        <div class="process-step">
+
+          <div class="step-number">
+            1
+          </div>
+
+          <h3>Define the Dilemma</h3>
+
+          <ul>
+            <li>
+              How and when did the dilemma occur?
+            </li>
+
+            <li>
+              What were the underlying reasons for the conflict?
+            </li>
+          </ul>
+
+        </div>
+
+
+        <div class="process-arrow" aria-hidden="true">
+          →
+        </div>
+
+
+        <!-- STEP 2 -->
+
+        <div class="process-step">
+
+          <div class="step-number">
+            2
+          </div>
+
+          <h3>Identify Impact</h3>
+
+          <ul>
+            <li>
+              Which primary and secondary stakeholders will be affected?
+            </li>
+
+            <li>
+              How will these stakeholders be affected?
+            </li>
+          </ul>
+
+        </div>
+
+
+        <div class="process-arrow" aria-hidden="true">
+          →
+        </div>
+
+
+        <!-- STEP 3 -->
+
+        <div class="process-step">
+
+          <div class="step-number">
+            3
+          </div>
+
+          <h3>Apply Standards</h3>
+
+          <ul>
+            <li>
+              What is the legal impact of the dilemma?
+            </li>
+
+            <li>
+              What values and ethical principles has the organization
+              established for guidance?
+            </li>
+
+            <li>
+              What are the consequences of action or inaction?
+            </li>
+          </ul>
+
+        </div>
+
       </div>
 
-      <div class="arrow" aria-hidden="true">→</div>
 
-      <div class="process-step">
-        <div class="step-number">2</div>
-        <h3>Identify Impact</h3>
-        <ul>
-          <li>Which primary and secondary stakeholders will be affected?</li>
-          <li>How will those stakeholders be affected?</li>
-        </ul>
+      <!-- DOWN ARROW FROM 3 TO 4 -->
+
+      <div class="process-down-arrow" aria-hidden="true">
+        ↓
       </div>
 
-      <div class="arrow" aria-hidden="true">→</div>
 
-      <div class="process-step">
-        <div class="step-number">3</div>
-        <h3>Apply Standards</h3>
-        <ul>
-          <li>What is the legal impact?</li>
-          <li>Which organizational values or ethical principles apply?</li>
-          <li>What are the consequences of action or inaction?</li>
-        </ul>
-      </div>
+      <!-- BOTTOM ROW: 4 → 5 -->
 
-      <div class="arrow" aria-hidden="true">→</div>
+      <div class="process-bottom-row">
 
-      <div class="process-step">
-        <div class="step-number">4</div>
-        <h3>Develop Choices</h3>
-        <ul>
-          <li>Which choice provides the most benefit to stakeholders?</li>
-          <li>What are the level and severity of possible harms?</li>
-          <li>Which choice best supports organizational values?</li>
-        </ul>
-      </div>
 
-      <div class="arrow" aria-hidden="true">→</div>
+        <!-- STEP 4 -->
 
-      <div class="process-step">
-        <div class="step-number">5</div>
-        <h3>Implement, Evaluate &amp; Monitor</h3>
-        <ul>
-          <li>How can the decision be implemented with attention to stakeholders?</li>
-          <li>When, if ever, would an exception be appropriate?</li>
-          <li>How can the organization avoid the dilemma in the future?</li>
-        </ul>
+        <div class="process-step">
+
+          <div class="step-number">
+            4
+          </div>
+
+          <h3>
+            Develop Choices &amp; Discuss Impact
+          </h3>
+
+          <ul>
+            <li>
+              Which choice results in the most benefit to stakeholders?
+            </li>
+
+            <li>
+              What are the level and severity of the harms?
+            </li>
+
+            <li>
+              Which choice upholds the values of the organization?
+            </li>
+          </ul>
+
+        </div>
+
+
+        <div class="process-arrow" aria-hidden="true">
+          →
+        </div>
+
+
+        <!-- STEP 5 -->
+
+        <div class="process-step">
+
+          <div class="step-number">
+            5
+          </div>
+
+          <h3>
+            Implement, Evaluate &amp; Monitor
+          </h3>
+
+          <ul>
+            <li>
+              How can this decision be implemented with the greatest
+              attention to all stakeholders?
+            </li>
+
+            <li>
+              Under what circumstances are you willing to make an
+              exception to your decision?
+            </li>
+
+            <li>
+              How could the company avoid this dilemma in the future?
+            </li>
+          </ul>
+
+        </div>
+
       </div>
 
     </div>
@@ -723,10 +909,12 @@ strong{
     <h2>What Is Ethics?</h2>
 
     <p>
-      <strong>Ethics</strong> is the set of <em>moral principles</em> or
+      <strong>Ethics</strong> is the set of
+      <em>moral principles</em> or
       <em>core values</em> used for deciding between right and wrong.
       As a result, ethics applies to our everyday decisions.
     </p>
+
 
     <div class="callout">
 
@@ -744,13 +932,14 @@ strong{
 
     </div>
 
+
     <p>
       <strong>Business ethics</strong> is a
-      <strong>consciousness of what is right or wrong</strong> in the workplace
-      and taking responsibility for an ethical course of action in business
-      operations given its impact on owners, investors, employees, customers,
-      and the community at large. Collectively, these groups are known as
-      <strong>stakeholders</strong>.
+      <strong>consciousness of what is right or wrong</strong>
+      in the workplace and taking responsibility for an ethical course of action
+      in business operations given its impact on owners, investors, employees,
+      customers, and the community at large. Collectively, these groups are known
+      as <strong>stakeholders</strong>.
     </p>
 
     <p>
@@ -761,36 +950,40 @@ strong{
     </p>
 
     <p>
-      <strong>Morals</strong> refer to generally accepted standards of right and
-      wrong in a given society, while <strong>ethics</strong> describes the use
-      of a conscious system for deciding moral dilemmas.
+      <strong>Morals</strong> refer to generally accepted standards of right
+      and wrong in a given society, while <strong>ethics</strong> describes the
+      use of a conscious system for deciding moral dilemmas.
     </p>
 
 
-    <!-- APPROACHES -->
+    <!-- =================================================
+         TWO APPROACHES
+    ================================================== -->
 
     <div class="two-column">
+
 
       <div class="approach-card">
 
         <h3>Principles-Based Approach</h3>
 
         <p>
-          Ethical decisions are made according to a set of established principles
-          or standards that guide individual decision making. These principles
-          may come from sources such as religious teachings, philosophical beliefs,
-          or established ethical codes.
+          Ethical decisions are made according to a set of established
+          principles or standards that guide individual decision making.
+          These principles may come from sources such as religious teachings,
+          philosophical beliefs, or established ethical codes.
         </p>
 
         <div class="mini-highlight">
-          <strong>Aristotle:</strong> Virtue ethics focuses on whether our actions
-          contribute to the development of good moral character.
+          <strong>Aristotle:</strong>
+          Virtue ethics focuses on whether our actions contribute to the
+          development of good moral character.
         </div>
 
         <div class="mini-highlight">
-          <strong>Kant:</strong> The categorical imperative asks us to consider
-          whether our decision would still be acceptable if everyone in society
-          acted the same way.
+          <strong>Kant:</strong>
+          The categorical imperative asks us to consider whether our decision
+          would still be acceptable if everyone in society acted the same way.
         </div>
 
       </div>
@@ -801,13 +994,15 @@ strong{
         <h3>Consequences-Based Approach</h3>
 
         <p>
-          This approach comes from the utilitarian tradition of moral philosophy.
-          It evaluates a decision primarily by its consequences.
+          This approach comes from the utilitarian tradition of moral
+          philosophy. It evaluates a decision primarily by its consequences.
         </p>
 
         <div class="mini-highlight">
           The most ethical course of action is the one that creates the
-          <strong>greatest benefit for the greatest number of people</strong>
+          <strong>
+            greatest benefit for the greatest number of people
+          </strong>
           while limiting harmful consequences.
         </div>
 
@@ -816,47 +1011,68 @@ strong{
     </div>
 
 
-    <!-- SORT ACTIVITY -->
+    <!-- =================================================
+         SORTING ACTIVITY
+    ================================================== -->
 
     <div class="activity">
 
-      <h3>Try It: Principles or Consequences?</h3>
+      <h3>
+        Try It: Principles or Consequences?
+      </h3>
 
       <p class="activity-instructions">
         Drag each example into the approach that best represents the reasoning
         being used. You can also select a card and use the buttons below.
       </p>
 
+
       <div id="sortPool"
            class="sort-pool"
            aria-label="Unsorted examples">
 
-        <div class="sort-card"
-             draggable="true"
-             tabindex="0"
-             data-answer="principles">
-          “We should tell customers the truth because honesty is one of our core values.”
-        </div>
-
-        <div class="sort-card"
-             draggable="true"
-             tabindex="0"
-             data-answer="consequences">
-          “Choose the option that helps the largest number of employees while causing the least harm.”
-        </div>
 
         <div class="sort-card"
              draggable="true"
              tabindex="0"
              data-answer="principles">
-          “Imagine if every company behaved this way. Would we still believe the action was acceptable?”
+
+          “We should tell customers the truth because honesty is one of
+          our core values.”
+
         </div>
+
 
         <div class="sort-card"
              draggable="true"
              tabindex="0"
              data-answer="consequences">
-          “This option costs more, but it produces a better overall outcome for customers, workers, and the community.”
+
+          “Choose the option that helps the largest number of employees
+          while causing the least harm.”
+
+        </div>
+
+
+        <div class="sort-card"
+             draggable="true"
+             tabindex="0"
+             data-answer="principles">
+
+          “Imagine if every company behaved this way. Would we still
+          believe the action was acceptable?”
+
+        </div>
+
+
+        <div class="sort-card"
+             draggable="true"
+             tabindex="0"
+             data-answer="consequences">
+
+          “This option costs more, but it produces a better overall
+          outcome for customers, workers, and the community.”
+
         </div>
 
       </div>
@@ -864,19 +1080,25 @@ strong{
 
       <div class="drop-grid">
 
+
         <div class="drop-zone"
              data-zone="principles"
              tabindex="0">
 
-          <h4>Principles-Based Approach</h4>
+          <h4>
+            Principles-Based Approach
+          </h4>
 
         </div>
+
 
         <div class="drop-zone"
              data-zone="consequences"
              tabindex="0">
 
-          <h4>Consequences-Based Approach</h4>
+          <h4>
+            Consequences-Based Approach
+          </h4>
 
         </div>
 
@@ -911,6 +1133,7 @@ strong{
 
       </div>
 
+
       <div id="sortFeedback"
            class="feedback hidden"
            aria-live="polite">
@@ -927,68 +1150,86 @@ strong{
 
   <section class="section">
 
-    <h2>Moral Philosophy and Ethical Decision Making</h2>
+    <h2>
+      Moral Philosophy and Ethical Decision Making
+    </h2>
 
     <p>
-      <strong>Where do morals come from?</strong> There are many possible sources,
-      including family, church, school, community norms, personal experiences,
-      and moral reasoning.
+      <strong>Where do morals come from?</strong>
+      There are many possible sources, including family, church, school,
+      community norms, personal experiences, and moral reasoning.
     </p>
 
 
     <div class="three-column">
 
+
+      <!-- PRINCIPLES -->
+
       <div class="philosophy-card">
 
-        <h3>Principles-Based Approach</h3>
+        <h3>
+          Principles-Based Approach
+        </h3>
 
         <p>
           This approach evaluates decisions according to guiding principles.
-          Those principles may come from <strong>religion</strong>, where ethical
-          behavior is guided by religious tenets; from <strong>virtue ethics</strong>,
-          which asks whether conduct develops good moral character; or from
-          <strong>natural law</strong>, which holds that some rights and moral
-          values are universal and timeless.
+          Those principles may come from <strong>religion</strong>, where
+          ethical behavior is guided by religious tenets; from
+          <strong>virtue ethics</strong>, which asks whether conduct develops
+          good moral character; or from <strong>natural law</strong>, which
+          holds that some rights and moral values are universal and timeless.
         </p>
 
         <p>
           Kant's <strong>categorical imperative</strong> adds the idea that a
-          person should act morally because it is the right thing to do and should
-          consider what would happen if everyone followed the same rule.
+          person should act morally because it is the right thing to do and
+          should consider what would happen if everyone followed the same rule.
         </p>
 
       </div>
 
 
+      <!-- CONSEQUENCES -->
+
       <div class="philosophy-card">
 
-        <h3>Consequences-Based Approach</h3>
+        <h3>
+          Consequences-Based Approach
+        </h3>
 
         <p>
-          This approach focuses on the outcome of the decision. The ethical course
-          of action is the one that provides the
-          <strong>greatest good or happiness for the greatest number of people</strong>
-          while creating the least harmful consequences for the majority of the
-          community.
+          This approach focuses on the outcome of the decision. The ethical
+          course of action is the one that provides the
+          <strong>
+            greatest good or happiness for the greatest number of people
+          </strong>
+          while creating the least harmful consequences for the majority of
+          the community.
         </p>
 
       </div>
 
 
+      <!-- CONTRACT -->
+
       <div class="philosophy-card">
 
-        <h3>Contract-Based Approach</h3>
+        <h3>
+          Contract-Based Approach
+        </h3>
 
         <p>
-          This approach views ethical rules as something people would reasonably
-          agree to together. Individuals negotiate standards while imagining that
-          they do not know what position they themselves will occupy in society.
+          This approach views ethical rules as something people would
+          reasonably agree to together. Individuals negotiate standards while
+          imagining that they do not know what position they themselves will
+          occupy in society.
         </p>
 
         <p>
           This idea is sometimes described as making decisions behind a
-          <strong><em>veil of ignorance</em></strong>, which encourages people to
-          create rules that remain fair regardless of who benefits from them.
+          <strong><em>veil of ignorance</em></strong>, which encourages people
+          to create rules that remain fair regardless of who benefits from them.
         </p>
 
       </div>
@@ -1004,49 +1245,57 @@ strong{
 
   <section class="section">
 
-    <h2>Values Management</h2>
+    <h2>
+      Values Management
+    </h2>
 
-    <h3>Challenges to Business Ethics</h3>
+
+    <h3>
+      Challenges to Business Ethics
+    </h3>
 
     <p>
       <strong>Values management</strong> is the
-      <strong>prioritizing of moral values for the organization</strong> and
-      ensuring that organizational behavior remains aligned with those values.
-      Yet, despite evidence that embracing business ethics can support
+      <strong>prioritizing of moral values for the organization</strong>
+      and ensuring that organizational behavior remains aligned with those
+      values. Yet, despite evidence that embracing business ethics can support
       profitability and sound public policy, resistance to formal values
       management programs still exists in some business cultures.
     </p>
 
 
-    <h3>Strategic Advantages</h3>
+    <h3>
+      Strategic Advantages
+    </h3>
 
     <p>
       Managing ethics in the workplace involves
-      <strong>identifying and prioritizing values</strong> that guide behavior,
-      then developing policies and procedures that support those expectations.
-      Rather than treating ethics as separate from business strategy, values
-      management can be given the same level of importance as other management
-      priorities.
+      <strong>identifying and prioritizing values</strong>
+      that guide behavior, then developing policies and procedures that support
+      those expectations. Rather than treating ethics as separate from business
+      strategy, values management can be given the same level of importance as
+      other management priorities.
     </p>
 
     <p>
       Organizations must decide whether they are simply trying to meet a
-      <strong>moral minimum</strong>—essentially doing no harm or as little harm
-      as possible—or whether their values will play a larger role in business
-      decisions. Strong values management can improve teamwork and productivity,
-      create greater clarity in business operations, strengthen the organization's
-      public image, and help leaders stay committed to an ethical course during
-      difficult or turbulent periods.
+      <strong>moral minimum</strong>—essentially doing no harm or as little
+      harm as possible—or whether their values will play a larger role in
+      business decisions. Strong values management can improve teamwork and
+      productivity, create greater clarity in business operations, strengthen
+      the organization's public image, and help leaders stay committed to an
+      ethical course during difficult or turbulent periods.
     </p>
 
 
     <div class="callout">
 
       <p>
-        Typically, ethics programs convey <strong>corporate values</strong>,
-        often using <strong>codes and policies</strong> to guide decisions and
-        behavior, and can include extensive training and evaluation depending on
-        the organizational structure.
+        Typically, ethics programs convey
+        <strong>corporate values</strong>,
+        often using <strong>codes and policies</strong> to guide decisions
+        and behavior, and can include extensive training and evaluation
+        depending on the organizational structure.
       </p>
 
     </div>
@@ -1055,42 +1304,51 @@ strong{
 
 
   <!-- =====================================================
-       CSR
+       CORPORATE SOCIAL RESPONSIBILITY
   ====================================================== -->
 
   <section class="section">
 
-    <h2>Corporate Social Responsibility</h2>
+    <h2>
+      Corporate Social Responsibility
+    </h2>
 
     <p>
-      <strong>Corporate Social Responsibility (CSR)</strong> involves a
-      <strong>broader-based identification</strong> of important business and
-      social issues and a critique of business organizations and practices.
-      The underlying idea is that conscience resides not only in individuals,
-      but also in the corporation itself.
+      <strong>Corporate Social Responsibility (CSR)</strong>
+      involves a <strong>broader-based identification</strong> of important
+      business and social issues and a critique of business organizations and
+      practices. The underlying idea is that conscience resides not only in
+      individuals, but also in the corporation itself.
     </p>
 
 
+    <!-- CSR VIEW ACTIVITY -->
+
     <div class="activity">
 
-      <h3>Three Views of Corporate Social Responsibility</h3>
+      <h3>
+        Three Views of Corporate Social Responsibility
+      </h3>
 
       <p class="activity-instructions">
         Read each description and select the CSR viewpoint that best matches it.
       </p>
 
 
-      <!-- QUESTION 1 -->
+      <!-- NARROW VIEW -->
 
       <div class="csr-question">
 
-        <h3>“Greed is good.”</h3>
+        <h3>
+          “Greed is good.”
+        </h3>
 
         <p>
           The only responsibility a business has is to
-          <strong>maximize shareholder wealth</strong> because what is good for
-          business is good for society's well-being. Market efficiencies and the
-          invisible hand are expected to guide morality and responsibility.
+          <strong>maximize shareholder wealth</strong>
+          because what is good for business is good for society's well-being.
+          Market efficiencies and the invisible hand are expected to guide
+          morality and responsibility.
         </p>
 
         <label class="sr-only"
@@ -1101,27 +1359,40 @@ strong{
         <select id="csr1"
                 data-answer="The Narrow View">
 
-          <option value="">Select an answer</option>
-          <option>The Narrow View</option>
-          <option>The Moderate View</option>
-          <option>The Broad View</option>
+          <option value="">
+            Select an answer
+          </option>
+
+          <option>
+            The Narrow View
+          </option>
+
+          <option>
+            The Moderate View
+          </option>
+
+          <option>
+            The Broad View
+          </option>
 
         </select>
 
       </div>
 
 
-      <!-- QUESTION 2 -->
+      <!-- MODERATE VIEW -->
 
       <div class="csr-question">
 
-        <h3>“Just follow the law.”</h3>
+        <h3>
+          “Just follow the law.”
+        </h3>
 
         <p>
           Corporations have a responsibility to pursue objectives that are
-          <strong>rational, legal, and purely economic</strong>. Law, regulation,
-          and the political process provide the primary basis for responsible
-          business decision making.
+          <strong>rational, legal, and purely economic</strong>.
+          Law, regulation, and the political process provide the primary
+          basis for responsible business decision making.
         </p>
 
         <label class="sr-only"
@@ -1132,27 +1403,41 @@ strong{
         <select id="csr2"
                 data-answer="The Moderate View">
 
-          <option value="">Select an answer</option>
-          <option>The Narrow View</option>
-          <option>The Moderate View</option>
-          <option>The Broad View</option>
+          <option value="">
+            Select an answer
+          </option>
+
+          <option>
+            The Narrow View
+          </option>
+
+          <option>
+            The Moderate View
+          </option>
+
+          <option>
+            The Broad View
+          </option>
 
         </select>
 
       </div>
 
 
-      <!-- QUESTION 3 -->
+      <!-- BROAD VIEW -->
 
       <div class="csr-question">
 
-        <h3>“Good corporate citizenship.”</h3>
+        <h3>
+          “Good corporate citizenship.”
+        </h3>
 
         <p>
-          Corporations have <strong>a primary social responsibility</strong>,
-          with profitability treated as secondary. Under this view, organizations
-          have an obligation to take a meaningful role in promoting social
-          responsibility.
+          Corporations have
+          <strong>a primary social responsibility</strong>,
+          with profitability treated as secondary. Under this view,
+          organizations have an obligation to take a meaningful role in
+          promoting social responsibility.
         </p>
 
         <label class="sr-only"
@@ -1163,10 +1448,21 @@ strong{
         <select id="csr3"
                 data-answer="The Broad View">
 
-          <option value="">Select an answer</option>
-          <option>The Narrow View</option>
-          <option>The Moderate View</option>
-          <option>The Broad View</option>
+          <option value="">
+            Select an answer
+          </option>
+
+          <option>
+            The Narrow View
+          </option>
+
+          <option>
+            The Moderate View
+          </option>
+
+          <option>
+            The Broad View
+          </option>
 
         </select>
 
@@ -1183,6 +1479,7 @@ strong{
 
       </div>
 
+
       <div id="csrFeedback"
            class="feedback hidden"
            aria-live="polite">
@@ -1191,10 +1488,13 @@ strong{
     </div>
 
 
-    <!-- FLIP CARD -->
+    <!-- =================================================
+         BROAD VIEW FLIP CARD
+    ================================================== -->
 
     <div id="broadFlip"
          class="flip-wrap">
+
 
       <div class="flip-card"
            tabindex="0"
@@ -1202,7 +1502,11 @@ strong{
            aria-expanded="false"
            aria-label="Click for more information about the Broad View">
 
+
         <div class="flip-inner">
+
+
+          <!-- FRONT -->
 
           <div class="flip-face flip-front">
 
@@ -1217,27 +1521,34 @@ strong{
           </div>
 
 
+          <!-- BACK -->
+
           <div class="flip-face flip-back">
 
-            <h3>The Broad View</h3>
+            <h3>
+              The Broad View
+            </h3>
 
             <p>
               Under the broad view, CSR is considered both in the
-              <strong>public's interest</strong> and in a
-              <strong>company's own long-term interest</strong>. A company can
-              do well by incorporating socially responsible principles into its
-              business operations.
+              <strong>public's interest</strong>
+              and in a <strong>company's own long-term interest</strong>.
+              A company can do well by incorporating socially responsible
+              principles into its business operations.
             </p>
 
             <p>
               An important part of this perspective is the
-              <strong>triple bottom line</strong>, which evaluates organizational
-              performance using more than traditional economic value.
+              <strong>triple bottom line</strong>, which evaluates
+              organizational performance using more than traditional
+              economic value.
             </p>
 
             <div class="mini-highlight">
+
               <strong>Triple Bottom Line:</strong>
               Economic Value + Social Value + Environmental Value
+
             </div>
 
           </div>
@@ -1257,36 +1568,48 @@ strong{
 
   <section class="section">
 
-    <h2>Environmental, Social, and Governance (ESG) Factors</h2>
+    <h2>
+      Environmental, Social, and Governance (ESG) Factors
+    </h2>
 
     <p>
-      Corporations use <strong>Environmental, Social, and Governance (ESG)</strong>
-      factors in planning to assess and manage risks and opportunities associated
-      with their impact on society and the environment.
+      Corporations use
+      <strong>Environmental, Social, and Governance (ESG)</strong>
+      factors in planning to assess and manage risks and opportunities
+      associated with their impact on society and the environment.
     </p>
 
     <p>
-      ESG analysis can include examining the environmental effects of operations
-      and supply chains, the treatment of employees and other stakeholders, and
-      the way the organization is governed and managed. Considering these factors
-      can help companies identify and reduce potential negative impacts, strengthen
-      their reputation, and discover opportunities for growth and innovation.
+      ESG analysis can include examining the environmental effects of
+      operations and supply chains, the treatment of employees and other
+      stakeholders, and the way the organization is governed and managed.
+      Considering these factors can help companies identify and reduce
+      potential negative impacts, strengthen their reputation, and discover
+      opportunities for growth and innovation.
     </p>
 
     <p>
       ESG has also become increasingly important to investors. As sustainable
-      investing has grown, investors may consider a company's ESG performance when
-      evaluating its long-term risks, opportunities, and ability to create value.
+      investing has grown, investors may consider a company's ESG performance
+      when evaluating its long-term risks, opportunities, and ability to
+      create value.
     </p>
 
 
+    <!-- ESG THREE BOXES -->
+
     <div class="esg-grid">
+
 
       <div class="esg-card">
 
-        <div class="esg-letter">E</div>
+        <div class="esg-letter">
+          E
+        </div>
 
-        <h3>Environmental</h3>
+        <h3>
+          Environmental
+        </h3>
 
         <p>
           How does the company's operation affect the environment?
@@ -1299,9 +1622,13 @@ strong{
 
       <div class="esg-card">
 
-        <div class="esg-letter">S</div>
+        <div class="esg-letter">
+          S
+        </div>
 
-        <h3>Social</h3>
+        <h3>
+          Social
+        </h3>
 
         <p>
           How does the company treat employees, customers, suppliers,
@@ -1313,9 +1640,13 @@ strong{
 
       <div class="esg-card">
 
-        <div class="esg-letter">G</div>
+        <div class="esg-letter">
+          G
+        </div>
 
-        <h3>Governance</h3>
+        <h3>
+          Governance
+        </h3>
 
         <p>
           How is the company led, managed, controlled, and held accountable?
@@ -1328,21 +1659,32 @@ strong{
     </div>
 
 
-    <h3>What's the Difference Between CSR and ESG?</h3>
+    <!-- =================================================
+         CSR VS ESG
+    ================================================== -->
+
+    <h3>
+      What's the Difference Between CSR and ESG?
+    </h3>
 
 
     <div class="compare-grid">
 
+
+      <!-- CSR -->
+
       <div class="compare-card">
 
-        <h3>CSR</h3>
+        <h3>
+          CSR
+        </h3>
 
         <div class="compare-body">
 
           <p>
-            <strong>Corporate Social Responsibility</strong> describes a
-            company's broader commitment to operating in an ethical and
-            responsible manner.
+            <strong>Corporate Social Responsibility</strong>
+            describes a company's broader commitment to operating in an ethical
+            and responsible manner.
           </p>
 
           <p>
@@ -1353,8 +1695,9 @@ strong{
           </p>
 
           <p>
-            <strong>Main idea:</strong> What responsibility does the corporation
-            have to society and the environment?
+            <strong>Main idea:</strong>
+            What responsibility does the corporation have to society and the
+            environment?
           </p>
 
         </div>
@@ -1362,17 +1705,21 @@ strong{
       </div>
 
 
+      <!-- ESG -->
+
       <div class="compare-card">
 
-        <h3>ESG</h3>
+        <h3>
+          ESG
+        </h3>
 
         <div class="compare-body">
 
           <p>
-            <strong>Environmental, Social, and Governance</strong> refers to
-            criteria used to assess and manage risks and opportunities related
-            to environmental impact, stakeholder treatment, and organizational
-            governance.
+            <strong>Environmental, Social, and Governance</strong>
+            refers to criteria used to assess and manage risks and opportunities
+            related to environmental impact, stakeholder treatment, and
+            organizational governance.
           </p>
 
           <p>
@@ -1382,9 +1729,9 @@ strong{
           </p>
 
           <p>
-            <strong>Main idea:</strong> How can environmental, social, and
-            governance factors affect risk, opportunity, and long-term
-            performance?
+            <strong>Main idea:</strong>
+            How can environmental, social, and governance factors affect risk,
+            opportunity, and long-term performance?
           </p>
 
         </div>
@@ -1414,27 +1761,40 @@ strong{
    DRAG & DROP SORTING
 ========================================================= */
 
-const sortPool = document.getElementById("sortPool");
-const sortCards = document.querySelectorAll(".sort-card");
-const dropZones = document.querySelectorAll(".drop-zone");
+const sortPool =
+  document.getElementById("sortPool");
+
+const sortCards =
+  document.querySelectorAll(".sort-card");
+
+const dropZones =
+  document.querySelectorAll(".drop-zone");
 
 let draggedCard = null;
 let selectedCard = null;
 
 
-/* CLICK / KEYBOARD SELECTION */
+/* ---------------------------------------------------------
+   CLICK / KEYBOARD SELECTION
+--------------------------------------------------------- */
 
 sortCards.forEach(card => {
 
   card.addEventListener("click", () => {
+
     selectSortCard(card);
+
   });
+
 
   card.addEventListener("keydown", event => {
 
     if(event.key === "Enter" || event.key === " "){
+
       event.preventDefault();
+
       selectSortCard(card);
+
     }
 
   });
@@ -1447,14 +1807,18 @@ sortCards.forEach(card => {
     draggedCard = card;
 
     setTimeout(() => {
+
       card.style.opacity = ".45";
+
     }, 0);
 
   });
 
+
   card.addEventListener("dragend", () => {
 
     card.style.opacity = "1";
+
     draggedCard = null;
 
   });
@@ -1464,9 +1828,11 @@ sortCards.forEach(card => {
 
 function selectSortCard(card){
 
-  sortCards.forEach(item =>
-    item.classList.remove("selected")
-  );
+  sortCards.forEach(item => {
+
+    item.classList.remove("selected");
+
+  });
 
   selectedCard = card;
 
@@ -1475,22 +1841,27 @@ function selectSortCard(card){
 }
 
 
-/* DROP ZONES */
+/* ---------------------------------------------------------
+   DROP ZONES
+--------------------------------------------------------- */
 
 dropZones.forEach(zone => {
 
   zone.addEventListener("dragover", event => {
 
     event.preventDefault();
+
     zone.classList.add("drag-over");
 
   });
+
 
   zone.addEventListener("dragleave", () => {
 
     zone.classList.remove("drag-over");
 
   });
+
 
   zone.addEventListener("drop", event => {
 
@@ -1514,7 +1885,9 @@ dropZones.forEach(zone => {
 });
 
 
-/* BUTTON MOVEMENT */
+/* ---------------------------------------------------------
+   BUTTON MOVEMENT
+--------------------------------------------------------- */
 
 document
 .getElementById("movePrinciples")
@@ -1546,7 +1919,9 @@ document
 });
 
 
-/* CHECK ANSWERS */
+/* ---------------------------------------------------------
+   CHECK SORT ANSWERS
+--------------------------------------------------------- */
 
 document
 .getElementById("checkSort")
@@ -1555,6 +1930,7 @@ document
   let correct = 0;
   let placed = 0;
 
+
   sortCards.forEach(card => {
 
     card.classList.remove(
@@ -1562,8 +1938,12 @@ document
       "incorrect-sort"
     );
 
-    const parent = card.parentElement;
-    const zone = parent.dataset.zone;
+    const parent =
+      card.parentElement;
+
+    const zone =
+      parent.dataset.zone;
+
 
     if(!zone){
       return;
@@ -1571,9 +1951,11 @@ document
 
     placed++;
 
+
     if(zone === card.dataset.answer){
 
       card.classList.add("correct-sort");
+
       correct++;
 
     } else {
@@ -1587,6 +1969,7 @@ document
 
   const feedback =
     document.getElementById("sortFeedback");
+
 
   feedback.classList.remove(
     "hidden",
@@ -1603,6 +1986,7 @@ document
       "Move all four examples into a category before checking your answers.";
 
   }
+
   else if(correct === sortCards.length){
 
     feedback.classList.add("correct");
@@ -1611,6 +1995,7 @@ document
       "Correct! You successfully distinguished principles-based reasoning from consequences-based reasoning.";
 
   }
+
   else{
 
     feedback.classList.add("incorrect");
@@ -1623,7 +2008,9 @@ document
 });
 
 
-/* RESET SORT */
+/* ---------------------------------------------------------
+   RESET SORT
+--------------------------------------------------------- */
 
 document
 .getElementById("resetSort")
@@ -1651,7 +2038,7 @@ document
 
 
 /* =========================================================
-   CSR DROPDOWNS
+   CSR DROPDOWN ACTIVITY
 ========================================================= */
 
 document
@@ -1659,31 +2046,41 @@ document
 .addEventListener("click", () => {
 
   const selects = [
+
     document.getElementById("csr1"),
     document.getElementById("csr2"),
     document.getElementById("csr3")
+
   ];
+
 
   let correct = 0;
   let unanswered = 0;
+
 
   selects.forEach(select => {
 
     select.style.borderColor = "";
 
+
     if(!select.value){
 
       unanswered++;
+
       return;
 
     }
 
+
     if(select.value === select.dataset.answer){
 
       correct++;
+
       select.style.borderColor = "#2E6B45";
 
-    } else {
+    }
+
+    else{
 
       select.style.borderColor = "#C8102E";
 
@@ -1694,6 +2091,7 @@ document
 
   const feedback =
     document.getElementById("csrFeedback");
+
 
   feedback.classList.remove(
     "hidden",
@@ -1710,6 +2108,7 @@ document
       "Choose an answer for each description before checking.";
 
   }
+
   else if(correct === selects.length){
 
     feedback.classList.add("correct");
@@ -1718,6 +2117,7 @@ document
       "Correct! Narrow focuses on shareholder wealth, Moderate emphasizes legal and economic responsibility, and Broad emphasizes corporate citizenship and social responsibility.";
 
   }
+
   else{
 
     feedback.classList.add("incorrect");
@@ -1731,7 +2131,7 @@ document
 
 
 /* =========================================================
-   FLIP CARD
+   BROAD VIEW FLIP CARD
 ========================================================= */
 
 const broadFlip =
@@ -1751,19 +2151,26 @@ function toggleFlip(){
 }
 
 
-broadFlip.addEventListener("click", toggleFlip);
+broadFlip.addEventListener(
+  "click",
+  toggleFlip
+);
 
 
-broadFlip.addEventListener("keydown", event => {
+broadFlip.addEventListener(
+  "keydown",
+  event => {
 
-  if(event.key === "Enter" || event.key === " "){
+    if(event.key === "Enter" || event.key === " "){
 
-    event.preventDefault();
-    toggleFlip();
+      event.preventDefault();
+
+      toggleFlip();
+
+    }
 
   }
-
-});
+);
 
 </script>
 

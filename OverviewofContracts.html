@@ -1,0 +1,2083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Chapter 6 | Contract Law</title>
+
+<style>
+/* =========================================================
+   SAUK VALLEY COMMUNITY COLLEGE COLOR PALETTE
+   ========================================================= */
+:root {
+    --sauk-red: #C8102E;
+    --sauk-red-dark: #970C23;
+    --sauk-black: #171717;
+    --sauk-charcoal: #333333;
+    --sauk-gray: #666666;
+    --sauk-light-gray: #F4F4F4;
+    --sauk-border: #D7D7D7;
+    --sauk-white: #FFFFFF;
+
+    --correct: #1F7A42;
+    --correct-bg: #EAF6EE;
+    --incorrect: #A32121;
+    --incorrect-bg: #FCECEC;
+
+    --shadow: 0 6px 20px rgba(0,0,0,.08);
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #EFEFEF;
+    color: var(--sauk-black);
+    line-height: 1.65;
+}
+
+.page {
+    max-width: 1180px;
+    margin: 0 auto;
+    background: var(--sauk-white);
+    min-height: 100vh;
+}
+
+.content {
+    padding: 34px 6% 70px;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.hero {
+    background: var(--sauk-black);
+    color: white;
+    border-top: 10px solid var(--sauk-red);
+    padding: 45px 6%;
+}
+
+.chapter-label {
+    display: inline-block;
+    background: var(--sauk-red);
+    color: white;
+    padding: 7px 14px;
+    border-radius: 4px;
+    font-size: .85rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.1;
+}
+
+.hero p {
+    margin: 12px 0 0;
+    color: #E7E7E7;
+    font-size: 1.08rem;
+}
+
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+h2 {
+    margin: 55px 0 20px;
+    padding-bottom: 10px;
+    font-size: 1.85rem;
+    line-height: 1.2;
+    border-bottom: 4px solid var(--sauk-red);
+}
+
+h3 {
+    color: var(--sauk-red-dark);
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+h4 {
+    margin-bottom: 5px;
+}
+
+p {
+    margin: 0 0 15px;
+}
+
+strong {
+    font-weight: 800;
+}
+
+ul {
+    margin-top: 8px;
+}
+
+li {
+    margin-bottom: 7px;
+}
+
+/* =========================================================
+   GENERAL BOXES
+   ========================================================= */
+.overview-box {
+    background: var(--sauk-light-gray);
+    border-left: 7px solid var(--sauk-red);
+    padding: 24px 26px;
+    border-radius: 6px;
+    box-shadow: var(--shadow);
+    margin-bottom: 40px;
+}
+
+.overview-box h2 {
+    margin: 0 0 10px;
+    border: 0;
+    padding: 0;
+    font-size: 1.35rem;
+}
+
+.definition-box {
+    background: var(--sauk-black);
+    color: white;
+    border-radius: 8px;
+    padding: 25px;
+    text-align: center;
+    font-size: 1.2rem;
+    margin: 25px 0 30px;
+}
+
+.callout {
+    background: #FFF7F8;
+    border: 2px solid var(--sauk-red);
+    border-radius: 8px;
+    padding: 24px;
+    margin: 28px 0;
+}
+
+.callout h3 {
+    margin-top: 0;
+}
+
+.key-point {
+    background: var(--sauk-light-gray);
+    border-left: 5px solid var(--sauk-red);
+    padding: 15px 18px;
+    margin: 18px 0;
+}
+
+/* =========================================================
+   FLIP CARDS
+   ========================================================= */
+.flip-instructions {
+    color: var(--sauk-gray);
+    margin-top: -8px;
+    margin-bottom: 22px;
+}
+
+.flip-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.flip-card {
+    min-height: 235px;
+    perspective: 1000px;
+    cursor: pointer;
+    outline: none;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 235px;
+    transition: transform .6s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    text-align: center;
+}
+
+.flip-front {
+    background: var(--sauk-black);
+    border-top: 7px solid var(--sauk-red);
+    color: white;
+}
+
+.flip-front h3 {
+    color: white;
+    margin: 0 0 12px;
+    font-size: 1.35rem;
+}
+
+.flip-front span {
+    font-size: .83rem;
+    color: #D8D8D8;
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+    background: white;
+    border: 2px solid var(--sauk-red);
+    color: var(--sauk-black);
+    font-size: .96rem;
+}
+
+.flip-card:focus-visible .flip-front,
+.flip-card:focus-visible .flip-back {
+    outline: 4px solid #F3B7C1;
+    outline-offset: 3px;
+}
+
+/* =========================================================
+   CONTRACT CATEGORY CARDS
+   ========================================================= */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.category-card {
+    border: 1px solid var(--sauk-border);
+    border-top: 6px solid var(--sauk-red);
+    border-radius: 8px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+    background: white;
+}
+
+.category-card.wide {
+    grid-column: 1 / -1;
+}
+
+.compare-title {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 13px;
+}
+
+.term-pill {
+    background: var(--sauk-black);
+    color: white;
+    border-radius: 50px;
+    padding: 5px 12px;
+    font-size: .86rem;
+    font-weight: bold;
+}
+
+.term-pill.red {
+    background: var(--sauk-red);
+}
+
+/* =========================================================
+   SOURCE OF LAW
+   ========================================================= */
+.source-law {
+    background: var(--sauk-light-gray);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 25px;
+}
+
+.source-law strong {
+    color: var(--sauk-red-dark);
+}
+
+/* =========================================================
+   ACTIVITIES
+   ========================================================= */
+.activity {
+    margin: 30px 0;
+    border: 1px solid var(--sauk-border);
+    border-radius: 9px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.activity-header {
+    background: var(--sauk-black);
+    color: white;
+    padding: 22px 25px;
+}
+
+.activity-header h3 {
+    color: white;
+    margin: 0 0 4px;
+}
+
+.activity-header p {
+    margin: 0;
+    color: #E5E5E5;
+}
+
+.activity-body {
+    padding: 24px;
+}
+
+.match-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 18px;
+    align-items: center;
+    border-bottom: 1px solid #E5E5E5;
+    padding: 17px 0;
+}
+
+.match-row:last-child {
+    border-bottom: 0;
+}
+
+.match-row.correct {
+    background: var(--correct-bg);
+    margin-left: -12px;
+    margin-right: -12px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.match-row.incorrect {
+    background: var(--incorrect-bg);
+    margin-left: -12px;
+    margin-right: -12px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+select {
+    width: 100%;
+    font: inherit;
+    background: white;
+    border: 2px solid #AAAAAA;
+    border-radius: 5px;
+    padding: 11px 38px 11px 12px;
+    color: var(--sauk-black);
+}
+
+select:focus {
+    border-color: var(--sauk-red);
+    outline: 3px solid rgba(200,16,46,.14);
+}
+
+.feedback {
+    font-size: .9rem;
+    margin-top: 6px;
+    font-weight: bold;
+}
+
+.feedback.correct-text {
+    color: var(--correct);
+}
+
+.feedback.incorrect-text {
+    color: var(--incorrect);
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.button-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 24px;
+}
+
+button {
+    border: 0;
+    border-radius: 5px;
+    padding: 12px 18px;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.primary-button {
+    background: var(--sauk-red);
+    color: white;
+}
+
+.primary-button:hover,
+.primary-button:focus {
+    background: var(--sauk-red-dark);
+}
+
+.secondary-button {
+    background: var(--sauk-black);
+    color: white;
+}
+
+.secondary-button:hover,
+.secondary-button:focus {
+    background: #3C3C3C;
+}
+
+.score-box {
+    display: none;
+    margin-top: 20px;
+    padding: 15px 18px;
+    border-radius: 6px;
+    background: var(--sauk-light-gray);
+    font-weight: bold;
+}
+
+/* =========================================================
+   CONTENT SECTIONS
+   ========================================================= */
+.lesson-section {
+    border: 1px solid var(--sauk-border);
+    border-radius: 8px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.lesson-title {
+    background: var(--sauk-light-gray);
+    border-left: 6px solid var(--sauk-red);
+    padding: 13px 18px;
+    font-weight: 800;
+    font-size: 1.08rem;
+}
+
+.lesson-content {
+    padding: 18px 22px;
+}
+
+.mini-heading {
+    color: var(--sauk-red-dark);
+    font-weight: 800;
+}
+
+/* =========================================================
+   KNOWLEDGE CHECK
+   ========================================================= */
+.quiz-question {
+    margin-bottom: 28px;
+    padding-bottom: 23px;
+    border-bottom: 1px solid var(--sauk-border);
+}
+
+.quiz-question:last-child {
+    border-bottom: 0;
+}
+
+.quiz-question fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.quiz-question legend {
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.choice {
+    display: block;
+    border: 1px solid var(--sauk-border);
+    border-radius: 6px;
+    margin: 8px 0;
+    padding: 10px 13px;
+    cursor: pointer;
+}
+
+.choice:hover {
+    background: var(--sauk-light-gray);
+}
+
+.choice input {
+    margin-right: 9px;
+    accent-color: var(--sauk-red);
+}
+
+.choice.correct-choice {
+    border-color: var(--correct);
+    background: var(--correct-bg);
+}
+
+.choice.incorrect-choice {
+    border-color: var(--incorrect);
+    background: var(--incorrect-bg);
+}
+
+/* =========================================================
+   VOCABULARY MATCHING
+   ========================================================= */
+.definition-match {
+    padding: 20px;
+    border: 1px solid var(--sauk-border);
+    border-radius: 7px;
+    margin: 14px 0;
+}
+
+.definition-match p {
+    margin-top: 0;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer {
+    background: var(--sauk-black);
+    border-bottom: 10px solid var(--sauk-red);
+    color: white;
+    text-align: center;
+    padding: 25px;
+    font-size: .9rem;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 850px) {
+    .flip-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .category-card.wide {
+        grid-column: auto;
+    }
+
+    .match-row {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 560px) {
+    .content,
+    .hero {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .flip-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .flip-card,
+    .flip-card-inner {
+        min-height: 260px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+<!-- =======================================================
+     HEADER
+     ======================================================= -->
+<header class="hero">
+    <div class="chapter-label">Law &amp; Commerce Unit</div>
+    <h1>Chapter 6: Contract Law</h1>
+    <p>Formation, enforceability, performance, and the foundations of a binding agreement</p>
+</header>
+
+
+<main class="content">
+
+<!-- =======================================================
+     OVERVIEW
+     ======================================================= -->
+<section class="overview-box">
+    <h2>Chapter Overview</h2>
+    <p>
+        This chapter, the first in the Law and Commerce unit, begins a
+        three-chapter sequence focused on the study of contracts.
+        <strong>Chapter 6</strong> is a broad overview of contract law and the
+        elements of formation. <strong>Chapter 7</strong> covers the requirements
+        for enforceability, rules for performance, and breach issues.
+        <strong>Chapter 8</strong> covers sales contracts under Article 2 of the UCC.
+    </p>
+</section>
+
+
+<!-- =======================================================
+     TERMS TO KNOW
+     ======================================================= -->
+<section>
+    <h2>Terms to Know</h2>
+    <p class="flip-instructions">
+        Select a card to reveal its definition. Select it again to flip it back.
+    </p>
+
+    <div class="flip-grid">
+
+        <div class="flip-card" tabindex="0" role="button"
+             aria-label="Formation. Select to reveal definition.">
+            <div class="flip-card-inner">
+                <div class="flip-front">
+                    <h3>Formation</h3>
+                    <span>SELECT TO FLIP</span>
+                </div>
+                <div class="flip-back">
+                    Parties reach mutual agreement on terms; all formation
+                    elements are met.
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card" tabindex="0" role="button"
+             aria-label="Enforceability. Select to reveal definition.">
+            <div class="flip-card-inner">
+                <div class="flip-front">
+                    <h3>Enforceability</h3>
+                    <span>SELECT TO FLIP</span>
+                </div>
+                <div class="flip-back">
+                    A contract meets the legal requirements necessary to
+                    enforce its terms.
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card" tabindex="0" role="button"
+             aria-label="Performance. Select to reveal definition.">
+            <div class="flip-card-inner">
+                <div class="flip-front">
+                    <h3>Performance</h3>
+                    <span>SELECT TO FLIP</span>
+                </div>
+                <div class="flip-back">
+                    The contract governs the parties' performance or
+                    nonperformance of the terms of the agreement and provides
+                    compensation if one party fails to perform.
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card" tabindex="0" role="button"
+             aria-label="Mutual assent. Select to reveal definition.">
+            <div class="flip-card-inner">
+                <div class="flip-front">
+                    <h3>Mutual Assent</h3>
+                    <span>SELECT TO FLIP</span>
+                </div>
+                <div class="flip-back">
+                    The offer must represent a serious, objective intent to
+                    contract, and proper acceptance of the offer must occur
+                    before termination by the parties or operation of law.
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card" tabindex="0" role="button"
+             aria-label="Consideration. Select to reveal definition.">
+            <div class="flip-card-inner">
+                <div class="flip-front">
+                    <h3>Consideration</h3>
+                    <span>SELECT TO FLIP</span>
+                </div>
+                <div class="flip-back">
+                    There must be the possibility of legal detriment to the
+                    promisee and a bargained-for exchange on the part of the
+                    promisor.
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card" tabindex="0" role="button"
+             aria-label="Capacity. Select to reveal definition.">
+            <div class="flip-card-inner">
+                <div class="flip-front">
+                    <h3>Capacity</h3>
+                    <span>SELECT TO FLIP</span>
+                </div>
+                <div class="flip-back">
+                    If a party is a minor, the contract is generally voidable
+                    at the minor's option. If a party is mentally incapacitated
+                    and the other party has reason to know of the incapacity,
+                    the contract may also be avoided.
+                </div>
+            </div>
+        </div>
+
+        <div class="flip-card" tabindex="0" role="button"
+             aria-label="Legality. Select to reveal definition.">
+            <div class="flip-card-inner">
+                <div class="flip-front">
+                    <h3>Legality</h3>
+                    <span>SELECT TO FLIP</span>
+                </div>
+                <div class="flip-back">
+                    The subject matter of the contract and the transaction
+                    must be legal.
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =======================================================
+     DEFINITIONS AND CATEGORIES
+     ======================================================= -->
+<section>
+    <h2>Definitions and Categories of Contracts</h2>
+
+    <div class="definition-box">
+        <strong>A contract</strong> is a promise or a set of promises
+        enforceable by law.
+    </div>
+
+    <h3>Categories of Contracts</h3>
+
+    <div class="category-grid">
+
+        <article class="category-card">
+            <div class="compare-title">
+                <span class="term-pill">Written</span>
+                <span class="term-pill red">Oral</span>
+            </div>
+            <p>
+                Any agreement, oral or written, may result in a binding
+                contract so long as it meets certain legal requirements.
+            </p>
+        </article>
+
+        <article class="category-card">
+            <div class="compare-title">
+                <span class="term-pill">Bilateral</span>
+                <span class="term-pill red">Unilateral</span>
+            </div>
+            <p>
+                A <strong>bilateral contract</strong> involves two promises
+                and two performances.
+            </p>
+            <p>
+                A <strong>unilateral contract</strong> involves one promise,
+                followed by one performance, which then triggers a second
+                performance from the offeror.
+            </p>
+        </article>
+
+        <article class="category-card wide">
+            <div class="compare-title">
+                <span class="term-pill">Express</span>
+                <span class="term-pill red">Implied</span>
+                <span class="term-pill">Quasi-Contract</span>
+            </div>
+
+            <p>
+                An <strong>express contract</strong> is created when the
+                parties expressly agree on the promises and performances.
+            </p>
+
+            <p>
+                An <strong>implied contract</strong> is one in which the
+                agreement is reached through the parties' actions rather than
+                their words.
+            </p>
+
+            <p>
+                A <strong>quasi-contract</strong> may be enforced when one
+                party suffers a loss as a result of another party's unjust
+                enrichment.
+            </p>
+        </article>
+
+        <article class="category-card">
+            <div class="compare-title">
+                <span class="term-pill">Valid</span>
+                <span class="term-pill red">Void</span>
+            </div>
+
+            <p>
+                When a contract contains the necessary legal elements, it is
+                a <strong>valid contract</strong>.
+            </p>
+
+            <p>
+                <strong>Void contracts</strong> are agreements that were not
+                formed in conformance with the law from the outset and,
+                therefore, cannot be enforced by either party.
+            </p>
+        </article>
+
+        <article class="category-card">
+            <div class="compare-title">
+                <span class="term-pill">Voidable</span>
+                <span class="term-pill red">Unenforceable</span>
+            </div>
+
+            <p>
+                A <strong>voidable contract</strong> is one in which a valid
+                contract has been formed, but one party has the option to
+                disaffirm or enforce it.
+            </p>
+
+            <p>
+                An <strong>unenforceable contract</strong> otherwise meets
+                the requirements of a binding agreement but is subject to a
+                legal defense that prevents enforcement.
+            </p>
+        </article>
+
+    </div>
+</section>
+
+
+<!-- =======================================================
+     SOURCES OF CONTRACT LAW
+     ======================================================= -->
+<section>
+    <h2>Sources of Contract Law</h2>
+
+    <div class="source-law">
+        <p>
+            In general, contracts for <strong>services</strong> or
+            <strong>real estate</strong> are governed by state
+            <strong>common law</strong>.
+        </p>
+
+        <p>
+            Contracts for <strong>goods or products</strong> are generally
+            governed by state <strong>statutory law</strong> based on
+            <strong>Article 2 of the Uniform Commercial Code (UCC)</strong>.
+        </p>
+
+        <p>
+            Contracts involving terms for both goods and services are known
+            as <strong>hybrid contracts</strong>. In a hybrid contract, the
+            source of law is established by determining the
+            <strong>predominant thrust</strong> of the contract's subject
+            matter.
+        </p>
+    </div>
+
+
+    <!-- MATCHING ACTIVITY -->
+    <div class="activity" id="lawMatchActivity">
+
+        <div class="activity-header">
+            <h3>Activity: Which Source of Law Applies?</h3>
+            <p>
+                Match each contract example to the appropriate source-of-law
+                category.
+            </p>
+        </div>
+
+        <div class="activity-body">
+
+            <div class="match-row" data-answer="statutory">
+                <div>
+                    <strong>1.</strong> A business agrees to purchase
+                    50 laptop computers from an electronics supplier.
+                    <div class="feedback"></div>
+                </div>
+                <select aria-label="Answer for question 1">
+                    <option value="">Choose a category...</option>
+                    <option value="statutory">Statutory law</option>
+                    <option value="common">Common law</option>
+                    <option value="predominant">Determine predominant thrust</option>
+                </select>
+            </div>
+
+            <div class="match-row" data-answer="common">
+                <div>
+                    <strong>2.</strong> A homeowner hires an electrician to
+                    rewire a house.
+                    <div class="feedback"></div>
+                </div>
+                <select aria-label="Answer for question 2">
+                    <option value="">Choose a category...</option>
+                    <option value="statutory">Statutory law</option>
+                    <option value="common">Common law</option>
+                    <option value="predominant">Determine predominant thrust</option>
+                </select>
+            </div>
+
+            <div class="match-row" data-answer="common">
+                <div>
+                    <strong>3.</strong> Two parties enter into a contract for
+                    the sale of a parcel of real estate.
+                    <div class="feedback"></div>
+                </div>
+                <select aria-label="Answer for question 3">
+                    <option value="">Choose a category...</option>
+                    <option value="statutory">Statutory law</option>
+                    <option value="common">Common law</option>
+                    <option value="predominant">Determine predominant thrust</option>
+                </select>
+            </div>
+
+            <div class="match-row" data-answer="predominant">
+                <div>
+                    <strong>4.</strong> A restaurant purchases a commercial
+                    kitchen system from a company that will also provide
+                    extensive installation services.
+                    <div class="feedback"></div>
+                </div>
+                <select aria-label="Answer for question 4">
+                    <option value="">Choose a category...</option>
+                    <option value="statutory">Statutory law</option>
+                    <option value="common">Common law</option>
+                    <option value="predominant">Determine predominant thrust</option>
+                </select>
+            </div>
+
+            <div class="match-row" data-answer="statutory">
+                <div>
+                    <strong>5.</strong> A customer agrees to purchase a new
+                    automobile from a dealership.
+                    <div class="feedback"></div>
+                </div>
+                <select aria-label="Answer for question 5">
+                    <option value="">Choose a category...</option>
+                    <option value="statutory">Statutory law</option>
+                    <option value="common">Common law</option>
+                    <option value="predominant">Determine predominant thrust</option>
+                </select>
+            </div>
+
+            <div class="match-row" data-answer="predominant">
+                <div>
+                    <strong>6.</strong> A company contracts with a vendor to
+                    design custom software and provide specialized computer
+                    equipment as part of the same agreement.
+                    <div class="feedback"></div>
+                </div>
+                <select aria-label="Answer for question 6">
+                    <option value="">Choose a category...</option>
+                    <option value="statutory">Statutory law</option>
+                    <option value="common">Common law</option>
+                    <option value="predominant">Determine predominant thrust</option>
+                </select>
+            </div>
+
+            <div class="button-row">
+                <button class="primary-button"
+                        onclick="checkMatching('lawMatchActivity')">
+                    Check Answers
+                </button>
+
+                <button class="secondary-button"
+                        onclick="resetMatching('lawMatchActivity')">
+                    Reset
+                </button>
+            </div>
+
+            <div class="score-box"></div>
+
+        </div>
+    </div>
+
+
+    <!-- UETA -->
+    <div class="callout">
+        <h3>Uniform Electronic Transactions Act (UETA)</h3>
+
+        <p>
+            The <strong>Uniform Electronic Transactions Act (UETA)</strong>
+            is a procedural model law that applies to transactions when the
+            parties to a contract agree to use electronic commerce for the
+            transaction.
+        </p>
+
+        <p>
+            UETA elevates <strong>electronic signatures</strong> and
+            <strong>electronic records</strong> to the same legal status
+            generally accorded to traditional signatures and paper records.
+        </p>
+    </div>
+</section>
+
+
+<!-- =======================================================
+     OVERVIEW OF A CONTRACT TRANSACTION
+     ======================================================= -->
+<section>
+    <h2>Overview of a Contract Transaction</h2>
+
+    <div class="lesson-section">
+        <div class="lesson-title">Formation of the Contract</div>
+        <div class="lesson-content">
+
+            <p>
+                The formation of a contract requires
+                <strong>mutual assent</strong>, whereby the parties reach an
+                agreement using a combination of <strong>offer</strong> and
+                <strong>acceptance</strong>.
+            </p>
+
+            <p>
+                Formation of a valid contract also requires that the agreement
+                be supported by <strong>consideration</strong>, that the
+                parties entering into the agreement have
+                <strong>capacity</strong>, and that the subject matter and
+                performance of the contract be <strong>legal</strong> and
+                consistent with public policy.
+            </p>
+
+            <p>
+                In order for the contract to be <strong>enforceable</strong>,
+                the agreement must also be the product of
+                <strong>genuine assent</strong>. In some cases, certain terms
+                must also be in writing as required by the
+                <strong>statute of frauds</strong>.
+            </p>
+
+        </div>
+    </div>
+
+
+    <div class="lesson-section">
+        <div class="lesson-title">Mutual Assent Part 1: Offer</div>
+        <div class="lesson-content">
+
+            <p>
+                An <strong>offer</strong> is a promise or commitment to do, or
+                refrain from doing, a specified activity in exchange for the
+                offeree's counter-promise or performance.
+            </p>
+
+            <p>
+                In order for an offer to have legal effect, the offeror must
+                have an <strong>objective intent</strong> to contract when
+                making the offer. The question is whether, given the language
+                and circumstances of the offer, a reasonable person in the
+                position of the offeree would conclude that the offer was an
+                <strong>objective manifestation of serious intent to contract</strong>.
+            </p>
+
+            <p>
+                Under modern case law, the importance of the parties'
+                intention—or lack of intention—to form a contract depends
+                largely on the <strong>context</strong> of the agreement.
+            </p>
+
+        </div>
+    </div>
+
+
+    <div class="lesson-section">
+        <div class="lesson-title">Advertisements as an Offer</div>
+        <div class="lesson-content">
+
+            <p>
+                Advertisements are generally <strong>not considered offers</strong>.
+                Instead, they are usually invitations for consumers to make
+                an offer to the seller of goods or services.
+            </p>
+
+            <p>
+                However, certain advertisements can be considered an offer
+                when the advertisement is sufficiently specific to constitute
+                a <strong>unilateral contract</strong>.
+            </p>
+
+        </div>
+    </div>
+
+
+    <div class="lesson-section">
+        <div class="lesson-title">Mutual Assent Part 2: Acceptance</div>
+        <div class="lesson-content">
+
+            <p>
+                <strong>Acceptance</strong> is the offeree's expression of
+                agreement to the terms of the offer. Acceptance may occur so
+                long as the offer is still in force.
+            </p>
+
+        </div>
+    </div>
+
+
+    <div class="lesson-section">
+        <div class="lesson-title">
+            Events Terminating the Power of Acceptance
+        </div>
+
+        <div class="lesson-content">
+
+            <p>
+                An offer may be terminated by the
+                <strong>action of the parties</strong> in one of three primary
+                ways:
+            </p>
+
+            <ul>
+                <li><strong>Revocation</strong></li>
+                <li><strong>Rejection</strong></li>
+                <li><strong>Counteroffer</strong></li>
+            </ul>
+
+            <p>
+                An offer may also terminate through
+                <strong>operation of law</strong>.
+            </p>
+
+
+            <p>
+                <span class="mini-heading">Revocation:</span>
+                The offeror withdraws the offer by communicating the revocation
+                to the offeree before acceptance. Most states follow the rule
+                that revocation is effective only upon
+                <strong>receipt by the offeree or the offeree's agent</strong>.
+            </p>
+
+
+            <p>
+                Certain offers may be temporarily or permanently
+                <strong>irrevocable</strong>.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Option Contract:</strong>
+                    The offeror agrees to hold an offer open for a certain
+                    period of time in exchange for consideration.
+                </li>
+
+                <li>
+                    <strong>Partial Performance and Detrimental Reliance:</strong>
+                    An offer may become temporarily irrevocable when the
+                    offeree takes action in reasonable reliance on the offer
+                    before formation, such as beginning performance or making
+                    preparations based on the offer.
+                </li>
+            </ul>
+
+
+            <p>
+                <span class="mini-heading">Rejection and Counteroffer:</span>
+                An offer terminates once the offeree rejects the offer or
+                makes a counteroffer by rejecting the original offer and
+                proposing new terms.
+            </p>
+
+            <p>
+                The <strong>mirror image rule</strong> requires the offeree's
+                acceptance to match the original offer. A deviation from the
+                original offer generally constitutes a rejection and
+                counteroffer.
+            </p>
+
+        </div>
+    </div>
+
+
+    <div class="lesson-section">
+        <div class="lesson-title">Termination by Operation of Law</div>
+        <div class="lesson-content">
+
+            <p>
+                An offer may also terminate because of certain events,
+                including:
+            </p>
+
+            <ul>
+                <li><strong>Lapse of time</strong></li>
+                <li><strong>Death</strong></li>
+                <li><strong>Incapacity</strong></li>
+                <li><strong>Destruction of the subject matter</strong></li>
+            </ul>
+
+            <p>
+                <span class="mini-heading">Lapse of Time:</span>
+                An offer expires after the deadline specified by the offeror,
+                or after a reasonable time if no deadline was specified.
+            </p>
+
+            <p>
+                <span class="mini-heading">
+                    Death, Incapacity, or Destruction:
+                </span>
+                If the offeror or offeree dies or becomes incapacitated, or if
+                the subject matter of the contract is destroyed before
+                acceptance, the offer is generally terminated by operation of
+                law.
+            </p>
+
+        </div>
+    </div>
+
+
+    <div class="lesson-section">
+        <div class="lesson-title">
+            When Acceptance Is Effective: The Mailbox Rule
+        </div>
+
+        <div class="lesson-content">
+
+            <p>
+                Under the <strong>mailbox rule</strong>, the acceptance of an
+                offer is generally effective <strong>upon dispatch</strong>
+                when sent using a commercially reasonable manner.
+            </p>
+
+        </div>
+    </div>
+
+
+    <!-- ===================================================
+         KNOWLEDGE CHECK
+         =================================================== -->
+    <div class="activity" id="knowledgeCheck">
+
+        <div class="activity-header">
+            <h3>Knowledge Check</h3>
+            <p>
+                Check your understanding of contract formation, offer,
+                acceptance, and termination.
+            </p>
+        </div>
+
+        <div class="activity-body">
+
+            <div class="quiz-question" data-answer="b">
+                <fieldset>
+                    <legend>
+                        1. What two components combine to create mutual assent?
+                    </legend>
+
+                    <label class="choice">
+                        <input type="radio" name="q1" value="a">
+                        Capacity and legality
+                    </label>
+
+                    <label class="choice">
+                        <input type="radio" name="q1" value="b">
+                        Offer and acceptance
+                    </label>
+
+                    <label class="choice">
+                        <input type="radio" name="q1" value="c">
+                        Consideration and performance
+                    </label>
+
+                    <label class="choice">
+                        <input type="radio" name="q1" value="d">
+                        Writing and consideration
+                    </label>
+
+                    <div class="feedback"></div>
+                </fieldset>
+            </div>
+
+
+            <div class="quiz-question" data-answer="c">
+                <fieldset>
+                    <legend>
+                        2. Which standard is used to determine whether an
+                        offeror demonstrated serious intent to contract?
+                    </legend>
+
+                    <label class="choice">
+                        <input type="radio" name="q2" value="a">
+                        The offeror's secret personal intention
+                    </label>
+
+                    <label class="choice">
+                        <input type="radio" name="q2" value="b">
+                        The offeree's subjective interpretation
+                    </label>
+
+                    <label class="choice">
+                        <input type="radio" name="q2" value="c">
+                        Whether a reasonable person would view the offer as an
+                        objective manifestation of serious intent
+                    </label>
+
+                    <label class="choice">
+                        <input type="radio" name="q2" value="d">
+                        Whether consideration has already been paid
+                    </label>
+
+                    <div class="feedback"></div>
+                </fieldset>
+            </div>
+
+
+            <div class="quiz-question" data-answer="a">
+                <fieldset>
+                    <legend>
+                        3. Which statement about advertisements is generally
+                        correct?
+                    </legend>
+
+                    <label class="choice">
+                        <input type="radio" name="q3" value="a">
+                        Advertisements are generally invitations for customers
+                        to make offers.
+                    </label>
+
+                    <label class="choice">
+                        <input type="radio" name="q3" value="b">
+                        Every advertisement automatically creates a contract.
+                    </label>
+
+                    <label class="choice">
+                        <input type="radio" name="q3" value="c">
+                        Advertisements can never become legal offers.
+                    </label>
+
+                    <label class="choice">
+                        <input type="radio" name="q3" value="d">
+                        Advertisements are governed only by common law.
+                    </label>
+
+                    <div class="feedback"></div>
+                </fieldset>
+            </div>
+
+
+            <div class="quiz-question" data-answer="d">
+                <fieldset>
+                    <legend>
+                        4. Which event terminates an offer by operation of law
+                        rather than by action of the parties?
+                    </legend>
+
+                    <label class="choice">
+                        <input type="radio" name="q4" value="a">
+                        Revocation
+                    </label>
+
+                    <label class="choice">
+                        <input type="radio" name="q4" value="b">
+                        Rejection
+                    </label>
+
+                    <label class="choice">
+                        <input type="radio" name="q4" value="c">
+                        Counteroffer
+                    </label>
+
+                    <label class="choice">
+                        <input type="radio" name="q4" value="d">
+                        Death of the offeror
+                    </label>
+
+                    <div class="feedback"></div>
+                </fieldset>
+            </div>
+
+
+            <div class="quiz-question" data-answer="b">
+                <fieldset>
+                    <legend>
+                        5. Under the mailbox rule, an acceptance sent through
+                        a commercially reasonable method is generally effective
+                        when:
+                    </legend>
+
+                    <label class="choice">
+                        <input type="radio" name="q5" value="a">
+                        The offeror reads it.
+                    </label>
+
+                    <label class="choice">
+                        <input type="radio" name="q5" value="b">
+                        It is dispatched.
+                    </label>
+
+                    <label class="choice">
+                        <input type="radio" name="q5" value="c">
+                        The contract is performed.
+                    </label>
+
+                    <label class="choice">
+                        <input type="radio" name="q5" value="d">
+                        Consideration is exchanged.
+                    </label>
+
+                    <div class="feedback"></div>
+                </fieldset>
+            </div>
+
+
+            <div class="button-row">
+                <button class="primary-button" onclick="checkQuiz()">
+                    Check Answers
+                </button>
+
+                <button class="secondary-button" onclick="resetQuiz()">
+                    Reset
+                </button>
+            </div>
+
+            <div id="quizScore" class="score-box"></div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     MUTUAL ASSENT
+     ======================================================= -->
+<section>
+    <h2>Mutual Assent</h2>
+
+
+    <div class="lesson-section">
+        <div class="lesson-title">Silence as Acceptance</div>
+        <div class="lesson-content">
+
+            <p>
+                Under most circumstances, acceptance cannot be imposed or
+                inferred from an offeree's <strong>silence</strong> after
+                receiving an offer.
+            </p>
+
+            <p>
+                Courts generally will not enforce a contract in which the
+                offer states that failure to respond will be considered
+                acceptance.
+            </p>
+
+            <p>
+                An exception may occur when the parties
+                <strong>previously agreed that silence would act as acceptance</strong>.
+            </p>
+
+        </div>
+    </div>
+
+
+    <div class="lesson-section">
+        <div class="lesson-title">Insufficient Agreement</div>
+        <div class="lesson-content">
+
+            <p>
+                In some cases, the parties may satisfy the basic requirements
+                of offer and acceptance but the agreement may
+                <strong>still lack mutual assent</strong> and therefore be
+                insufficient to constitute a properly formed contract.
+            </p>
+
+            <p>
+                <span class="mini-heading">Indefinite Terms:</span>
+                For an offer to be valid, the parties must generally reach
+                mutual assent concerning the essential terms of the agreement,
+                including the <strong>parties, subject matter, time, and consideration</strong>.
+            </p>
+
+            <p>
+                Courts sometimes supply missing terms when a term may
+                reasonably be implied or established through the parties'
+                prior course of dealing.
+            </p>
+
+            <p>
+                <span class="mini-heading">Agreements to Agree:</span>
+                When parties leave an essential term unresolved with the intent
+                to agree later, a court may in some circumstances supply the
+                missing term if the parties demonstrated an intention to make
+                a binding contract.
+            </p>
+
+        </div>
+    </div>
+
+
+    <div class="lesson-section">
+        <div class="lesson-title">Mistake</div>
+        <div class="lesson-content">
+
+            <p>
+                A <strong>mistake</strong> in contract law is an erroneous
+                belief that is not in accord with the existing facts.
+            </p>
+
+            <p>
+                A <strong>mutual mistake</strong> may provide a basis for
+                canceling a contract when both parties share an erroneous
+                belief concerning a basic assumption on which the contract was
+                made.
+            </p>
+
+            <p>
+                Courts generally do not treat market conditions or a party's
+                financial ability as the type of mistake that permits a
+                contract to be avoided.
+            </p>
+
+            <p>
+                A <strong>unilateral mistake</strong> occurs when only one
+                party has an erroneous belief concerning a basic assumption of
+                the agreement. It generally does not provide a basis for
+                avoiding the contract unless the nonmistaken party had reason
+                to know of the mistake or caused the mistake.
+            </p>
+
+        </div>
+    </div>
+
+
+    <div class="lesson-section">
+        <div class="lesson-title">Consideration</div>
+        <div class="lesson-content">
+
+            <p>
+                For a binding contract to exist, the agreement must generally
+                be supported by <strong>consideration</strong>.
+            </p>
+
+            <p>
+                Consideration includes:
+            </p>
+
+            <ul>
+                <li><strong>Legal detriment</strong></li>
+                <li><strong>A bargained-for exchange</strong></li>
+            </ul>
+
+        </div>
+    </div>
+
+
+    <div class="lesson-section">
+        <div class="lesson-title">Capacity</div>
+        <div class="lesson-content">
+
+            <p>
+                Courts generally enforce contracts only when each party had
+                the legal <strong>capacity</strong> to enter into the
+                agreement.
+            </p>
+
+
+            <p>
+                <span class="mini-heading">Minors:</span>
+                Until a person reaches the age of majority, generally
+                <strong>18</strong>, a contract entered into by the minor is
+                typically <strong>voidable at the minor's option</strong>.
+            </p>
+
+            <p>
+                A contract made by a minor is not automatically void. The
+                minor may ordinarily choose to
+                <strong>avoid the contract or enforce the contract</strong>.
+            </p>
+
+            <p>
+                One important exception to the minor-capacity rule involves
+                contracts for <strong>necessities</strong>.
+            </p>
+
+
+            <p>
+                <span class="mini-heading">Mental Incapacity:</span>
+                A person may lack capacity because of mental incapacity if:
+            </p>
+
+            <ul>
+                <li>
+                    The person is unable to <strong>understand</strong> the
+                    nature and consequences of the contract; or
+                </li>
+
+                <li>
+                    The person is unable to act in a reasonable manner in
+                    relation to the transaction and the other party has reason
+                    to know of the person's condition.
+                </li>
+            </ul>
+
+            <p>
+                In most states, contracts made by an incompetent person are
+                generally <strong>voidable</strong> and may sometimes be
+                ratified if that person regains capacity or through an
+                appropriately appointed guardian.
+            </p>
+
+        </div>
+    </div>
+
+
+    <!-- ===================================================
+         TERM/DESCRIPTION DROPDOWN ACTIVITY
+         =================================================== -->
+    <div class="activity" id="termMatchActivity">
+
+        <div class="activity-header">
+            <h3>Match the Contract Concept</h3>
+            <p>
+                Read each description and select the contract-law term that
+                best matches it.
+            </p>
+        </div>
+
+        <div class="activity-body">
+
+
+            <div class="definition-match match-row"
+                 data-answer="legal-detriment">
+
+                <div>
+                    A party promises to perform something that the party is not
+                    legally obligated to do, or agrees to refrain from doing
+                    something the party otherwise has a legal right to do.
+                    <div class="feedback"></div>
+                </div>
+
+                <select aria-label="Match definition 1">
+                    <option value="">Choose a term...</option>
+                    <option value="legal-detriment">Legal Detriment</option>
+                    <option value="preexisting">Preexisting Duty Rule</option>
+                    <option value="bargained">Bargained-for Exchange</option>
+                    <option value="past">Past Consideration</option>
+                    <option value="amount">Amount and Type of Consideration</option>
+                    <option value="estoppel">Promissory Estoppel</option>
+                    <option value="legality">Legality</option>
+                </select>
+
+            </div>
+
+
+            <div class="definition-match match-row"
+                 data-answer="preexisting">
+
+                <div>
+                    If a party performs or promises to perform something that
+                    the party is already legally obligated to do, the law
+                    generally does not recognize the action as legal detriment.
+                    Exceptions may apply when additional duties are assumed or
+                    unforeseen circumstances arise.
+                    <div class="feedback"></div>
+                </div>
+
+                <select aria-label="Match definition 2">
+                    <option value="">Choose a term...</option>
+                    <option value="legal-detriment">Legal Detriment</option>
+                    <option value="preexisting">Preexisting Duty Rule</option>
+                    <option value="bargained">Bargained-for Exchange</option>
+                    <option value="past">Past Consideration</option>
+                    <option value="amount">Amount and Type of Consideration</option>
+                    <option value="estoppel">Promissory Estoppel</option>
+                    <option value="legality">Legality</option>
+                </select>
+
+            </div>
+
+
+            <div class="definition-match match-row"
+                 data-answer="bargained">
+
+                <div>
+                    A performance or return promise qualifies only when it was
+                    exchanged for another promise.
+                    <div class="feedback"></div>
+                </div>
+
+                <select aria-label="Match definition 3">
+                    <option value="">Choose a term...</option>
+                    <option value="legal-detriment">Legal Detriment</option>
+                    <option value="preexisting">Preexisting Duty Rule</option>
+                    <option value="bargained">Bargained-for Exchange</option>
+                    <option value="past">Past Consideration</option>
+                    <option value="amount">Amount and Type of Consideration</option>
+                    <option value="estoppel">Promissory Estoppel</option>
+                    <option value="legality">Legality</option>
+                </select>
+
+            </div>
+
+
+            <div class="definition-match match-row"
+                 data-answer="past">
+
+                <div>
+                    A promise is made in return for a detriment that the
+                    promisee already provided before the promise was made.
+                    This does not constitute valid consideration.
+                    <div class="feedback"></div>
+                </div>
+
+                <select aria-label="Match definition 4">
+                    <option value="">Choose a term...</option>
+                    <option value="legal-detriment">Legal Detriment</option>
+                    <option value="preexisting">Preexisting Duty Rule</option>
+                    <option value="bargained">Bargained-for Exchange</option>
+                    <option value="past">Past Consideration</option>
+                    <option value="amount">Amount and Type of Consideration</option>
+                    <option value="estoppel">Promissory Estoppel</option>
+                    <option value="legality">Legality</option>
+                </select>
+
+            </div>
+
+
+            <div class="definition-match match-row"
+                 data-answer="amount">
+
+                <div>
+                    Courts ordinarily do not examine the relative value or type
+                    of consideration when deciding whether valid consideration
+                    exists. Even nominal consideration may be sufficient when
+                    it is genuine.
+                    <div class="feedback"></div>
+                </div>
+
+                <select aria-label="Match definition 5">
+                    <option value="">Choose a term...</option>
+                    <option value="legal-detriment">Legal Detriment</option>
+                    <option value="preexisting">Preexisting Duty Rule</option>
+                    <option value="bargained">Bargained-for Exchange</option>
+                    <option value="past">Past Consideration</option>
+                    <option value="amount">Amount and Type of Consideration</option>
+                    <option value="estoppel">Promissory Estoppel</option>
+                    <option value="legality">Legality</option>
+                </select>
+
+            </div>
+
+
+            <div class="definition-match match-row"
+                 data-answer="estoppel">
+
+                <div>
+                    A theory that may allow a relying party to recover damages
+                    even though the original promise lacked consideration when
+                    the promisee actually relied on the promise and that
+                    reliance was reasonably foreseeable to the promisor.
+                    <div class="feedback"></div>
+                </div>
+
+                <select aria-label="Match definition 6">
+                    <option value="">Choose a term...</option>
+                    <option value="legal-detriment">Legal Detriment</option>
+                    <option value="preexisting">Preexisting Duty Rule</option>
+                    <option value="bargained">Bargained-for Exchange</option>
+                    <option value="past">Past Consideration</option>
+                    <option value="amount">Amount and Type of Consideration</option>
+                    <option value="estoppel">Promissory Estoppel</option>
+                    <option value="legality">Legality</option>
+                </select>
+
+            </div>
+
+
+            <div class="definition-match match-row"
+                 data-answer="legality">
+
+                <div>
+                    Both the subject matter and performance of the contract
+                    must be lawful. Illegal contracts are automatically void.
+                    <div class="feedback"></div>
+                </div>
+
+                <select aria-label="Match definition 7">
+                    <option value="">Choose a term...</option>
+                    <option value="legal-detriment">Legal Detriment</option>
+                    <option value="preexisting">Preexisting Duty Rule</option>
+                    <option value="bargained">Bargained-for Exchange</option>
+                    <option value="past">Past Consideration</option>
+                    <option value="amount">Amount and Type of Consideration</option>
+                    <option value="estoppel">Promissory Estoppel</option>
+                    <option value="legality">Legality</option>
+                </select>
+
+            </div>
+
+
+            <div class="button-row">
+
+                <button class="primary-button"
+                        onclick="checkMatching('termMatchActivity')">
+                    Check Answers
+                </button>
+
+                <button class="secondary-button"
+                        onclick="resetMatching('termMatchActivity')">
+                    Reset
+                </button>
+
+            </div>
+
+            <div class="score-box"></div>
+
+        </div>
+    </div>
+
+</section>
+
+</main>
+
+
+<footer class="footer">
+    Chapter 6 • Contract Law • Sauk Valley Community College
+</footer>
+
+</div>
+
+
+<script>
+/* =========================================================
+   FLIP CARDS
+   ========================================================= */
+
+document.querySelectorAll(".flip-card").forEach(card => {
+
+    function flipCard() {
+        card.classList.toggle("flipped");
+
+        const isFlipped = card.classList.contains("flipped");
+        card.setAttribute(
+            "aria-label",
+            isFlipped
+                ? "Definition shown. Select to return to the term."
+                : card.getAttribute("aria-label")
+        );
+    }
+
+    card.addEventListener("click", flipCard);
+
+    card.addEventListener("keydown", function(event) {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            flipCard();
+        }
+    });
+
+});
+
+
+/* =========================================================
+   GENERIC DROPDOWN MATCHING ACTIVITY
+   ========================================================= */
+
+function checkMatching(activityId) {
+
+    const activity = document.getElementById(activityId);
+    const rows = activity.querySelectorAll(".match-row");
+
+    let correct = 0;
+
+    rows.forEach(row => {
+
+        const select = row.querySelector("select");
+        const feedback = row.querySelector(".feedback");
+        const answer = row.dataset.answer;
+
+        row.classList.remove("correct", "incorrect");
+        feedback.className = "feedback";
+
+        if (!select.value) {
+            row.classList.add("incorrect");
+            feedback.textContent = "Select an answer.";
+            feedback.classList.add("incorrect-text");
+            return;
+        }
+
+        if (select.value === answer) {
+
+            correct++;
+
+            row.classList.add("correct");
+            feedback.textContent = "Correct!";
+            feedback.classList.add("correct-text");
+
+        } else {
+
+            row.classList.add("incorrect");
+            feedback.textContent = "Not quite. Review the definition and try again.";
+            feedback.classList.add("incorrect-text");
+
+        }
+
+    });
+
+
+    const score = activity.querySelector(".score-box");
+
+    score.style.display = "block";
+    score.textContent =
+        "Score: " + correct + " out of " + rows.length + " correct.";
+
+}
+
+
+function resetMatching(activityId) {
+
+    const activity = document.getElementById(activityId);
+
+    activity.querySelectorAll(".match-row").forEach(row => {
+
+        row.classList.remove("correct", "incorrect");
+
+        const select = row.querySelector("select");
+        const feedback = row.querySelector(".feedback");
+
+        select.selectedIndex = 0;
+
+        feedback.textContent = "";
+        feedback.className = "feedback";
+
+    });
+
+    const score = activity.querySelector(".score-box");
+    score.style.display = "none";
+    score.textContent = "";
+
+}
+
+
+/* =========================================================
+   KNOWLEDGE CHECK
+   ========================================================= */
+
+function checkQuiz() {
+
+    const quiz = document.getElementById("knowledgeCheck");
+    const questions = quiz.querySelectorAll(".quiz-question");
+
+    let correct = 0;
+
+    questions.forEach(question => {
+
+        const answer = question.dataset.answer;
+        const selected = question.querySelector("input:checked");
+        const feedback = question.querySelector(".feedback");
+
+        question.querySelectorAll(".choice").forEach(choice => {
+            choice.classList.remove(
+                "correct-choice",
+                "incorrect-choice"
+            );
+        });
+
+        feedback.textContent = "";
+        feedback.className = "feedback";
+
+        if (!selected) {
+
+            feedback.textContent = "Select an answer.";
+            feedback.classList.add("incorrect-text");
+            return;
+
+        }
+
+
+        const selectedLabel = selected.closest(".choice");
+
+
+        if (selected.value === answer) {
+
+            correct++;
+
+            selectedLabel.classList.add("correct-choice");
+
+            feedback.textContent = "Correct!";
+            feedback.classList.add("correct-text");
+
+        } else {
+
+            selectedLabel.classList.add("incorrect-choice");
+
+            const correctInput =
+                question.querySelector(
+                    'input[value="' + answer + '"]'
+                );
+
+            if (correctInput) {
+                correctInput.closest(".choice")
+                    .classList.add("correct-choice");
+            }
+
+            feedback.textContent =
+                "Not quite. The correct answer is highlighted.";
+            feedback.classList.add("incorrect-text");
+
+        }
+
+    });
+
+
+    const score = document.getElementById("quizScore");
+
+    score.style.display = "block";
+
+    if (correct === questions.length) {
+
+        score.textContent =
+            "Excellent! You answered all " +
+            questions.length +
+            " questions correctly.";
+
+    } else {
+
+        score.textContent =
+            "You answered " +
+            correct +
+            " out of " +
+            questions.length +
+            " questions correctly.";
+
+    }
+
+}
+
+
+function resetQuiz() {
+
+    const quiz = document.getElementById("knowledgeCheck");
+
+    quiz.querySelectorAll("input[type='radio']")
+        .forEach(input => input.checked = false);
+
+    quiz.querySelectorAll(".choice")
+        .forEach(choice => {
+            choice.classList.remove(
+                "correct-choice",
+                "incorrect-choice"
+            );
+        });
+
+    quiz.querySelectorAll(".feedback")
+        .forEach(feedback => {
+            feedback.textContent = "";
+            feedback.className = "feedback";
+        });
+
+    const score = document.getElementById("quizScore");
+    score.style.display = "none";
+    score.textContent = "";
+
+}
+</script>
+
+</body>
+</html>

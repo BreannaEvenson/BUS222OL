@@ -1,0 +1,1575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contract Enforceability, Performance, Breach & Remedies</title>
+
+  <style>
+    :root{
+      --red:#C8102E;
+      --slate:#455560;
+      --dark:#333333;
+      --light:#F4F4F4;
+      --white:#FFFFFF;
+      --border:#D8DDE1;
+      --green:#2E6B45;
+      --green-bg:#EDF7F1;
+      --red-bg:#FFF1F3;
+      --blue-bg:#EEF6F9;
+      --gold-bg:#FFF8E8;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      background:var(--light);
+      color:var(--dark);
+      font-family:Arial, Helvetica, sans-serif;
+      line-height:1.6;
+    }
+
+    .page{
+      max-width:1180px;
+      margin:0 auto;
+      padding:26px 18px 60px;
+    }
+
+    h1{
+      margin:0 0 10px;
+      color:var(--red);
+      font-size:2.35rem;
+      line-height:1.15;
+    }
+
+    h2{
+      color:var(--red);
+      font-size:1.7rem;
+      margin:42px 0 18px;
+      border-bottom:3px solid var(--red);
+      padding-bottom:8px;
+    }
+
+    h3{
+      color:var(--slate);
+      margin:0 0 10px;
+    }
+
+    p{
+      margin:10px 0;
+    }
+
+    a{
+      color:var(--red);
+    }
+
+    .hero{
+      background:var(--white);
+      border-left:8px solid var(--red);
+      border-radius:14px;
+      padding:28px;
+      box-shadow:0 3px 12px rgba(0,0,0,.06);
+    }
+
+    .hero-label{
+      color:var(--slate);
+      font-size:.86rem;
+      font-weight:bold;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:8px;
+    }
+
+    .hero p{
+      font-size:1.08rem;
+      max-width:900px;
+    }
+
+    .nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin:20px 0 0;
+    }
+
+    .nav a{
+      text-decoration:none;
+      background:var(--slate);
+      color:var(--white);
+      border-radius:7px;
+      padding:8px 12px;
+      font-size:.9rem;
+      font-weight:bold;
+    }
+
+    .nav a:hover,
+    .nav a:focus{
+      background:var(--red);
+    }
+
+    .section-intro{
+      background:var(--blue-bg);
+      border-left:6px solid var(--slate);
+      border-radius:10px;
+      padding:18px 20px;
+      margin-bottom:20px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .card{
+      background:var(--white);
+      border:2px solid var(--border);
+      border-radius:12px;
+      padding:20px;
+      box-shadow:0 3px 9px rgba(0,0,0,.04);
+    }
+
+    .card.red-top{
+      border-top:6px solid var(--red);
+    }
+
+    .card h3{
+      color:var(--red);
+    }
+
+    .term{
+      display:inline-block;
+      background:var(--slate);
+      color:var(--white);
+      padding:4px 9px;
+      border-radius:6px;
+      font-size:.83rem;
+      font-weight:bold;
+      margin-bottom:8px;
+    }
+
+    .callout{
+      background:var(--slate);
+      color:var(--white);
+      border-radius:12px;
+      padding:22px;
+      margin:22px 0;
+    }
+
+    .callout h3{
+      color:var(--white);
+    }
+
+    .callout strong{
+      color:var(--white);
+    }
+
+    .highlight{
+      background:var(--gold-bg);
+      border:2px solid #E7D7A8;
+      border-radius:12px;
+      padding:20px;
+      margin:20px 0;
+    }
+
+    .activity{
+      background:var(--white);
+      border:2px solid var(--border);
+      border-radius:14px;
+      padding:24px;
+      margin:24px 0;
+      box-shadow:0 3px 10px rgba(0,0,0,.05);
+    }
+
+    .activity-title{
+      color:var(--red);
+      font-size:1.35rem;
+      margin-bottom:4px;
+    }
+
+    .instructions{
+      color:var(--slate);
+      margin-top:0;
+    }
+
+    .question{
+      background:#FAFAFA;
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:16px;
+      margin:14px 0;
+    }
+
+    .question label{
+      display:block;
+      font-weight:bold;
+      color:var(--slate);
+      margin-bottom:9px;
+    }
+
+    select,
+    input[type="text"]{
+      width:100%;
+      min-height:44px;
+      border:2px solid var(--slate);
+      border-radius:8px;
+      background:var(--white);
+      padding:10px 12px;
+      font-size:1rem;
+      color:var(--dark);
+    }
+
+    select:focus,
+    input:focus,
+    button:focus,
+    summary:focus{
+      outline:3px solid #8EC5E5;
+      outline-offset:2px;
+    }
+
+    .buttons{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:16px;
+    }
+
+    button{
+      min-height:44px;
+      border:0;
+      border-radius:8px;
+      padding:10px 16px;
+      font-size:.96rem;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    .primary{
+      background:var(--red);
+      color:var(--white);
+    }
+
+    .secondary{
+      background:var(--slate);
+      color:var(--white);
+    }
+
+    .outline{
+      background:var(--white);
+      color:var(--slate);
+      border:2px solid var(--slate);
+    }
+
+    .feedback{
+      margin-top:16px;
+      border-radius:9px;
+      padding:12px 14px;
+      font-weight:bold;
+    }
+
+    .correct{
+      background:var(--green-bg);
+      color:var(--green);
+      border:1px solid var(--green);
+    }
+
+    .incorrect{
+      background:var(--red-bg);
+      color:var(--red);
+      border:1px solid var(--red);
+    }
+
+    .hidden{
+      display:none;
+    }
+
+    details{
+      background:var(--white);
+      border:2px solid var(--border);
+      border-radius:10px;
+      margin:10px 0;
+      overflow:hidden;
+    }
+
+    summary{
+      cursor:pointer;
+      font-weight:bold;
+      color:var(--slate);
+      padding:15px 18px;
+    }
+
+    details[open] summary{
+      border-bottom:1px solid var(--border);
+      color:var(--red);
+    }
+
+    .details-body{
+      padding:4px 18px 16px;
+    }
+
+    .arrow-flow{
+      display:grid;
+      grid-template-columns:1fr 60px 1fr 60px 1fr;
+      align-items:stretch;
+      gap:10px;
+      margin:20px 0;
+    }
+
+    .flow-arrow{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:2rem;
+      color:var(--red);
+      font-weight:bold;
+    }
+
+    .flow-card{
+      background:var(--white);
+      border:2px solid var(--border);
+      border-top:6px solid var(--red);
+      border-radius:10px;
+      padding:18px;
+      text-align:center;
+    }
+
+    .comparison{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin:20px 0;
+    }
+
+    .comparison .card:first-child{
+      border-top:6px solid var(--slate);
+    }
+
+    .comparison .card:last-child{
+      border-top:6px solid var(--red);
+    }
+
+    .summary-box{
+      background:var(--blue-bg);
+      border:2px solid var(--border);
+      border-radius:14px;
+      padding:24px;
+      margin-top:34px;
+    }
+
+    .summary-box h2{
+      margin-top:0;
+    }
+
+    .summary-box li{
+      margin:8px 0;
+    }
+
+    .mini{
+      font-size:.92rem;
+      color:var(--slate);
+    }
+
+    .pill-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin:12px 0;
+    }
+
+    .pill{
+      background:var(--blue-bg);
+      color:var(--slate);
+      border:1px solid #C7D8E0;
+      border-radius:999px;
+      padding:6px 11px;
+      font-weight:bold;
+      font-size:.9rem;
+    }
+
+    @media(max-width:850px){
+      .grid-2,
+      .grid-3,
+      .comparison{
+        grid-template-columns:1fr;
+      }
+
+      .arrow-flow{
+        grid-template-columns:1fr;
+      }
+
+      .flow-arrow{
+        transform:rotate(90deg);
+        min-height:35px;
+      }
+    }
+
+    @media(max-width:600px){
+      h1{
+        font-size:1.9rem;
+      }
+
+      h2{
+        font-size:1.45rem;
+      }
+
+      .page{
+        padding:18px 12px 45px;
+      }
+
+      .hero,
+      .activity{
+        padding:18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<main class="page">
+
+  <section class="hero">
+    <div class="hero-label">BUS 222 • Contracts</div>
+    <h1>Contract Enforceability, Performance, Breach &amp; Remedies</h1>
+
+    <p>
+      A contract can contain the basic elements needed for formation and still raise questions
+      about whether it is enforceable, whether the parties properly performed, whether a breach
+      occurred, and what remedy is available.
+    </p>
+
+    <p>
+      Work through each section below. You will encounter short explanations, examples,
+      and knowledge checks as you move through the material.
+    </p>
+
+    <nav class="nav" aria-label="Page sections">
+      <a href="#enforceability">Enforceability</a>
+      <a href="#conditions">Conditions</a>
+      <a href="#performance">Performance &amp; Discharge</a>
+      <a href="#breach">Breach</a>
+      <a href="#remedies">Remedies</a>
+      <a href="#mitigation">Mitigation</a>
+      <a href="#thirdparty">Third Parties</a>
+    </nav>
+  </section>
+
+
+  <!-- ENFORCEABILITY -->
+  <section id="enforceability">
+    <h2>1. Enforceability</h2>
+
+    <div class="section-intro">
+      Even if the elements of a contract are present, the agreement must still be the product
+      of <strong>genuine assent</strong> and, in certain circumstances, must be
+      <strong>in writing</strong> in order to be enforceable.
+    </div>
+
+    <h3>Genuine Assent</h3>
+
+    <p>
+      Genuine assent means the parties truly agreed to the terms of the contract without
+      improper conduct such as misrepresentation, duress, undue influence, or
+      unconscionability.
+    </p>
+
+    <div class="grid-2">
+
+      <div class="card red-top">
+        <span class="term">MISREPRESENTATION</span>
+        <p>
+          A contract may be avoided when one party makes a false representation about a
+          <strong>material fact</strong> and the other party
+          <strong>justifiably relies</strong> on that statement.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <span class="term">FRAUDULENT MISREPRESENTATION</span>
+        <p>
+          Includes the elements of misrepresentation plus
+          <strong>actual knowledge</strong> that the represented fact is false.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <span class="term">CONCEALMENT</span>
+        <p>
+          Misrepresentation may also arise when a party uses a half-truth, actively conceals
+          the truth, or fails to correct a statement later discovered to be false.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <span class="term">DURESS</span>
+        <p>
+          Unfair coercion is used to induce another party to enter into or modify a contract.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <span class="term">UNDUE INFLUENCE</span>
+        <p>
+          Improper pressure is placed on a person through a
+          <strong>trusted relationship</strong>.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <span class="term">UNCONSCIONABILITY</span>
+        <p>
+          A narrowly applied defense involving a grossly unfair burden that
+          <strong>shocks the objective conscience</strong>.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="activity" id="assentActivity">
+      <h3 class="activity-title">Knowledge Check: What Threatens Genuine Assent?</h3>
+      <p class="instructions">
+        Choose the defense or issue that best fits each scenario.
+      </p>
+
+      <div class="question">
+        <label for="ga1">
+          1. A seller knowingly tells a buyer that a car has never been in an accident even
+          though the seller knows it was previously totaled.
+        </label>
+
+        <select id="ga1" data-answer="Fraudulent Misrepresentation">
+          <option value="">Select an answer</option>
+          <option>Misrepresentation</option>
+          <option>Fraudulent Misrepresentation</option>
+          <option>Duress</option>
+          <option>Undue Influence</option>
+          <option>Unconscionability</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="ga2">
+          2. A person threatens serious harm unless another individual signs a contract.
+        </label>
+
+        <select id="ga2" data-answer="Duress">
+          <option value="">Select an answer</option>
+          <option>Misrepresentation</option>
+          <option>Fraudulent Misrepresentation</option>
+          <option>Duress</option>
+          <option>Undue Influence</option>
+          <option>Unconscionability</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="ga3">
+          3. A trusted caregiver pressures a vulnerable person into signing an agreement that
+          strongly benefits the caregiver.
+        </label>
+
+        <select id="ga3" data-answer="Undue Influence">
+          <option value="">Select an answer</option>
+          <option>Misrepresentation</option>
+          <option>Fraudulent Misrepresentation</option>
+          <option>Duress</option>
+          <option>Undue Influence</option>
+          <option>Unconscionability</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="ga4">
+          4. A contract contains terms so grossly unfair that enforcement would shock the
+          objective conscience.
+        </label>
+
+        <select id="ga4" data-answer="Unconscionability">
+          <option value="">Select an answer</option>
+          <option>Misrepresentation</option>
+          <option>Fraudulent Misrepresentation</option>
+          <option>Duress</option>
+          <option>Undue Influence</option>
+          <option>Unconscionability</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="primary check-group">Check Answers</button>
+        <button type="button" class="secondary reset-group">Reset</button>
+      </div>
+
+      <div class="feedback hidden" aria-live="polite"></div>
+    </div>
+
+
+    <h3>Statute of Frauds</h3>
+
+    <div class="callout">
+      <h3>When Does a Contract Need to Be in Writing?</h3>
+      <p>
+        The <strong>Statute of Frauds</strong> determines which contracts must be written
+        in order to be enforceable.
+      </p>
+    </div>
+
+    <div class="grid-2">
+
+      <div class="card">
+        <h3>Common Law Contracts</h3>
+        <p>The writing requirement applies to contracts involving:</p>
+        <ul>
+          <li>Sale of land</li>
+          <li>Contracts that cannot be performed in under one year</li>
+          <li>Promises to pay the debt of another</li>
+          <li>Contracts made in consideration of marriage</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>UCC Contracts</h3>
+        <ul>
+          <li>Sale of goods for <strong>$500 or more</strong></li>
+          <li>Lease of goods totaling <strong>$1,000 or more</strong></li>
+        </ul>
+
+        <p class="mini">
+          E-mails may satisfy a writing requirement under some circumstances, although
+          treatment varies by state.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="activity" id="sofActivity">
+      <h3 class="activity-title">Knowledge Check: Writing Required?</h3>
+      <p class="instructions">
+        Based on the rules above, determine whether the Statute of Frauds applies.
+      </p>
+
+      <div class="question">
+        <label for="sof1">
+          1. A written agreement to purchase a parcel of commercial land.
+        </label>
+
+        <select id="sof1" data-answer="Yes">
+          <option value="">Select an answer</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="sof2">
+          2. An agreement that, by its terms, cannot possibly be completed within one year.
+        </label>
+
+        <select id="sof2" data-answer="Yes">
+          <option value="">Select an answer</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="sof3">
+          3. A contract for the sale of $750 worth of goods.
+        </label>
+
+        <select id="sof3" data-answer="Yes">
+          <option value="">Select an answer</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="sof4">
+          4. A contract for the sale of $150 worth of goods.
+        </label>
+
+        <select id="sof4" data-answer="No">
+          <option value="">Select an answer</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="primary check-group">Check Answers</button>
+        <button type="button" class="secondary reset-group">Reset</button>
+      </div>
+
+      <div class="feedback hidden" aria-live="polite"></div>
+    </div>
+
+
+    <h3>Interpreting Written Contracts</h3>
+
+    <div class="grid-2">
+
+      <div class="card red-top">
+        <h3>Parole Evidence Rule</h3>
+        <p>
+          A writing intended as the final expression of the parties' agreement generally
+          cannot be contradicted by oral or written agreements made before the final writing.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <h3>Ambiguous or Missing Terms</h3>
+        <p>
+          Ambiguous language may be construed against the party who drafted it.
+          Courts may also supply a reasonable term where the contract is silent.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONDITIONS -->
+  <section id="conditions">
+    <h2>2. Nature and Effect of Conditions</h2>
+
+    <div class="section-intro">
+      A <strong>condition</strong> is an event that triggers a particular performance and helps
+      allocate the risk that part of the contract may not be completed.
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card red-top">
+        <h3>Condition Precedent</h3>
+        <p>
+          An event that must occur <strong>before</strong> performance becomes due.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <h3>Condition Subsequent</h3>
+        <p>
+          An event that occurs <strong>after</strong> performance and can affect an existing
+          obligation.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <h3>Concurrent Conditions</h3>
+        <p>
+          Both parties are required to render performance
+          <strong>simultaneously</strong>.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="activity" id="conditionActivity">
+      <h3 class="activity-title">Knowledge Check: Which Condition?</h3>
+
+      <div class="question">
+        <label for="cond1">
+          1. A buyer's obligation to purchase a home depends on first obtaining financing approval.
+        </label>
+
+        <select id="cond1" data-answer="Condition Precedent">
+          <option value="">Select an answer</option>
+          <option>Condition Precedent</option>
+          <option>Condition Subsequent</option>
+          <option>Concurrent Conditions</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="cond2">
+          2. At closing, the buyer provides payment at the same time the seller transfers title.
+        </label>
+
+        <select id="cond2" data-answer="Concurrent Conditions">
+          <option value="">Select an answer</option>
+          <option>Condition Precedent</option>
+          <option>Condition Subsequent</option>
+          <option>Concurrent Conditions</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="cond3">
+          3. A contractual obligation continues unless a specified later event occurs and ends it.
+        </label>
+
+        <select id="cond3" data-answer="Condition Subsequent">
+          <option value="">Select an answer</option>
+          <option>Condition Precedent</option>
+          <option>Condition Subsequent</option>
+          <option>Concurrent Conditions</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="primary check-group">Check Answers</button>
+        <button type="button" class="secondary reset-group">Reset</button>
+      </div>
+
+      <div class="feedback hidden" aria-live="polite"></div>
+    </div>
+
+  </section>
+
+
+  <!-- PERFORMANCE AND DISCHARGE -->
+  <section id="performance">
+    <h2>3. Good Faith Performance &amp; Discharge</h2>
+
+    <div class="section-intro">
+      When both parties faithfully complete their promised performances in
+      <strong>good faith</strong>, their contractual duties are discharged.
+    </div>
+
+    <div class="highlight">
+      <h3>Substantial Performance</h3>
+
+      <p>
+        If a party makes a good-faith effort and substantially performs the essential duties
+        required by the contract, a court may enforce the agreement.
+      </p>
+
+      <p>
+        The innocent party may still recover <strong>damages</strong> for the imperfect portion
+        of the performance.
+      </p>
+    </div>
+
+
+    <h3>Other Ways Contract Duties Can Be Discharged</h3>
+
+    <div class="comparison">
+
+      <div class="card">
+        <h3>Mutual Consent</h3>
+
+        <details>
+          <summary>Rescission</summary>
+          <div class="details-body">
+            If neither party has fully performed, they may mutually agree to cancel the contract.
+          </div>
+        </details>
+
+        <details>
+          <summary>Accord and Satisfaction</summary>
+          <div class="details-body">
+            One party promises a substitute future performance
+            (<strong>accord</strong>) and the other agrees to accept it in satisfaction of the
+            existing obligation.
+          </div>
+        </details>
+
+        <details>
+          <summary>Modification</summary>
+          <div class="details-body">
+            The original agreement is replaced with a substitute agreement.
+          </div>
+        </details>
+
+        <details>
+          <summary>Novation</summary>
+          <div class="details-body">
+            The parties agree to substitute a third party for one of the original contracting
+            parties.
+          </div>
+        </details>
+      </div>
+
+
+      <div class="card">
+        <h3>Operation of Law</h3>
+
+        <details>
+          <summary>Impossibility</summary>
+          <div class="details-body">
+            <strong>No one can objectively do it.</strong> Examples may include destruction of
+            the subject matter, death or incapacity, failure of the contemplated means of
+            performance, or performance becoming illegal.
+          </div>
+        </details>
+
+        <details>
+          <summary>Impracticability</summary>
+          <div class="details-body">
+            <strong>I can't do it.</strong> An unforeseeable and extreme burden, particularly
+            in terms of cost, may support discharge.
+          </div>
+        </details>
+
+        <details>
+          <summary>Frustration of Purpose</summary>
+          <div class="details-body">
+            <strong>Why would I want to do it now?</strong> The main purpose of the agreement
+            becomes substantially frustrated by an event that both parties assumed would not occur.
+          </div>
+        </details>
+
+        <details>
+          <summary>Other Operation-of-Law Events</summary>
+          <div class="details-body">
+            Discharge may also occur because of unilateral alteration, bankruptcy relief,
+            or expiration of the statute of limitations.
+          </div>
+        </details>
+      </div>
+
+    </div>
+
+
+    <div class="activity" id="dischargeActivity">
+      <h3 class="activity-title">Knowledge Check: Why Was the Obligation Discharged?</h3>
+
+      <div class="question">
+        <label for="dis1">
+          1. Both parties agree to cancel an uncompleted contract and walk away.
+        </label>
+
+        <select id="dis1" data-answer="Rescission">
+          <option value="">Select an answer</option>
+          <option>Rescission</option>
+          <option>Novation</option>
+          <option>Impossibility</option>
+          <option>Impracticability</option>
+          <option>Frustration of Purpose</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="dis2">
+          2. The parties agree that a new third party will replace one original party to the contract.
+        </label>
+
+        <select id="dis2" data-answer="Novation">
+          <option value="">Select an answer</option>
+          <option>Rescission</option>
+          <option>Novation</option>
+          <option>Impossibility</option>
+          <option>Impracticability</option>
+          <option>Frustration of Purpose</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="dis3">
+          3. The unique subject matter of the contract is destroyed before performance can occur.
+        </label>
+
+        <select id="dis3" data-answer="Impossibility">
+          <option value="">Select an answer</option>
+          <option>Rescission</option>
+          <option>Novation</option>
+          <option>Impossibility</option>
+          <option>Impracticability</option>
+          <option>Frustration of Purpose</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="dis4">
+          4. An unforeseeable event makes performance possible but creates an extreme and unexpected
+          financial burden.
+        </label>
+
+        <select id="dis4" data-answer="Impracticability">
+          <option value="">Select an answer</option>
+          <option>Rescission</option>
+          <option>Novation</option>
+          <option>Impossibility</option>
+          <option>Impracticability</option>
+          <option>Frustration of Purpose</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="dis5">
+          5. An unexpected event destroys the principal reason one party entered the agreement,
+          even though literal performance may still be possible.
+        </label>
+
+        <select id="dis5" data-answer="Frustration of Purpose">
+          <option value="">Select an answer</option>
+          <option>Rescission</option>
+          <option>Novation</option>
+          <option>Impossibility</option>
+          <option>Impracticability</option>
+          <option>Frustration of Purpose</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="primary check-group">Check Answers</button>
+        <button type="button" class="secondary reset-group">Reset</button>
+      </div>
+
+      <div class="feedback hidden" aria-live="polite"></div>
+    </div>
+
+  </section>
+
+
+  <!-- BREACH -->
+  <section id="breach">
+    <h2>4. Breach of Contract &amp; Anticipatory Repudiation</h2>
+
+    <div class="grid-3">
+
+      <div class="card red-top">
+        <h3>Total Breach</h3>
+        <p>
+          One party fails to perform its duties substantially enough that the nonbreaching party
+          may suspend performance, be discharged, and recover damages.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <h3>Partial Breach</h3>
+        <p>
+          A failure to perform that is not substantial enough to discharge the other party,
+          although damages may still be available.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <h3>Anticipatory Repudiation</h3>
+        <p>
+          Before performance is due, one party clearly communicates or demonstrates that
+          performance will not occur.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="activity" id="breachActivity">
+      <h3 class="activity-title">Knowledge Check: Identify the Breach</h3>
+
+      <div class="question">
+        <label for="br1">
+          1. Before a delivery date arrives, the supplier clearly tells the buyer,
+          “We will not deliver your order.”
+        </label>
+
+        <select id="br1" data-answer="Anticipatory Repudiation">
+          <option value="">Select an answer</option>
+          <option>Total Breach</option>
+          <option>Partial Breach</option>
+          <option>Anticipatory Repudiation</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="br2">
+          2. A contractor performs most of the agreement but fails to complete one minor required item.
+        </label>
+
+        <select id="br2" data-answer="Partial Breach">
+          <option value="">Select an answer</option>
+          <option>Total Breach</option>
+          <option>Partial Breach</option>
+          <option>Anticipatory Repudiation</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="br3">
+          3. A party completely fails to perform a central obligation of the contract.
+        </label>
+
+        <select id="br3" data-answer="Total Breach">
+          <option value="">Select an answer</option>
+          <option>Total Breach</option>
+          <option>Partial Breach</option>
+          <option>Anticipatory Repudiation</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="primary check-group">Check Answers</button>
+        <button type="button" class="secondary reset-group">Reset</button>
+      </div>
+
+      <div class="feedback hidden" aria-live="polite"></div>
+    </div>
+
+  </section>
+
+
+  <!-- REMEDIES -->
+  <section id="remedies">
+    <h2>5. Remedies for Breach</h2>
+
+    <div class="section-intro">
+      Remedies are designed to address the harm caused by breach. Courts may award
+      <strong>money damages</strong> or, when money is inadequate, provide an
+      <strong>equitable remedy</strong>.
+    </div>
+
+
+    <h3>Remedies at Law: Monetary Damages</h3>
+
+    <div class="grid-2">
+
+      <div class="card red-top">
+        <h3>Compensatory Damages</h3>
+        <p>
+          Money awarded for the direct loss caused by nonperformance.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <h3>Consequential Damages</h3>
+        <p>
+          Money awarded for foreseeable indirect losses resulting from the breach.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <h3>Restitution</h3>
+        <p>
+          The nonbreaching party may rescind and recover the fair market value of services
+          already rendered when the other party materially breaches.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <h3>Liquidated Damages</h3>
+        <p>
+          Damages agreed upon by the parties ahead of time in the contract.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="callout">
+      <h3>Hadley v. Baxendale</h3>
+      <p>
+        Consequential damages are limited to losses that can reasonably be considered a
+        direct, natural, and foreseeable consequence of the breach and within the contemplation
+        of the parties when the contract was made.
+      </p>
+    </div>
+
+
+    <h3>Equitable Remedies</h3>
+
+    <div class="grid-3">
+
+      <div class="card red-top">
+        <h3>Specific Performance</h3>
+        <p>
+          A court orders the breaching party to perform the promised action.
+        </p>
+        <p class="mini">
+          Used when the subject matter is sufficiently unique and money damages are inadequate.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <h3>Injunctive Relief</h3>
+        <p>
+          A court orders a party to refrain from performing a particular act.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <h3>Reformation</h3>
+        <p>
+          The court rewrites the contract so that it reflects the parties' actual intentions
+          when the original agreement imperfectly expressed them.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="activity" id="remedyActivity">
+      <h3 class="activity-title">Knowledge Check: Choose the Remedy</h3>
+
+      <div class="question">
+        <label for="rem1">
+          1. The contract itself states that a party will owe $10,000 if a specific breach occurs.
+        </label>
+
+        <select id="rem1" data-answer="Liquidated Damages">
+          <option value="">Select an answer</option>
+          <option>Compensatory Damages</option>
+          <option>Consequential Damages</option>
+          <option>Liquidated Damages</option>
+          <option>Specific Performance</option>
+          <option>Injunctive Relief</option>
+          <option>Reformation</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="rem2">
+          2. A buyer contracts for a unique parcel of real estate, but the seller refuses to transfer it.
+        </label>
+
+        <select id="rem2" data-answer="Specific Performance">
+          <option value="">Select an answer</option>
+          <option>Compensatory Damages</option>
+          <option>Consequential Damages</option>
+          <option>Liquidated Damages</option>
+          <option>Specific Performance</option>
+          <option>Injunctive Relief</option>
+          <option>Reformation</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="rem3">
+          3. A business seeks a court order preventing another party from taking a prohibited action.
+        </label>
+
+        <select id="rem3" data-answer="Injunctive Relief">
+          <option value="">Select an answer</option>
+          <option>Compensatory Damages</option>
+          <option>Consequential Damages</option>
+          <option>Liquidated Damages</option>
+          <option>Specific Performance</option>
+          <option>Injunctive Relief</option>
+          <option>Reformation</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="rem4">
+          4. The written contract does not accurately reflect what both parties actually intended,
+          and the court rewrites the agreement.
+        </label>
+
+        <select id="rem4" data-answer="Reformation">
+          <option value="">Select an answer</option>
+          <option>Compensatory Damages</option>
+          <option>Consequential Damages</option>
+          <option>Liquidated Damages</option>
+          <option>Specific Performance</option>
+          <option>Injunctive Relief</option>
+          <option>Reformation</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="primary check-group">Check Answers</button>
+        <button type="button" class="secondary reset-group">Reset</button>
+      </div>
+
+      <div class="feedback hidden" aria-live="polite"></div>
+    </div>
+
+  </section>
+
+
+  <!-- MITIGATION -->
+  <section id="mitigation">
+    <h2>6. Avoidance &amp; Mitigation of Damages</h2>
+
+    <div class="grid-2">
+
+      <div class="card red-top">
+        <h3>Duty to Mitigate</h3>
+        <p>
+          The nonbreaching party must make reasonable efforts to avoid excessive or unnecessary
+          losses. Damages that reasonably could have been avoided may not be recoverable.
+        </p>
+
+        <p>
+          In the employment context, an employee claiming breach generally has a duty to seek
+          available replacement employment.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <h3>Clean Hands &amp; Tender of Performance</h3>
+
+        <p>
+          A party seeking relief for breach must come to court with
+          <strong>clean hands</strong>, meaning the party was not responsible for the breach.
+        </p>
+
+        <p>
+          <strong>Tender of performance</strong> means the party was ready, willing, and able to
+          perform its own obligations.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="highlight">
+      <strong>Key idea:</strong> A party generally cannot allow avoidable damages to grow
+      unnecessarily and then expect the breaching party to pay for all of them.
+    </div>
+
+  </section>
+
+
+  <!-- THIRD PARTY -->
+  <section id="thirdparty">
+    <h2>7. Contracts Involving Third-Party Rights</h2>
+
+    <div class="section-intro">
+      Contract rights or duties may sometimes involve someone who was not one of the original
+      contracting parties.
+    </div>
+
+    <div class="grid-3">
+
+      <div class="card red-top">
+        <h3>Assignment</h3>
+        <p>
+          The unilateral transfer of <strong>contractual rights</strong> from one party to a
+          third party.
+        </p>
+
+        <p class="mini">
+          Assignment may be limited by an antiassignment clause, a material change in burden,
+          or legal prohibition.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <h3>Delegation</h3>
+        <p>
+          The transfer of <strong>contractual duties</strong> to a third party.
+        </p>
+
+        <p class="mini">
+          The original party remains liable for nonperformance. Delegation may be prohibited
+          when special personal skills are required, a nondelegation clause exists, or the
+          delegatee is a competitor of the nondelegating party.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <h3>Third-Party Beneficiary</h3>
+        <p>
+          A third person benefits from a promise between two other contracting parties.
+        </p>
+
+        <p class="mini">
+          An <strong>intended beneficiary</strong> may seek damages, while an
+          <strong>incidental beneficiary</strong> generally may not.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="activity" id="thirdPartyActivity">
+      <h3 class="activity-title">Knowledge Check: Rights, Duties, or Benefits?</h3>
+
+      <div class="question">
+        <label for="tp1">
+          1. A party transfers the right to receive payment under a contract to another person.
+        </label>
+
+        <select id="tp1" data-answer="Assignment">
+          <option value="">Select an answer</option>
+          <option>Assignment</option>
+          <option>Delegation</option>
+          <option>Third-Party Beneficiary</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="tp2">
+          2. A party transfers responsibility for performing a contractual duty to another person.
+        </label>
+
+        <select id="tp2" data-answer="Delegation">
+          <option value="">Select an answer</option>
+          <option>Assignment</option>
+          <option>Delegation</option>
+          <option>Third-Party Beneficiary</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="tp3">
+          3. Two parties enter into a contract specifically intending to benefit another person.
+        </label>
+
+        <select id="tp3" data-answer="Third-Party Beneficiary">
+          <option value="">Select an answer</option>
+          <option>Assignment</option>
+          <option>Delegation</option>
+          <option>Third-Party Beneficiary</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="primary check-group">Check Answers</button>
+        <button type="button" class="secondary reset-group">Reset</button>
+      </div>
+
+      <div class="feedback hidden" aria-live="polite"></div>
+    </div>
+
+  </section>
+
+
+  <!-- SUMMARY -->
+  <section class="summary-box">
+    <h2>Chapter Summary</h2>
+
+    <ul>
+      <li>
+        A contract may be unenforceable when genuine assent is undermined by
+        misrepresentation, duress, undue influence, or unconscionability.
+      </li>
+
+      <li>
+        The <strong>Statute of Frauds</strong> requires certain agreements to be written.
+      </li>
+
+      <li>
+        Conditions determine when contractual performance becomes due or is affected.
+      </li>
+
+      <li>
+        Good-faith completion of performance normally discharges contractual obligations.
+      </li>
+
+      <li>
+        Duties may also be discharged by agreement of the parties or by operation of law.
+      </li>
+
+      <li>
+        A breach may be total, partial, or anticipated before performance is due.
+      </li>
+
+      <li>
+        Remedies may include compensatory, consequential, restitution, or liquidated damages,
+        as well as equitable remedies such as specific performance, injunction, or reformation.
+      </li>
+
+      <li>
+        A nonbreaching party has a duty to take reasonable steps to mitigate avoidable damages.
+      </li>
+
+      <li>
+        Contractual rights and duties may sometimes involve third parties through assignment,
+        delegation, or third-party beneficiary status.
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+
+<script>
+(function(){
+
+  function getActivityContainer(button){
+    return button.closest(".activity");
+  }
+
+  function getFeedback(activity){
+    return activity.querySelector(".feedback");
+  }
+
+  function resetBorder(select){
+    select.style.borderColor = "";
+  }
+
+  function checkGroup(button){
+    const activity = getActivityContainer(button);
+    const selects = activity.querySelectorAll("select[data-answer]");
+    const feedback = getFeedback(activity);
+
+    let correct = 0;
+    let unanswered = 0;
+
+    selects.forEach(function(select){
+      resetBorder(select);
+
+      if(!select.value){
+        unanswered++;
+        return;
+      }
+
+      if(select.value === select.dataset.answer){
+        correct++;
+        select.style.borderColor = "#2E6B45";
+      }else{
+        select.style.borderColor = "#C8102E";
+      }
+    });
+
+    feedback.classList.remove("hidden","correct","incorrect");
+
+    if(unanswered > 0){
+      feedback.classList.add("incorrect");
+      feedback.textContent =
+        "Please answer every question before checking your work.";
+      return;
+    }
+
+    if(correct === selects.length){
+      feedback.classList.add("correct");
+      feedback.textContent =
+        "Correct! You answered all " + selects.length + " questions correctly.";
+    }else{
+      feedback.classList.add("incorrect");
+      feedback.textContent =
+        correct + " of " + selects.length +
+        " are correct. Review the highlighted responses and try again.";
+    }
+  }
+
+  function resetGroup(button){
+    const activity = getActivityContainer(button);
+    const selects = activity.querySelectorAll("select");
+    const feedback = getFeedback(activity);
+
+    selects.forEach(function(select){
+      select.value = "";
+      resetBorder(select);
+    });
+
+    feedback.classList.add("hidden");
+    feedback.classList.remove("correct","incorrect");
+    feedback.textContent = "";
+  }
+
+
+  document.querySelectorAll(".check-group").forEach(function(button){
+    button.addEventListener("click",function(){
+      checkGroup(button);
+    });
+  });
+
+  document.querySelectorAll(".reset-group").forEach(function(button){
+    button.addEventListener("click",function(){
+      resetGroup(button);
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>UCC Article 2: Sales of Goods</title>
+
+  <style>
+    :root{
+      --red:#C8102E;
+      --slate:#455560;
+      --dark:#333333;
+      --light:#F4F4F4;
+      --white:#FFFFFF;
+      --border:#D8DDE1;
+      --green:#2E6B45;
+      --green-bg:#EDF7F1;
+      --red-bg:#FFF1F3;
+      --blue-bg:#EEF6F9;
+      --gold-bg:#FFF8E8;
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      margin:0;
+      background:var(--light);
+      color:var(--dark);
+      font-family:Arial, Helvetica, sans-serif;
+      line-height:1.6;
+    }
+
+    .page{
+      max-width:1180px;
+      margin:0 auto;
+      padding:26px 18px 60px;
+    }
+
+    h1{
+      margin:0 0 10px;
+      color:var(--red);
+      font-size:2.35rem;
+      line-height:1.15;
+    }
+
+    h2{
+      color:var(--red);
+      font-size:1.7rem;
+      margin:42px 0 18px;
+      border-bottom:3px solid var(--red);
+      padding-bottom:8px;
+    }
+
+    h3{
+      color:var(--slate);
+      margin:0 0 10px;
+    }
+
+    p{
+      margin:10px 0;
+    }
+
+    .hero{
+      background:var(--white);
+      border-left:8px solid var(--red);
+      border-radius:14px;
+      padding:28px;
+      box-shadow:0 3px 12px rgba(0,0,0,.06);
+    }
+
+    .hero-label{
+      color:var(--slate);
+      font-size:.86rem;
+      font-weight:bold;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:8px;
+    }
+
+    .hero p{
+      font-size:1.08rem;
+      max-width:930px;
+    }
+
+    .nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin-top:20px;
+    }
+
+    .nav a{
+      text-decoration:none;
+      background:var(--slate);
+      color:var(--white);
+      border-radius:7px;
+      padding:8px 12px;
+      font-size:.9rem;
+      font-weight:bold;
+    }
+
+    .nav a:hover,
+    .nav a:focus{
+      background:var(--red);
+    }
+
+    .section-intro{
+      background:var(--blue-bg);
+      border-left:6px solid var(--slate);
+      border-radius:10px;
+      padding:18px 20px;
+      margin-bottom:20px;
+    }
+
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+
+    .card{
+      background:var(--white);
+      border:2px solid var(--border);
+      border-radius:12px;
+      padding:20px;
+      box-shadow:0 3px 9px rgba(0,0,0,.04);
+    }
+
+    .card.red-top{
+      border-top:6px solid var(--red);
+    }
+
+    .card h3{
+      color:var(--red);
+    }
+
+    .term{
+      display:inline-block;
+      background:var(--slate);
+      color:var(--white);
+      padding:4px 9px;
+      border-radius:6px;
+      font-size:.83rem;
+      font-weight:bold;
+      margin-bottom:8px;
+    }
+
+    .callout{
+      background:var(--slate);
+      color:var(--white);
+      border-radius:12px;
+      padding:22px;
+      margin:22px 0;
+    }
+
+    .callout h3,
+    .callout strong{
+      color:var(--white);
+    }
+
+    .highlight{
+      background:var(--gold-bg);
+      border:2px solid #E7D7A8;
+      border-radius:12px;
+      padding:20px;
+      margin:20px 0;
+    }
+
+    .activity{
+      background:var(--white);
+      border:2px solid var(--border);
+      border-radius:14px;
+      padding:24px;
+      margin:24px 0;
+      box-shadow:0 3px 10px rgba(0,0,0,.05);
+    }
+
+    .activity-title{
+      color:var(--red);
+      font-size:1.35rem;
+      margin-bottom:4px;
+    }
+
+    .instructions{
+      color:var(--slate);
+      margin-top:0;
+    }
+
+    .question{
+      background:#FAFAFA;
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:16px;
+      margin:14px 0;
+    }
+
+    .question label{
+      display:block;
+      font-weight:bold;
+      color:var(--slate);
+      margin-bottom:9px;
+    }
+
+    select,
+    input[type="text"]{
+      width:100%;
+      min-height:44px;
+      border:2px solid var(--slate);
+      border-radius:8px;
+      background:var(--white);
+      padding:10px 12px;
+      font-size:1rem;
+      color:var(--dark);
+    }
+
+    select:focus,
+    input:focus,
+    button:focus,
+    summary:focus{
+      outline:3px solid #8EC5E5;
+      outline-offset:2px;
+    }
+
+    .buttons{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top:16px;
+    }
+
+    button{
+      min-height:44px;
+      border:0;
+      border-radius:8px;
+      padding:10px 16px;
+      font-size:.96rem;
+      font-weight:bold;
+      cursor:pointer;
+    }
+
+    .primary{
+      background:var(--red);
+      color:var(--white);
+    }
+
+    .secondary{
+      background:var(--slate);
+      color:var(--white);
+    }
+
+    .outline{
+      background:var(--white);
+      color:var(--slate);
+      border:2px solid var(--slate);
+    }
+
+    .feedback{
+      margin-top:16px;
+      border-radius:9px;
+      padding:12px 14px;
+      font-weight:bold;
+    }
+
+    .correct{
+      background:var(--green-bg);
+      color:var(--green);
+      border:1px solid var(--green);
+    }
+
+    .incorrect{
+      background:var(--red-bg);
+      color:var(--red);
+      border:1px solid var(--red);
+    }
+
+    .hidden{
+      display:none;
+    }
+
+    details{
+      background:var(--white);
+      border:2px solid var(--border);
+      border-radius:10px;
+      margin:10px 0;
+      overflow:hidden;
+    }
+
+    summary{
+      cursor:pointer;
+      font-weight:bold;
+      color:var(--slate);
+      padding:15px 18px;
+    }
+
+    details[open] summary{
+      border-bottom:1px solid var(--border);
+      color:var(--red);
+    }
+
+    .details-body{
+      padding:4px 18px 16px;
+    }
+
+    .flow{
+      display:grid;
+      grid-template-columns:1fr 60px 1fr;
+      gap:12px;
+      align-items:stretch;
+      margin:20px 0;
+    }
+
+    .flow-card{
+      background:var(--white);
+      border:2px solid var(--border);
+      border-top:6px solid var(--red);
+      border-radius:12px;
+      padding:20px;
+      text-align:center;
+    }
+
+    .flow-arrow{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--red);
+      font-size:2rem;
+      font-weight:bold;
+    }
+
+    .comparison{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+      margin:20px 0;
+    }
+
+    .summary-box{
+      background:var(--blue-bg);
+      border:2px solid var(--border);
+      border-radius:14px;
+      padding:24px;
+      margin-top:34px;
+    }
+
+    .summary-box h2{
+      margin-top:0;
+    }
+
+    .summary-box li{
+      margin:8px 0;
+    }
+
+    .mini{
+      font-size:.92rem;
+      color:var(--slate);
+    }
+
+    .center{
+      text-align:center;
+    }
+
+    @media(max-width:850px){
+      .grid-2,
+      .grid-3,
+      .comparison,
+      .flow{
+        grid-template-columns:1fr;
+      }
+
+      .flow-arrow{
+        transform:rotate(90deg);
+        min-height:35px;
+      }
+    }
+
+    @media(max-width:600px){
+      h1{
+        font-size:1.9rem;
+      }
+
+      h2{
+        font-size:1.45rem;
+      }
+
+      .page{
+        padding:18px 12px 45px;
+      }
+
+      .hero,
+      .activity{
+        padding:18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<main class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-label">BUS 222 • UCC Article 2</div>
+
+    <h1>Sales Contracts Under the Uniform Commercial Code</h1>
+
+    <p>
+      This lesson focuses on contracts for the <strong>sale of goods</strong> governed by
+      Article 2 of the Uniform Commercial Code (UCC). You will examine how the UCC handles
+      agreement, open terms, acceptance, writing requirements, risk of loss, performance,
+      breach, remedies, and international sales.
+    </p>
+
+    <nav class="nav" aria-label="Page sections">
+      <a href="#intro">Article 2</a>
+      <a href="#agreement">Agreement</a>
+      <a href="#acceptance">Acceptance</a>
+      <a href="#frauds">Statute of Frauds</a>
+      <a href="#risk">Title &amp; Risk</a>
+      <a href="#performance">Performance</a>
+      <a href="#remedies">Breach &amp; Remedies</a>
+      <a href="#international">International Sales</a>
+    </nav>
+  </section>
+
+
+  <!-- ARTICLE 2 -->
+  <section id="intro">
+
+    <h2>1. Introduction to Article 2 of the UCC</h2>
+
+    <div class="section-intro">
+      <strong>Article 2</strong> of the Uniform Commercial Code governs contracts for the
+      <strong>sale of goods</strong>. The UCC is designed to promote commercial efficiency
+      and help business transactions move forward through standardized and more flexible rules.
+    </div>
+
+    <div class="grid-2">
+
+      <div class="card red-top">
+        <h3>What Counts as a Good?</h3>
+
+        <p>
+          Under the UCC, goods must be:
+        </p>
+
+        <ul>
+          <li><strong>Tangible</strong></li>
+          <li><strong>Movable from place to place</strong></li>
+        </ul>
+
+        <p>
+          Article 2 therefore focuses on transactions involving goods rather than every
+          possible type of contract.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <h3>Who Is a Merchant?</h3>
+
+        <p>
+          A <strong>merchant</strong> is someone who is regularly engaged in the sale of a
+          particular type of good.
+        </p>
+
+        <p>
+          Article 2 contains certain special rules that apply specifically when merchants
+          are involved.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="callout">
+      <h3>The UCC's Gap-Filler Function</h3>
+
+      <p>
+        Article 2 can supply missing or open contract terms when the parties have not
+        expressly agreed otherwise.
+      </p>
+
+      <p>
+        In other words, a sales contract does not always fail simply because every possible
+        detail was not written into the agreement.
+      </p>
+    </div>
+
+
+    <div class="activity" id="goodsActivity">
+
+      <h3 class="activity-title">Knowledge Check: Is It a Good?</h3>
+
+      <p class="instructions">
+        Apply the UCC definition: tangible and movable.
+      </p>
+
+      <div class="question">
+        <label for="good1">1. A new laptop computer</label>
+
+        <select id="good1" data-answer="Good">
+          <option value="">Select an answer</option>
+          <option>Good</option>
+          <option>Not a Good</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="good2">2. A parcel of real estate</label>
+
+        <select id="good2" data-answer="Not a Good">
+          <option value="">Select an answer</option>
+          <option>Good</option>
+          <option>Not a Good</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="good3">3. An office desk</label>
+
+        <select id="good3" data-answer="Good">
+          <option value="">Select an answer</option>
+          <option>Good</option>
+          <option>Not a Good</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="good4">4. A consulting service</label>
+
+        <select id="good4" data-answer="Not a Good">
+          <option value="">Select an answer</option>
+          <option>Good</option>
+          <option>Not a Good</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="primary check-group">Check Answers</button>
+        <button type="button" class="secondary reset-group">Reset</button>
+      </div>
+
+      <div class="feedback hidden" aria-live="polite"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- AGREEMENT -->
+  <section id="agreement">
+
+    <h2>2. Agreement in a Sales Contract: Offer</h2>
+
+    <div class="section-intro">
+      Article 2 allows a contract to arise in <strong>any manner sufficient to show agreement</strong>.
+      Compared with stricter traditional contract rules, the UCC is more willing to recognize
+      an agreement even when some terms are still open.
+    </div>
+
+
+    <div class="grid-2">
+
+      <div class="card red-top">
+        <h3>Open Terms</h3>
+
+        <p>
+          A sales contract may still be enforceable even when terms such as:
+        </p>
+
+        <ul>
+          <li>Delivery</li>
+          <li>Price</li>
+          <li>Payment</li>
+        </ul>
+
+        <p>
+          are left open.
+        </p>
+
+        <p>
+          The UCC may provide reasonable standards to fill those gaps.
+        </p>
+      </div>
+
+
+      <div class="card red-top">
+        <h3>Quantity Usually Matters</h3>
+
+        <p>
+          <strong>Quantity</strong> is generally a required term.
+        </p>
+
+        <p>
+          However, quantity may remain open in:
+        </p>
+
+        <ul>
+          <li><strong>Output contracts</strong></li>
+          <li><strong>Requirements contracts</strong></li>
+        </ul>
+      </div>
+
+    </div>
+
+
+    <details>
+      <summary>What is an output contract?</summary>
+
+      <div class="details-body">
+        The buyer agrees to purchase all of the goods that the seller produces.
+      </div>
+    </details>
+
+    <details>
+      <summary>What is a requirements contract?</summary>
+
+      <div class="details-body">
+        The buyer agrees to purchase all, or up to an agreed amount, of what the buyer
+        needs during a particular period.
+      </div>
+    </details>
+
+
+    <div class="highlight">
+      <h3>Other UCC Gap Fillers</h3>
+
+      <p>If the parties have not agreed otherwise, the UCC may provide:</p>
+
+      <ul>
+        <li>
+          <strong>Delivery:</strong> at the seller's place of business at a reasonable time.
+        </li>
+
+        <li>
+          <strong>Payment:</strong> at the time and place where delivery occurs and in a
+          commercially reasonable form.
+        </li>
+
+        <li>
+          <strong>Price:</strong> a reasonable price based on circumstances such as industry
+          customs and market value.
+        </li>
+      </ul>
+    </div>
+
+
+    <div class="callout">
+      <h3>Firm Offers by Merchants</h3>
+
+      <p>
+        A written offer by a merchant may include a promise to keep the offer open even
+        without separate consideration for an option.
+      </p>
+    </div>
+
+
+    <div class="activity" id="offerActivity">
+
+      <h3 class="activity-title">Knowledge Check: Open Terms</h3>
+
+      <div class="question">
+        <label for="offer1">
+          1. A sales agreement identifies the goods and quantity but leaves the exact price open.
+          Can the UCC potentially supply a reasonable price?
+        </label>
+
+        <select id="offer1" data-answer="Yes">
+          <option value="">Select an answer</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="offer2">
+          2. Which term is generally required in a UCC sales agreement?
+        </label>
+
+        <select id="offer2" data-answer="Quantity">
+          <option value="">Select an answer</option>
+          <option>Price</option>
+          <option>Payment method</option>
+          <option>Quantity</option>
+          <option>Delivery location</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="offer3">
+          3. A buyer agrees to purchase all of the goods a seller produces during the next six months.
+          What type of agreement is this?
+        </label>
+
+        <select id="offer3" data-answer="Output Contract">
+          <option value="">Select an answer</option>
+          <option>Output Contract</option>
+          <option>Requirements Contract</option>
+          <option>Firm Offer</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="offer4">
+          4. A buyer agrees to purchase all of the supplies the buyer needs during the next year.
+        </label>
+
+        <select id="offer4" data-answer="Requirements Contract">
+          <option value="">Select an answer</option>
+          <option>Output Contract</option>
+          <option>Requirements Contract</option>
+          <option>Firm Offer</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="primary check-group">Check Answers</button>
+        <button type="button" class="secondary reset-group">Reset</button>
+      </div>
+
+      <div class="feedback hidden" aria-live="polite"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ACCEPTANCE -->
+  <section id="acceptance">
+
+    <h2>3. Agreement in Sales Contracts: Acceptance</h2>
+
+    <div class="section-intro">
+      If the offer does not specify a required method of acceptance, the UCC generally permits
+      acceptance in any <strong>reasonable manner</strong>. The acceptance also does not always
+      have to mirror the offer exactly.
+    </div>
+
+
+    <div class="callout">
+      <h3>Battle of the Forms</h3>
+
+      <p>
+        Businesses often exchange standardized forms such as purchase orders and
+        acknowledgements. Those forms may contain different or additional terms.
+      </p>
+
+      <p>
+        Under the UCC, an acceptance may still create a contract even if the acceptance contains
+        additional or different terms.
+      </p>
+    </div>
+
+
+    <div class="grid-2">
+
+      <div class="card red-top">
+        <h3>One Party Is Not a Merchant</h3>
+
+        <p>
+          If one of the parties is not a merchant, the contract is generally formed
+          <strong>as originally offered</strong>.
+        </p>
+      </div>
+
+
+      <div class="card red-top">
+        <h3>Both Parties Are Merchants</h3>
+
+        <p>
+          Additional terms may automatically become part of the agreement unless:
+        </p>
+
+        <ul>
+          <li>The offer expressly limited acceptance to its own terms</li>
+          <li>The new term materially changes the agreement</li>
+          <li>The offeror objects to the new term in a timely manner</li>
+        </ul>
+      </div>
+
+    </div>
+
+
+    <div class="highlight">
+      <strong>Modification:</strong> A UCC sales contract can be modified without additional
+      consideration.
+    </div>
+
+
+    <div class="activity" id="acceptActivity">
+
+      <h3 class="activity-title">Knowledge Check: Battle of the Forms</h3>
+
+      <div class="question">
+        <label for="acc1">
+          1. A buyer sends a purchase order. The seller's acceptance includes an additional term.
+          One of the parties is not a merchant. Which rule generally applies?
+        </label>
+
+        <select id="acc1" data-answer="Contract is formed as originally offered">
+          <option value="">Select an answer</option>
+          <option>Contract is formed as originally offered</option>
+          <option>Every new term automatically becomes binding</option>
+          <option>No contract can exist</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="acc2">
+          2. Both parties are merchants. An additional term does not materially change the contract,
+          the original offer did not restrict acceptance, and the offeror does not object.
+        </label>
+
+        <select id="acc2" data-answer="The additional term may become part of the contract">
+          <option value="">Select an answer</option>
+          <option>The additional term may become part of the contract</option>
+          <option>The contract automatically fails</option>
+          <option>The original offer is automatically revoked</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="acc3">
+          3. Does modification of a UCC sales contract always require new consideration?
+        </label>
+
+        <select id="acc3" data-answer="No">
+          <option value="">Select an answer</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="primary check-group">Check Answers</button>
+        <button type="button" class="secondary reset-group">Reset</button>
+      </div>
+
+      <div class="feedback hidden" aria-live="polite"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- STATUTE OF FRAUDS -->
+  <section id="frauds">
+
+    <h2>4. UCC Statute of Frauds</h2>
+
+    <div class="section-intro">
+      Under Article 2, a contract for the sale of goods valued at
+      <strong>$500 or more</strong> generally must be in writing.
+    </div>
+
+
+    <div class="card red-top">
+
+      <h3>What Must the Writing Contain?</h3>
+
+      <ol>
+        <li><strong>Quantity</strong></li>
+        <li>
+          The <strong>signature of the party against whom enforcement is sought</strong>
+        </li>
+        <li>
+          Language reasonably showing that the parties intended to form a contract
+        </li>
+      </ol>
+
+      <p>
+        Other terms may be established using oral agreements, prior practices, and industry
+        standards.
+      </p>
+
+    </div>
+
+
+    <div class="callout">
+      <h3>Merchant Confirmation Rule</h3>
+
+      <p>
+        A merchant who receives a signed confirmation memorandum from another merchant may
+        be bound by it unless the receiving merchant promptly objects.
+      </p>
+    </div>
+
+
+    <div class="activity" id="fraudsActivity">
+
+      <h3 class="activity-title">Knowledge Check: Statute of Frauds</h3>
+
+      <div class="question">
+        <label for="sf1">
+          1. A contract involves the sale of $300 worth of goods. Does the Article 2
+          Statute of Frauds generally require a writing?
+        </label>
+
+        <select id="sf1" data-answer="No">
+          <option value="">Select an answer</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="sf2">
+          2. A contract involves the sale of $900 worth of goods.
+        </label>
+
+        <select id="sf2" data-answer="Yes">
+          <option value="">Select an answer</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="sf3">
+          3. Which term must appear in the writing?
+        </label>
+
+        <select id="sf3" data-answer="Quantity">
+          <option value="">Select an answer</option>
+          <option>Exact delivery date</option>
+          <option>Quantity</option>
+          <option>Exact price</option>
+          <option>Payment method</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="sf4">
+          4. Two merchants exchange a signed confirmation. The receiving merchant does not
+          promptly object. May the receiving merchant be bound?
+        </label>
+
+        <select id="sf4" data-answer="Yes">
+          <option value="">Select an answer</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="primary check-group">Check Answers</button>
+        <button type="button" class="secondary reset-group">Reset</button>
+      </div>
+
+      <div class="feedback hidden" aria-live="polite"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TITLE & RISK -->
+  <section id="risk">
+
+    <h2>5. Title &amp; Allocation of Risk</h2>
+
+    <div class="section-intro">
+      The UCC contains rules governing when ownership and risk pass from seller to buyer.
+      These rules act as gap fillers and do not replace an agreement the parties have already
+      made about risk or title.
+    </div>
+
+
+    <div class="grid-2">
+
+      <div class="card red-top">
+        <h3>Shipping Contract</h3>
+
+        <p>
+          Unless the parties agree otherwise, sales contracts are treated as shipping contracts.
+        </p>
+
+        <p>
+          Title transfers when the seller gives the goods to the
+          <strong>courier</strong>.
+        </p>
+      </div>
+
+
+      <div class="card red-top">
+        <h3>Destination Contract</h3>
+
+        <p>
+          In a destination contract, title passes when the goods are
+          <strong>tendered to the buyer</strong> at the destination.
+        </p>
+      </div>
+
+    </div>
+
+
+    <h3>When the Buyer Picks Up the Goods</h3>
+
+    <div class="comparison">
+
+      <div class="card">
+        <h3>Seller Is a Merchant</h3>
+
+        <p>
+          Risk of loss passes when the buyer takes
+          <strong>physical possession</strong> of the goods.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Seller Is a Nonmerchant</h3>
+
+        <p>
+          Risk of loss passes when the seller
+          <strong>tenders the goods</strong> to the buyer.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="activity" id="riskActivity">
+
+      <h3 class="activity-title">Knowledge Check: When Does Risk Pass?</h3>
+
+      <div class="question">
+        <label for="risk1">
+          1. The contract is a standard shipping contract. The seller gives the goods to UPS.
+          Under the chapter's rule, when does title transfer?
+        </label>
+
+        <select id="risk1" data-answer="When the goods are given to the courier">
+          <option value="">Select an answer</option>
+          <option>When the goods are given to the courier</option>
+          <option>When the buyer opens the package</option>
+          <option>Thirty days after delivery</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="risk2">
+          2. The parties specifically agreed to a destination contract.
+        </label>
+
+        <select id="risk2" data-answer="When the goods are tendered to the buyer">
+          <option value="">Select an answer</option>
+          <option>When the goods leave the seller</option>
+          <option>When the goods are tendered to the buyer</option>
+          <option>When the contract is signed</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="risk3">
+          3. The buyer is picking up goods from a merchant seller.
+        </label>
+
+        <select id="risk3" data-answer="When the buyer takes physical possession">
+          <option value="">Select an answer</option>
+          <option>When the buyer takes physical possession</option>
+          <option>When the seller places the goods on a shelf</option>
+          <option>When the buyer calls to confirm pickup</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="risk4">
+          4. The buyer is picking up goods from a nonmerchant seller.
+        </label>
+
+        <select id="risk4" data-answer="When the seller tenders the goods">
+          <option value="">Select an answer</option>
+          <option>When the seller tenders the goods</option>
+          <option>Only after payment clears</option>
+          <option>When the buyer takes them home</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="primary check-group">Check Answers</button>
+        <button type="button" class="secondary reset-group">Reset</button>
+      </div>
+
+      <div class="feedback hidden" aria-live="polite"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- PERFORMANCE -->
+  <section id="performance">
+
+    <h2>6. Performance of Sales Contracts</h2>
+
+    <div class="section-intro">
+      Once the parties have formed a sales contract, Article 2 imposes duties on both sides.
+      All parties have an obligation to act in <strong>good faith</strong> and be
+      <strong>honest in fact</strong>.
+    </div>
+
+
+    <div class="grid-2">
+
+      <div class="card red-top">
+
+        <h3>Seller's Duties</h3>
+
+        <ul>
+          <li>Tender the goods</li>
+          <li>Give appropriate notice of tender</li>
+          <li>Take reasonable steps so the buyer can receive delivery</li>
+        </ul>
+
+      </div>
+
+
+      <div class="card red-top">
+
+        <h3>Buyer's Duties</h3>
+
+        <p>
+          Once goods are accepted, the buyer generally must make full payment at the time
+          and place the goods are received.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="callout">
+
+      <h3>Perfect Tender Rule</h3>
+
+      <p>
+        The seller must deliver goods that conform precisely to the contract requirements.
+        If the goods do not conform, the buyer may have the right to reject them.
+      </p>
+
+    </div>
+
+
+    <div class="highlight">
+
+      <h3>Seller's Right to Cure</h3>
+
+      <p>
+        If the time for performance has not expired after rejection, the seller may
+        <strong>cure</strong> by notifying the buyer and supplying conforming goods.
+      </p>
+
+      <p>
+        If the seller reasonably believed the goods would be acceptable, the seller may receive
+        additional time to cure even after the original time for performance has passed.
+      </p>
+
+    </div>
+
+
+    <h3>Buyer's Inspection Rights</h3>
+
+    <div class="grid-3">
+
+      <div class="card red-top">
+        <h3>Accept</h3>
+
+        <p>
+          The buyer can notify the seller that the goods are accepted.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <h3>Do Nothing</h3>
+
+        <p>
+          If the buyer does nothing within a reasonable time, acceptance may be presumed.
+        </p>
+      </div>
+
+      <div class="card red-top">
+        <h3>Reject</h3>
+
+        <p>
+          The buyer may give timely notice rejecting all or part of nonconforming goods.
+        </p>
+      </div>
+
+    </div>
+
+
+    <details>
+      <summary>Commercial Impracticability</summary>
+
+      <div class="details-body">
+        The UCC may excuse delayed delivery or nondelivery when an
+        <strong>unanticipated event</strong> makes performance impracticable and directly affects
+        a basic assumption of the contract.
+      </div>
+    </details>
+
+
+    <details>
+      <summary>Installment Contracts</summary>
+
+      <div class="details-body">
+        An installment contract allows delivery in separate lots and payment at separate times.
+        Each installment creates a new opportunity for acceptance or rejection, although the
+        standard for rejection is more restrictive.
+      </div>
+    </details>
+
+
+    <div class="activity" id="performanceActivity">
+
+      <h3 class="activity-title">Knowledge Check: Performance</h3>
+
+      <div class="question">
+        <label for="perf1">
+          1. The seller delivers goods that do not match the contract specifications.
+          Which rule is most directly involved?
+        </label>
+
+        <select id="perf1" data-answer="Perfect Tender Rule">
+          <option value="">Select an answer</option>
+          <option>Perfect Tender Rule</option>
+          <option>Battle of the Forms</option>
+          <option>Firm Offer Rule</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="perf2">
+          2. The buyer rejects nonconforming goods, but the contractual deadline has not yet passed.
+          What may the seller be allowed to do?
+        </label>
+
+        <select id="perf2" data-answer="Cure">
+          <option value="">Select an answer</option>
+          <option>Cure</option>
+          <option>Assign</option>
+          <option>Rescind automatically</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="perf3">
+          3. The buyer receives conforming goods. What duty generally follows?
+        </label>
+
+        <select id="perf3" data-answer="Accept and pay">
+          <option value="">Select an answer</option>
+          <option>Accept and pay</option>
+          <option>Reject without reason</option>
+          <option>Demand a new contract</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="perf4">
+          4. An unanticipated event directly affects a basic assumption of the contract and makes
+          delivery impracticable.
+        </label>
+
+        <select id="perf4" data-answer="Commercial Impracticability">
+          <option value="">Select an answer</option>
+          <option>Commercial Impracticability</option>
+          <option>Perfect Tender</option>
+          <option>Firm Offer</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="primary check-group">Check Answers</button>
+        <button type="button" class="secondary reset-group">Reset</button>
+      </div>
+
+      <div class="feedback hidden" aria-live="polite"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- BREACH & REMEDIES -->
+  <section id="remedies">
+
+    <h2>7. Breach &amp; Remedies in Sales Agreements</h2>
+
+    <div class="section-intro">
+      The UCC seeks to place the nonbreaching party in the same position that party would
+      have occupied if the contract had been performed as agreed.
+    </div>
+
+
+    <div class="callout">
+
+      <h3>Anticipatory Repudiation</h3>
+
+      <p>
+        When one party clearly indicates that performance will not occur, the other party may:
+      </p>
+
+      <ul>
+        <li>Withdraw and sue for damages, or</li>
+        <li>Suspend performance until the repudiation is retracted.</li>
+      </ul>
+
+    </div>
+
+
+    <div class="comparison">
+
+      <div class="card red-top">
+
+        <h3>Seller's Remedies</h3>
+
+        <p>Seller remedies may apply when the buyer:</p>
+
+        <ul>
+          <li>Rejects conforming goods</li>
+          <li>Wrongfully revokes acceptance</li>
+          <li>Fails to pay</li>
+          <li>Fails to meet other contractual obligations</li>
+        </ul>
+
+        <p><strong>If goods are still with the seller:</strong></p>
+
+        <ul>
+          <li>Stop performance</li>
+          <li>Resell the goods</li>
+          <li>Seek damages if resale is unsuccessful</li>
+        </ul>
+
+        <p><strong>If goods are already with the buyer:</strong></p>
+
+        <ul>
+          <li>Sue for the contract price</li>
+          <li>Reclaim goods where permitted</li>
+          <li>Seek incidental damages</li>
+        </ul>
+
+      </div>
+
+
+      <div class="card red-top">
+
+        <h3>Buyer's Remedies</h3>
+
+        <p>Buyer remedies may apply when the seller:</p>
+
+        <ul>
+          <li>Delivers nonconforming goods</li>
+          <li>Fails to deliver on time</li>
+        </ul>
+
+        <p>Possible remedies include:</p>
+
+        <ul>
+          <li>Rightful rejection</li>
+          <li>Cover</li>
+          <li>Money damages</li>
+          <li>Specific performance for unique goods</li>
+          <li>Revocation of acceptance in certain circumstances</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+
+    <div class="highlight">
+
+      <h3>What Is Cover?</h3>
+
+      <p>
+        The buyer may cancel the breached contract, purchase substitute goods elsewhere,
+        and seek damages caused by the replacement purchase.
+      </p>
+
+    </div>
+
+
+    <div class="activity" id="remedyActivity">
+
+      <h3 class="activity-title">Knowledge Check: Seller or Buyer Remedy?</h3>
+
+      <div class="question">
+        <label for="rem1">
+          1. A seller never delivers the goods. The buyer buys substitute goods elsewhere
+          and seeks the additional cost.
+        </label>
+
+        <select id="rem1" data-answer="Cover">
+          <option value="">Select an answer</option>
+          <option>Cover</option>
+          <option>Seller resale</option>
+          <option>Firm offer</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="rem2">
+          2. A buyer breaches before delivery. The seller finds another customer and sells
+          the goods to that customer.
+        </label>
+
+        <select id="rem2" data-answer="Seller resale">
+          <option value="">Select an answer</option>
+          <option>Cover</option>
+          <option>Seller resale</option>
+          <option>Specific performance</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="rem3">
+          3. The goods are unique, and money damages would not adequately protect the buyer.
+        </label>
+
+        <select id="rem3" data-answer="Specific performance">
+          <option value="">Select an answer</option>
+          <option>Specific performance</option>
+          <option>Firm offer</option>
+          <option>Merchant confirmation</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="rem4">
+          4. A buyer unknowingly accepts nonconforming goods and later discovers a serious
+          problem that substantially impairs their value.
+        </label>
+
+        <select id="rem4" data-answer="Revocation of acceptance">
+          <option value="">Select an answer</option>
+          <option>Revocation of acceptance</option>
+          <option>Battle of the Forms</option>
+          <option>Output contract</option>
+        </select>
+      </div>
+
+      <div class="buttons">
+        <button type="button" class="primary check-group">Check Answers</button>
+        <button type="button" class="secondary reset-group">Reset</button>
+      </div>
+
+      <div class="feedback hidden" aria-live="polite"></div>
+
+    </div>
+
+  </section>
+
+
+  <!-- INTERNATIONAL -->
+  <section id="international">
+
+    <h2>8. International Sales of Goods</h2>
+
+    <div class="section-intro">
+      International sales may be governed by the
+      <strong>United Nations Convention on Contracts for the International Sale of Goods
+      (UNCISG)</strong>, an international counterpart to Article 2.
+    </div>
+
+
+    <div class="grid-2">
+
+      <div class="card red-top">
+
+        <h3>UNCISG</h3>
+
+        <p>
+          Applies to sales contracts between merchants located in U.N. signatory countries.
+        </p>
+
+        <ul>
+          <li>No writing is necessarily required</li>
+          <li>Industry practice and surrounding circumstances may establish an agreement</li>
+          <li>
+            An offer needs a description of the goods, quantity, and price
+          </li>
+          <li>
+            Acceptance becomes effective when received by the offeror
+          </li>
+          <li>
+            The seller has a strong right and obligation to cure
+          </li>
+        </ul>
+
+      </div>
+
+
+      <div class="card red-top">
+
+        <h3>INCO Terms</h3>
+
+        <p>
+          International Chamber of Commerce terms are standardized terms used in international
+          sales contracts.
+        </p>
+
+        <p>
+          Their purpose is to reduce confusion caused by:
+        </p>
+
+        <ul>
+          <li>Different languages</li>
+          <li>Different legal systems</li>
+          <li>Different expectations about shipping and trade responsibilities</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SUMMARY -->
+  <section class="summary-box">
+
+    <h2>Chapter Summary</h2>
+
+    <ul>
+
+      <li>
+        Article 2 of the UCC governs contracts for the sale of
+        <strong>tangible, movable goods</strong>.
+      </li>
+
+      <li>
+        The UCC promotes commercial efficiency by allowing flexible formation rules and
+        supplying reasonable terms when agreements contain gaps.
+      </li>
+
+      <li>
+        Quantity is generally required, although output and requirements contracts provide
+        exceptions.
+      </li>
+
+      <li>
+        UCC acceptance may differ from the original offer, especially in transactions involving
+        merchants.
+      </li>
+
+      <li>
+        Sales of goods valued at <strong>$500 or more</strong> generally fall within the
+        UCC Statute of Frauds.
+      </li>
+
+      <li>
+        Shipping, destination, merchant-pickup, and nonmerchant-pickup rules affect when title
+        and risk pass between parties.
+      </li>
+
+      <li>
+        The seller is generally subject to the <strong>perfect tender rule</strong> but may
+        have an opportunity to <strong>cure</strong>.
+      </li>
+
+      <li>
+        Buyers may inspect, accept, or reject goods and may have remedies such as
+        <strong>cover</strong>, money damages, specific performance, or revocation of acceptance.
+      </li>
+
+      <li>
+        Sellers also receive remedies when buyers reject conforming goods, fail to pay,
+        or otherwise breach.
+      </li>
+
+      <li>
+        International sales may involve the UNCISG and standardized INCO terms.
+      </li>
+
+    </ul>
+
+  </section>
+
+</main>
+
+
+<script>
+(function(){
+
+  function getActivity(button){
+    return button.closest(".activity");
+  }
+
+  function getFeedback(activity){
+    return activity.querySelector(".feedback");
+  }
+
+  function checkGroup(button){
+
+    const activity = getActivity(button);
+    const selects = activity.querySelectorAll("select[data-answer]");
+    const feedback = getFeedback(activity);
+
+    let correct = 0;
+    let unanswered = 0;
+
+    selects.forEach(function(select){
+
+      select.style.borderColor = "";
+
+      if(!select.value){
+        unanswered++;
+        return;
+      }
+
+      if(select.value === select.dataset.answer){
+        correct++;
+        select.style.borderColor = "#2E6B45";
+      }else{
+        select.style.borderColor = "#C8102E";
+      }
+
+    });
+
+    feedback.classList.remove("hidden","correct","incorrect");
+
+    if(unanswered > 0){
+
+      feedback.classList.add("incorrect");
+      feedback.textContent =
+        "Please answer every question before checking your work.";
+
+      return;
+    }
+
+    if(correct === selects.length){
+
+      feedback.classList.add("correct");
+      feedback.textContent =
+        "Correct! You answered all " + selects.length + " questions correctly.";
+
+    }else{
+
+      feedback.classList.add("incorrect");
+      feedback.textContent =
+        correct + " of " + selects.length +
+        " are correct. Review the highlighted responses and try again.";
+
+    }
+  }
+
+
+  function resetGroup(button){
+
+    const activity = getActivity(button);
+    const selects = activity.querySelectorAll("select");
+    const feedback = getFeedback(activity);
+
+    selects.forEach(function(select){
+      select.value = "";
+      select.style.borderColor = "";
+    });
+
+    feedback.classList.add("hidden");
+    feedback.classList.remove("correct","incorrect");
+    feedback.textContent = "";
+  }
+
+
+  document.querySelectorAll(".check-group").forEach(function(button){
+    button.addEventListener("click",function(){
+      checkGroup(button);
+    });
+  });
+
+
+  document.querySelectorAll(".reset-group").forEach(function(button){
+    button.addEventListener("click",function(){
+      resetGroup(button);
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>

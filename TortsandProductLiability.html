@@ -1,0 +1,1003 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Torts &amp; Product Liability | Interactive Chapter Guide</title>
+  <style>
+    :root {
+      --red: #b01932;
+      --red-dark: #7e1024;
+      --red-soft: #f8e8eb;
+      --ink: #171717;
+      --muted: #5e6268;
+      --paper: #ffffff;
+      --surface: #f5f6f7;
+      --line: #d8dadd;
+      --success: #17663a;
+      --success-soft: #eaf6ef;
+      --warning: #815500;
+      --warning-soft: #fff6dc;
+      --focus: #155eef;
+      --shadow: 0 10px 30px rgba(20, 20, 20, .08);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #eef0f2;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.55;
+    }
+
+    button, select, textarea, input { font: inherit; }
+
+    a { color: var(--red-dark); }
+
+    :focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 3px;
+    }
+
+    .visually-hidden {
+      position: absolute !important;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .skip-link {
+      position: fixed;
+      left: 12px;
+      top: -80px;
+      z-index: 1000;
+      padding: 10px 14px;
+      color: white;
+      background: #111;
+      border-radius: 0 0 8px 8px;
+      font-weight: 700;
+    }
+
+    .skip-link:focus { top: 0; }
+
+    .hero {
+      color: white;
+      background:
+        linear-gradient(120deg, rgba(0,0,0,.18), transparent 55%),
+        linear-gradient(135deg, var(--red-dark), var(--red));
+      border-bottom: 8px solid #111;
+    }
+
+    .hero-inner {
+      width: min(1120px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: 54px 0 48px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      font-size: .85rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 0;
+      font-size: clamp(2.3rem, 7vw, 4.8rem);
+      line-height: .98;
+      letter-spacing: -.04em;
+    }
+
+    .hero-copy {
+      max-width: 820px;
+      margin: 22px 0 0;
+      font-size: clamp(1rem, 2.2vw, 1.28rem);
+    }
+
+    .hero-question {
+      display: inline-block;
+      margin-top: 26px;
+      padding: 10px 14px;
+      color: #111;
+      background: white;
+      border-left: 6px solid #111;
+      font-weight: 800;
+    }
+
+    .section-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      color: white;
+      background: #111;
+      box-shadow: 0 4px 18px rgba(0,0,0,.15);
+    }
+
+    .section-nav .nav-inner {
+      display: flex;
+      gap: 6px;
+      width: min(1120px, calc(100% - 24px));
+      margin: 0 auto;
+      padding: 9px 0;
+      overflow-x: auto;
+      scrollbar-width: thin;
+    }
+
+    .section-nav a {
+      flex: 0 0 auto;
+      padding: 8px 12px;
+      color: white;
+      border: 1px solid #555;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 700;
+    }
+
+    .section-nav a:hover { background: var(--red); }
+
+    main {
+      width: min(1120px, calc(100% - 36px));
+      margin: 28px auto 0;
+    }
+
+    section {
+      scroll-margin-top: 80px;
+      margin: 28px 0;
+      padding: clamp(22px, 4vw, 44px);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .section-kicker {
+      margin: 0 0 4px;
+      color: var(--red);
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: clamp(1.75rem, 4vw, 2.65rem);
+      line-height: 1.08;
+      letter-spacing: -.025em;
+    }
+
+    h3 {
+      margin: 26px 0 8px;
+      font-size: 1.35rem;
+      line-height: 1.2;
+    }
+
+    h4 { margin: 0 0 5px; font-size: 1.05rem; }
+
+    .lead { max-width: 860px; color: #333; font-size: 1.08rem; }
+
+    .callout {
+      margin: 22px 0;
+      padding: 18px 20px;
+      background: var(--red-soft);
+      border-left: 6px solid var(--red);
+      border-radius: 8px;
+    }
+
+    .callout strong { color: var(--red-dark); }
+
+    .source-grid, .three-grid, .two-grid, .factor-grid, .defect-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .source-grid, .two-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .three-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .factor-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .defect-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .info-card {
+      padding: 18px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .info-card p:last-child { margin-bottom: 0; }
+
+    .category-card {
+      position: relative;
+      min-height: 235px;
+      padding: 0;
+      overflow: hidden;
+      background: white;
+      border: 2px solid #222;
+      border-radius: 14px;
+    }
+
+    .category-card button {
+      width: 100%;
+      min-height: 235px;
+      padding: 24px;
+      color: inherit;
+      background: transparent;
+      border: 0;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .category-card button:hover { background: var(--surface); }
+
+    .category-number {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      color: white;
+      background: var(--red);
+      border-radius: 50%;
+      font-weight: 900;
+    }
+
+    .category-card h3 { margin: 18px 0 6px; }
+
+    .category-card .reveal {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height .28s ease, opacity .28s ease;
+    }
+
+    .category-card.open .reveal { max-height: 160px; opacity: 1; }
+    .category-card.open .prompt { display: none; }
+    .prompt { color: var(--red-dark); font-weight: 800; }
+
+    details {
+      margin: 12px 0;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    summary {
+      position: relative;
+      padding: 16px 48px 16px 18px;
+      background: var(--surface);
+      cursor: pointer;
+      font-weight: 850;
+      list-style: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+
+    summary::after {
+      content: "+";
+      position: absolute;
+      top: 50%;
+      right: 18px;
+      transform: translateY(-50%);
+      color: var(--red);
+      font-size: 1.4rem;
+      font-weight: 900;
+    }
+
+    details[open] summary::after { content: "−"; }
+    details[open] summary { color: white; background: var(--red-dark); }
+    .detail-body { padding: 16px 18px 18px; }
+    .detail-body > :first-child { margin-top: 0; }
+    .detail-body > :last-child { margin-bottom: 0; }
+
+    .clean-list { padding-left: 1.25rem; }
+    .clean-list li { margin: 7px 0; }
+
+    .activity {
+      margin-top: 28px;
+      padding: clamp(18px, 3vw, 28px);
+      background: #fafafa;
+      border: 2px solid #222;
+      border-radius: 14px;
+    }
+
+    .activity-label {
+      display: inline-block;
+      margin: 0 0 6px;
+      padding: 4px 9px;
+      color: white;
+      background: #111;
+      border-radius: 4px;
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .scenario {
+      margin: 16px 0 0;
+      padding: 18px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .scenario p:first-child { margin-top: 0; }
+
+    .answer-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    select {
+      min-width: min(100%, 290px);
+      padding: 10px 38px 10px 12px;
+      background: white;
+      border: 2px solid #777;
+      border-radius: 8px;
+    }
+
+    .check-btn, .utility-btn, .step-btn, .tab-btn {
+      padding: 10px 14px;
+      border: 2px solid #111;
+      border-radius: 8px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .check-btn, .step-btn.active, .tab-btn.active {
+      color: white;
+      background: var(--red);
+      border-color: var(--red);
+    }
+
+    .check-btn:hover { background: var(--red-dark); }
+
+    .utility-btn, .step-btn, .tab-btn { color: #111; background: white; }
+    .utility-btn:hover, .step-btn:hover, .tab-btn:hover { background: #eee; }
+
+    .feedback {
+      display: none;
+      margin: 12px 0 0;
+      padding: 12px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+    }
+
+    .feedback.show { display: block; }
+    .feedback.correct { color: var(--success); background: var(--success-soft); border-left: 5px solid var(--success); }
+    .feedback.incorrect { color: var(--warning); background: var(--warning-soft); border-left: 5px solid #d18a00; }
+
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 20px 0 14px;
+    }
+
+    .step-btn { flex: 1 1 150px; text-align: left; }
+
+    .step-panel {
+      min-height: 210px;
+      padding: 22px;
+      background: var(--surface);
+      border-left: 6px solid var(--red);
+      border-radius: 10px;
+    }
+
+    .step-panel h3 { margin-top: 0; }
+
+    .formula {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin: 20px 0;
+      font-weight: 900;
+    }
+
+    .formula span:not(.plus) {
+      padding: 8px 10px;
+      background: var(--red-soft);
+      border: 1px solid #e8bac2;
+      border-radius: 7px;
+    }
+
+    .claim-builder {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .claim-builder label {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-height: 110px;
+      padding: 14px;
+      background: white;
+      border: 2px solid var(--line);
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 800;
+    }
+
+    .claim-builder label:has(input:checked) {
+      background: var(--success-soft);
+      border-color: var(--success);
+    }
+
+    .claim-builder input { width: 22px; height: 22px; accent-color: var(--success); }
+
+    .status-box {
+      padding: 14px;
+      color: var(--red-dark);
+      background: var(--red-soft);
+      border-radius: 10px;
+      font-weight: 800;
+    }
+
+    .status-box.complete { color: var(--success); background: var(--success-soft); }
+
+    .factor {
+      padding: 16px;
+      background: var(--surface);
+      border-top: 5px solid var(--red);
+      border-radius: 8px;
+    }
+
+    .factor strong { display: block; margin-bottom: 4px; }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 16px 0 0;
+    }
+
+    .tab-panel {
+      padding: 20px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 0 10px 10px 10px;
+    }
+
+    .tab-panel[hidden] { display: none; }
+
+    .defect-card {
+      padding: 18px;
+      color: white;
+      background: #222;
+      border-radius: 12px;
+    }
+
+    .defect-card:nth-child(2) { background: var(--red-dark); }
+    .defect-card:nth-child(3) { background: #4e5054; }
+
+    .case-study {
+      border: 3px solid var(--red);
+      background: linear-gradient(180deg, #fff 0%, #fbf4f5 100%);
+    }
+
+    .case-title {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 5px 10px;
+      color: white;
+      background: var(--red);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .reflection-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .reflection-grid label { display: block; font-weight: 850; }
+
+    textarea {
+      width: 100%;
+      min-height: 130px;
+      margin-top: 8px;
+      padding: 12px;
+      resize: vertical;
+      background: white;
+      border: 2px solid #777;
+      border-radius: 8px;
+    }
+
+    .tool-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tiny-note { color: var(--muted); font-size: .88rem; }
+
+    footer {
+      margin-top: 32px;
+      padding: 32px 18px;
+      color: white;
+      background: #111;
+      text-align: center;
+    }
+
+    .print-only { display: none; }
+
+    @media (max-width: 820px) {
+      .source-grid, .two-grid, .three-grid, .factor-grid, .defect-grid, .reflection-grid { grid-template-columns: 1fr; }
+      .claim-builder { grid-template-columns: repeat(2, 1fr); }
+      .hero-inner { padding-top: 42px; }
+    }
+
+    @media (max-width: 520px) {
+      main, .hero-inner { width: min(100% - 22px, 1120px); }
+      section { padding: 20px 16px; border-radius: 12px; }
+      .claim-builder { grid-template-columns: 1fr; }
+      .answer-row > * { width: 100%; }
+      .step-btn { flex-basis: 100%; }
+    }
+
+    @media print {
+      body { background: white; font-size: 10.5pt; }
+      .section-nav, .skip-link, .check-btn, .utility-btn, .prompt { display: none !important; }
+      .hero { color: black; background: white; border-bottom: 4px solid var(--red); }
+      .hero-inner, main { width: 100%; }
+      .hero-inner { padding: 20px 0; }
+      h1 { font-size: 30pt; }
+      section { break-inside: avoid; margin: 16px 0; padding: 18px; box-shadow: none; }
+      details .detail-body { display: block; }
+      details[open] summary, summary { color: black; background: #eee; }
+      .category-card .reveal { max-height: none; opacity: 1; }
+      .category-card .prompt { display: none; }
+      .print-only { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <h1>Torts &amp;<br>Product Liability</h1>
+      <p class="hero-copy">Learn to recognize when a business may face civil liability because of an intentional act, unreasonable conduct, an abnormally dangerous activity, or a defective product.</p>
+      <p class="hero-question">Guiding question: What must an injured party prove and what might limit liability?</p>
+    </div>
+  </header>
+
+  <nav class="section-nav" aria-label="Chapter sections">
+    <div class="nav-inner">
+      <a href="#foundations">Foundations</a>
+      <a href="#intentional">Intentional torts</a>
+      <a href="#negligence">Negligence</a>
+      <a href="#strict">Strict liability</a>
+      <a href="#products">Products liability</a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <section id="foundations">
+      <p class="section-kicker">Part 1</p>
+      <h2>Tort Law Foundations</h2>
+      <p class="lead">A <strong>tort</strong> is a civil wrong. A person or business, the <strong>tortfeasor</strong>, acts or fails to act, and that <strong>tortious conduct</strong> causes another party to suffer a loss.</p>
+
+      <div class="source-grid">
+        <article class="info-card">
+          <h3>Where the law comes from</h3>
+          <p>Tort law is governed primarily by <strong>state common law</strong>, with guidance from the <em>Restatement of Torts</em>.</p>
+        </article>
+        <article class="info-card">
+          <h3>Products liability rules</h3>
+          <p>Product-related claims may be governed by <strong>state common law</strong> or by <strong>state statutes</strong> that impose liability for injuries caused by products.</p>
+        </article>
+      </div>
+
+      <div class="callout"><strong>Keep the systems separate:</strong> tort cases generally concern civil responsibility and damages. They are not criminal prosecutions, even when the underlying conduct is serious.</div>
+
+      <h3>Three General Categories</h3>
+      <p>Select each card to reveal its central idea.</p>
+      <div class="three-grid" id="categoryCards">
+        <article class="category-card">
+          <button type="button" aria-expanded="false">
+            <span class="category-number">1</span>
+            <h3>Intentional tort</h3>
+            <p class="prompt">Select to reveal</p>
+            <div class="reveal"><p>The tortfeasor acts willfully. The focus is on an intended act, even if every resulting harm was not intended.</p></div>
+          </button>
+        </article>
+        <article class="category-card">
+          <button type="button" aria-expanded="false">
+            <span class="category-number">2</span>
+            <h3>Negligence</h3>
+            <p class="prompt">Select to reveal</p>
+            <div class="reveal"><p>The harm is accidental, but the defendant failed to act as a reasonably prudent person would under the circumstances.</p></div>
+          </button>
+        </article>
+        <article class="category-card">
+          <button type="button" aria-expanded="false">
+            <span class="category-number">3</span>
+            <h3>Strict liability</h3>
+            <p class="prompt">Select to reveal</p>
+            <div class="reveal"><p>Liability may exist without proof of intent or negligence, especially for abnormally dangerous activities and defective products.</p></div>
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <section id="intentional">
+      <p class="section-kicker">Part 2</p>
+      <h2>Intentional Business-Related Torts</h2>
+      <p class="lead">Intentional torts begin with deliberate conduct. Open each topic to see the claim, its required facts, and the business context.</p>
+
+      <details>
+        <summary>Defamation: libel, slander, and trade libel</summary>
+        <div class="detail-body">
+          <p><strong>Defamation</strong> involves a false statement about an identifiable person, company, or product that is communicated to a third party and causes harm. <strong>Libel</strong> is written; <strong>slander</strong> is spoken.</p>
+          <ul class="clean-list">
+            <li><strong>Public figures:</strong> They generally must also prove actual malice—knowledge of falsity or reckless disregard for the truth.</li>
+            <li><strong>Trade libel/product disparagement:</strong> A competitor makes a false statement that disparages another company's product and causes economic harm.</li>
+            <li><strong>Truth:</strong> An absolute defense. A truthful statement is not defamation.</li>
+            <li><strong>Absolute privilege:</strong> Protects certain statements in official settings, such as judicial proceedings and legislative activity.</li>
+            <li><strong>Qualified privilege:</strong> May protect good-faith statements made without malice, including certain employment references or media reports.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details>
+        <summary>Online content providers and third-party posts</summary>
+        <div class="detail-body">
+          <p>Traditional defamation law may impose liability on a publisher, while a distributor is generally treated differently. Early internet cases disagreed about whether an online service became a publisher by exercising editorial control.</p>
+          <p>Section 230 of the <strong>Communications Decency Act of 1996</strong> created a broad federal rule that generally prevents an interactive computer service from being treated as the publisher or speaker of information supplied by another content provider. The chapter traces this development through <em>Cubby v. CompuServe</em>, <em>Stratton Oakmont v. Prodigy</em>, and <em>Blumenthal v. Drudge/AOL</em>.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Fraudulent misrepresentation</summary>
+        <div class="detail-body">
+          <p>A claimant generally must show an <strong>intentional misrepresentation of a material fact</strong>, reasonable reliance on that fact, and damages caused by the reliance. A careless but not intentional false statement may support a negligent-misrepresentation theory.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>False imprisonment and the merchant's defense</summary>
+        <div class="detail-body">
+          <p><strong>False imprisonment</strong> is the intentional, unlawful restraint of another person. A merchant may have a defense when it temporarily detains a suspected shoplifter in a <strong>reasonable manner</strong> and for a <strong>reasonable amount of time</strong>.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Privacy torts</summary>
+        <div class="detail-body">
+          <div class="three-grid">
+            <article class="info-card"><h4>Public disclosure</h4><p>Highly offensive disclosure of private facts that are not of legitimate public concern.</p></article>
+            <article class="info-card"><h4>Misappropriation</h4><p>Commercial use of another person's name, image, voice, or likeness without permission.</p></article>
+            <article class="info-card"><h4>False light</h4><p>Publication that seriously misleads or distorts the truth about a person, with knowledge of or reckless disregard for falsity.</p></article>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Interference with business relationships</summary>
+        <div class="detail-body">
+          <p><strong>Interference with an existing contract</strong> may occur when a defendant knows of a contract, actively and improperly induces a party to break it, and causes identifiable damages.</p>
+          <p><strong>Interference with prospective advantage</strong> protects some expected business relationships from highly anticompetitive or independently wrongful conduct. Merely offering a customer a better price is ordinarily competition—not tortious interference.</p>
+        </div>
+      </details>
+
+      <div class="activity" data-quiz>
+        <p class="activity-label">Quick classification</p>
+        <h3>Which intentional tort best fits?</h3>
+        <div class="scenario" data-answer="misappropriation" data-explanation="The gym used a person's image for a commercial purpose without permission, which points to misappropriation.">
+          <p>A gym places a local athlete's photograph in an advertisement without asking for permission.</p>
+          <div class="answer-row">
+            <label><span class="visually-hidden">Select a tort</span><select>
+              <option value="">Choose a tort</option>
+              <option value="defamation">Defamation</option>
+              <option value="misappropriation">Misappropriation</option>
+              <option value="fraud">Fraudulent misrepresentation</option>
+              <option value="interference">Contract interference</option>
+            </select></label>
+            <button class="check-btn" type="button">Check reasoning</button>
+          </div>
+          <p class="feedback" aria-live="polite"></p>
+        </div>
+        <div class="scenario" data-answer="interference" data-explanation="Knowledge of the existing contract plus active inducement to break it points to interference with an existing contractual relationship.">
+          <p>A competitor learns that a supplier has an exclusive contract with another company and pays the supplier to violate it.</p>
+          <div class="answer-row">
+            <label><span class="visually-hidden">Select a tort</span><select>
+              <option value="">Choose a tort</option>
+              <option value="defamation">Defamation</option>
+              <option value="misappropriation">Misappropriation</option>
+              <option value="fraud">Fraudulent misrepresentation</option>
+              <option value="interference">Contract interference</option>
+            </select></label>
+            <button class="check-btn" type="button">Check reasoning</button>
+          </div>
+          <p class="feedback" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="negligence">
+      <p class="section-kicker">Part 3</p>
+      <h2>Negligence: A Five-Element Chain</h2>
+      <p class="lead">Negligence applies when a party unintentionally causes harm by failing to act reasonably. The injured party must establish <strong>every element</strong>.</p>
+
+      <div class="formula" aria-label="Negligence elements">
+        <span>Duty</span><span class="plus">+</span><span>Breach</span><span class="plus">+</span><span>Cause in fact</span><span class="plus">+</span><span>Proximate cause</span><span class="plus">+</span><span>Actual damages</span>
+      </div>
+
+      <div class="steps" role="tablist" aria-label="Negligence elements">
+        <button class="step-btn active" type="button" role="tab" aria-selected="true" data-step="duty">1. Duty</button>
+        <button class="step-btn" type="button" role="tab" aria-selected="false" data-step="breach">2. Breach</button>
+        <button class="step-btn" type="button" role="tab" aria-selected="false" data-step="fact">3. Cause in fact</button>
+        <button class="step-btn" type="button" role="tab" aria-selected="false" data-step="proximate">4. Proximate cause</button>
+        <button class="step-btn" type="button" role="tab" aria-selected="false" data-step="damages">5. Damages</button>
+      </div>
+      <div class="step-panel" id="stepPanel" tabindex="-1" aria-live="polite"></div>
+
+      <h3>Special Duty and Breach Rules</h3>
+      <div class="two-grid">
+        <article class="info-card">
+          <h4>No general duty to rescue</h4>
+          <p>A person is ordinarily not liable simply for failing to act. A duty may arise from a special relationship, such as common carrier–passenger, innkeeper–guest, employer–employee, school–student, landlord–tenant, or business–visitor.</p>
+        </article>
+        <article class="info-card">
+          <h4>Assumption of duty</h4>
+          <p>A person who voluntarily begins helping must use reasonable care while providing that assistance.</p>
+        </article>
+        <article class="info-card">
+          <h4>Negligence per se</h4>
+          <p>Violation of a safety statute can create a strong presumption of breach when the statute was intended to prevent the kind of harm that occurred.</p>
+        </article>
+        <article class="info-card">
+          <h4><em>Res ipsa loquitur</em></h4>
+          <p>“The thing speaks for itself.” Certain facts may support an inference of negligence even when the injured party cannot show exactly what the defendant did wrong.</p>
+        </article>
+      </div>
+
+      <h3>Defenses to Negligence</h3>
+      <div class="two-grid">
+        <article class="info-card"><h4>Comparative negligence</h4><p>If the injured party also acted negligently, responsibility is assigned by percentage and recovery may be reduced under the state's rule.</p></article>
+        <article class="info-card"><h4>Assumption of the risk</h4><p>The injured party knew of a substantial, apparent risk and voluntarily chose to proceed with the dangerous activity.</p></article>
+      </div>
+    </section>
+
+    <section id="strict">
+      <p class="section-kicker">Part 4</p>
+      <h2>Strict Liability</h2>
+      <p class="lead">Strict liability may apply even when the defendant did not intend harm and used reasonable care. The doctrine focuses on who should bear the cost of certain unusually dangerous risks.</p>
+      <div class="callout"><strong>Two major settings:</strong> abnormally dangerous activities and defective products.</div>
+
+      <h3>Is the Activity Abnormally Dangerous?</h3>
+      <p>Courts weigh a group of factors rather than relying on one automatic rule.</p>
+      <div class="factor-grid">
+        <div class="factor"><strong>1. High degree of risk</strong>How likely is harm?</div>
+        <div class="factor"><strong>2. Serious potential harm</strong>How great could the damage be?</div>
+        <div class="factor"><strong>3. Care cannot remove risk</strong>Does danger remain despite reasonable care?</div>
+        <div class="factor"><strong>4. Uncommon activity</strong>Is it outside ordinary community usage?</div>
+        <div class="factor"><strong>5. Location</strong>Is the activity inappropriate where it occurs?</div>
+        <div class="factor"><strong>6. Community value</strong>Do the benefits outweigh the dangerous attributes?</div>
+      </div>
+
+      <div class="activity" data-quiz>
+        <p class="activity-label">Apply the distinction</p>
+        <h3>Choose the most likely liability category</h3>
+        <div class="scenario" data-answer="strict" data-explanation="Blasting with explosives may remain highly dangerous even when conducted carefully, making strict liability the strongest starting point.">
+          <p>A contractor carefully uses explosives for blasting, but flying debris damages a nearby building.</p>
+          <div class="answer-row">
+            <label><span class="visually-hidden">Select liability category</span><select>
+              <option value="">Choose a category</option>
+              <option value="intentional">Intentional tort</option>
+              <option value="negligence">Negligence</option>
+              <option value="strict">Strict liability</option>
+            </select></label>
+            <button class="check-btn" type="button">Check reasoning</button>
+          </div>
+          <p class="feedback" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="products">
+      <p class="section-kicker">Part 5</p>
+      <h2>Products Liability</h2>
+      <p class="lead"><strong>Products liability</strong> is the potential liability of a manufacturer, retailer, or other seller when a product defect causes harm to a consumer.</p>
+
+      <h3>Three Theories of Recovery</h3>
+      <div class="tabs" role="tablist" aria-label="Products liability theories">
+        <button class="tab-btn active" type="button" role="tab" aria-selected="true" aria-controls="theory-negligence" data-tab="theory-negligence">Negligence</button>
+        <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="theory-warranty" data-tab="theory-warranty">Warranty</button>
+        <button class="tab-btn" type="button" role="tab" aria-selected="false" aria-controls="theory-strict" data-tab="theory-strict">Strict liability</button>
+      </div>
+      <div id="theory-negligence" class="tab-panel" role="tabpanel">
+        <h4>Focus: the seller's conduct</h4>
+        <p>A party that negligently manufactures or handles a product may be liable for injuries proximately caused by that carelessness. <em>MacPherson v. Buick</em> helped establish that manufacturers may owe duties beyond the immediate purchaser.</p>
+      </div>
+      <div id="theory-warranty" class="tab-panel" role="tabpanel" hidden>
+        <h4>Focus: promises about the product</h4>
+        <p>Warranty theory protects buyers when a product fails to satisfy an express promise or an implied warranty concerning its quality or fitness.</p>
+      </div>
+      <div id="theory-strict" class="tab-panel" role="tabpanel" hidden>
+        <h4>Focus: the defective product</h4>
+        <p>Under Restatement §402A, a commercial seller may be strictly liable when a product reaches the user in a defective condition that is unreasonably dangerous and the defect causes injury.</p>
+      </div>
+
+      <h3>What Counts as a Defect?</h3>
+      <p>A product must be defective and create danger beyond a reasonable consumer's expectations.</p>
+      <div class="defect-grid">
+        <article class="defect-card"><h4>Design defect</h4><p>The product line is designed in an unreasonably dangerous way, and a feasible alternative design may have reduced or avoided the foreseeable risk.</p></article>
+        <article class="defect-card"><h4>Manufacturing defect</h4><p>A mistake during production causes one unit or batch to depart from its intended design.</p></article>
+        <article class="defect-card"><h4>Inadequate warning</h4><p>A product carries a nonobvious risk, but the warnings or instructions do not reasonably communicate it.</p></article>
+      </div>
+
+      <h3>What Must Connect?</h3>
+      <div class="formula" aria-label="Products liability proof">
+        <span>Defect</span><span class="plus">+</span><span>Causation</span><span class="plus">+</span><span>Actual injury</span><span class="plus">=</span><span>Potential liability</span>
+      </div>
+
+      <h3>Seller's Defenses</h3>
+      <div class="three-grid">
+        <article class="info-card"><h4>Substantial change</h4><p>The product was materially altered after leaving the seller and before reaching the user.</p></article>
+        <article class="info-card"><h4>Assumption of the risk</h4><p>The user knew or should have known of the danger and deliberately continued for the user's own benefit.</p></article>
+        <article class="info-card"><h4>Product misuse</h4><p>The user handled the product in a way an ordinarily prudent person would not, especially when that use was not reasonably foreseeable.</p></article>
+      </div>
+
+      <div class="activity" data-quiz>
+        <p class="activity-label">Defect detective</p>
+        <h3>Identify the strongest defect category</h3>
+        <div class="scenario" data-answer="manufacturing" data-explanation="A production mistake caused this unit to depart from its intended design, pointing to a manufacturing defect.">
+          <p>A correctly designed toaster leaves the assembly line with a wire installed against the wrong terminal, causing an electrical fire.</p>
+          <div class="answer-row">
+            <label><span class="visually-hidden">Select defect type</span><select>
+              <option value="">Choose a defect type</option>
+              <option value="design">Design defect</option>
+              <option value="manufacturing">Manufacturing defect</option>
+              <option value="warning">Inadequate warning</option>
+            </select></label>
+            <button class="check-btn" type="button">Check reasoning</button>
+          </div>
+          <p class="feedback" aria-live="polite"></p>
+        </div>
+        <div class="scenario" data-answer="warning" data-explanation="The danger is tied to a nonobvious risk that the instructions fail to communicate, pointing to an inadequate warning.">
+          <p>An industrial cleaner can release toxic gas when mixed with a common household product, but the label does not mention the interaction.</p>
+          <div class="answer-row">
+            <label><span class="visually-hidden">Select defect type</span><select>
+              <option value="">Choose a defect type</option>
+              <option value="design">Design defect</option>
+              <option value="manufacturing">Manufacturing defect</option>
+              <option value="warning">Inadequate warning</option>
+            </select></label>
+            <button class="check-btn" type="button">Check reasoning</button>
+          </div>
+          <p class="feedback" aria-live="polite"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>Torts &amp; Product Liability</strong><br>
+  </footer>
+
+  <script>
+    const stepContent = {
+      duty: `<h3>1. Duty</h3><p>Did the defendant owe the injured party a legal duty?</p><ul class="clean-list"><li>General rule: act as a reasonably prudent person would under the circumstances.</li><li>There is ordinarily no general duty to rescue, but special relationships can create a duty to act.</li><li>Landowners and possessors of leased property have duties concerning unreasonable risks connected to the property.</li><li>Voluntarily beginning to help creates an obligation to proceed with reasonable care.</li></ul>`,
+      breach: `<h3>2. Breach of Duty</h3><p>Did the defendant fall below the required standard of reasonable care?</p><ul class="clean-list"><li><strong>Safety-statute violation:</strong> may support negligence per se.</li><li><strong>Common-law standard:</strong> compares the conduct with what a reasonably prudent person would have done.</li><li><strong><em>Res ipsa loquitur</em>:</strong> unusual facts may themselves support an inference of negligence.</li></ul>`,
+      fact: `<h3>3. Cause in Fact</h3><p>Use the <strong>but-for test</strong>: But for the defendant's breach, would the injury have happened?</p><p>This test can sweep broadly, so the analysis continues to proximate cause.</p>`,
+      proximate: `<h3>4. Proximate (Legal) Cause</h3><p>Was the injury sufficiently connected to the defendant's conduct and within the foreseeable risk?</p><ul class="clean-list"><li>An unforeseeable <strong>superseding cause</strong> may break the legal chain.</li><li>An intervening event does not automatically end liability; foreseeability matters.</li></ul>`,
+      damages: `<h3>5. Actual Damages</h3><p>Did the conduct cause a legally recognized injury or loss?</p><p>Examples include bodily injury, property damage, medical expense, lost income, and other proven harms. Some states also recognize certain related family claims.</p>`
+    };
+
+    function setStep(name, moveFocus = false) {
+      document.querySelectorAll('.step-btn').forEach(btn => {
+        const active = btn.dataset.step === name;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-selected', String(active));
+      });
+      const panel = document.getElementById('stepPanel');
+      panel.innerHTML = stepContent[name];
+      if (moveFocus) panel.focus();
+    }
+
+    setStep('duty');
+
+    document.querySelectorAll('.step-btn').forEach(btn => {
+      btn.addEventListener('click', () => setStep(btn.dataset.step));
+    });
+
+    document.querySelectorAll('.category-card button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.category-card');
+        const open = card.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+      });
+    });
+
+    document.querySelectorAll('.scenario .check-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const scenario = btn.closest('.scenario');
+        const select = scenario.querySelector('select');
+        const feedback = scenario.querySelector('.feedback');
+        const chosen = select.value;
+        const correct = chosen === scenario.dataset.answer;
+        feedback.className = 'feedback show ' + (correct ? 'correct' : 'incorrect');
+        feedback.textContent = !chosen
+          ? 'Choose an answer first, then check your reasoning.'
+          : correct
+            ? 'Yes. ' + scenario.dataset.explanation
+            : 'Take another look. ' + scenario.dataset.explanation;
+        saveActivity();
+      });
+    });
+
+    const boxes = [...document.querySelectorAll('#claimBuilder input')];
+    const claimStatus = document.getElementById('claimStatus');
+
+    function updateClaimStatus() {
+      if (!claimStatus) return;
+  const count = boxes.filter(box => box.checked).length;
+    }
+
+    boxes.forEach(box => box.addEventListener('change', updateClaimStatus));
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(other => {
+          const active = other === btn;
+          other.classList.toggle('active', active);
+          other.setAttribute('aria-selected', String(active));
+          document.getElementById(other.dataset.tab).hidden = !active;
+        });
+      });
+    });
+
+    const storageKey = 'buslaw-torts-product-liability-v1';
+const activityKey = storageKey + '-activity';
+
+    function saveActivity() {
+      try {
+        const selects = [...document.querySelectorAll('.scenario select')].map(el => el.value);
+        const checks = boxes.map(el => el.checked);
+        localStorage.setItem(activityKey, JSON.stringify({ selects, checks }));
+      } catch (error) { /* Interactive use still works if storage is blocked. */ }
+    }
+
+    function loadActivity() {
+      try {
+        const data = JSON.parse(localStorage.getItem(activityKey) || '{}');
+        if (Array.isArray(data.selects)) {
+          document.querySelectorAll('.scenario select').forEach((el, i) => { el.value = data.selects[i] || ''; });
+        }
+        if (Array.isArray(data.checks)) {
+          boxes.forEach((el, i) => { el.checked = Boolean(data.checks[i]); });
+          updateClaimStatus();
+        }
+      } catch (error) { /* Ignore malformed or unavailable storage. */ }
+    }
+
+    document.querySelectorAll('.scenario select').forEach(select => select.addEventListener('change', saveActivity));
+
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
+
+    loadActivity();
+  </script>
+</body>
+</html>

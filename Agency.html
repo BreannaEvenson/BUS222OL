@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BUS 222 | Agency Law — Regulation in the Workplace</title>
+<style>
+  :root{--red:#c8102e;--red-dark:#930d23;--ink:#333333;--slate:#455560;--pale:#f4f4f4;--white:#fff;--line:#d9dfe3;--green:#216d56;--green-bg:#e8f5ef;--warm:#fff5e8;--round:16px}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--pale);color:var(--ink);font:16px/1.57 Arial,Helvetica,sans-serif}
+  .skip{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+  .skip:focus{left:16px;top:14px;width:auto;height:auto;background:white;color:var(--ink);z-index:99;padding:10px}
+  .shell{width:min(1120px,calc(100% - 32px));margin:0 auto}
+  .topline{background:var(--ink);color:white}
+  .topline .shell{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:11px 0;font-size:.77rem;font-weight:bold;letter-spacing:.12em}
+  .topline strong{color:#ffccd4}
+  header.hero{color:white;background:linear-gradient(125deg,#851026 0%,var(--red) 62%,#dd3150 100%);padding:44px 0 40px}
+  .eyebrow{font-size:.77rem;letter-spacing:.17em;font-weight:800;text-transform:uppercase;margin:0 0 12px}
+  h1{font-size:clamp(2rem,5vw,3.65rem);line-height:1.09;letter-spacing:-.035em;max-width:800px;margin:0 0 18px}
+  .hero p{font-size:1.08rem;max-width:780px;margin:0;color:#fff5f6}
+  .tag{display:inline-block;border:1px solid #f9b0c0;border-radius:99px;padding:5px 11px;font-size:.78rem;font-weight:700;margin-top:19px;color:white}
+  .navwrap{background:white;border-bottom:1px solid var(--line)}
+  nav{display:flex;flex-wrap:wrap;gap:7px;padding:12px 0}
+  nav a{display:inline-block;color:var(--slate);background:#edf0f2;border:1px solid transparent;border-radius:9px;padding:7px 11px;text-decoration:none;font-size:.83rem;font-weight:700}
+  nav a:hover,nav a:focus-visible{background:#ffe9ee;color:var(--red-dark);border-color:#eeadbb}
+  main{padding:28px 0 60px}
+  section,details.module{scroll-margin-top:16px}
+  .panel{background:white;border:1px solid var(--line);border-radius:var(--round);box-shadow:0 5px 24px rgba(36,49,59,.035);padding:27px;margin-bottom:23px}
+  h2{font-size:1.75rem;line-height:1.2;letter-spacing:-.025em;color:var(--ink);margin:0 0 11px}
+  h3{font-size:1.16rem;line-height:1.3;margin:0 0 9px}
+  p{margin:0 0 12px} p:last-child{margin-bottom:0}
+  .bar{border-left:5px solid var(--red);padding:12px 17px;background:#fff2f5;border-radius:0 10px 10px 0;margin:18px 0}
+  .note{background:#eff3f5;border-left:4px solid var(--slate);padding:13px 17px;border-radius:0 10px 10px 0;margin:15px 0;font-size:.94rem}
+  .eyeline{color:var(--red-dark);font-size:.77rem;letter-spacing:.1em;font-weight:800;margin-bottom:7px;text-transform:uppercase}
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+  .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px}
+  .mini{padding:17px;background:#f7f9fa;border:1px solid var(--line);border-radius:12px}
+  .mini h3{color:var(--slate)}
+  .mini p{font-size:.94rem;color:#404b53}
+  .number{display:inline-grid;place-items:center;background:var(--red);color:white;width:29px;height:29px;border-radius:9px;font-size:.91rem;font-weight:800;margin-right:7px}
+  .module-controls{display:flex;gap:9px;flex-wrap:wrap;margin:0 0 13px}
+  button{font:inherit;cursor:pointer} button:focus-visible,a:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #e79a1e;outline-offset:3px}
+  .btn{border:1px solid var(--slate);background:white;color:var(--slate);border-radius:9px;padding:9px 13px;font-weight:800;font-size:.86rem}
+  .btn:hover{background:#edf2f5}
+  .btn.primary{background:var(--red);color:#fff;border-color:var(--red)}
+  .btn.primary:hover{background:var(--red-dark)}
+  details.module{background:white;border:1px solid var(--line);border-radius:var(--round);margin:13px 0;box-shadow:0 3px 14px rgba(22,34,47,.025);overflow:hidden}
+  details.module[open]{border-color:#b6c0c7}
+  details.module>summary{list-style:none;display:flex;align-items:center;gap:13px;padding:18px 22px;font-size:1.18rem;font-weight:800;line-height:1.35;cursor:pointer}
+  details.module>summary::-webkit-details-marker{display:none}
+  details.module>summary:after{content:'+';margin-left:auto;font-size:1.7rem;line-height:1;color:var(--red)}
+  details.module[open]>summary:after{content:'−'}
+  details.module>summary:hover{background:#fbf4f6}
+  .module-inner{padding:3px 22px 24px;border-top:1px solid #e8ebed}
+  .module-inner>p:first-child{margin-top:19px}
+  .sectionlabel{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:800;color:var(--slate);margin:22px 0 9px}
+  .activity{border:1px solid #edc4ce;border-radius:13px;background:#fffafb;padding:19px;margin-top:21px}
+  .activity h3{color:var(--red-dark)}
+  .activity .instruction{color:#4a565e;font-size:.93rem;margin-bottom:12px}
+  .choices{display:flex;flex-wrap:wrap;gap:9px;margin:14px 0 10px}
+  .choice{background:white;color:var(--ink);border:1px solid #a8b4bd;border-radius:9px;padding:10px 14px;font-weight:700}
+  .choice:hover{background:#f0f4f6}
+  .choice[aria-pressed="true"]{background:var(--slate);color:#fff;border-color:var(--slate)}
+  .feedback{margin-top:12px;padding:12px 14px;background:#f0f3f4;color:var(--slate);border-radius:9px;font-size:.95rem;min-height:47px}
+  .feedback.correct{background:var(--green-bg);color:#174d3c}
+  .feedback.try{background:var(--warm);color:#674b14}
+  .cardtitle{font-weight:800;color:var(--red-dark);font-size:.96rem;margin:0 0 6px}
+  .relationship{display:flex;align-items:stretch;gap:7px;flex-wrap:wrap;margin:17px 0}
+  .relationship span{flex:1;min-width:150px;padding:15px;background:#f1f4f6;border:1px solid var(--line);border-radius:11px;text-align:center}
+  .relationship b{display:block;color:var(--red-dark)}
+  .relationship .arr{flex:0 0 30px;min-width:0;align-content:center;border:0;background:transparent;font-weight:900;font-size:1.3rem;color:var(--red)}
+  .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px;margin:14px 0}
+  .step{border-top:5px solid var(--red);background:#f6f8f9;border-radius:8px;padding:13px}
+  .step .n{font-weight:800;color:var(--red-dark);font-size:.74rem;letter-spacing:.11em}
+  .step strong{display:block;margin:3px 0 5px}
+  .step p{font-size:.9rem}
+  ul.clean{padding-left:21px;margin:8px 0 15px} ul.clean li{margin-bottom:6px}
+  .scroll{overflow:auto;border:1px solid var(--line);border-radius:9px;margin:12px 0}
+  table{width:100%;border-collapse:collapse;font-size:.91rem}
+  th{background:#edf1f3;color:#374550;text-align:left}
+  td,th{border-bottom:1px solid var(--line);padding:11px 13px;vertical-align:top}
+  tr:last-child td{border-bottom:0}
+  label{font-weight:800;display:block;margin:10px 0 5px}
+  select{max-width:100%;width:100%;background:white;border:1px solid #a2b1bb;padding:10px;border-radius:8px;font:inherit;color:var(--ink)}
+  .practice-row{display:grid;grid-template-columns:1fr 210px;gap:13px;align-items:center;padding:11px 0;border-top:1px solid #eee}
+  .practice-row:first-of-type{border-top:0}
+  .small{font-size:.87rem;color:#5b666f}
+  .quiz-item{border:1px solid var(--line);border-radius:13px;padding:18px;margin:14px 0;background:#fff}
+  .quiz-item legend{font-weight:800;padding:0 0 9px}
+  .quiz-item label{font-weight:400;display:flex;gap:10px;align-items:start;border:1px solid #e0e5e8;border-radius:8px;padding:9px 11px;margin:7px 0;cursor:pointer}
+  .quiz-item label:hover{background:#f7f9fa}
+  .quiz-item input{margin-top:5px;accent-color:var(--red);flex-shrink:0}
+  .quiz-item .result{margin-top:10px;font-size:.91rem;display:none;border-radius:8px;padding:10px}
+  .quiz-item .result.show{display:block}
+  .quiz-item .result.correct{background:var(--green-bg);color:#18543f}
+  .quiz-item .result.try{background:var(--warm);color:#664918}
+  .score{background:#e9f0f3;border-radius:10px;margin:14px 0;padding:15px;font-weight:800}
+  footer{font-size:.84rem;color:#66717a;padding:13px 0 40px}
+  @media(max-width:750px){.grid,.grid3,.steps{grid-template-columns:1fr}.practice-row{grid-template-columns:1fr}.panel{padding:21px}.module-inner{padding:3px 17px 20px}details.module>summary{padding:17px}.relationship .arr{display:none}}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  @media print{body{background:white}header.hero{background:white;color:#222;border-bottom:5px solid var(--red)}.hero p{color:#222}.tag{color:#222;border-color:#222}.topline,.navwrap,.module-controls,.btn{display:none!important}.panel,details.module{box-shadow:none;break-inside:avoid}.module-inner{display:block!important}.activity{break-inside:avoid}main{padding-top:10px}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to chapter content</a>
+<div class="topline"><div class="shell"><span>BUS 222 · BUSINESS LAW</span><strong>REGULATION IN THE WORKPLACE</strong></div></div>
+<header class="hero"><div class="shell">
+  <p class="eyebrow">Unit introduction · Chapter study page</p>
+  <h1>Agency Law: Who Acts for Whom?</h1>
+  <p>Before studying employment law, learn how an agency relationship begins, the authority an agent may exercise, and when principals and agents may be legally responsible for their actions.</p>
+  <span class="tag">Explore the chapter · Practice as you go · Check your understanding</span>
+</div></header>
+<div class="navwrap"><nav class="shell" aria-label="Page sections">
+  <a href="#overview">Overview</a><a href="#m1">1 · Basics</a><a href="#m2">2 · Agent types</a><a href="#m3">3 · Creation</a><a href="#m4">4 · Liability</a><a href="#m5">5 · Duties</a><a href="#m6">6 · Termination</a><a href="#review">Self-check</a>
+</nav></div>
+<main id="main" class="shell">
+  <section class="panel" id="overview" aria-labelledby="overview-title">
+    <div class="eyeline">Start here</div>
+    <h2 id="overview-title">Chapter overview</h2>
+    <p>This chapter introduces the next unit, <strong>Regulation in the Workplace</strong>. Its starting point is <strong>agency</strong>: the legal relationship that allows one person to act on behalf of another. You'll examine how agency relationships are classified and created, what authority an agent can exercise, how liability works, and the duties owed by principals and agents.</p>
+    <div class="bar"><strong>What's next?</strong> The following chapter moves from agency into specific employment relationships, including the <em>employment-at-will doctrine</em>.</div>
+    <div class="sectionlabel">After this chapter, you should be able to…</div>
+    <div class="grid">
+      <div class="mini"><strong>01 · Define</strong><p>Identify the principal, agent, and third party in a transaction.</p></div>
+      <div class="mini"><strong>02 · Distinguish</strong><p>Compare employee agents, independent contractor agents, and gratuitous agents.</p></div>
+      <div class="mini"><strong>03 · Explain</strong><p>Describe consent, control, creation, authority, and termination.</p></div>
+      <div class="mini"><strong>04 · Apply</strong><p>Analyze contract and tort liability, fiduciary duties, and available remedies.</p></div>
+    </div>
+    <div class="note"><strong>How to use this page:</strong> Open each numbered section, read the short explanation, and complete its interactive practice. This is an ungraded study resource; nothing is submitted to Canvas automatically.</div>
+  </section>
+  <div class="module-controls" aria-label="Section controls"><button type="button" id="openAll" class="btn">Expand all sections</button><button type="button" id="closeAll" class="btn">Collapse all sections</button></div>
+
+  <details class="module" id="m1" open>
+    <summary><span class="number">1</span> Agency basics: principal, agent, and control</summary>
+    <div class="module-inner">
+      <p><strong>Agency</strong> exists when an agent agrees to act on behalf of a <strong>principal</strong>, subject to the principal's control. A <strong>third party</strong> is someone outside that relationship who deals with the agent.</p>
+      <div class="relationship" aria-label="Principal authorizes agent who deals with a third party">
+        <span><b>Principal</b>Authorizes another to act</span><span class="arr" aria-hidden="true">→</span><span><b>Agent</b>Acts on the principal's behalf</span><span class="arr" aria-hidden="true">→</span><span><b>Third party</b>Deals with the agent</span>
+      </div>
+      <p>Agency law commonly operates alongside <strong>contract law</strong> (who is bound by an agreement?) and <strong>tort law</strong> (who may be responsible for injuries or other wrongful acts?).</p>
+      <div class="activity" id="rolesActivity">
+        <h3>Try it: identify the three roles</h3>
+        <p class="instruction">A café owner, Maya, authorizes her shift lead, Jordan, to purchase new equipment from SupplyCo. Jordan places the order with SupplyCo.</p>
+        <div class="grid3">
+          <div><label for="roleMaya">Maya is the…</label><select id="roleMaya"><option value="">Choose a role</option><option>Principal</option><option>Agent</option><option>Third party</option></select></div>
+          <div><label for="roleJordan">Jordan is the…</label><select id="roleJordan"><option value="">Choose a role</option><option>Principal</option><option>Agent</option><option>Third party</option></select></div>
+          <div><label for="roleSupply">SupplyCo is the…</label><select id="roleSupply"><option value="">Choose a role</option><option>Principal</option><option>Agent</option><option>Third party</option></select></div>
+        </div>
+        <button type="button" class="btn primary" id="checkRoles">Check roles</button>
+        <div id="roleFeedback" class="feedback" aria-live="polite">Select a role for each person or business, then check your answers.</div>
+      </div>
+    </div>
+  </details>
+
+  <details class="module" id="m2">
+    <summary><span class="number">2</span> Types of agents and worker classification</summary>
+    <div class="module-inner">
+      <p>The chapter introduces three broad categories of agents. The amount of <strong>direction and control</strong> the principal exercises is an important factor in distinguishing an employee from an independent contractor.</p>
+      <div class="grid3">
+        <div class="mini"><h3>Employee agent</h3><p>An employee authorized to act for the employer or principal. The business may direct both the work and how the work is performed.</p></div>
+        <div class="mini"><h3>Independent contractor agent</h3><p>A separate worker or business authorized to act for a principal, generally with greater independence over the methods used to accomplish the work.</p></div>
+        <div class="mini"><h3>Gratuitous agent</h3><p>Someone who agrees to act on a principal's behalf without compensation. Payment is not required to create an agency relationship.</p></div>
+      </div>
+      <h3 class="sectionlabel">The IRS looks at three groups of facts</h3>
+      <div class="grid3">
+        <div class="mini"><div class="cardtitle">Behavioral control</div><p>Who directs when, where, and how the work is done? What instructions or training are required?</p></div>
+        <div class="mini"><div class="cardtitle">Financial control</div><p>Who supplies the tools, pays expenses, sets payment arrangements, or bears business risk?</p></div>
+        <div class="mini"><div class="cardtitle">Relationship</div><p>Is the arrangement ongoing? Are benefits provided? Is the work a key part of the business?</p></div>
+      </div>
+      <details class="mini" style="margin-top:15px"><summary style="cursor:pointer;font-weight:800">Additional reading: the ABC test</summary>
+        <p style="margin-top:10px">Some state laws apply an <strong>ABC test</strong> to particular worker-classification questions. The details vary by jurisdiction and applicable law. In its common form, the business must establish that the worker:</p>
+        <ul class="clean"><li><strong>A:</strong> Is free from direction and control in performing the work.</li><li><strong>B:</strong> Performs work outside the business's usual course of business.</li><li><strong>C:</strong> Is customarily engaged in an independently established business of the same nature.</li></ul>
+        <p class="small">Your chapter's California gig-work discussion provides historical context; don't assume one state's rule applies everywhere or that the text describes the latest litigation or exceptions.</p>
+      </details>
+      <div class="note"><strong>Important distinction:</strong> Calling someone an “independent contractor” in an agreement does not, by itself, settle their legal status. Different federal and state laws may use different tests.</div>
+      <div class="activity" id="factorActivity"><h3>Quick check: which IRS factor?</h3><p class="instruction">A company requires a worker to follow a detailed script and sets the worker's daily schedule. Which group of facts does this most directly illustrate?</p>
+        <div class="choices" role="group" aria-label="IRS classification factor"><button type="button" class="choice" data-factor="behavioral" aria-pressed="false">Behavioral control</button><button type="button" class="choice" data-factor="financial" aria-pressed="false">Financial control</button><button type="button" class="choice" data-factor="relationship" aria-pressed="false">Relationship</button></div>
+        <div id="factorFeedback" class="feedback" aria-live="polite">Choose the factor that fits the example.</div>
+      </div>
+    </div>
+  </details>
+
+  <details class="module" id="m3">
+    <summary><span class="number">3</span> Creating and ending an agency transaction</summary>
+    <div class="module-inner">
+      <p>An agency transaction typically moves through three phases. A written contract can establish agency, but <strong>the parties' words and conduct</strong> may also show the necessary consent and control.</p>
+      <div class="steps"><div class="step"><span class="n">PHASE 1</span><strong>Creation</strong><p>The principal manifests consent for the agent to act on the principal's behalf, subject to control, and the agent agrees.</p></div><div class="step"><span class="n">PHASE 2</span><strong>Performance</strong><p>The agent acts within the role and authority granted; both parties carry out their duties.</p></div><div class="step"><span class="n">PHASE 3</span><strong>Termination</strong><p>The relationship ends through the parties' actions or, in certain circumstances, operation of law.</p></div></div>
+      <div class="activity" id="creationActivity"><h3>Think about it: can conduct create agency?</h3><p class="instruction">A business owner repeatedly asks a trusted employee to negotiate routine supplier orders on the owner's behalf. The employee agrees and handles those transactions, although nothing has been signed.</p>
+        <div class="choices" role="group" aria-label="Can conduct create an agency"><button type="button" class="choice" data-creation="yes" aria-pressed="false">Yes, possibly</button><button type="button" class="choice" data-creation="no" aria-pressed="false">No, a written contract is required</button></div>
+        <div id="creationFeedback" class="feedback" aria-live="polite">Select the answer that best fits the chapter.</div>
+      </div>
+    </div>
+  </details>
+
+  <details class="module" id="m4">
+    <summary><span class="number">4</span> Authority, contracts, and tort liability</summary>
+    <div class="module-inner">
+      <p>Whether a principal is bound by an agent's contract often depends on the agent's <strong>authority</strong>. In tort cases, the key question is often whether the wrongful act occurred within the <strong>scope of employment</strong>.</p>
+      <div class="grid">
+        <div class="mini"><h3>Express actual authority</h3><p>The principal directly authorizes the agent to do something.</p><p class="small"><em>Example:</em> “You may order $500 in supplies.”</p></div>
+        <div class="mini"><h3>Implied actual authority</h3><p>Authority follows reasonably from the assigned task, prior dealings, or ordinary practices.</p><p class="small"><em>Example:</em> A purchasing manager routinely orders ordinary supplies.</p></div>
+        <div class="mini"><h3>Apparent authority</h3><p>The principal's conduct leads a third party reasonably to believe the agent has authority, even if actual authority is lacking.</p><p class="small"><em>Example:</em> The owner presents someone as the purchasing manager to vendors.</p></div>
+        <div class="mini"><h3>Ratification</h3><p>The principal later affirms an agent's previously unauthorized transaction, potentially making it binding.</p><p class="small"><em>Example:</em> The owner knowingly approves the unauthorized purchase afterward.</p></div>
+      </div>
+      <div class="activity" id="authorityActivity"><h3>Scenario lab: name the authority</h3><p id="authorityPrompt" class="instruction"></p>
+        <div class="choices" role="group" aria-label="Authority categories"><button type="button" class="choice" data-authority="express" aria-pressed="false">Express actual</button><button type="button" class="choice" data-authority="implied" aria-pressed="false">Implied actual</button><button type="button" class="choice" data-authority="apparent" aria-pressed="false">Apparent</button><button type="button" class="choice" data-authority="ratification" aria-pressed="false">Ratification</button></div>
+        <div id="authorityFeedback" class="feedback" aria-live="polite">Choose an answer, then try the next example.</div><button type="button" id="nextAuthority" class="btn" style="margin-top:12px">Next scenario →</button>
+      </div>
+      <h3 class="sectionlabel">Contract liability: was the principal disclosed?</h3>
+      <div class="scroll"><table><thead><tr><th scope="col">Agency</th><th scope="col">What the third party knows</th><th scope="col">General contractual consequence</th></tr></thead><tbody>
+        <tr><td><strong>Fully disclosed</strong></td><td>The agent acts for a principal, and the principal's identity is known.</td><td>An authorized agent generally does not incur personal contract liability; the principal is bound.</td></tr>
+        <tr><td><strong>Partially disclosed</strong></td><td>The third party knows an agent represents someone but does not know the principal's identity.</td><td>Both the principal and agent may be liable.</td></tr>
+        <tr><td><strong>Undisclosed</strong></td><td>The third party believes the agent acts on their own behalf.</td><td>The agent is liable; the undisclosed principal may also be liable under applicable law.</td></tr>
+      </tbody></table></div>
+      <h3 class="sectionlabel">Tort liability: respondeat superior</h3>
+      <p>Under <strong>respondeat superior</strong>, an employer may be vicariously liable for an employee's tort when it occurs within the scope of employment. The chapter distinguishes a minor work-related <strong>detour</strong> from a substantial personal <strong>frolic</strong>. It also introduces the going-and-coming rule, intentional torts, negligent hiring, and independent-contractor exceptions.</p>
+      <div class="note"><strong>Keep the issues separate:</strong> Contract authority, vicarious tort liability, and negligent hiring are different routes to liability. The result can depend on the facts and the jurisdiction.</div>
+    </div>
+  </details>
+
+  <details class="module" id="m5">
+    <summary><span class="number">5</span> Duties, obligations, and remedies</summary>
+    <div class="module-inner">
+      <p>The principal–agent relationship is <strong>fiduciary</strong>: an agent must act with particular care for the principal's interests. The chapter identifies five core duties.</p>
+      <div class="grid">
+        <div class="mini"><h3>Loyalty</h3><p>Put the principal's interests ahead of conflicting personal interests in agency matters.</p></div>
+        <div class="mini"><h3>Obedience</h3><p>Follow the principal's <em>lawful</em> directions within the scope of the agency.</p></div>
+        <div class="mini"><h3>Care</h3><p>Use the care and skill a reasonable person would exercise in carrying out the assignment.</p></div>
+        <div class="mini"><h3>Disclosure</h3><p>Keep the principal informed of material information relevant to the agency.</p></div>
+        <div class="mini"><h3>Accounting</h3><p>Maintain appropriate records for money and property handled for the principal.</p></div>
+        <div class="mini"><h3>The principal's duties</h3><p>Under applicable rules and the agreement, reimburse authorized expenses and indemnify for certain covered losses.</p></div>
+      </div>
+      <p class="small" style="margin-top:13px">Possible remedies discussed in the reading include damages, indemnification, rescission, and disgorgement of profits from a loyalty breach. The applicable remedy depends on the violation and the facts.</p>
+      <div class="activity" id="dutyActivity"><h3>Match the agent's duty</h3><p class="instruction">Choose which fiduciary duty is most directly illustrated by each example.</p>
+        <div class="practice-row"><div><strong>1.</strong> The agent reports a supplier's hidden conflict of interest to the principal.</div><select data-duty="Disclosure" aria-label="Duty in example one"><option value="">Select duty</option><option>Loyalty</option><option>Obedience</option><option>Care</option><option>Disclosure</option><option>Accounting</option></select></div>
+        <div class="practice-row"><div><strong>2.</strong> The agent keeps accurate records of all money received for the business.</div><select data-duty="Accounting" aria-label="Duty in example two"><option value="">Select duty</option><option>Loyalty</option><option>Obedience</option><option>Care</option><option>Disclosure</option><option>Accounting</option></select></div>
+        <div class="practice-row"><div><strong>3.</strong> The agent refuses a secret payment to steer business to an expensive vendor.</div><select data-duty="Loyalty" aria-label="Duty in example three"><option value="">Select duty</option><option>Loyalty</option><option>Obedience</option><option>Care</option><option>Disclosure</option><option>Accounting</option></select></div>
+        <div class="practice-row"><div><strong>4.</strong> The agent follows the principal's lawful instructions for handling an order.</div><select data-duty="Obedience" aria-label="Duty in example four"><option value="">Select duty</option><option>Loyalty</option><option>Obedience</option><option>Care</option><option>Disclosure</option><option>Accounting</option></select></div>
+        <div class="practice-row"><div><strong>5.</strong> The agent checks contract details carefully before placing a major order.</div><select data-duty="Care" aria-label="Duty in example five"><option value="">Select duty</option><option>Loyalty</option><option>Obedience</option><option>Care</option><option>Disclosure</option><option>Accounting</option></select></div>
+        <button type="button" class="btn primary" id="checkDuties">Check matches</button><div id="dutyFeedback" class="feedback" aria-live="polite">Match all five examples to check your understanding.</div>
+      </div>
+    </div>
+  </details>
+
+  <details class="module" id="m6">
+    <summary><span class="number">6</span> Termination of an agency relationship</summary>
+    <div class="module-inner">
+      <p>Agency authority can end through the parties' own actions or through <strong>operation of law</strong>. Consider both the end of <em>actual authority</em> and the possibility that third parties may still believe the agent is authorized.</p>
+      <div class="grid">
+        <div class="mini"><h3>Express acts</h3><ul class="clean"><li>The principal or agent communicates an end to the relationship.</li><li>An agreed fixed term expires.</li><li>The agency's stated purpose is accomplished.</li></ul></div>
+        <div class="mini"><h3>Operation of law</h3><ul class="clean"><li>Destruction of essential subject matter.</li><li>Death or certain changes in legal capacity.</li><li>Some bankruptcy-related circumstances.</li></ul><p class="small">Specific rules and exceptions vary.</p></div>
+      </div>
+      <div class="bar"><strong>Think ahead:</strong> If a business ends an agent's authority but does not notify vendors who have dealt with the agent, what risk might remain? Consider the concept of <em>apparent authority</em>.</div>
+    </div>
+  </details>
+
+  <section class="panel" id="review" aria-labelledby="review-title" style="margin-top:24px">
+    <div class="eyeline">Ungraded · Self-check</div><h2 id="review-title">Check your understanding</h2>
+    <p>Use these questions to connect the major ideas before moving into employment law. Your answers stay on this page and are not sent to Canvas.</p>
+    <div id="quiz"></div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:13px"><button type="button" id="gradeQuiz" class="btn primary">Check my answers</button><button type="button" id="resetQuiz" class="btn">Try again</button></div>
+    <div id="quizScore" class="score" aria-live="polite" hidden></div>
+  </section>
+</main>
+<footer class="shell">BUS 222 · Regulation in the Workplace · Interactive chapter companion · For classroom use</footer>
+<script>
+(function(){
+  'use strict';
+  const $ = (id)=>document.getElementById(id);
+  const modules = Array.from(document.querySelectorAll('details.module'));
+  $('openAll').addEventListener('click',()=>modules.forEach(m=>m.open=true));
+  $('closeAll').addEventListener('click',()=>modules.forEach(m=>m.open=false));
+  document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>{
+    const target=$(a.getAttribute('href').slice(1)); if(target && target.tagName==='DETAILS')target.open=true;
+  }));
+  function choose(buttons, selected){buttons.forEach(b=>b.setAttribute('aria-pressed',String(b===selected)));}
+  function feedback(el,msg,isCorrect){el.textContent=msg;el.className='feedback '+(isCorrect?'correct':'try');}
+  $('checkRoles').addEventListener('click',()=>{
+    const picks=[$('roleMaya').value,$('roleJordan').value,$('roleSupply').value];
+    if(picks.some(p=>!p)){feedback($('roleFeedback'),'Choose all three roles before checking.',false);return;}
+    const right=['Principal','Agent','Third party'];
+    const n=picks.filter((p,i)=>p===right[i]).length;
+    feedback($('roleFeedback'),n===3?'Correct! Maya authorizes the purchase, Jordan acts for Maya, and SupplyCo is the third party.':n+' of 3 correct. Hint: Who authorizes? Who acts? Who deals with the agent?',n===3);
+  });
+  const factorBtns=Array.from(document.querySelectorAll('[data-factor]'));
+  factorBtns.forEach(b=>b.addEventListener('click',()=>{
+    choose(factorBtns,b);
+    const correct=b.dataset.factor==='behavioral';
+    feedback($('factorFeedback'),correct?'Correct. Required scripts and set hours are evidence of behavioral control. Remember to evaluate all relevant factors, not just this example.':'Not quite. Look for the category that asks who controls HOW the task is performed.',correct);
+  }));
+  const creationBtns=Array.from(document.querySelectorAll('[data-creation]'));
+  creationBtns.forEach(b=>b.addEventListener('click',()=>{
+    choose(creationBtns,b);
+    const correct=b.dataset.creation==='yes';
+    feedback($('creationFeedback'),correct?'Correct. Agency may arise through manifestations of consent and conduct, even without a signed document.':'A written contract is not always required. The parties’ conduct can show consent and control.',correct);
+  }));
+  const cases=[
+    {prompt:'The café owner tells the shift lead: “You may order up to $400 in coffee beans for the shop.” The shift lead places a $300 order.',answer:'express',why:'The principal directly granted authority for this purchase.'},
+    {prompt:'A café manager is assigned responsibility for keeping the café stocked and routinely purchases ordinary supplies needed to do that job.',answer:'implied',why:'The authority reasonably follows from the assigned job and normal practices.'},
+    {prompt:'The owner introduces an employee to a vendor as the café’s purchasing manager. The vendor reasonably relies on that introduction when the employee orders supplies, even though the owner privately limited the employee’s authority.',answer:'apparent',why:'The third party reasonably relied on the principal’s outward representation.'},
+    {prompt:'An employee orders an expensive replacement machine without authority. The owner later learns the full facts and expressly approves the purchase.',answer:'ratification',why:'The principal affirms the previously unauthorized transaction after the fact.'}
+  ];
+  let caseIndex=0;const authBtns=Array.from(document.querySelectorAll('[data-authority]'));
+  function showCase(){
+    $('authorityPrompt').textContent='Scenario '+(caseIndex+1)+' of '+cases.length+': '+cases[caseIndex].prompt;
+    $('authorityFeedback').textContent='Choose the authority that fits this scenario.';$('authorityFeedback').className='feedback';
+    authBtns.forEach(b=>b.setAttribute('aria-pressed','false'));
+    $('nextAuthority').textContent=caseIndex===cases.length-1?'Start scenarios again ↺':'Next scenario →';
+  }
+  authBtns.forEach(b=>b.addEventListener('click',()=>{
+    choose(authBtns,b);const c=cases[caseIndex],correct=b.dataset.authority===c.answer;
+    feedback($('authorityFeedback'),correct?'Correct! '+c.why:'Try again. Hint: Was permission direct, implied by the job, communicated to an outsider by the principal, or approved later?',correct);
+  }));
+  $('nextAuthority').addEventListener('click',()=>{caseIndex=(caseIndex+1)%cases.length;showCase();});showCase();
+  $('checkDuties').addEventListener('click',()=>{
+    const selects=Array.from(document.querySelectorAll('[data-duty]'));
+    if(selects.some(s=>!s.value)){feedback($('dutyFeedback'),'Complete all five matches first.',false);return;}
+    const right=selects.filter(s=>s.value===s.dataset.duty).length;
+    feedback($('dutyFeedback'),right===5?'5 of 5 correct! Review the differences: disclosure is sharing information, accounting is tracking money, and loyalty is avoiding conflicts.':right+' of 5 correct. Reconsider the difference between sharing information, keeping financial records, and avoiding conflicts.',right===5);
+  });
+  const questions=[
+    {q:'Which combination is fundamental to the formation of an agency relationship?',opts:['A signed employment contract and compensation','Consent to act on another’s behalf, subject to the principal’s control','A business license and an invoice'],a:1,why:'Agency can arise from consent and control without a formal written contract or payment.'},
+    {q:'Under the IRS common-law approach, which is one category of evidence for worker classification?',opts:['Behavioral control','Employee popularity','The title printed on a contract'],a:0,why:'The IRS reviews behavioral control, financial control, and the parties’ relationship; a label alone is not conclusive.'},
+    {q:'The principal presents someone to vendors as an authorized purchasing manager. A vendor reasonably relies on that appearance. Which concept is most relevant?',opts:['Gratuitous agency','Apparent authority','Rescission'],a:1,why:'Apparent authority arises from a third party’s reasonable belief based on the principal’s conduct.'},
+    {q:'The seller knows the buyer’s representative is acting for someone else but does not know who that person is. This agency is…',opts:['Fully disclosed','Partially disclosed','Undisclosed'],a:1,why:'The third party knows there is a principal but not the principal’s identity.'},
+    {q:'Which example is most clearly a possible minor detour rather than a personal frolic?',opts:['A delivery driver takes a brief, ordinary coffee stop on the assigned route.','A delivery driver abandons the route for a distant personal shopping trip.','An employee goes on vacation for two weeks.'],a:0,why:'A minor expected deviation may remain within the scope of employment; context and jurisdiction matter.'},
+    {q:'An agent secretly accepts a payment from a supplier to favor that supplier over the principal’s interests. Which duty is most directly implicated?',opts:['Loyalty','Accounting only','Obedience to unlawful instructions'],a:0,why:'The duty of loyalty requires the agent to prioritize the principal’s interests in agency transactions.'},
+    {q:'An agreed agency ends when its fixed term expires. What is the termination method?',opts:['Express act / expiration','Ratification','Respondeat superior'],a:0,why:'Expiration of an agreed term is a common way agency ends through the parties’ arrangement.'}
+  ];
+  const quiz=$('quiz');
+  questions.forEach((item,i)=>{
+    const field=document.createElement('fieldset');field.className='quiz-item';
+    const leg=document.createElement('legend');leg.textContent=(i+1)+'. '+item.q;field.appendChild(leg);
+    item.opts.forEach((opt,j)=>{
+      const lab=document.createElement('label');const input=document.createElement('input');
+      input.type='radio';input.name='q'+i;input.value=String(j);
+      const span=document.createElement('span');span.textContent=opt;lab.append(input,span);field.appendChild(lab);
+    });
+    const result=document.createElement('div');result.className='result';result.setAttribute('aria-live','polite');field.appendChild(result);quiz.appendChild(field);
+  });
+  $('gradeQuiz').addEventListener('click',()=>{
+    let correct=0,unanswered=0;
+    const fields=Array.from(quiz.querySelectorAll('fieldset'));
+    fields.forEach((field,i)=>{
+      const checked=field.querySelector('input:checked'),result=field.querySelector('.result');
+      if(!checked){unanswered++;result.className='result show try';result.textContent='Choose an answer to see feedback.';return;}
+      const good=Number(checked.value)===questions[i].a;
+      if(good)correct++;
+      result.className='result show '+(good?'correct':'try');
+      result.textContent=(good?'Correct. ':'Review: ')+questions[i].why;
+    });
+    $('quizScore').hidden=false;
+    $('quizScore').textContent='You answered '+correct+' of '+questions.length+' correctly.'+(unanswered?' '+unanswered+' question(s) still need an answer.':' Review each explanation above.');
+  });
+  $('resetQuiz').addEventListener('click',()=>{
+    quiz.querySelectorAll('input').forEach(i=>i.checked=false);
+    quiz.querySelectorAll('.result').forEach(r=>{r.className='result';r.textContent='';});
+    $('quizScore').hidden=true;$('quizScore').textContent='';
+    $('review').scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  let printState=[];
+  window.addEventListener('beforeprint',()=>{printState=modules.map(m=>m.open);modules.forEach(m=>m.open=true);});
+  window.addEventListener('afterprint',()=>{modules.forEach((m,i)=>m.open=printState[i]);});
+})();
+</script>
+</body>
+</html>

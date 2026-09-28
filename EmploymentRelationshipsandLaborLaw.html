@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Employment & Labor Law | BUS 222</title>
+  <style>
+    :root{--red:#c8102e;--ink:#24313b;--muted:#52616c;--line:#d7dce0;--pale:#f4f4f4;--white:#fff;--green:#176548}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#f6f7f8;color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+    button{font:inherit;cursor:pointer}
+    a{color:#9d0b24}
+    a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #2467a2;outline-offset:3px}
+    .wrap{max-width:1080px;margin:auto;padding:0 20px}
+    .hero{background:linear-gradient(115deg,#981027,#c8102e);color:white;padding:42px 0}
+    .hero small{font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+    .hero h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:12px 0}
+    .hero p{max-width:750px;font-size:1.12rem}
+    .layout{display:grid;grid-template-columns:215px 1fr;gap:25px;align-items:start;padding-top:26px;padding-bottom:55px}
+    .nav{position:sticky;top:15px;background:white;border:1px solid var(--line);border-radius:12px;padding:15px}
+    .nav strong{display:block;margin-bottom:10px}
+    .nav a{display:block;padding:7px 9px;border-radius:7px;text-decoration:none;font-size:.91rem}
+    .nav a:hover{background:#fbe8eb}
+    .main{min-width:0}
+    .card{background:white;border:1px solid var(--line);border-radius:14px;margin-bottom:20px;padding:clamp(18px,3vw,30px);box-shadow:0 2px 10px #16212d08}
+    .card h2{margin:0 0 12px;line-height:1.2;color:#922039}
+    .card h3{margin:20px 0 7px}
+    .eyebrow{color:var(--red);font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:.76rem}
+    .lead{font-size:1.08rem}
+    .callout{border-left:5px solid var(--red);background:#fff5f6;padding:13px 17px;border-radius:4px;margin:17px 0}
+    .note{background:#edf3f6;border-left:4px solid #466476;padding:12px 16px;margin:16px 0}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+    .tile{border:1px solid var(--line);border-radius:10px;padding:15px;background:#fff}
+    .tile h3{margin:0 0 4px;font-size:1rem}
+    .tile p{margin:0}
+    .timeline{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .timeline>div{border-top:5px solid var(--red);padding:15px;background:var(--pale);border-radius:6px}
+    details{border:1px solid var(--line);border-radius:9px;margin:10px 0;background:white}
+    summary{padding:12px 16px;font-weight:700;cursor:pointer;color:#8c1630}
+    details>div{padding:0 16px 15px}
+    details p:first-child{margin-top:0}
+    .check{background:#f8fafb;border:1px solid var(--line);border-radius:11px;padding:18px;margin:20px 0}
+    .check h3{margin:0 0 10px}
+    .choices{display:grid;gap:8px}
+    .choices button{background:white;border:1px solid #bac5cc;border-radius:8px;text-align:left;padding:10px 12px}
+    .choices button:hover{border-color:var(--red);background:#fff6f7}
+    .choices .correct{border:2px solid var(--green);background:#eaf7f0}
+    .choices .incorrect{border:2px solid var(--red);background:#fff0f1}
+    .feedback{min-height:1.6em;font-weight:600;margin:9px 0 0}
+    .feedback.good{color:var(--green)}
+    .feedback.try{color:#9e1e35}
+    .step{display:flex;gap:12px;margin:12px 0}
+    .step b{display:grid;place-items:center;flex:none;background:var(--red);color:white;width:30px;height:30px;border-radius:50%}
+    .step p{margin:2px 0}
+    @media(max-width:760px){
+      .layout{display:block}
+      .nav{position:static;margin-bottom:20px}
+      .nav a{display:inline-block}
+      .grid,.timeline{grid-template-columns:1fr}
+    }
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <small>BUS 222 · Interactive chapter companion</small>
+      <h1>Employment &amp; Labor Law</h1>
+      <p>Explore the rules that shape employment, protect worker well-being, and govern organizing and collective bargaining. Open each topic, then test your understanding with workplace decisions.</p>
+    </div>
+  </header>
+
+  <div class="wrap layout">
+    <nav class="nav" aria-label="Chapter sections">
+      <strong>Jump to a topic</strong>
+      <a href="#origins">1 · Origins</a>
+      <a href="#atwill">2 · Employment at will</a>
+      <a href="#regulation">3 · Employment regulation</a>
+      <a href="#privacy">4 · Privacy</a>
+      <a href="#labor">5 · Labor unions</a>
+      <a href="#apply">Apply your learning</a>
+    </nav>
+
+    <main class="main">
+      <section class="card" id="origins">
+        <span class="eyebrow">01 · Historical context</span>
+        <h2>Why employment rules developed</h2>
+        <div class="timeline">
+          <div>
+            <strong>Industrial expansion</strong>
+            <p>In the late 1800s, work increasingly shifted from farms to factories. Many immigrant workers and displaced farmers faced long hours, low pay, and hazardous conditions.</p>
+          </div>
+          <div>
+            <strong>Labor movement and legislation</strong>
+            <p>Organized workers pushed for protections. Federal and state laws developed around wages, child labor, workplace safety, and union activity.</p>
+          </div>
+        </div>
+        <p class="callout"><strong>Big idea:</strong> Employment regulation concerns employee well-being, while labor law governs workers’ rights to organize and operate labor unions.</p>
+      </section>
+
+      <section class="card" id="atwill">
+        <span class="eyebrow">02 · The employment relationship</span>
+        <h2>Employment at will and its limits</h2>
+        <p class="lead">Under the general at-will rule, an employer may terminate an employee with or without advance notice and with or without cause, subject to exceptions.</p>
+
+        <div class="grid">
+          <div class="tile">
+            <h3>Express contract</h3>
+            <p>An express contractual relationship is an exception to the at-will rule.</p>
+          </div>
+          <div class="tile">
+            <h3>Collective bargaining agreement</h3>
+            <p>A collective bargaining agreement may prescribe a process the employer must use before terminating an employee.</p>
+          </div>
+          <div class="tile">
+            <h3>Implied contract</h3>
+            <p>An employer’s manual, bulletin, or oral promise may create a reasonable belief that an employee is protected from termination without cause.</p>
+          </div>
+          <div class="tile">
+            <h3>Statutory protection</h3>
+            <p>Federal and state statutes, including antidiscrimination laws, may displace the at-will rule.</p>
+          </div>
+        </div>
+
+        <details>
+          <summary>Explore: public policy exception</summary>
+          <div>
+            <p>This narrow exception places public welfare ahead of an employer’s rights. Examples include refusing to commit an illegal act, exercising a legal right, or performing an important act. Courts have been reluctant to expand the exception, as illustrated by <em>Bammert v. Don’s Super-Valu, Inc.</em></p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Explore: good faith and fair dealing</summary>
+          <div>
+            <p>A minority of states recognize this exception, protecting employees from termination without just cause or in bad faith or with malicious intent. Consider the chapter’s example: Whiteside is fired two weeks before a large sale closes and is denied a commission.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Explore: whistleblower protection</summary>
+          <div>
+            <p>Federal and state statutes generally protect workers who report an employer’s violation of a law or standard to authorities. An employer may still terminate a whistle-blower for an independent reason unrelated to the report. The chapter identifies the Whistleblower Protection Act of 1989 for federal employees and employees of government contractors.</p>
+          </div>
+        </details>
+
+        <div class="check" data-answer="1" data-explain="A contract may replace the default at-will rule with a required termination process.">
+          <h3>Quick check · A union agreement requires just cause before an employee can be fired. How does that agreement affect the employer’s ability to terminate the employee?</h3>
+          <div class="choices">
+            <button>The employer can still ignore the agreement because all jobs are at will.</button>
+            <button>The agreement may limit the employer’s ability to terminate.</button>
+            <button>Every employee nationwide now has just-cause protection.</button>
+          </div>
+          <p class="feedback" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="card" id="regulation">
+        <span class="eyebrow">03 · Worker protections</span>
+        <h2>Employment regulation</h2>
+        <p>Federal law often works in tandem with state law on wages, overtime, child labor, sudden job loss, workplace injuries and safety, and medical leave.</p>
+
+        <details open>
+          <summary>Wages, hours, exemptions, and child labor</summary>
+          <div>
+            <p>The <strong>Fair Labor Standards Act (FLSA)</strong>, passed in 1938, addresses minimum wage, a standard 40-hour workweek, overtime pay, and restrictions on child labor. The chapter lists the federal minimum wage as <strong>$7.25</strong> and explains that states may set a higher rate. Overtime is generally calculated at time and a half for hours above 40 in a seven-day workweek.</p>
+            <p>The <strong>Portal to Portal Act</strong> addresses travel to and from work and certain activities before or after the workday. The chapter describes exemptions for certain executive, administrative, and professional employees and notes that misclassification may have serious consequences. Federal child labor rules restrict work by minors; some states also regulate rest and meal periods, paydays, and prevailing wages.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Retirement, Social Security, and health care</summary>
+          <div>
+            <p>Employers may offer pensions or retirement savings plans. When they establish retirement benefits, <strong>ERISA</strong> imposes rules about disclosures and transparency. The <strong>Social Security Act of 1935</strong> provides retirement income and other benefits funded through employment taxes.</p>
+            <p>The chapter also discusses <strong>HIPAA</strong> protections for medical information and <strong>COBRA</strong> continuation of coverage after termination, for which the employer need not pay. It identifies the <strong>Health Care and Education Reconciliation Act of 2010</strong> as part of the overhaul of the U.S. health care system.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Sudden job loss and WARN</summary>
+          <div>
+            <p>The chapter describes the <strong>Federal Unemployment Tax Act (FUTA) of 1935</strong> as part of the system that supports payments to workers who lose employment through no fault of their own. The <strong>WARN Act</strong> addresses advance written notice of certain facility closings and mass layoffs by employers with 100 or more employees.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Workers’ compensation and workplace safety</summary>
+          <div>
+            <p>State workers’ compensation laws provide partial payment for qualifying injuries in the course of employment, generally in exchange for giving up a negligence suit against the employer. The chapter discusses accidental injury, course of employment, possible defenses, and exceptions involving intentional or reckless employer conduct.</p>
+            <p>The <strong>Occupational Safety and Health Act</strong>, passed in 1970, addresses national safety standards, hazard warnings, records and reporting, and employers’ general duty to maintain reasonably safe workplaces. The <strong>Occupational Safety and Health Administration</strong> administers and enforces the law. The chapter describes a limited employee right to leave a hazardous workplace condition in <em>Whirlpool v. Marshall</em>.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Family and Medical Leave Act (FMLA)</summary>
+          <div>
+            <p>The chapter describes the FMLA as providing eligible employees up to <strong>12 weeks of unpaid leave</strong> for family medical matters at covered employers with 50 or more employees. It discusses continued health benefits, protection against adverse job action, return to the same or a similar job at the same rate of pay, and a limited reinstatement exception for certain key employees.</p>
+          </div>
+        </details>
+
+        <div class="check" data-answer="2" data-explain="The chapter describes overtime after 40 hours in a seven-day workweek.">
+          <h3>Quick check · A covered nonexempt worker puts in 46 hours in one workweek. Under the FLSA, how many hours generally receive overtime pay?</h3>
+          <div class="choices">
+            <button>None, if the worker receives a salary</button>
+            <button>46 hours</button>
+            <button>6 hours</button>
+          </div>
+          <p class="feedback" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="card" id="privacy">
+        <span class="eyebrow">04 · Boundaries at work</span>
+        <h2>Employee privacy</h2>
+        <p>The chapter describes employee privacy at work as generally very limited, with some statutory protections.</p>
+
+        <div class="grid">
+          <div class="tile">
+            <h3>Work systems</h3>
+            <p>The chapter states that activities on an employer’s computer system are generally subject to employer monitoring, partly to manage employer liability.</p>
+          </div>
+          <div class="tile">
+            <h3>Calls and messages</h3>
+            <p>The Electronic Communications Privacy Act restricts monitoring personal calls or accessing office voicemail without consent, subject to an ordinary-course-of-business exception.</p>
+          </div>
+          <div class="tile">
+            <h3>Drug and alcohol tests</h3>
+            <p>State statutes primarily govern workplace drug and alcohol tests and vary considerably. An applicant or employee with a history of substance use disorder who is not currently in active addiction may be protected under the ADA.</p>
+          </div>
+          <div class="tile">
+            <h3>Polygraphs</h3>
+            <p>The Employee Polygraph Protection Act prohibits most private-sector employers from requiring a polygraph test as a condition of employment.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" id="labor">
+        <span class="eyebrow">05 · Collective action</span>
+        <h2>Labor unions and collective bargaining</h2>
+        <p>The <strong>National Labor Relations Act (NLRA)</strong> protects workers’ rights to organize and engage in collective bargaining. The <strong>National Labor Relations Board (NLRB)</strong> administers and enforces it. The chapter describes coverage for employers whose business involves interstate commerce.</p>
+
+        <details>
+          <summary>Three major laws</summary>
+          <div>
+            <p><strong>NLRA:</strong> organizing, collective bargaining, and unfair labor practices. <strong>Taft–Hartley Act (1947):</strong> addresses compulsory union membership as a condition of employment. <strong>Landrum–Griffin Act (1959):</strong> establishes reporting and checks intended to prevent fraud and corruption among union officials.</p>
+          </div>
+        </details>
+
+        <h3>One route to union representation</h3>
+        <div class="step"><b>1</b><p><strong>Show interest:</strong> Employees discuss organizing and sign authorization cards.</p></div>
+        <div class="step"><b>2</b><p><strong>Petition:</strong> At least 30% of employees in the proposed bargaining unit sign authorization cards.</p></div>
+        <div class="step"><b>3</b><p><strong>Election:</strong> Eligible employees vote following NLRB procedures.</p></div>
+        <div class="step"><b>4</b><p><strong>Certification:</strong> A legally sound election with a simple majority of pro-union votes leads to certification.</p></div>
+
+        <p class="note">The chapter also describes efforts beginning in 2007 to amend the NLRA through the proposed Employee Free Choice Act.</p>
+
+        <details>
+          <summary>Collective bargaining and grievances</summary>
+          <div>
+            <p>Both parties must engage in <strong>good faith</strong> negotiations. A grievance challenges an employer’s treatment of union members; the union generally controls whether to invoke arbitration under the agreement.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Strikes, picketing, boycotts, and lockouts</summary>
+          <div>
+            <p>The chapter describes strikes, picketing, and boycotts as ways workers may pressure an employer during bargaining. It distinguishes economic strikes from unfair-labor-practice strikes in discussing reinstatement. It also discusses illegal conduct such as violent picketing, wildcat and sit-in strikes, certain strikes during cooling-off periods, and secondary boycotts. Employers may use lockouts for legitimate business reasons and hire replacement workers during a strike.</p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Case study · Amazon Staten Island</summary>
+          <div>
+            <p>Workers at an Amazon warehouse in Staten Island voted to unionize on April 1, 2022. The chapter describes their concerns about safety, pay, sick days, job security, breaks, and transportation; their use of social media and crowdfunding; and Amazon’s opposition and challenge to the election.</p>
+          </div>
+        </details>
+
+        <div class="check" data-answer="0" data-explain="The chapter identifies a 30% showing through authorization cards before an election and a simple majority of pro-union votes for certification.">
+          <h3>Quick check · What does a 30% showing of support typically allow employees to seek?</h3>
+          <div class="choices">
+            <button>An NLRB representation election</button>
+            <button>Automatic certification without further process</button>
+            <button>An immediate signed collective bargaining agreement</button>
+          </div>
+          <p class="feedback" role="status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="card" id="apply">
+        <span class="eyebrow">Practice · Make the call</span>
+        <h2>Apply your learning</h2>
+
+        <div class="check" data-answer="1" data-explain="The chapter explains that a manual or bulletin may create an implied contract if a reasonable person would believe it promises protection from termination without cause.">
+          <h3>A handbook says employees will only be fired after three written warnings. A supervisor fires an employee immediately. Which issue should you investigate first?</h3>
+          <div class="choices">
+            <button>Whether every handbook automatically overrides at-will employment</button>
+            <button>Whether the handbook language created an implied contract</button>
+            <button>Whether OSHA requires three warnings</button>
+          </div>
+          <p class="feedback" role="status" aria-live="polite"></p>
+        </div>
+
+        <div class="check" data-answer="2" data-explain="The chapter describes FMLA protection for eligible employees of covered employers taking leave for family medical matters.">
+          <h3>An employee requests leave for a qualifying family medical reason. What should be checked before promising FMLA protection?</h3>
+          <div class="choices">
+            <button>Whether the employee has a union membership card</button>
+            <button>Whether the employee agrees to work remotely</button>
+            <button>Whether the employer and employee are covered and the leave concerns family medical matters</button>
+          </div>
+          <p class="feedback" role="status" aria-live="polite"></p>
+        </div>
+
+        <p class="note"><strong>Reflection:</strong> Choose one protection from this chapter. What interest does it protect, and what fact would you need before deciding whether it applies?</p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    document.querySelectorAll('.check').forEach(box => {
+      const buttons = [...box.querySelectorAll('.choices button')];
+      const feedback = box.querySelector('.feedback');
+      const answer = Number(box.dataset.answer);
+
+      buttons.forEach((button, index) => {
+        button.addEventListener('click', () => {
+          buttons.forEach(b => b.classList.remove('correct', 'incorrect'));
+          button.classList.add(index === answer ? 'correct' : 'incorrect');
+          if (index !== answer) buttons[answer].classList.add('correct');
+
+          feedback.textContent =
+            (index === answer ? 'Correct. ' : 'Review this: ') +
+            box.dataset.explain;
+          feedback.className = 'feedback ' + (index === answer ? 'good' : 'try');
+        });
+      });
+    });
+  </script>
+</body>
+</html>

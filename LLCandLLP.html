@@ -1,0 +1,1044 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <title>
+   BUS 222 | Chapter 14: LLCs and LLPs
+  </title>
+  <style>
+   :root {
+  --red:#c8102e;
+  --dark:#333;
+  --slate:#455560;
+  --bg:#f4f4f4;
+  --white:#fff;
+  --line:#d9dfe3;
+  --soft:#f9eef0;
+  --green:#176648}
+* {
+  box-sizing:border-box}
+html {
+  scroll-behavior:smooth}
+body {
+  margin:0;
+  background:var(--bg);
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--dark);
+  line-height:1.65}
+button,input {
+  font:inherit}
+button {
+  cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible {
+  outline:3px solid #e5a528;
+  outline-offset:3px}
+a {
+  color:var(--red)}
+.skip {
+  position:absolute;
+  left:-1000px;
+  top:0;
+  background:white;
+  padding:10px}
+.skip:focus {
+  left:12px;
+  z-index:10}
+.hero {
+  background:linear-gradient(125deg,#2f3c46,#455560);
+  color:white;
+  padding:50px max(22px,calc((100vw - 1050px)/2)) 42px}
+.eyebrow {
+  font-size:.78rem;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  font-weight:700;
+  color:#ffd3da}
+.hero h1 {
+  font-size:clamp(2rem,5vw,3.3rem);
+  line-height:1.1;
+  margin:13px 0}
+.hero p {
+  max-width:820px;
+  font-size:1.05rem;
+  color:#f2f3f4}
+.tag {
+  display:inline-block;
+  border:1px solid #82909a;
+  padding:4px 11px;
+  border-radius:30px;
+  font-size:.79rem;
+  color:white}
+.nav {
+  background:white;
+  border-bottom:1px solid var(--line);
+  position:sticky;
+  top:0;
+  z-index:5}
+.navinner {
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:10px 18px}
+.nav a {
+  white-space:nowrap;
+  text-decoration:none;
+  color:var(--slate);
+  font-size:.88rem;
+  font-weight:700;
+  padding:9px 13px;
+  border-radius:6px}
+.nav a:hover {
+  background:var(--soft);
+  color:var(--red)}
+main {
+  max-width:1100px;
+  margin:auto;
+  padding:24px 18px 64px}
+.panel {
+  background:white;
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:26px;
+  margin:20px 0;
+  box-shadow:0 3px 15px #24354209}
+.sectionhead {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:12px}
+.number {
+  background:var(--red);
+  color:white;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  font-weight:bold;
+  flex:none}
+h2 {
+  font-size:1.55rem;
+  margin:0;
+  line-height:1.3}
+h3 {
+  font-size:1.16rem;
+  line-height:1.3;
+  margin:18px 0 9px}
+p {
+  margin:9px 0 14px}
+.muted {
+  color:#596771}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:15px}
+.three {
+  grid-template-columns:repeat(3,minmax(0,1fr))}
+.tile {
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:17px;
+  background:#fff}
+.tile h3 {
+  margin-top:0}
+.tile p:last-child {
+  margin-bottom:0}
+.redbar {
+  border-left:5px solid var(--red);
+  background:#faf4f5;
+  padding:15px 19px;
+  border-radius:0 9px 9px 0}
+.pill {
+  display:inline-block;
+  color:var(--red);
+  background:var(--soft);
+  border-radius:30px;
+  font-size:.74rem;
+  font-weight:700;
+  padding:3px 9px;
+  text-transform:uppercase;
+  letter-spacing:.04em}
+.choices {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:14px 0}
+.tab,.option,.reset {
+  border:1px solid #bec8ce;
+  background:white;
+  border-radius:7px;
+  padding:10px 14px;
+  color:var(--slate);
+  font-weight:700}
+.tab[aria-selected="true"],.tab.active {
+  background:var(--red);
+  border-color:var(--red);
+  color:#fff}
+.tab:hover,.option:hover,.reset:hover {
+  border-color:var(--red)}
+.hidden {
+  display:none!important}
+.fact {
+  background:#f6f8f9;
+  border-radius:9px;
+  padding:15px}
+.fact strong {
+  color:#364855}
+.facts {
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+  margin:12px 0}
+.comparison {
+  overflow-x:auto}
+table {
+  width:100%;
+  border-collapse:collapse;
+  min-width:700px;
+  font-size:.94rem}
+th,td {
+  text-align:left;
+  border:1px solid var(--line);
+  padding:11px 12px;
+  vertical-align:top}
+thead th {
+  background:var(--slate);
+  color:white}
+tbody tr:nth-child(even) {
+  background:#f6f8f9}
+details {
+  border:1px solid var(--line);
+  border-radius:8px;
+  background:white;
+  margin:9px 0;
+  padding:0 15px}
+summary {
+  cursor:pointer;
+  font-weight:700;
+  padding:13px 0;
+  color:#344955}
+details>div {
+  padding:0 0 14px}
+ul {
+  padding-left:21px}
+li {
+  margin:5px 0}
+.alert {
+  background:#fff8e7;
+  border-left:4px solid #ca8810;
+  padding:12px 16px;
+  border-radius:3px}
+.qcard {
+  border:1px solid var(--line);
+  padding:19px;
+  border-radius:10px;
+  margin:14px 0;
+  background:#fff}
+.qcard h3 {
+  margin-top:0}
+.options {
+  display:grid;
+  gap:8px;
+  margin-top:12px}
+.option {
+  text-align:left;
+  font-weight:400}
+.option.selected {
+  border:2px solid var(--red);
+  background:var(--soft)}
+.option.selected.correct {
+  border:2px solid #16804e;
+  background:#e7f6ee;
+  color:#155f43;
+  font-weight:700}
+.option.selected.incorrect {
+  border:2px solid #bd3434;
+  background:#fff0ed;
+  color:#922b2b;
+  font-weight:700}
+.feedback {
+  padding:11px 14px;
+  border-radius:7px;
+  margin-top:11px;
+  background:#eef4f7}
+.feedback.correct {
+  background:#e7f6ee;
+  color:#155f43}
+.feedback.incorrect {
+  background:#fff0ed;
+  color:#8b3327}
+.btn {
+  display:inline-block;
+  border:0;
+  border-radius:7px;
+  background:var(--red);
+  color:white;
+  font-weight:700;
+  padding:11px 17px}
+.btn:hover {
+  background:#9c0921}
+.btn.secondary {
+  background:var(--slate)}
+.progress {
+  height:10px;
+  background:#e3e7ea;
+  border-radius:15px;
+  overflow:hidden}
+.progress>div {
+  height:100%;
+  width:0;
+  background:var(--red);
+  transition:width .2s}
+.flex {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap}
+.foot {
+  font-size:.85rem;
+  color:#53616b}
+.finalscore {
+  font-size:1.15rem;
+  font-weight:700}
+.step {
+  font-size:.8rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:bold;
+  color:var(--red)}
+.exercise {
+  background:#f8f9fa;
+  border-radius:8px;
+  padding:18px;
+  margin-top:13px}
+.scenarioresult {
+  margin-top:14px;
+  padding:16px;
+  border-radius:7px}
+.scenarioresult.correct {
+  background:#e7f6ee;
+  color:#155f43;
+  border-left:4px solid #16804e}
+.scenarioresult.incorrect {
+  background:#fff0ed;
+  color:#922b2b;
+  border-left:4px solid #bd3434}
+@media(max-width:700px) {
+  .grid,.three,.facts {
+  grid-template-columns:1fr}
+.panel {
+  padding:18px}
+.hero {
+  padding:35px 20px}
+.navinner {
+  padding:8px}
+.tile {
+  padding:15px}
+}
+@media print {
+  .nav,.btn,.choices {
+  display:none!important}
+.panel {
+  break-inside:avoid}
+body {
+  background:white}
+.hero {
+  -webkit-print-color-adjust:exact;
+  print-color-adjust:exact}
+}
+  </style>
+ </head>
+ <body>
+  <a class="skip" href="#main">
+   Skip to content
+  </a>
+  <header class="hero">
+   <span class="eyebrow">
+    Sauk Valley Community College · BUS 222 · Business Law
+   </span>
+   <h1>
+    Chapter 14: Limited Liability Companies &amp; Limited Liability Partnerships
+   </h1>
+   <p>
+    This chapter continues our exploration of business entities by examining the
+    <strong>
+     structure, liability protections, taxation, and governing rules
+    </strong>
+    of LLCs and LLPs.
+   </p>
+   <span class="tag">
+    Explore · Compare · Apply · Check Your Understanding
+   </span>
+  </header>
+  <nav aria-label="Chapter sections" class="nav">
+   <div class="navinner">
+    <a href="#overview">
+     Overview
+    </a>
+    <a href="#compare">
+     Compare LLCs &amp; LLPs
+    </a>
+    <a href="#llc">
+     LLC Rules
+    </a>
+    <a href="#llp">
+     LLP Rules
+    </a>
+    <a href="#practice">
+     Practice
+    </a>
+    <a href="#quiz">
+     Knowledge Check
+    </a>
+   </div>
+  </nav>
+  <main id="main">
+   <section class="panel" id="overview">
+    <div class="sectionhead">
+     <span class="number">
+      1
+     </span>
+     <h2>
+      Two forms that limit owner liability
+     </h2>
+    </div>
+    <p>
+     LLCs and LLPs have features in common with traditional partnerships and corporations. They offer different ways to combine
+     <strong>
+      liability protection
+     </strong>
+     with flexible business organization.
+    </p>
+    <div class="grid">
+     <div class="tile">
+      <span class="pill">
+       LLC
+      </span>
+      <h3>
+       Limited liability company
+      </h3>
+      <p>
+       A
+       <strong>
+        hybrid
+       </strong>
+       entity combining partnership-style characteristics with liability protections associated with corporations. Members generally receive liability protection, and an LLC can use pass-through taxation.
+      </p>
+     </div>
+     <div class="tile">
+      <span class="pill">
+       LLP
+      </span>
+      <h3>
+       Limited liability partnership
+      </h3>
+      <p>
+       A partnership form that allows partners to gain a
+       <strong>
+        liability shield
+       </strong>
+       while retaining a partnership-based structure.
+      </p>
+     </div>
+    </div>
+    <div class="redbar">
+     <strong>
+      Important vocabulary:
+     </strong>
+     An LLC has
+     <em>
+      members
+     </em>
+     , who may manage the LLC themselves or appoint managers. An LLP has
+     <em>
+      partners
+     </em>
+     , who may organize their leadership through managing partners or an executive committee.
+    </div>
+   </section>
+   <section class="panel" id="compare">
+    <div class="sectionhead">
+     <span class="number">
+      2
+     </span>
+     <h2>
+      Explore and compare the structures
+     </h2>
+    </div>
+    <p>
+     Select a structure to view its defining rules, then compare both side by side.
+    </p>
+    <div aria-label="Entity type" class="choices" role="tablist">
+     <button aria-selected="true" class="tab" data-entity="llc" role="tab">
+      Limited liability company (LLC)
+     </button>
+     <button aria-selected="false" class="tab" data-entity="llp" role="tab">
+      Limited liability partnership (LLP)
+     </button>
+    </div>
+    <div aria-live="polite" id="entitydetail">
+    </div>
+    <h3>
+     Side-by-side reference
+    </h3>
+    <div class="comparison">
+     <table>
+      <thead>
+       <tr>
+        <th>
+         Factor
+        </th>
+        <th>
+         LLC
+        </th>
+        <th>
+         LLP
+        </th>
+       </tr>
+      </thead>
+      <tbody>
+       <tr>
+        <th>
+         Formation
+        </th>
+        <td>
+         File articles of organization with the state.
+        </td>
+        <td>
+         Existing general partnership qualifies by filing a statement of qualification after approval.
+        </td>
+       </tr>
+       <tr>
+        <th>
+         Owners
+        </th>
+        <td>
+         Members
+        </td>
+        <td>
+         Partners
+        </td>
+       </tr>
+       <tr>
+        <th>
+         Governing document
+        </th>
+        <td>
+         Operating agreement; otherwise state LLC statute defaults.
+        </td>
+        <td>
+         Partnership agreement usually describes operations and powers.
+        </td>
+       </tr>
+       <tr>
+        <th>
+         Liability
+        </th>
+        <td>
+         Members/managers generally shielded from entity obligations, subject to exceptions.
+        </td>
+        <td>
+         Partners generally shielded from partnership and other partners’ obligations; responsible for own negligence. State rules may differ.
+        </td>
+       </tr>
+       <tr>
+        <th>
+         Taxes
+        </th>
+        <td>
+         Typically pass-through; may elect corporate taxation.
+        </td>
+        <td>
+         Pass-through; files an information return.
+        </td>
+       </tr>
+       <tr>
+        <th>
+         Funding
+        </th>
+        <td>
+         Debt or sale of LLC equity interests.
+        </td>
+        <td>
+         Debt, partnership equity, or partner contributions.
+        </td>
+       </tr>
+       <tr>
+        <th>
+         Management
+        </th>
+        <td>
+         Member-managed or manager-managed.
+        </td>
+        <td>
+         Managing partner(s) and/or executive committee.
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+   </section>
+   <section class="panel" id="llc">
+    <div class="sectionhead">
+     <span class="number">
+      3
+     </span>
+     <h2>
+      Limited liability companies: the rules
+     </h2>
+    </div>
+    <p>
+     An LLC provides
+     <strong>
+      flexibility
+     </strong>
+     in allocating member rights and responsibilities while offering protection from many entity obligations. Open each topic to study the rules.
+    </p>
+    <details>
+     <summary>
+      Formation and operating agreements
+     </summary>
+     <div>
+      <p>
+       An LLC is formed by filing
+       <strong>
+        articles of organization
+       </strong>
+       with the appropriate state filing office, often in the secretary of state's corporation bureau.
+      </p>
+      <p>
+       Members often adopt an
+       <strong>
+        operating agreement
+       </strong>
+       addressing governance, responsibilities, and events such as death, incapacity, and dissolution. Without an agreement, state LLC law supplies default rules.
+      </p>
+     </div>
+    </details>
+    <details>
+     <summary>
+      Liability protection and its limits
+     </summary>
+     <div>
+      <p>
+       Members and managers generally are not personally liable for LLC debts simply because of their roles, as long as state-law conditions are met.
+      </p>
+      <ul>
+       <li>
+        A lender may require an individual member's
+        <strong>
+         personal guarantee
+        </strong>
+        .
+       </li>
+       <li>
+        In cases of fundamental unfairness, a court may disregard LLC protection.
+       </li>
+      </ul>
+     </div>
+    </details>
+    <details>
+     <summary>
+      Taxation and capitalization
+     </summary>
+     <div>
+      <p>
+       LLCs are often taxed on a
+       <strong>
+        pass-through
+       </strong>
+       basis, but members can elect corporate tax treatment if favorable.
+      </p>
+      <p>
+       Funding may come from
+       <strong>
+        debt
+       </strong>
+       obtained through private or commercial lenders or from sale of
+       <strong>
+        equity
+       </strong>
+       ownership in the LLC.
+      </p>
+     </div>
+    </details>
+    <details>
+     <summary>
+      Member-managed vs. manager-managed LLCs
+     </summary>
+     <div>
+      <div class="grid">
+       <div class="tile">
+        <h3>
+         Member-managed
+        </h3>
+        <p>
+         Management resembles a general partnership: members participate in managing and generally have authority to bind the entity.
+        </p>
+       </div>
+       <div class="tile">
+        <h3>
+         Manager-managed
+        </h3>
+        <p>
+         Members appoint one or more managers for day-to-day operations. Nonmanaging members are commonly investors who participate primarily in major decisions.
+        </p>
+       </div>
+      </div>
+      <p>
+       Managing and controlling members owe fiduciary duties to other members.
+      </p>
+     </div>
+    </details>
+    <details>
+     <summary>
+      Dissociation and dissolution
+     </summary>
+     <div>
+      <p>
+       <strong>
+        Dissociation
+       </strong>
+       occurs when a member withdraws. Remaining members may continue the LLC or choose dissolution.
+      </p>
+      <p>
+       <strong>
+        Dissolution
+       </strong>
+       starts the liquidation or winding-up process after a specified triggering event under the operating agreement or a decision to dissolve under applicable voting rules.
+      </p>
+     </div>
+    </details>
+    <div class="redbar">
+     <strong>
+      Think about it:
+     </strong>
+     Why might an owner choose a manager-managed LLC rather than personally participating in daily operations?
+    </div>
+   </section>
+   <section class="panel" id="llp">
+    <div class="sectionhead">
+     <span class="number">
+      4
+     </span>
+     <h2>
+      Limited liability partnerships: the rules
+     </h2>
+    </div>
+    <p>
+     An LLP can begin as a general partnership and convert to a form that grants partners additional liability protection.
+    </p>
+    <details>
+     <summary>
+      Formation by qualification
+     </summary>
+     <div>
+      <p>
+       Under the chapter's framework, an existing general partnership obtains approval for conversion and files a
+       <strong>
+        statement of qualification
+       </strong>
+       with the appropriate public official.
+      </p>
+     </div>
+    </details>
+    <details>
+     <summary>
+      What the liability shield protects—and what it does not
+     </summary>
+     <div>
+      <p>
+       Partners generally are not personally responsible for the partnership's debts or another partner's liabilities simply by being partners. However, partners remain responsible for
+       <strong>
+        their own negligence
+       </strong>
+       .
+      </p>
+      <p>
+       Protections can differ by state: some statutes limit shields to particular negligence-related obligations rather than all contractual and other liabilities. Some states also require LLPs and individual partners to maintain liability insurance.
+      </p>
+     </div>
+    </details>
+    <details>
+     <summary>
+      Tax treatment and funding
+     </summary>
+     <div>
+      <p>
+       An LLP is generally a
+       <strong>
+        pass-through entity
+       </strong>
+       . It files an
+       <strong>
+        information return
+       </strong>
+       to report profits and losses, while tax obligations pass through to the partners.
+      </p>
+      <p>
+       Capital may come from private or commercial loans, partnership equity, or partners' financial contributions under the partnership agreement.
+      </p>
+     </div>
+    </details>
+    <details>
+     <summary>
+      Partnership management
+     </summary>
+     <div>
+      <p>
+       LLPs commonly operate through
+       <strong>
+        managing partners
+       </strong>
+       or an
+       <strong>
+        executive committee
+       </strong>
+       , rather than corporate officers, directors, or shareholders. A partnership agreement typically specifies decision-making structures and authority.
+      </p>
+     </div>
+    </details>
+    <div class="redbar">
+     <strong>
+      Connection to Chapter 13:
+     </strong>
+     An LLP retains partnership features but changes the liability exposure typically associated with an ordinary general partnership.
+    </div>
+   </section>
+   <section class="panel" id="practice">
+    <div class="sectionhead">
+     <span class="number">
+      5
+     </span>
+     <h2>
+      Apply what you learned
+     </h2>
+    </div>
+    <p>
+     Read the situation, select the best answer, and review the feedback.
+     <strong>
+      Correct selections turn green; incorrect selections turn red.
+     </strong>
+    </p>
+    <div id="scenarios">
+    </div>
+   </section>
+   <section class="panel" id="quiz">
+    <div class="sectionhead">
+     <span class="number">
+      6
+     </span>
+     <h2>
+      Knowledge check
+     </h2>
+    </div>
+    <p>
+     Answer each question to test your knowledge of the chapter.
+    </p>
+    <div class="flex">
+     <strong id="counter">
+     </strong>
+     <span id="scorelabel">
+     </span>
+    </div>
+    <div aria-label="Quiz progress" class="progress">
+     <div id="bar">
+     </div>
+    </div>
+    <div aria-live="polite" class="qcard" id="questionbox">
+    </div>
+    <div class="flex">
+     <button class="btn secondary" id="back" type="button">
+      Previous
+     </button>
+     <button class="btn" id="next" type="button">
+      Next question
+     </button>
+    </div>
+    <div class="hidden" id="completion">
+    </div>
+   </section>
+  </main>
+  <script>
+   const entities={
+  "llc": {
+    "badge": "Hybrid entity", "title": "Limited liability company (LLC)", "intro": "Flexible ownership and governance with a corporate-style liability shield.", "facts": [["Formation", "Articles of organization filed with state."], ["Owners", "Members."], ["Governing rules", "Operating agreement, supplemented by state LLC statutes."], ["Liability", "Members and managers generally protected; personal guarantees and judicial exceptions may apply."], ["Taxation", "Usually pass-through, with possible corporate tax election."], ["Capitalization", "Borrowing or equity investment."], ["Management", "Member-managed or manager-managed."]], "take": "Key point: LLCs combine liability protection and significant operating flexibility."
+  }
+  , "llp": {
+    "badge": "Qualified partnership", "title": "Limited liability partnership (LLP)", "intro": "A partnership that gains a liability shield after qualification under state law.", "facts": [["Formation", "Approved partnership conversion and statement of qualification."], ["Owners", "Partners."], ["Governing rules", "Partnership agreement and applicable state statutes."], ["Liability", "General protection for partnership debts and other partners’ acts; partner still liable for own negligence."], ["Taxation", "Pass-through; information return."], ["Capitalization", "Debt, partnership equity, or partner contributions."], ["Management", "Managing partner(s) or executive committee."]], "take": "Key point: protection varies by state; an LLP shield does not protect partners from their own negligence."
+  }
+  
+}
+;
+function showEntity(k){
+  document.querySelectorAll('[data-entity]').forEach(b=>{
+    const on=b.dataset.entity===k;
+    b.classList.toggle('active',on);
+    b.setAttribute('aria-selected',String(on))
+  }
+  );
+  const e=entities[k];
+  document.getElementById('entitydetail').innerHTML=`<div class="tile" style="border-top:4px solid var(--red)"><span class="pill">${e.badge}</span><h3>${e.title}</h3><p>${e.intro}</p><div class="facts">${e.facts.map(f=>`<div class="fact"><strong>${
+    f[0]
+  }
+  </strong><div>${
+    f[1]
+  }
+  </div></div>`).join('')}</div><div class="redbar">${e.take}</div></div>`
+}
+document.querySelectorAll('[data-entity]').forEach(b=>b.addEventListener('click',()=>showEntity(b.dataset.entity)));
+showEntity('llc');
+const scenarios=[{
+  "title": "Scenario A: The lender wants a guarantee", "story": "An LLC seeks a business loan. The bank asks one member to personally guarantee repayment.", "prompt": "Which statement is most accurate?", "options": ["A member can never be personally responsible for an LLC obligation.", "A personal guarantee can create personal responsibility despite the LLC shield.", "Signing a guarantee converts the LLC into an LLP."], "answer": 1, "why": "A personal guarantee may create an individual obligation even when the business is organized as an LLC."
+}
+, {
+  "title": "Scenario B: Who manages the LLC?", "story": "An LLC has six members. They appoint two managers to oversee daily operations, and the other members generally vote only on major decisions.", "prompt": "Which management model best fits?", "options": ["Manager-managed LLC", "Member-managed LLC", "LLP run only by an executive committee"], "answer": 0, "why": "Manager-managed LLCs designate one or more managers to handle day-to-day operations."
+}
+, {
+  "title": "Scenario C: A partner makes a negligent mistake", "story": "A partner in an LLP personally commits negligence while working for the business.", "prompt": "Does the LLP shield automatically eliminate that partner’s responsibility?", "options": ["Yes, it protects against all personal wrongdoing.", "No, partners can remain personally liable for their own negligence.", "Only if the LLP has no operating agreement."], "answer": 1, "why": "An LLP shield generally does not remove a partner’s responsibility for the partner’s own negligence."
+}
+, {
+  "title": "Scenario D: Converting a partnership", "story": "The owners of an existing general partnership want to operate as an LLP.", "prompt": "What step is associated with LLP formation in the chapter?", "options": ["File articles of organization for an LLC.", "Issue publicly traded corporate stock.", "Approve conversion and file a statement of qualification."], "answer": 2, "why": "The chapter describes LLP qualification through an approved conversion and a statement of qualification."
+}
+];
+const scenarioEl=document.getElementById('scenarios');
+scenarios.forEach((s,i)=>{
+  const box=document.createElement('div');
+  box.className='exercise';
+  box.innerHTML=`<span class="step">Practice ${i+1}</span><h3>${s.title}</h3><p>${s.story}</p><strong>${s.prompt}</strong><div class="options">${s.options.map((o,j)=>`<button class="option" type="button" data-s="${i}" data-o="${j}">${
+    o
+  }
+  </button>`).join('')}</div><div id="scenarioresult${i}" aria-live="polite"></div>`;
+  scenarioEl.appendChild(box)
+}
+);
+scenarioEl.addEventListener('click',e=>{
+  const b=e.target.closest('button[data-s]');
+  if(!b)return;
+  const i=+b.dataset.s,j=+b.dataset.o,s=scenarios[i];
+  document.querySelectorAll(`button[data-s="${i}"]`).forEach(x=>{
+    x.classList.toggle('selected',x===b);
+    x.classList.toggle('correct',x===b&&j===s.answer);
+    x.classList.toggle('incorrect',x===b&&j!==s.answer)
+  }
+  );
+  document.getElementById('scenarioresult'+i).innerHTML=`<div class="scenarioresult ${j===s.answer?'correct':'incorrect'}"><strong>${j===s.answer?'Correct!':'Not quite.'}</strong> ${s.why}</div>`
+}
+);
+const questions=[{
+  "q": "An LLC is described as a hybrid because it:", "a": ["Must have both general and limited partners", "Combines partnership-like features with corporate-style liability protection", "Must be taxed as a corporation", "Cannot have managers"], "c": 1, "why": "LLCs combine partnership-like flexibility with the liability protections typically associated with corporations."
+}
+, {
+  "q": "Which filing forms an LLC under the chapter?", "a": ["Articles of organization", "Statement of qualification", "Certificate of franchise", "An information return"], "c": 0, "why": "LLCs are formed by filing articles of organization with the state."
+}
+, {
+  "q": "What document commonly defines an LLC’s internal rules?", "a": ["Public stock prospectus", "Operating agreement", "Federal franchise agreement", "Personal guarantee"], "c": 1, "why": "Operating agreements address management and member rights; statutes supply default rules if needed."
+}
+, {
+  "q": "Which is true of LLC taxation?", "a": ["LLCs must always pay corporate income tax", "LLCs never have tax obligations", "LLCs commonly use pass-through treatment but may elect corporate taxation", "LLC income is always tax-exempt"], "c": 2, "why": "Many LLCs use pass-through taxation, but a corporate tax election may be available."
+}
+, {
+  "q": "In a member-managed LLC, who generally has management authority?", "a": ["Only a separately appointed manager", "The members", "Only external investors", "An LLP executive committee"], "c": 1, "why": "Member-managed LLCs generally give members authority to participate in and bind the business."
+}
+, {
+  "q": "Which document is associated with LLP qualification?", "a": ["Articles of incorporation", "Statement of qualification", "Franchise disclosure document", "Certificate of sole proprietorship"], "c": 1, "why": "The chapter explains LLP conversion through a statement of qualification."
+}
+, {
+  "q": "Which obligation is NOT automatically eliminated by LLP liability protection?", "a": ["Another partner’s personal obligations", "A partner’s own negligence", "Debts attributable solely to the partnership, when shielded by state law", "Certain acts of other partners"], "c": 1, "why": "Partners remain personally responsible for their own negligence."
+}
+, {
+  "q": "Which statement best contrasts LLCs and LLPs?", "a": ["LLCs use members; LLPs use partners", "LLPs always have corporate shareholders", "Only LLPs can borrow money", "LLCs cannot have management agreements"], "c": 0, "why": "The chapter distinguishes LLC members from LLP partners and their management structures."
+}
+, {
+  "q": "What is an LLP’s usual tax treatment?", "a": ["Pass-through with an information return", "No reporting is required", "Every LLP is automatically a C corporation", "All income is taxed solely as corporate dividends"], "c": 0, "why": "LLPs are treated as pass-through entities and file information returns."
+}
+, {
+  "q": "What can happen after an LLC member dissociates?", "a": ["The LLC must terminate immediately", "The LLC always converts to a corporation", "The remaining members may continue or decide to dissolve the LLC", "All owners automatically become general partners"], "c": 2, "why": "Dissociation of a member does not necessarily force dissolution."
+}
+];
+let idx=0,answers={
+  
+}
+;
+const qb=document.getElementById('questionbox');
+function renderQuiz(){
+  if(idx>=questions.length){
+    showComplete();
+    return
+  }
+  const q=questions[idx],choice=answers[idx],answered=choice!==undefined;
+  document.getElementById('completion').classList.add('hidden');
+  qb.classList.remove('hidden');
+  qb.innerHTML=`<h3>${q.q}</h3><div class="options">${q.a.map((v,i)=>`<button type="button" class="option ${choice===i?(choice===q.c?'selected correct':'selected incorrect'):''}" data-answer="${i}" ${
+    answered?'disabled':''
+  }
+  >${
+    String.fromCharCode(65+i)
+  }
+  . ${
+    v
+  }
+  </button>`).join('')}</div>${answered?`<div class="feedback ${choice===q.c?'correct':'incorrect'}"><strong>${
+    choice===q.c?'Correct!':'Not quite.'
+  }
+  </strong> ${
+    q.why
+  }
+  </div>`:''}`;
+  document.getElementById('counter').textContent=`Question ${idx+1} of ${questions.length}`;
+  document.getElementById('scorelabel').textContent=`${Object.keys(answers).length} answered`;
+  document.getElementById('bar').style.width=`${Object.keys(answers).length/questions.length*100}%`;
+  document.getElementById('back').disabled=idx===0;
+  document.getElementById('next').textContent=idx===questions.length-1?'See results':'Next question';
+  document.getElementById('next').disabled=!answered
+}
+qb.addEventListener('click',e=>{
+  const b=e.target.closest('[data-answer]');
+  if(!b)return;
+  answers[idx]=+b.dataset.answer;
+  renderQuiz()
+}
+);
+document.getElementById('back').addEventListener('click',()=>{
+  if(idx>0){
+    idx--;
+    renderQuiz()
+  }
+  
+}
+);
+document.getElementById('next').addEventListener('click',()=>{
+  if(answers[idx]===undefined)return;
+  idx++;
+  renderQuiz()
+}
+);
+function showComplete(){
+  qb.classList.add('hidden');
+  const score=questions.filter((q,i)=>answers[i]===q.c).length;
+  document.getElementById('counter').textContent='Complete';
+  document.getElementById('scorelabel').textContent=`${questions.length} answered`;
+  document.getElementById('bar').style.width='100%';
+  document.getElementById('back').disabled=true;
+  document.getElementById('next').disabled=true;
+  const c=document.getElementById('completion');
+  c.classList.remove('hidden');
+  c.innerHTML=`<div class="qcard"><p class="pill">Knowledge check complete</p><p class="finalscore">Your score: ${score} / ${questions.length} (${Math.round(score/questions.length*100)}%)</p><p>${score===questions.length?'Excellent work—all answers are correct.':'Review the sections above and try again.'}</p><button class="btn" id="retry" type="button">Try again</button></div>`;
+  document.getElementById('retry').addEventListener('click',()=>{
+    idx=0;
+    answers={
+      
+    }
+    ;
+    renderQuiz()
+  }
+  )
+}
+renderQuiz();
+  </script>
+ </body>
+</html>
